@@ -1,9 +1,3 @@
 <template>
-  <Tutorial />
+  tester
 </template>
-
-<script>
-export default {
-  name: 'IndexPage',
-}
-</script>
