@@ -1651,6 +1651,11 @@ rxjs@^7.5.2:
   dependencies:
     tslib "^2.1.0"
 
+sal.js@^0.8.5:
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/sal.js/-/sal.js-0.8.5.tgz#b5aa5227fbdd5fe9becc96ce58c9f3b0c3575420"
+  integrity sha512-KUb3fNrVZ1oWxxkEAfQfQ4Mrd910yboIRHqsvioBkulQInqMVeSMah+J5f7ch7KXFLicKlAaE0TzTsG/eJ02Dg==
+
 scheduler@^0.20.2:
   version "0.20.2"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.20.2.tgz#4baee39436e34aa93b4874bddcbf0fe8b8b50e91"

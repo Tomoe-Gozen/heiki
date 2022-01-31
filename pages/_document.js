@@ -18,11 +18,7 @@ class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <link
-            rel="shortcut icon"
-            type="image/x-icon"
-            href="/images/favicon.png"
-          />
+          <link rel="icon" href="/images/favicon.ico" />
         </Head>
         <body className="template-color-1 active-dark-mode">
           <Main />
