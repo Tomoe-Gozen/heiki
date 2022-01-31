@@ -9,17 +9,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head>
-          <meta charset="utf-8" />
-          <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-          <meta name="robots" content="noindex, follow" />
-          <meta name="description" content="" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-          />
-          <link rel="icon" href="/images/favicon.ico" />
-        </Head>
+        <Head />
         <body className="template-color-1 active-dark-mode">
           <Main />
           <NextScript />
