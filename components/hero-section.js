@@ -14,8 +14,8 @@ export default function HeroSection() {
               data-sal-duration="800"
             >
               <strong className="text-xlg font-special">
-                <span className="text-danger">T</span>omoe{' '}
-                <span className="text-danger">G</span>ozen
+                <span className="text-theme">T</span>omoe{' '}
+                <span className="text-theme">G</span>ozen
               </strong>{' '}
               <br /> Discover an amazing NFT collection.
             </h2>

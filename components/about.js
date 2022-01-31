@@ -23,8 +23,6 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div className="mouse-cursor cursor-outer"></div>
-      <div className="mouse-cursor cursor-inner"></div>
       <div className="container">
         <div className="row g-5">
           <div className="col-lg-6">

@@ -5,3 +5,7 @@
 .text-xlg {
   font-size: 72pt;
 }
+
+.text-theme {
+  color: var(--color-subtitle)
+}
