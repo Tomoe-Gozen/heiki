@@ -15,6 +15,18 @@ export default function ComingSoon() {
       cancelInterval(interval)
     }
   }, [])
+  console.log(imageNumber)
+  let images = []
+  for (var i = 2; i <= 7; i++) {
+    images.push(
+      <div
+        key={i}
+        className={`single-rn-slider bg_image--${i} bg_image ${
+          i === imageNumber ? 'd-block' : 'd-none'
+        }`}
+      ></div>
+    )
+  }
 
   return (
     <div className="maintanence-area">
@@ -35,7 +47,7 @@ export default function ComingSoon() {
                   <span className="text-tomoe font-tomoe">Coming Soon</span>
                 </h3>
 
-                <p className="text-center">
+                <div className="coming-soon-wrapper">
                   <div className="pb-3">
                     We are available please connect with us via
                   </div>
@@ -47,15 +59,13 @@ export default function ComingSoon() {
                   <a href="https://discord.gg/tomoegozen">
                     discord.gg/tomoegozen
                   </a>
-                </p>
+                </div>
               </div>
             </div>
           </div>
           <div className="col-lg-8 col-md-8">
             <div className="banner-one-slick comeing-soon-slick  slider-style-4 slick-activation-09 slick-arrow-style-one rn-slick-dot-style">
-              <div
-                className={`single-rn-slider bg_image--${imageNumber} bg_image`}
-              ></div>
+              {images}
             </div>
           </div>
         </div>
