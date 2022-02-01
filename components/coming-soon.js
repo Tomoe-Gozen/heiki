@@ -12,7 +12,7 @@ export default function ComingSoon() {
     }, 2000)
 
     return () => {
-      cancelInterval(interval)
+      clearInterval(interval)
     }
   }, [])
   console.log(imageNumber)
@@ -47,19 +47,19 @@ export default function ComingSoon() {
                   <span className="text-tomoe font-tomoe">Coming Soon</span>
                 </h3>
 
-                <div className="coming-soon-wrapper">
-                  <div className="pb-3">
+                <p className="text-center">
+                  <p className="pb-3">
                     We are available please connect with us via
-                  </div>
-                  <div className="font-tomoe mt-4">Twitter</div>
+                  </p>
+                  <p className="font-tomoe mt-4 mb-0">Twitter</p>
                   <a href="https://twitter.com/TomoeGozenNFTs">
                     twitter.com/TomoeGozenNFTs
                   </a>
-                  <div className="font-tomoe mt-4">Discord</div>
+                  <p className="font-tomoe mt-4 mb-0">Discord</p>
                   <a href="https://discord.gg/tomoegozen">
                     discord.gg/tomoegozen
                   </a>
-                </div>
+                </p>
               </div>
             </div>
           </div>
