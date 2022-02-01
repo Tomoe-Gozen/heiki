@@ -35,17 +35,16 @@ export default function ComingSoon() {
                   <span className="text-tomoe font-tomoe">Coming Soon</span>
                 </h3>
 
-                <p>
-                  We are available please connect with us via
-                  <br />
-                  Twitter:{' '}
+                <p className="text-center">
+                  <div className="pb-3">
+                    We are available please connect with us via
+                  </div>
+                  <div className="font-tomoe mt-4">Twitter</div>
                   <a href="https://twitter.com/TomoeGozenNFTs">
                     twitter.com/TomoeGozenNFTs
-                  </a>{' '}
-                  or
-                  <br /> Discord:{' '}
+                  </a>
+                  <div className="font-tomoe mt-4">Discord</div>
                   <a href="https://discord.gg/tomoegozen">
-                    {' '}
                     discord.gg/tomoegozen
                   </a>
                 </p>
