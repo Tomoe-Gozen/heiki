@@ -13,10 +13,10 @@ export default function HeroSection() {
               data-sal="slide-up"
               data-sal-duration="800"
             >
-              <strong className="text-xlg font-special">
+              <span className="text-xlg font-special mb-0">
                 <span className="text-theme">T</span>omoe{' '}
                 <span className="text-theme">G</span>ozen
-              </strong>{' '}
+              </span>{' '}
               <br /> Discover an amazing NFT collection.
             </h2>
             <p
@@ -36,7 +36,7 @@ export default function HeroSection() {
                 data-sal="slide-up"
                 data-sal-duration="800"
               >
-                Check Raffle
+                Roadmap
               </a>
               <a
                 className="btn btn-large btn-primary-alta cursor-pointer"

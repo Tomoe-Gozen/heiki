@@ -1,5 +1,10 @@
+@font-face {
+  font-family: "Tomoe";
+  src: url('/fonts/Tomoe.ttf') format('truetype');
+}
+
 .font-special {
-  font-family: 'Comforter', cursive;
+  font-family: 'Tomoe';
 }
 
 .text-xlg {
