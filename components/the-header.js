@@ -21,7 +21,7 @@ export default function TheHeader() {
               <div className="logo-thumbnail logo-custom-css">
                 <Link href="/">
                   <a className="logo-light">
-                    <Image src={logoLight} alt="nft-logo" />
+                    <Image src={logoLight} alt="" />
                   </a>
                 </Link>
               </div>

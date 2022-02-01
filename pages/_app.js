@@ -7,7 +7,6 @@ import '../styles/plugins/jquery-ui.min.css'
 import '../styles/style.css'
 import '../styles/custom.css'
 import Script from 'next/script'
-import DefaultLayout from '../components/layouts/default'
 import Head from 'next/head'
 
 import sal from 'sal.js'
@@ -32,9 +31,7 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="icon" href="/images/favicon.ico" />
       </Head>
-      <DefaultLayout>
-        <Component {...pageProps} />
-      </DefaultLayout>
+      <Component {...pageProps} />
     </>
   )
 }

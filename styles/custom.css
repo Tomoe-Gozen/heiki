@@ -1,16 +1,16 @@
 @font-face {
-  font-family: "Tomoe";
+  font-family: 'Tomoe';
   src: url('/fonts/Tomoe.ttf') format('truetype');
 }
 
-.font-special {
+.font-tomoe {
   font-family: 'Tomoe';
+}
+
+.text-tomoe {
+  color: var(--color-subtitle);
 }
 
 .text-xlg {
   font-size: 72pt;
-}
-
-.text-theme {
-  color: var(--color-subtitle)
 }
