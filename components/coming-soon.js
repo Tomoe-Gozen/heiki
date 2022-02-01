@@ -7,12 +7,14 @@ export default function ComingSoon() {
   const [imageNumber, setImageNumber] = useState(2)
 
   useEffect(() => {
-    const i = setInterval(() => {
-      let newActiveIndex = imageNumber === 7 ? 2 : imageNumber + 1
-      setImageNumber(newActiveIndex)
-    }, 3000)
-    return () => clearInterval(i)
-  }, [imageNumber, setImageNumber])
+    let interval = setInterval(() => {
+      setImageNumber((number) => (number === 7 ? 2 : number + 1))
+    }, 2000)
+
+    return () => {
+      cancelInterval(interval)
+    }
+  }, [])
 
   return (
     <div className="maintanence-area">
