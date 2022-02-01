@@ -21,8 +21,8 @@ export default function ComingSoon() {
     images.push(
       <div
         key={i}
-        className={`single-rn-slider bg_image--${i} bg_image ${
-          i === imageNumber ? 'd-block' : 'd-none'
+        className={`position-absolute top-0 start-0 w-100 h-100 single-rn-slider bg_image--${i} bg_image ${
+          i === imageNumber ? 'visible' : 'invisible'
         }`}
       ></div>
     )
@@ -64,7 +64,7 @@ export default function ComingSoon() {
             </div>
           </div>
           <div className="col-lg-8 col-md-8">
-            <div className="banner-one-slick comeing-soon-slick  slider-style-4 slick-activation-09 slick-arrow-style-one rn-slick-dot-style">
+            <div className="position-relative w-100 h-100 banner-one-slick comeing-soon-slick  slider-style-4 slick-activation-09 slick-arrow-style-one rn-slick-dot-style">
               {images}
             </div>
           </div>
