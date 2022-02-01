@@ -15,7 +15,7 @@ export default function ComingSoon() {
       clearInterval(interval)
     }
   }, [])
-  console.log(imageNumber)
+
   let images = []
   for (var i = 2; i <= 7; i++) {
     images.push(
