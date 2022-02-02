@@ -29,7 +29,7 @@ export default function Slider() {
       {images.map((i) => (
         <div key={i.id} className="slider-thumbnail thumbnail-overlay">
           <a>
-            <Image src="/images/bg/bg-image-2.jpg" alt="" />
+            <img src="/images/bg/bg-image-2.jpg" alt="" />
           </a>
           <div className="read-wrapper">
             <h5>#{i.id}</h5>
