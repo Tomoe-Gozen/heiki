@@ -2,7 +2,7 @@ import Head from 'next/head'
 import HeroSection from '../components/hero-section'
 import About from '../components/about'
 import ComingSoon from '../components/coming-soon'
-import DefaultLayout from '../components/layouts/default'
+import MinimalLayout from '../components/layouts/minimal'
 
 export default function Index() {
   return (
@@ -18,5 +18,5 @@ export default function Index() {
 }
 
 Index.getLayout = function getLayout(page) {
-  return <DefaultLayout>{page}</DefaultLayout>
+  return <MinimalLayout>{page}</MinimalLayout>
 }

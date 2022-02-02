@@ -17,6 +17,8 @@ import sal from 'sal.js'
 sal()
 
 function MyApp({ Component, pageProps }) {
+  const getLayout = Component.getLayout || ((page) => page)
+
   const router = useRouter()
 
   useEffect(() => {
@@ -47,7 +49,8 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="icon" href="/images/favicon.ico" />
       </Head>
-      <Component {...pageProps} />
+
+      {getLayout(<Component {...pageProps} />)}
     </>
   )
 }
