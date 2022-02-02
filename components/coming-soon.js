@@ -17,7 +17,7 @@ export default function ComingSoon() {
   }, [])
 
   let images = []
-  for (var i = 2; i <= 7; i++) {
+  for (var i = 2; i <= 4; i++) {
     images.push(
       <div
         key={i}
@@ -50,14 +50,14 @@ export default function ComingSoon() {
                 </h3>
 
                 <p className="text-center">
-                  <p className="pb-3">
+                  <span className="pb-3 d-block">
                     We are available please connect with us via
-                  </p>
-                  <p className="font-tomoe mt-4 mb-0">Twitter</p>
+                  </span>
+                  <span className="font-tomoe mt-4 mb-0 d-block">Twitter</span>
                   <a href="https://twitter.com/TomoeGozenNFTs">
                     twitter.com/TomoeGozenNFTs
                   </a>
-                  <p className="font-tomoe mt-4 mb-0">Discord</p>
+                  <span className="font-tomoe mt-4 mb-0 d-block">Discord</span>
                   <a href="https://discord.gg/tomoegozen">
                     discord.gg/tomoegozen
                   </a>
