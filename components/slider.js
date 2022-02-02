@@ -28,7 +28,9 @@ export default function Slider() {
     <div className="slider slick-activation-01" style={{ display: 'none' }}>
       {images.map((i) => (
         <div key={i.id} className="slider-thumbnail thumbnail-overlay">
-          <Image src={i.src} alt="" />
+          <a>
+            <Image src={i.src} alt="" />
+          </a>
           <div className="read-wrapper">
             <h5>#{i.id}</h5>
             <span>Tomoe Gozen</span>
