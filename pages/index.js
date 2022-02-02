@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import HeroSection from '../components/hero-section'
 import About from '../components/about'
-import ComingSoon from '../components/coming-soon'
 import DefaultLayout from '../components/layouts/default'
+import Roadmap from '../components/roadmap'
 
 export default function Index() {
   return (
@@ -12,6 +12,7 @@ export default function Index() {
       </Head>
       <HeroSection />
       <About />
+      <Roadmap />
     </>
   )
 }

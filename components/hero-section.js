@@ -53,11 +53,6 @@ export default function HeroSection() {
           <div className="col-xl-6 col-lg-6 col-md-12 order-1 order-lg-2">
             <Slider />
           </div>
-          {/* <div className="col-lg-5 col-md-6 col-sm-12 offset-lg-1">
-            <div className="slider-thumbnail">
-              <Image src={Slider1} alt="" />
-            </div>
-          </div> */}
         </div>
       </div>
     </div>

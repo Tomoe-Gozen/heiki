@@ -418,6 +418,11 @@ core-js-pure@^3.20.2:
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.20.3.tgz#6cc4f36da06c61d95254efc54024fe4797fd5d02"
   integrity sha512-Q2H6tQ5MtPtcC7f3HxJ48i4Q7T9ybPKgvWyuH7JXIoNa2pm0KuBnycsET/qw1SLLZYfbsbrZQNMeIOClb+6WIA==
 
+counterup2@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/counterup2/-/counterup2-2.0.2.tgz#f7475f8b738599a081355fa67f6e20e0c70d50d8"
+  integrity sha512-+drmqOOcOa17KJG9o5+wGuEgLVh4wdb2pkpGlCu3MtQ2idB73V8yJEb8WyINZ1+Fjy7dLiWKa0wihvYzk/n32A==
+
 cross-spawn@^7.0.2, cross-spawn@^7.0.3:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
