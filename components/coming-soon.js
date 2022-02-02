@@ -66,7 +66,7 @@ export default function ComingSoon() {
             </div>
           </div>
           <div className="col-lg-8 col-md-8">
-            <div className="position-relative w-100 h-100 banner-one-slick comeing-soon-slick  slider-style-4 slick-activation-09 slick-arrow-style-one rn-slick-dot-style">
+            <div className="position-relative banner-one-slick comeing-soon-slick  slider-style-4 slick-activation-09 slick-arrow-style-one rn-slick-dot-style">
               {images}
             </div>
           </div>

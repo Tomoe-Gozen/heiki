@@ -31,6 +31,10 @@
   min-height: 100vh;
 }
 
+.comeing-soon-slick {
+  min-height: 400px;
+}
+
 
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .maintanence-area .inner .content p {
