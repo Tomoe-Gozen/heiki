@@ -13,18 +13,17 @@ import { useRouter } from 'next/router'
 
 import * as ga from '../lib/ga'
 
-import sal from 'sal.js'
-sal()
-
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page)
 
   const router = useRouter()
-
   useEffect(() => {
+    import('../lib/theme')
+
     const handleRouteChange = (url) => {
       ga.pageview(url)
     }
+
     router.events.on('routeChangeComplete', handleRouteChange)
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange)
