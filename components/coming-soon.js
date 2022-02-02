@@ -21,7 +21,7 @@ export default function ComingSoon() {
     images.push(
       <div
         key={i}
-        className={`position-absolute top-0 start-0 w-100 h-100 single-rn-slider bg_image--${i} bg_image ${
+        className={`position-absolute top-0 start-0 w-100 single-rn-slider bg_image--${i} bg_image ${
           i === imageNumber ? 'visible' : 'invisible'
         }`}
       ></div>
@@ -34,14 +34,16 @@ export default function ComingSoon() {
         <div className="row row--0">
           <div className="col-lg-4 col-md-4">
             <div className="inner">
-              <div className="logo logo-custom-css">
-                <Link href="/">
-                  <a className="logo-light">
-                    <Image src={logoLight} alt="" />
-                  </a>
-                </Link>
+              <div className="text-center">
+                <div className="logo logo-custom-size logo-custom-css">
+                  <Link href="/">
+                    <a className="logo-light">
+                      <Image src={logoLight} alt="" />
+                    </a>
+                  </Link>
+                </div>
               </div>
-              <div className="content">
+              <div className="content h-100">
                 <span className="sub-title">Stay Tuned</span>
                 <h3 className="title">
                   <span className="text-tomoe font-tomoe">Coming Soon</span>

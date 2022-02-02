@@ -21,3 +21,12 @@
   font-size: 20px;
   line-height: 30px;
 }
+
+.logo-custom-size {
+  width: 290px;
+  margin: 0 auto;
+}
+
+.maintanence-area .row {
+  min-height: 100vh;
+}
