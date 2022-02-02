@@ -8,7 +8,7 @@ export default function ComingSoon() {
 
   useEffect(() => {
     let interval = setInterval(() => {
-      setImageNumber((number) => (number === 5 ? 2 : number + 1))
+      setImageNumber((number) => (number === 4 ? 2 : number + 1))
     }, 2000)
 
     return () => {
