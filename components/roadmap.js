@@ -1,11 +1,10 @@
 export default function Roadmap() {
   return (
-    <div className="rn-service-area rn-section-gapTop">
+    <div id="roadmap" className="rn-service-area rn-section-gapTop">
       <div className="container">
         <div className="row">
           <div className="col-12 mb--50">
             <h3
-              id="roadmap"
               className="title"
               data-sal-delay="150"
               data-sal="slide-up"

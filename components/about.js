@@ -1,12 +1,11 @@
 export default function About() {
   return (
     <>
-      <div className="rn-about-banner-area rn-section-gapTop">
+      <div id="about" className="rn-about-banner-area rn-section-gapTop">
         <div className="container mb--30">
           <div className="row">
             <div className="col-12">
               <h3
-                id="about"
                 className="title sal-animate"
                 data-sal-delay="150"
                 data-sal="slide-up"
