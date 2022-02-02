@@ -13,7 +13,7 @@ export default function HeroSection() {
               data-sal="slide-up"
               data-sal-duration="800"
             >
-              <span className="text-xlg font-special mb-0">
+              <span className="text-xlg font-tomoe mb-0">
                 <span className="text-tomoe">T</span>omoe{' '}
                 <span className="text-tomoe">G</span>ozen
               </span>{' '}
