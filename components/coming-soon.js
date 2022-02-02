@@ -32,7 +32,7 @@ export default function ComingSoon() {
     <div className="maintanence-area">
       <div className="wrapper">
         <div className="row row--0">
-          <div className="col-lg-4 col-md-4">
+          <div className="col-lg-4">
             <div className="inner">
               <div className="text-center">
                 <div className="logo logo-custom-size logo-custom-css">
@@ -49,7 +49,7 @@ export default function ComingSoon() {
                   <span className="text-tomoe font-tomoe">Coming Soon</span>
                 </h3>
 
-                <p className="text-center">
+                <p className="text-center mb-5 mb-lg-0">
                   <span className="pb-3 d-block">
                     We are available please connect with us via
                   </span>
@@ -65,8 +65,8 @@ export default function ComingSoon() {
               </div>
             </div>
           </div>
-          <div className="col-lg-8 col-md-8">
-            <div className="position-relative w-100 h-100 banner-one-slick comeing-soon-slick  slider-style-4 slick-activation-09 slick-arrow-style-one rn-slick-dot-style">
+          <div className="col-lg-8">
+            <div className="position-relative banner-one-slick comeing-soon-slick  slider-style-4 slick-activation-09 slick-arrow-style-one rn-slick-dot-style">
               {images}
             </div>
           </div>
