@@ -5,7 +5,7 @@ import Image3 from '../public/images/bg/bg-image-4.jpg'
 import Image4 from '../public/images/bg/bg-image-33.jpg'
 
 export default function Slider() {
-  const i = [
+  const images = [
     {
       id: '0001',
       src: Image1
@@ -26,42 +26,17 @@ export default function Slider() {
 
   return (
     <div className="slider slick-activation-01" style={{ display: 'none' }}>
-      <div className="slider-thumbnail thumbnail-overlay">
-        <a>
-          <Image src={i[0].src} alt="" />
-        </a>
-        <div className="read-wrapper">
-          <h5>#{i[0].id}</h5>
-          <span>Tomoe Gozen</span>
+      {images.map((i) => (
+        <div key={i.id} className="slider-thumbnail thumbnail-overlay">
+          <a>
+            <img src={i.src} alt="" />
+          </a>
+          <div className="read-wrapper">
+            <h5>#{i.id}</h5>
+            <span>Tomoe Gozen</span>
+          </div>
         </div>
-      </div>
-      <div className="slider-thumbnail thumbnail-overlay">
-        <a>
-          <Image src={i[1].src} alt="" />
-        </a>
-        <div className="read-wrapper">
-          <h5>#{i[1].id}</h5>
-          <span>Tomoe Gozen</span>
-        </div>
-      </div>
-      <div className="slider-thumbnail thumbnail-overlay">
-        <a>
-          <Image src={i[2].src} alt="" />
-        </a>
-        <div className="read-wrapper">
-          <h5>#{i[2].id}</h5>
-          <span>Tomoe Gozen</span>
-        </div>
-      </div>
-      <div className="slider-thumbnail thumbnail-overlay">
-        <a>
-          <Image src={i[3].src} alt="" />
-        </a>
-        <div className="read-wrapper">
-          <h5>#{i[3].id}</h5>
-          <span>Tomoe Gozen</span>
-        </div>
-      </div>
+      ))}
     </div>
   )
 }
