@@ -5,6 +5,7 @@
 
 .font-tomoe {
   font-family: 'Tomoe';
+  font-weight: normal !important;
 }
 
 .text-tomoe {

@@ -4,10 +4,10 @@ import Slider from './slider'
 
 export default function HeroSection() {
   return (
-    <div className="slider-one rn-section-gapTop">
+    <div className="banner-style-4 rn-section-gapTop">
       <div className="container">
         <div className="row row-reverce-sm align-items-center">
-          <div className="col-lg-5 col-md-6 col-sm-12 mt_sm--50">
+          <div className="col-lg-6 col-md-6 col-sm-12 mt_sm--50">
             <h2
               className="title"
               data-sal-delay="200"
