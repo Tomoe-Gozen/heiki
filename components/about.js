@@ -1,7 +1,8 @@
 export default function About() {
   return (
     <>
-      <div id="about" className="rn-about-banner-area rn-section-gapTop">
+      <a className="anchor" id="about"></a>
+      <div className="rn-about-banner-area rn-section-gapTop">
         <div className="container mb--30">
           <div className="row">
             <div className="col-12">
@@ -19,7 +20,7 @@ export default function About() {
         <div className="container-fluid about-fluidimg ">
           <div className="row">
             <div className="img-wrapper">
-              <div className="bg_image--1 bg_image"></div>
+              <div className="banner_image--1 bg_image"></div>
             </div>
           </div>
         </div>
@@ -152,8 +153,8 @@ export default function About() {
             </div>
             <div className="offset-lg-2 col-lg-4 col-md-6">
               <div className="single-counter-up text-center">
-                <div className="number counter-odomitter-active">0.08 eth</div>
-                <div className="botton-title">Mint price</div>
+                <div className="number counter-odomitter-active">0.08</div>
+                <div className="botton-title">Mint price in eth</div>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">

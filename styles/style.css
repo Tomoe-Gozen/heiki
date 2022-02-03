@@ -4411,6 +4411,8 @@ Background Image
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
+.banner_image--1 {
+    background-image: url(/images/bg/banner-1.png); }
 
 .bg_image--1 {
   background-image: url(/images/bg/bg-image-1.jpg); }

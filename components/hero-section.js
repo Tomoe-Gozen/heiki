@@ -1,5 +1,3 @@
-import Image from 'next/image'
-import Slider1 from '../public/images/slider/slider-1.jpg'
 import Slider from './slider'
 
 export default function HeroSection() {

@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import Image1 from '../public/images/bg/bg-image-2.jpg'
-import Image2 from '../public/images/bg/bg-image-3.jpg'
-import Image3 from '../public/images/bg/bg-image-4.jpg'
-import Image4 from '../public/images/bg/bg-image-33.jpg'
+import Image1 from '../public/images/bg/bg-image-1.jpg'
+import Image2 from '../public/images/bg/bg-image-2.jpg'
+import Image3 from '../public/images/bg/bg-image-3.jpg'
+import Image4 from '../public/images/bg/bg-image-4.jpg'
 
 export default function Slider() {
   const images = [
@@ -29,7 +29,7 @@ export default function Slider() {
       {images.map((i) => (
         <div key={i.id} className="slider-thumbnail thumbnail-overlay">
           <a>
-            <img src="/images/bg/bg-image-2.jpg" alt="" />
+            <Image src={i.src} priority alt="" />
           </a>
           <div className="read-wrapper">
             <h5>#{i.id}</h5>
