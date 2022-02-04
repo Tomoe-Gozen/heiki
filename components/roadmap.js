@@ -7,7 +7,7 @@ export default function Roadmap() {
   const roadmapSteps = [
     {
       id: 1,
-      title: 'Q2 2022',
+      title: 'Q1 2022',
       src: Icon1,
       description: (
         <ul>
@@ -27,13 +27,15 @@ export default function Roadmap() {
             <strong className="text-tomoe">40%</strong> of Tomoe royalties
             creators will be added into warrior treasure
           </li>
-          <li>Free high-quality tees to holders</li>
+          <li>
+            Free <strong className="text-tomoe">merch store</strong> to holders
+          </li>
         </ul>
       )
     },
     {
       id: 2,
-      title: 'Q3 2022',
+      title: 'Q2 2022',
       src: Icon2,
       description: (
         <ul>
@@ -54,7 +56,7 @@ export default function Roadmap() {
     },
     {
       id: 3,
-      title: 'Q4 2022',
+      title: 'Q3 2022',
       src: Icon3,
       description: (
         <>
@@ -88,7 +90,7 @@ export default function Roadmap() {
           </div>
           <div className="row g-5">
             {roadmapSteps.map((r) => (
-              <div key={r.id} className="col-xxl-4 col-lg-6 col-12">
+              <div key={r.id} className="col-lg-4 col-12">
                 <div
                   data-sal="slide-up"
                   data-sal-delay="150"

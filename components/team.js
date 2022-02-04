@@ -90,7 +90,7 @@ export default function Team() {
       <div className="container">
         <div className="row g-5 d-flex" id="nav-home">
           {profiles.map((p) => (
-            <div key={p.id} className="col-lg-4 col-12 p-10">
+            <div key={p.id} className="col-lg-4 col-md-6 col-12 p-10">
               <div className="product-style-one no-overlay d-flex flex-column justify-content-between">
                 <div className="card-thumbnail">
                   <a>
@@ -103,7 +103,7 @@ export default function Team() {
                   </a>
                   <span className="latest-bid">{p.name}</span>
                   <div className="bid-react-area">
-                    <div className="last-bid">{p.title}</div>{' '}
+                    <div className="last-bid">{p.title}</div>
                     <div className="last-bid">{p.job}</div>
                   </div>
                 </div>
