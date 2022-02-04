@@ -1,8 +1,7 @@
 export default function About() {
   return (
     <>
-      <a className="anchor" id="about"></a>
-      <div className="rn-about-banner-area rn-section-gapTop">
+      <div className="rn-about-banner-area rn-section-gapTop anchor" id="about">
         <div className="container mb--30">
           <div className="row">
             <div className="col-12">
@@ -52,7 +51,7 @@ export default function About() {
                       the U.S.
                     </p>
                     <a
-                      href="blog.html"
+                      href="#roadmap"
                       className="btn btn-primary-alta btn-large sal-animate mt--20"
                       data-sal="slide-up"
                       data-sal-duration="800"

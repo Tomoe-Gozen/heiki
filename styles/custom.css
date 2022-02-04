@@ -16,6 +16,10 @@
   font-size: 72pt;
 }
 
+.text-lg {
+  font-size: 30pt;
+}
+
 .coming-soon-wrapper {
   text-align: center;
   margin-top: 80px;
@@ -36,11 +40,37 @@
   min-height: 400px;
 }
 
-a.anchor {
-  display: block;
-  position: relative;
-  top: -5vh;
-  visibility: hidden;
+.anchor {
+  scroll-margin-top: 7em;
+}
+
+.card-thumbnail {
+  margin-bottom: 25px;
+}
+
+.card-details {
+  padding-top: 10px;
+}
+
+.product-style-one {
+  margin-left: 55px;
+  margin-right: 55px;
+}
+
+.btn-sm {
+  padding: 7px 10px!important;
+}
+
+.card-details a {
+  color: white!important;
+}
+
+.card-details .product-name {
+  font-size: 25pt!important;
+}
+
+.bid-react-area {
+  margin-top: 0!important;
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {

@@ -4,8 +4,8 @@ export default function HeroSection() {
   return (
     <div className="banner-style-4 rn-section-gapTop">
       <div className="container">
-        <div className="row row-reverce-sm align-items-center">
-          <div className="col-lg-6 col-md-6 col-sm-12 mt_sm--50">
+        <div className="row align-items-center">
+          <div className="col-xl-6 col-lg-6 col-md-12 order-2 order-lg-1 mt_md--40 mt_sm--40">
             <h2
               className="title"
               data-sal-delay="200"
@@ -30,7 +30,7 @@ export default function HeroSection() {
             <div className="button-group">
               <a
                 className="btn btn-large btn-primary cursor-pointer"
-                href="#"
+                href="#roadmap"
                 data-sal-delay="400"
                 data-sal="slide-up"
                 data-sal-duration="800"
@@ -39,7 +39,7 @@ export default function HeroSection() {
               </a>
               <a
                 className="btn btn-large btn-primary-alta cursor-pointer"
-                href="create.html"
+                href="#mint"
                 data-sal-delay="500"
                 data-sal="slide-up"
                 data-sal-duration="800"

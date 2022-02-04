@@ -3,6 +3,7 @@ import HeroSection from '../components/hero-section'
 import About from '../components/about'
 import DefaultLayout from '../components/layouts/default'
 import Roadmap from '../components/roadmap'
+import Team from '../components/team'
 
 export default function Index() {
   return (
@@ -13,6 +14,7 @@ export default function Index() {
       <HeroSection />
       <About />
       <Roadmap />
+      <Team />
     </>
   )
 }
