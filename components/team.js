@@ -27,7 +27,7 @@ export default function Team() {
       twitter: 'jayzhvj_eth',
       instagram: 'jeremie_evequoz',
       title: 'Co-founder',
-      job: 'Programmer'
+      job: 'CS'
     },
     {
       id: 3,
@@ -52,7 +52,7 @@ export default function Team() {
     },
     {
       id: 5,
-      pseudo: 'Ibaraki Tsukasa',
+      pseudo: 'Uesugi Kenshin',
       name: 'Davide Mendes',
       src: Profile5,
       twitter: 'dragorath_eth',
