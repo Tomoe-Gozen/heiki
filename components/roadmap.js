@@ -1,4 +1,48 @@
+import Image from 'next/image'
+import Icon1 from '../public/images/icons/icon-1.png'
+import Icon2 from '../public/images/icons/icon-2.png'
+import Icon3 from '../public/images/icons/icon-3.png'
+
 export default function Roadmap() {
+  const roadmapSteps = [
+    {
+      id: 1,
+      title: `Q2 2022`,
+      src: Icon1,
+      description: (
+        <>
+          <ul>
+            <li>Launch our season 1 Tomoe Gozen</li>
+          </ul>
+        </>
+      )
+    },
+    {
+      id: 2,
+      title: `Q2 2022`,
+      src: Icon2,
+      description: (
+        <>
+          <ul>
+            <li>Launch our season 1 Tomoe Gozen</li>
+          </ul>
+        </>
+      )
+    },
+    {
+      id: 3,
+      title: `Q2 2022`,
+      src: Icon3,
+      description: (
+        <>
+          <ul>
+            <li>Launch our season 1 Tomoe Gozen</li>
+          </ul>
+        </>
+      )
+    }
+  ]
+
   return (
     <>
       <a className="anchor" id="roadmap"></a>
@@ -17,34 +61,36 @@ export default function Roadmap() {
             </div>
           </div>
           <div className="row g-5">
-            <div className="col-xxl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+            {roadmapSteps.map((r) => (
               <div
-                data-sal="slide-up"
-                data-sal-delay="150"
-                data-sal-duration="800"
-                className="rn-service-one color-shape-7"
+                key={r.id}
+                className="col-xxl-4 col-lg-4 col-md-6 col-sm-6 col-12"
               >
-                <div className="inner">
-                  <div className="icon">
-                    <img src="/images/icons/shape-2.png" alt="Shape" />
+                <div
+                  data-sal="slide-up"
+                  data-sal-delay="150"
+                  data-sal-duration="800"
+                  className="rn-service-one color-shape-7"
+                >
+                  <div className="inner">
+                    <div className="icon">
+                      <Image src={r.src} alt="" />
+                    </div>
+                    <div className="subtitle">Step {r.id}</div>
+                    <div className="content">
+                      <h4 className="title">
+                        <a href="#">{r.title}</a>
+                      </h4>
+                      <p className="description">{r.description}</p>
+                      <a className="read-more-button" href="#">
+                        <i className="feather-arrow-right"></i>
+                      </a>
+                    </div>
                   </div>
-                  <div className="subtitle">Step-01</div>
-                  <div className="content">
-                    <h4 className="title">
-                      <a href="#">Set up your wallet</a>
-                    </h4>
-                    <p className="description">
-                      Powerful features and inclusions, which makes Nuron
-                      standout, easily customizable and scalable.
-                    </p>
-                    <a className="read-more-button" href="#">
-                      <i className="feather-arrow-right"></i>
-                    </a>
-                  </div>
+                  <a className="over-link" href="#"></a>
                 </div>
-                <a className="over-link" href="#"></a>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
