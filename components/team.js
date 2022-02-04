@@ -91,7 +91,7 @@ export default function Team() {
         <div className="row g-5 d-flex" id="nav-home">
           {profiles.map((p) => (
             <div key={p.id} className="col-lg-4 col-md-6 col-12 p-10">
-              <div className="product-style-one no-overlay d-flex flex-column justify-content-between">
+              <div className="product-style-one no-overlay d-flex flex-column justify-content-between mx-lg-7 mx-5">
                 <div className="card-thumbnail">
                   <a>
                     <Image src={p.src} alt="" />
