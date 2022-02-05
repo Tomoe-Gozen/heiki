@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import DefaultLayout from '../components/layouts/default'
 
-export default function PrivacyPolicy() {
+export default function Terms() {
   const title = 'Tomoe Gozen NFT - Terms'
   const description =
     '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Tomoe Gozen.'
@@ -160,6 +160,6 @@ export default function PrivacyPolicy() {
   )
 }
 
-Index.getLayout = function getLayout(page) {
+Terms.getLayout = function getLayout(page) {
   return <DefaultLayout>{page}</DefaultLayout>
 }

@@ -27,6 +27,6 @@ export default function PrivacyPolicy() {
   )
 }
 
-Index.getLayout = function getLayout(page) {
+PrivacyPolicy.getLayout = function getLayout(page) {
   return <DefaultLayout>{page}</DefaultLayout>
 }
