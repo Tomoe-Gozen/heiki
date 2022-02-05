@@ -25,6 +25,7 @@ export default function Team() {
       src: Profile2,
       twitter: 'jayzhvj_eth',
       instagram: 'jeremie_evequoz',
+      linkedin: 'jérémie-evéquoz-7a4547134',
       title: 'Co-founder'
     },
     {
