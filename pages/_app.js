@@ -9,6 +9,7 @@ import '../styles/custom.css'
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { ThirdwebWeb3Provider } from '@3rdweb/hooks'
 
 import * as ga from '../lib/ga'
 
@@ -16,6 +17,14 @@ function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page)
   const router = useRouter()
   const initTheme = () => import('../lib/theme').then((init) => init.default())
+
+  // 1 - ethereum MainNet, 3 - Ropsten, 1337 - localhost:8545
+  const supportedChainIds = [1, 3, 1337]
+
+  // injected - metamask
+  const connectors = {
+    injected: {}
+  }
 
   useEffect(() => {
     initTheme()
@@ -33,7 +42,10 @@ function MyApp({ Component, pageProps }) {
   }, [router.events])
 
   return (
-    <>
+    <ThirdwebWeb3Provider
+      connectors={connectors}
+      supportedChainIds={supportedChainIds}
+    >
       <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -47,7 +59,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
       {getLayout(<Component {...pageProps} />)}
-    </>
+    </ThirdwebWeb3Provider>
   )
 }
 

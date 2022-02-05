@@ -4,9 +4,11 @@ import Link from 'next/link'
 import TheMenu from './the-menu'
 import logoLight from '../public/images/logo/logo-white.png'
 import TheMobileMenu from './the-mobile-menu'
+import { useWeb3 } from '@3rdweb/hooks'
 
 export default function TheHeader() {
   const [active, setActive] = useState(false)
+  const { address, connectWallet, disconnectWallet } = useWeb3()
 
   const toggleActive = () => {
     setActive(!active)
@@ -36,11 +38,27 @@ export default function TheHeader() {
             <div className="header-right mb-sm-0 mb-4">
               <div className="setting-option header-btn">
                 <div className="icon-box">
-                  <Link href="/connect-wallet">
+                  {/* <Link href="/connect-wallet">
                     <a className="btn btn-primary-alta btn-small">
                       Connect Wallet
                     </a>
-                  </Link>
+                  </Link> */}
+                  {!address && (
+                    <button
+                      className="btn btn-primary-alta btn-small"
+                      onClick={() => connectWallet('injected')}
+                    >
+                      Connect Wallet
+                    </button>
+                  )}
+                  {address && (
+                    <button
+                      className="btn btn-primary-alta btn-small"
+                      onClick={() => disconnectWallet()}
+                    >
+                      Disconnect Wallet
+                    </button>
+                  )}
                 </div>
               </div>
               <div className="setting-option mobile-menu-bar d-block d-xl-none">
