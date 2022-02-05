@@ -16,8 +16,7 @@ export default function Team() {
       src: Profile1,
       twitter: 'bangwest',
       instagram: 'pratamaarghi',
-      title: 'Co-founder',
-      job: 'CS student'
+      title: 'Co-founder'
     },
     {
       id: 2,
@@ -26,8 +25,7 @@ export default function Team() {
       src: Profile2,
       twitter: 'jayzhvj_eth',
       instagram: 'jeremie_evequoz',
-      title: 'Co-founder',
-      job: 'CS'
+      title: 'Co-founder'
     },
     {
       id: 3,
@@ -36,8 +34,7 @@ export default function Team() {
       src: Profile3,
       twitter: 'jef_YANTO',
       instagram: 'a73p',
-      title: 'Co-founder',
-      job: 'Administrator'
+      title: 'Co-founder'
     },
     {
       id: 4,
@@ -47,8 +44,7 @@ export default function Team() {
       twitter: 'el__reco',
       instagram: '_elreco',
       linkedin: 'alexandre-le-corre',
-      title: 'Co-founder',
-      job: 'Developer'
+      title: 'Developer'
     },
     {
       id: 5,
@@ -57,8 +53,7 @@ export default function Team() {
       src: Profile5,
       twitter: 'dragorath_eth',
       linkedin: 'davide-mendes',
-      title: 'Co-founder',
-      job: 'Developer'
+      title: 'Developer'
     },
     {
       id: 6,
@@ -66,8 +61,7 @@ export default function Team() {
       name: 'Tita Carella',
       src: Profile6,
       twitter: 'titacarella',
-      title: 'Artist',
-      job: 'Designer'
+      title: 'Artist'
     }
   ]
 
@@ -104,7 +98,6 @@ export default function Team() {
                   <span className="latest-bid">{p.name}</span>
                   <div className="bid-react-area">
                     <div className="last-bid">{p.title}</div>
-                    <div className="last-bid">{p.job}</div>
                   </div>
                 </div>
                 <div className="d-flex justify-content-center mt-4">
