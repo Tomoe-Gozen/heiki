@@ -35,7 +35,7 @@ export default function About() {
                       data-sal-duration="800"
                       data-sal-delay="150"
                     >
-                      Why We Do This
+                      Why we do this
                     </h2>
                     <p
                       className="about-disc"
@@ -43,12 +43,12 @@ export default function About() {
                       data-sal-duration="800"
                       data-sal-delay="150"
                     >
-                      NFTs are virtual tokens that represent ownership of
-                      something inherently distinct and scarce, whether it be a
-                      physical or digital item, such as artwork, a soundtrack, a
-                      collectible, an in-game item or real estate. Unlike
-                      regular cryptocurrencies like bitcoin or fiat money like
-                      the U.S.
+                      We are making a NFT collection about Tomoe Gozen because
+                      this story is really exciting. It&apos;s shrouded in
+                      mystery, but she was known for being both beautiful and
+                      terrifying. What’s truly impressive about the legend of
+                      Tomoe Gozen is not just that she was a female samurai, but
+                      that she was an elite warrior!
                     </p>
                     <a
                       href="#roadmap"
@@ -72,8 +72,7 @@ export default function About() {
                     data-sal-duration="800"
                     data-sal-delay="150"
                   >
-                    Helping You <br />
-                    Grow In Every Stage.
+                    The Tomoe Gozen story
                   </h3>
                   <p
                     className="about-disc mb--0"
@@ -81,11 +80,11 @@ export default function About() {
                     data-sal-duration="800"
                     data-sal-delay="150"
                   >
-                    NFTs are virtual tokens that represent ownership of
-                    something inherently distinct and scarce, whether it be a
-                    physical or digital item, such as artwork, a soundtrack, a
-                    collectible, an in-game item or real estate. Unlike regular
-                    cryptocurrencies like bitcoin or fiat money like the U.S.
+                    Tomoe Gozen (巴御前) was an onna-musha from the late Heian
+                    period of Japanese history. She served Minamoto no Yoshinaka
+                    during the Genpei War and was a part of the conflict that
+                    led to the first shogunate. Her family had strong
+                    affiliations with Yoshinaka.
                   </p>
                 </div>
               </div>
@@ -104,8 +103,7 @@ export default function About() {
                   data-sal-duration="800"
                   data-sal-delay="150"
                 >
-                  Create, Sell well and Collect your Wonderful NFTs at Tomoe
-                  Gozen Very Fast
+                  The Tale of Heike, which chronicles the Genpei War.
                 </h3>
               </div>
             </div>
@@ -117,12 +115,9 @@ export default function About() {
                 data-sal-delay="150"
               >
                 <p>
-                  The NFTs is a one-trick pony that climbed the ladders of
-                  success in recent years. The growth of NFTs is tremendous, and
-                  according to Pymnts.com, the total sales volume of NFTs has
-                  nearly crossed $2.5 billion in the last six months of 2021.
-                  Surprisingly, the total sales volume of NFTs was $13.7 million
-                  in 2020. On comparing both the values,
+                  Her story in the Tale of the Heike influenced several
+                  generations of samurai. Tomoe is often celebrated in books,
+                  music, poems, films, historical novels and culture in general.
                 </p>
               </div>
             </div>

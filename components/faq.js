@@ -102,7 +102,7 @@ export default function Faq() {
                   </p>
                 </div>
               </div>
-              <Link href="/#mint">
+              <Link href="/mint">
                 <a className="btn btn-primary mr--15">Start minting</a>
               </Link>
             </div>

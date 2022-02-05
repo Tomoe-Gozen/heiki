@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Slider from './slider'
 
 export default function HeroSection() {
@@ -37,15 +38,16 @@ export default function HeroSection() {
               >
                 Roadmap
               </a>
-              <a
-                className="btn btn-large btn-primary-alta cursor-pointer"
-                href="#mint"
-                data-sal-delay="500"
-                data-sal="slide-up"
-                data-sal-duration="800"
-              >
-                Mint
-              </a>
+              <Link href="/mint">
+                <a
+                  className="btn btn-large btn-primary-alta cursor-pointer"
+                  data-sal-delay="500"
+                  data-sal="slide-up"
+                  data-sal-duration="800"
+                >
+                  Mint
+                </a>
+              </Link>
             </div>
           </div>
           <div className="col-xl-6 col-lg-6 col-md-12 order-1 order-lg-2">

@@ -2,8 +2,8 @@ import Head from 'next/head'
 import Soon from '../components/soon'
 import WithTitleLayout from '../components/layouts/with-title'
 
-export default function Mint() {
-  const title = 'Tomoe Gozen NFT - Mint'
+export default function ConnectWallet() {
+  const title = 'Tomoe Gozen NFT - Connect Wallet'
   const description =
     '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Tomoe Gozen.'
   const image = '/images/og-image.png'
@@ -29,6 +29,6 @@ export default function Mint() {
   )
 }
 
-Mint.getLayout = function getLayout(page) {
-  return <WithTitleLayout title="Soon">{page}</WithTitleLayout>
+ConnectWallet.getLayout = function getLayout(page) {
+  return <WithTitleLayout title="Connect Wallet">{page}</WithTitleLayout>
 }

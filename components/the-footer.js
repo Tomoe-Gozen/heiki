@@ -3,7 +3,7 @@ import Link from 'next/link'
 export default function TheFooter() {
   return (
     <>
-      <div className="copy-right-one rn-section-gap ptb--20 bg-color--1 mt--100 mt_md--80 mt_sm--80">
+      <div className="copy-right-one rn-section-gap ptb--20 bg-color--1">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6 col-md-12 col-sm-12">

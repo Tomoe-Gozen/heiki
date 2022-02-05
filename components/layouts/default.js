@@ -6,7 +6,9 @@ export default function Default({ children }) {
     <>
       <TheHeader />
       {children}
-      <TheFooter />
+      <div className="mt--100 mt_md--80 mt_sm--80">
+        <TheFooter />
+      </div>
     </>
   )
 }
