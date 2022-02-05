@@ -18,7 +18,7 @@ export default function Faq() {
     {
       id: 3,
       question: 'What blockchain is the project on?',
-      answer: 'ETH'
+      answer: 'ETH and MetaMask'
     },
     {
       id: 4,

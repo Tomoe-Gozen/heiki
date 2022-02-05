@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import Profile1 from '../public/images/bg/bg-image-100.jpg'
-import Profile2 from '../public/images/bg/bg-image-101.jpg'
-import Profile3 from '../public/images/bg/bg-image-102.jpg'
-import Profile4 from '../public/images/bg/bg-image-103.jpg'
-import Profile5 from '../public/images/bg/bg-image-104.jpg'
-import Profile6 from '../public/images/bg/bg-image-105.jpg'
+import Profile1 from '../public/images/bg/bg-image-106.jpg'
+import Profile2 from '../public/images/bg/bg-image-107.jpg'
+import Profile3 from '../public/images/bg/bg-image-108.jpg'
+import Profile4 from '../public/images/bg/bg-image-109.jpg'
+import Profile5 from '../public/images/bg/bg-image-110.jpg'
+import Profile6 from '../public/images/bg/bg-image-111.jpg'
 
 export default function Team() {
   const profiles = [
@@ -21,7 +21,7 @@ export default function Team() {
     {
       id: 2,
       pseudo: "Sune'emon Torii",
-      name: 'Jérémie Evequoz',
+      name: 'Jérémie Evéquoz',
       src: Profile2,
       twitter: 'jayzhvj_eth',
       instagram: 'jeremie_evequoz',
