@@ -14,13 +14,16 @@ import * as ga from '../lib/ga'
 
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page)
-
   const router = useRouter()
-  useEffect(() => {
-    import('../lib/theme')
+  const initTheme = () => import('../lib/theme').then((init) => init.default())
 
+  useEffect(() => {
+    initTheme()
     const handleRouteChange = (url) => {
-      ga.pageview(url)
+      initTheme()
+      if (process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS) {
+        ga.pageview(url)
+      }
     }
 
     router.events.on('routeChangeComplete', handleRouteChange)

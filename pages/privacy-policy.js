@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import DefaultLayout from '../components/layouts/default'
+import WithTitleLayout from '../components/layouts/with-title'
+import PrivacyPolicyText from '../components/privacy-policy-text'
 
 export default function PrivacyPolicy() {
   const title = 'Tomoe Gozen NFT - Privacy Policy'
@@ -23,10 +24,21 @@ export default function PrivacyPolicy() {
         <meta name="twitter:site" content="@TomoeGozenNFTs" />
         <meta name="twitter:creator" content="@TomoeGozenNFTs" />
       </Head>
+      <div className="terms-condition-area rn-section-gapTop">
+        <div className="container">
+          <div className="row">
+            <div className="offset-lg-2 col-lg-8">
+              <div className="condition-wrapper">
+                <PrivacyPolicyText />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
 
 PrivacyPolicy.getLayout = function getLayout(page) {
-  return <DefaultLayout>{page}</DefaultLayout>
+  return <WithTitleLayout title="Terms">{page}</WithTitleLayout>
 }

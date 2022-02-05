@@ -143,3 +143,37 @@
       margin-top: 150px;
   }
 }
+
+.transition {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+transition-duration: 150ms;
+}
+
+.duration-100 {
+  transition-duration: 100ms;
+}
+
+.duration-75 {
+  transition-duration: 75ms;
+}
+
+.scale-100 {
+  transform: scale(1);
+}
+
+.scal-95 {
+  transform: scale(.95);
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.east-out {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}

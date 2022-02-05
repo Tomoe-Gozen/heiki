@@ -10,6 +10,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.3",
     "counterup2": "^2.0.2",
     "feather-icons": "^4.28.0",
     "jquery": "^3.6.0",

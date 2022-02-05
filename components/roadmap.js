@@ -111,7 +111,7 @@ export default function Roadmap() {
                           {r.title}
                         </a>
                       </h4>
-                      <p className="description">{r.description}</p>
+                      {r.description}
                     </div>
                   </div>
                   <a
