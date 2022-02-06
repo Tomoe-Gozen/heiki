@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"> 
+<url>
+  <loc>https://www.tomoegozen.io/</loc>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>https://www.tomoegozen.io/#about</loc>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>https://www.tomoegozen.io/#roadmap</loc>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>https://www.tomoegozen.io/#team</loc>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>https://www.tomoegozen.io/#faq</loc>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>https://www.tomoegozen.io/mint</loc>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>https://www.tomoegozen.io/connect-wallet</loc>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>https://www.tomoegozen.io/terms</loc>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>https://www.tomoegozen.io/privacy-policy</loc>
+  <priority>1.0</priority>
+</url>
+</urlset>
