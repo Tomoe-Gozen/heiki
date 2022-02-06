@@ -16,8 +16,8 @@ export default function Roadmap() {
             <strong className="text-tomoe">season 1 Tomoe Gozen</strong>
           </li>
           <li>
-            <strong className="text-tomoe">12 Eth</strong> raffles giveaway
-            after sold out
+            <strong className="text-tomoe">8 Eth</strong> contribution for
+            charity
           </li>
           <li>
             Transparency of <strong className="text-tomoe">192 Eth</strong> will
