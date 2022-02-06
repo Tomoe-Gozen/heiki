@@ -26,15 +26,15 @@ export default function Slider() {
       src: Image4
     },
     {
-      id: '4465',
+      id: '4466',
       src: Image5
     },
     {
-      id: '4465',
+      id: '4467',
       src: Image6
     },
     {
-      id: '4465',
+      id: '4468',
       src: Image7
     }
   ]
