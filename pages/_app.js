@@ -42,10 +42,7 @@ function MyApp({ Component, pageProps }) {
   }, [router.events])
 
   return (
-    <ThirdwebWeb3Provider
-      connectors={connectors}
-      supportedChainIds={supportedChainIds}
-    >
+    <>
       <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -57,9 +54,13 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="icon" href="/images/favicon.ico" />
       </Head>
-
-      {getLayout(<Component {...pageProps} />)}
-    </ThirdwebWeb3Provider>
+      <ThirdwebWeb3Provider
+        connectors={connectors}
+        supportedChainIds={supportedChainIds}
+      >
+        {getLayout(<Component {...pageProps} />)}
+      </ThirdwebWeb3Provider>
+    </>
   )
 }
 
