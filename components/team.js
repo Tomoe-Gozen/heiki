@@ -14,7 +14,7 @@ export default function Team() {
       pseudo: 'Kyosuke Rogue',
       name: 'Pratama Arghi',
       src: Profile1,
-      twitter: 'bangwest',
+      twitter: 'bangwest06',
       instagram: 'pratamaarghi',
       title: 'Co-founder'
     },
