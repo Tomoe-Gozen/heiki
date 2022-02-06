@@ -20,8 +20,8 @@ export default function Roadmap() {
             charity
           </li>
           <li>
-            Transparency of <strong className="text-tomoe">192 Eth</strong> will
-            be put into warrior treasures
+            Transparency of <strong className="text-tomoe">30%</strong> will be
+            put into warrior treasures
           </li>
           <li>
             <strong className="text-tomoe">40%</strong> of Tomoe royalties
