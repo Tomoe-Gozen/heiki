@@ -36,9 +36,11 @@ export default function TheHeader() {
             <div className="header-right mb-sm-0 mb-4">
               <div className="setting-option header-btn">
                 <div className="icon-box">
-                  <a className="btn btn-primary-alta btn-small">
-                    Connect Wallet
-                  </a>
+                  <Link href="/connect-wallet">
+                    <a className="btn btn-primary-alta btn-small">
+                      Connect Wallet
+                    </a>
+                  </Link>
                 </div>
               </div>
               <div className="setting-option mobile-menu-bar d-block d-xl-none">

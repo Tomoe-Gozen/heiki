@@ -6,25 +6,26 @@ import '../styles/plugins/feature.css'
 import '../styles/plugins/jquery-ui.min.css'
 import '../styles/style.css'
 import '../styles/custom.css'
-import Script from 'next/script'
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
 import * as ga from '../lib/ga'
 
-import sal from 'sal.js'
-sal()
-
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page)
-
   const router = useRouter()
+  const initTheme = () => import('../lib/theme').then((init) => init.default())
 
   useEffect(() => {
+    initTheme()
     const handleRouteChange = (url) => {
-      ga.pageview(url)
+      initTheme()
+      if (process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS) {
+        ga.pageview(url)
+      }
     }
+
     router.events.on('routeChangeComplete', handleRouteChange)
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange)
@@ -33,11 +34,6 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Script
-        src="/js/main.js"
-        strategy="afterInteractive"
-        onLoad={() => console.log(`main script loaded correctly`)}
-      />
       <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />

@@ -1,0 +1,64 @@
+import Link from 'next/link'
+
+export default function Soon() {
+  return (
+    <div className="container-fluid about-fluidimg-cta">
+      <div className="row">
+        <div className="col-lg-12">
+          <div
+            className="banner_image--2 bg_image bg-image-border"
+            data-black-overlay="7"
+          >
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="call-to-action-wrapper">
+                  <h3
+                    data-sal="slide-up"
+                    data-sal-duration="800"
+                    data-sal-delay="150"
+                    className="sal-animate font-tomoe text-xl"
+                  >
+                    We will launch soon!
+                  </h3>
+                  <p
+                    data-sal="slide-up"
+                    data-sal-duration="800"
+                    data-sal-delay="150"
+                    className="sal-animate"
+                  >
+                    Stay tuned and come back later, we plan to launch in the{' '}
+                    <strong className="text-tomoe">beginning of March</strong>!{' '}
+                    <br />
+                    You will be able to connect your wallet and mint.
+                    <br /> You can get more information on our{' '}
+                    <Link href="https://discord.gg/tomoegozen">
+                      <a>Discord</a>
+                    </Link>{' '}
+                    and our{' '}
+                    <Link href="https://twitter.com/NFTTomoeGozen">
+                      <a>Twitter</a>
+                    </Link>
+                    .{' '}
+                  </p>
+                  <div
+                    className="callto-action-btn-wrapper sal-animate"
+                    data-sal="slide-up"
+                    data-sal-duration="800"
+                    data-sal-delay="150"
+                  >
+                    <Link href="/#roadmap">
+                      <a className="btn btn-primary btn-large">Roadmap</a>
+                    </Link>
+                    <Link href="/#faq">
+                      <a className="btn btn-primary-alta btn-large">FAQ</a>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}

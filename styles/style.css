@@ -61,6 +61,7 @@
   --color-primary-alta: #212e48;
   --color-gray: #f6f6f6;
   --color-gray-2: #f5f8fa;
+  --color-subtitle-alta: #5e010d;
   --color-subtitle: #df001f;
   --background-color-1: #24243557;
   --background-color-2: #13131d;
@@ -494,13 +495,13 @@ ol {
       padding-bottom: 80px; } }
 
 .rn-section-gapTop {
-  padding-top: 100px; }
+  padding-top: 70px; }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .rn-section-gapTop {
-      padding-top: 80px; } }
+      padding-top: 60px; } }
   @media only screen and (max-width: 767px) {
     .rn-section-gapTop {
-      padding-top: 80px; } }
+      padding-top: 60px; } }
 
 .pl--0 {
   padding-left: 0 !important; }
@@ -4411,6 +4412,11 @@ Background Image
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
+.banner_image--1 {
+    background-image: url(/images/bg/banner-1.png); }
+
+.banner_image--2 {
+  background-image: url(/images/bg/banner-2.png); }
 
 .bg_image--1 {
   background-image: url(/images/bg/bg-image-1.jpg); }
@@ -9817,6 +9823,13 @@ button.btn {
   border: 0 none;
   box-shadow: none;
   outline: none; }
+  a.btn.btn-tomoe,
+  button.btn.btn-tomoe {
+    background: var(--color-subtitle); }
+    a.btn.btn-tomoe:hover,
+    button.btn.btn-tomoe:hover {
+      background: var(--color-subtitle-alta);
+      color: var(--color-white); }
   a.btn.btn-primary,
   button.btn.btn-primary {
     background: var(--color-primary); }

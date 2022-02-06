@@ -1,19 +1,19 @@
-import Image from 'next/image'
-import Slider1 from '../public/images/slider/slider-1.jpg'
+import Link from 'next/link'
+import Slider from './slider'
 
 export default function HeroSection() {
   return (
-    <div className="slider-one rn-section-gapTop">
+    <div className="banner-style-4 rn-section-gapTop">
       <div className="container">
-        <div className="row row-reverce-sm align-items-center">
-          <div className="col-lg-5 col-md-6 col-sm-12 mt_sm--50">
+        <div className="row align-items-center">
+          <div className="col-xl-6 col-lg-6 col-md-12 order-2 order-lg-1 mt_md--40 mt_sm--40">
             <h2
               className="title"
               data-sal-delay="200"
               data-sal="slide-up"
               data-sal-duration="800"
             >
-              <span className="text-xlg font-special mb-0">
+              <span className="text-xlg font-tomoe mb-0">
                 <span className="text-tomoe">T</span>omoe{' '}
                 <span className="text-tomoe">G</span>ozen
               </span>{' '}
@@ -31,28 +31,27 @@ export default function HeroSection() {
             <div className="button-group">
               <a
                 className="btn btn-large btn-primary cursor-pointer"
-                href="#"
+                href="#roadmap"
                 data-sal-delay="400"
                 data-sal="slide-up"
                 data-sal-duration="800"
               >
                 Roadmap
               </a>
-              <a
-                className="btn btn-large btn-primary-alta cursor-pointer"
-                href="create.html"
-                data-sal-delay="500"
-                data-sal="slide-up"
-                data-sal-duration="800"
-              >
-                Mint
-              </a>
+              <Link href="/mint">
+                <a
+                  className="btn btn-large btn-primary-alta cursor-pointer"
+                  data-sal-delay="500"
+                  data-sal="slide-up"
+                  data-sal-duration="800"
+                >
+                  Mint
+                </a>
+              </Link>
             </div>
           </div>
-          <div className="col-lg-5 col-md-6 col-sm-12 offset-lg-1">
-            <div className="slider-thumbnail">
-              <Image src={Slider1} alt="" />
-            </div>
+          <div className="col-xl-6 col-lg-6 col-md-12 order-1 order-lg-2">
+            <Slider />
           </div>
         </div>
       </div>

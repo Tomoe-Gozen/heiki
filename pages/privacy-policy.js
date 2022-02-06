@@ -1,13 +1,9 @@
 import Head from 'next/head'
-import HeroSection from '../components/hero-section'
-import About from '../components/about'
-import DefaultLayout from '../components/layouts/default'
-import Roadmap from '../components/roadmap'
-import Team from '../components/team'
-import Faq from '../components/faq'
+import WithTitleLayout from '../components/layouts/with-title'
+import PrivacyPolicyText from '../components/privacy-policy-text'
 
-export default function Index() {
-  const title = 'Tomoe Gozen NFT'
+export default function PrivacyPolicy() {
+  const title = 'Tomoe Gozen NFT - Privacy Policy'
   const description =
     '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Tomoe Gozen.'
   const image = '/images/og-image.png'
@@ -28,15 +24,21 @@ export default function Index() {
         <meta name="twitter:site" content="@TomoeGozenNFTs" />
         <meta name="twitter:creator" content="@TomoeGozenNFTs" />
       </Head>
-      <HeroSection />
-      <About />
-      <Roadmap />
-      <Team />
-      <Faq />
+      <div className="terms-condition-area rn-section-gapTop">
+        <div className="container">
+          <div className="row">
+            <div className="offset-lg-2 col-lg-8">
+              <div className="condition-wrapper">
+                <PrivacyPolicyText />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
 
-Index.getLayout = function getLayout(page) {
-  return <DefaultLayout>{page}</DefaultLayout>
+PrivacyPolicy.getLayout = function getLayout(page) {
+  return <WithTitleLayout title="Terms">{page}</WithTitleLayout>
 }

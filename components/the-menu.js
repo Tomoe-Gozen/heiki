@@ -19,7 +19,12 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
         </Link>
       </li>
       <li>
-        <Link href="/#mint">
+        <Link href="/#faq">
+          <a onClick={isMobile && toggleActive}>FAQ</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/mint">
           <a onClick={isMobile && toggleActive}>Mint</a>
         </Link>
       </li>

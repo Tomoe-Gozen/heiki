@@ -10,10 +10,16 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.3",
+    "counterup2": "^2.0.2",
+    "feather-icons": "^4.28.0",
+    "jquery": "^3.6.0",
     "next": "12.0.9",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "sal.js": "^0.8.5"
+    "sal.js": "^0.8.5",
+    "slick-carousel": "^1.8.1",
+    "waypoints": "^4.0.1"
   },
   "devDependencies": {
     "eslint": "8.8.0",

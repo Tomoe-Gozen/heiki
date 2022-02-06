@@ -1,13 +1,9 @@
 import Head from 'next/head'
-import HeroSection from '../components/hero-section'
-import About from '../components/about'
-import DefaultLayout from '../components/layouts/default'
-import Roadmap from '../components/roadmap'
-import Team from '../components/team'
-import Faq from '../components/faq'
+import Soon from '../components/soon'
+import WithTitleLayout from '../components/layouts/with-title'
 
-export default function Index() {
-  const title = 'Tomoe Gozen NFT'
+export default function Mint() {
+  const title = 'Tomoe Gozen NFT - Mint'
   const description =
     '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Tomoe Gozen.'
   const image = '/images/og-image.png'
@@ -28,15 +24,11 @@ export default function Index() {
         <meta name="twitter:site" content="@TomoeGozenNFTs" />
         <meta name="twitter:creator" content="@TomoeGozenNFTs" />
       </Head>
-      <HeroSection />
-      <About />
-      <Roadmap />
-      <Team />
-      <Faq />
+      <Soon />
     </>
   )
 }
 
-Index.getLayout = function getLayout(page) {
-  return <DefaultLayout>{page}</DefaultLayout>
+Mint.getLayout = function getLayout(page) {
+  return <WithTitleLayout title="Soon">{page}</WithTitleLayout>
 }
