@@ -7,6 +7,7 @@ import '../styles/plugins/jquery-ui.min.css'
 import '../styles/style.css'
 import '../styles/custom.css'
 import Head from 'next/head'
+import Script from 'next/script'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { ThirdwebWeb3Provider } from '@3rdweb/hooks'
@@ -43,6 +44,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <Script src="https://kit.fontawesome.com/6dc39c7558.js" />
       <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />

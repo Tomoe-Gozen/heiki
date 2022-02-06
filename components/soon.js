@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import config from '../lib/config'
 
 export default function Soon() {
   return (
@@ -31,11 +32,11 @@ export default function Soon() {
                     <br />
                     You will be able to connect your wallet and mint.
                     <br /> You can get more information on our{' '}
-                    <Link href="https://discord.gg/tomoegozen">
+                    <Link href={config.discord}>
                       <a>Discord</a>
                     </Link>{' '}
                     and our{' '}
-                    <Link href="https://twitter.com/NFTTomoeGozen">
+                    <Link href={config.twitter}>
                       <a>Twitter</a>
                     </Link>
                     .{' '}

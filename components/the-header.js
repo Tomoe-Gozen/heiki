@@ -5,6 +5,7 @@ import TheMenu from './the-menu'
 import logoLight from '../public/images/logo/logo-white.png'
 import TheMobileMenu from './the-mobile-menu'
 import { useWeb3 } from '@3rdweb/hooks'
+import config from '../lib/config'
 
 export default function TheHeader() {
   const [active, setActive] = useState(false)
@@ -40,6 +41,24 @@ export default function TheHeader() {
               </div>
             </div>
             <div className="header-right mb-sm-0 mb-4">
+              <div className="setting-option rn-icon-list">
+                <div className="icon-box">
+                  <Link href={config.discord}>
+                    <a target="_blank">
+                      <i className="fab fa-discord"></i>
+                    </a>
+                  </Link>
+                </div>
+              </div>
+              <div className="setting-option rn-icon-list">
+                <div className="icon-box">
+                  <Link href={config.twitter}>
+                    <a target="_blank">
+                      <i className="fab fa-twitter"></i>
+                    </a>
+                  </Link>
+                </div>
+              </div>
               <div className="setting-option header-btn">
                 <div className="icon-box">
                   {!address && (
@@ -60,6 +79,7 @@ export default function TheHeader() {
                   )}
                 </div>
               </div>
+
               <div className="setting-option mobile-menu-bar d-block d-xl-none">
                 <div className="hamberger">
                   <button className="hamberger-button" onClick={toggleActive}>

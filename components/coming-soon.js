@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import logoLight from '../public/images/logo/logo-white.png'
+import config from '../lib/config'
 
 export default function ComingSoon() {
   const [imageNumber, setImageNumber] = useState(2)
@@ -54,13 +55,9 @@ export default function ComingSoon() {
                     We are available please connect with us via
                   </span>
                   <span className="font-tomoe mt-4 mb-0 d-block">Twitter</span>
-                  <a href="https://twitter.com/NFTTomoeGozen">
-                    twitter.com/NFTTomoeGozen
-                  </a>
+                  <a href={config.twitter}>twitter.com/NFTTomoeGozen</a>
                   <span className="font-tomoe mt-4 mb-0 d-block">Discord</span>
-                  <a href="https://discord.gg/tomoegozen">
-                    discord.gg/tomoegozen
-                  </a>
+                  <a href={config.discord}>discord.gg/tomoegozen</a>
                 </p>
               </div>
             </div>

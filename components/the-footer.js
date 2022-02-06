@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import config from '../lib/config'
 
 export default function TheFooter() {
   return (
@@ -25,12 +26,12 @@ export default function TheFooter() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="https://discord.gg/tomoegozen">
+                    <Link href={config.discord}>
                       <a>Discord</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="https://twitter.com/NFTTomoeGozen">
+                    <Link href={config.twitter}>
                       <a>Twitter</a>
                     </Link>
                   </li>
