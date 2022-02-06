@@ -54,8 +54,8 @@ export default function ComingSoon() {
                     We are available please connect with us via
                   </span>
                   <span className="font-tomoe mt-4 mb-0 d-block">Twitter</span>
-                  <a href="https://twitter.com/TomoeGozenNFTs">
-                    twitter.com/TomoeGozenNFTs
+                  <a href="https://twitter.com/NFTTomoeGozen">
+                    twitter.com/NFTTomoeGozen
                   </a>
                   <span className="font-tomoe mt-4 mb-0 d-block">Discord</span>
                   <a href="https://discord.gg/tomoegozen">

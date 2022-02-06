@@ -25,12 +25,12 @@ export default function TheFooter() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="https://twitter.com/tomoegozenNFTs">
+                    <Link href="https://discord.gg/tomoegozen">
                       <a>Discord</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="https://twitter.com/tomoegozenNFTs">
+                    <Link href="https://twitter.com/NFTTomoeGozen">
                       <a>Twitter</a>
                     </Link>
                   </li>

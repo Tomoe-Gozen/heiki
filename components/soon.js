@@ -35,7 +35,7 @@ export default function Soon() {
                       <a>Discord</a>
                     </Link>{' '}
                     and our{' '}
-                    <Link href="https://twitter.com/tomoegozenNFTs">
+                    <Link href="https://twitter.com/NFTTomoeGozen">
                       <a>Twitter</a>
                     </Link>
                     .{' '}
