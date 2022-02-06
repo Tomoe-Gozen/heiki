@@ -16,7 +16,7 @@ export default function PrivacyPolicy() {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
-        <meta property="og:url" content="https://tomoegozen.io" />
+        <meta property="og:url" content="https://www.tomoegozen.io" />
         <meta property="og:site_name" content="Tomoe Gozen" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
