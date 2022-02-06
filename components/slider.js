@@ -3,6 +3,9 @@ import Image1 from '../public/images/bg/bg-image-1.jpg'
 import Image2 from '../public/images/bg/bg-image-2.jpg'
 import Image3 from '../public/images/bg/bg-image-3.jpg'
 import Image4 from '../public/images/bg/bg-image-4.jpg'
+import Image5 from '../public/images/bg/bg-image-5.jpg'
+import Image6 from '../public/images/bg/bg-image-6.jpg'
+import Image7 from '../public/images/bg/bg-image-7.jpg'
 
 export default function Slider() {
   const images = [
@@ -21,6 +24,18 @@ export default function Slider() {
     {
       id: '4465',
       src: Image4
+    },
+    {
+      id: '4465',
+      src: Image5
+    },
+    {
+      id: '4465',
+      src: Image6
+    },
+    {
+      id: '4465',
+      src: Image7
     }
   ]
 
