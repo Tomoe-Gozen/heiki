@@ -8,7 +8,7 @@ import { useWeb3 } from '@3rdweb/hooks'
 
 export default function TheHeader() {
   const [active, setActive] = useState(false)
-  const { address, connectWallet, disconnectWallet } = useWeb3()
+  const { address, connectWallet } = useWeb3()
 
   const toggleActive = () => {
     setActive(!active)
@@ -38,11 +38,6 @@ export default function TheHeader() {
             <div className="header-right mb-sm-0 mb-4">
               <div className="setting-option header-btn">
                 <div className="icon-box">
-                  {/* <Link href="/connect-wallet">
-                    <a className="btn btn-primary-alta btn-small">
-                      Connect Wallet
-                    </a>
-                  </Link> */}
                   {!address && (
                     <button
                       className="btn btn-primary-alta btn-small"
@@ -52,11 +47,8 @@ export default function TheHeader() {
                     </button>
                   )}
                   {address && (
-                    <button
-                      className="btn btn-primary-alta btn-small"
-                      onClick={() => disconnectWallet()}
-                    >
-                      Disconnect Wallet
+                    <button className="btn btn-primary-alta btn-small">
+                      Wallet Connected
                     </button>
                   )}
                 </div>
