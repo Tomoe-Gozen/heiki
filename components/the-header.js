@@ -10,6 +10,10 @@ export default function TheHeader() {
   const [active, setActive] = useState(false)
   const { address, connectWallet } = useWeb3()
 
+  const ellipsisString = (str) => {
+    return str.substr(0, 5) + '...' + str.substr(str.length - 5, str.length)
+  }
+
   const toggleActive = () => {
     setActive(!active)
   }
@@ -47,8 +51,11 @@ export default function TheHeader() {
                     </button>
                   )}
                   {address && (
-                    <button className="btn btn-primary-alta btn-small">
-                      Wallet Connected
+                    <button className="btn btn-success btn-small">
+                      Connected{' '}
+                      <span className="d-md-inline d-none">
+                        ({ellipsisString(address)})
+                      </span>
                     </button>
                   )}
                 </div>
