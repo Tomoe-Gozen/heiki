@@ -32,7 +32,11 @@ function MyApp({ Component, pageProps }) {
     if (path && path.includes('#')) {
       const id = path.replace('#', '')
       if (id) {
-        document.querySelector('#' + id).scrollIntoView({ behavior: 'smooth' })
+        setTimeout(() => {
+          document
+            .querySelector('#' + id)
+            .scrollIntoView({ behavior: 'smooth' })
+        }, 1000)
       }
     }
 
