@@ -19,6 +19,22 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const initTheme = () => import('../lib/theme').then((init) => init.default())
 
+  const handleAnchor = (timeOut = 0) => {
+    // scroll to anchor fix https://github.com/vercel/next.js/issues/11109#issuecomment-844443085
+    const path = window.location.hash
+    if (path && path.includes('#')) {
+      window.scrollTo(0, 0)
+      const id = path.replace('#', '')
+      if (id) {
+        setTimeout(() => {
+          document
+            .querySelector('#' + id)
+            .scrollIntoView({ behavior: 'smooth' })
+        }, timeOut)
+      }
+    }
+  }
+
   // 1 - ethereum MainNet, 3 - Ropsten, 1337 - localhost:8545
   const supportedChainIds = [1, 3, 1337]
 
@@ -29,23 +45,13 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     initTheme()
+    handleAnchor(1000)
+
     const handleRouteChange = (url) => {
       initTheme()
+      handleAnchor(100)
       if (process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS) {
         ga.pageview(url)
-      }
-    }
-
-    // scroll to anchor fix https://github.com/vercel/next.js/issues/11109#issuecomment-844443085
-    const path = window.location.hash
-    if (path && path.includes('#')) {
-      const id = path.replace('#', '')
-      if (id) {
-        setTimeout(() => {
-          document
-            .querySelector('#' + id)
-            .scrollIntoView({ behavior: 'smooth' })
-        }, 1000)
       }
     }
 
