@@ -18,25 +18,30 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const initTheme = () => import('../lib/theme').then((init) => init.default())
 
-  useEffect(() => {
-    initTheme()
-    const handleRouteChange = (url) => {
-      initTheme()
-      if (process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS) {
-        ga.pageview(url)
-      }
-    }
-
-    // scroll to anchor fix https://github.com/vercel/next.js/issues/11109#issuecomment-844443085
+  const handleAnchor = (timeOut = 0) => {
     const path = window.location.hash
     if (path && path.includes('#')) {
+      window.scrollTo(0, 0)
       const id = path.replace('#', '')
       if (id) {
         setTimeout(() => {
           document
             .querySelector('#' + id)
             .scrollIntoView({ behavior: 'smooth' })
-        }, 1000)
+        }, timeOut)
+      }
+    }
+  }
+
+  useEffect(() => {
+    initTheme()
+    handleAnchor(1000)
+
+    const handleRouteChange = (url) => {
+      initTheme()
+      handleAnchor(100)
+      if (process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS) {
+        ga.pageview(url)
       }
     }
 
