@@ -159,6 +159,13 @@
 .scroll-margin-top {
   scroll-margin-top: 2.95em;
 }
+
+/* .soon-container {
+  min-height: 75vh;
+} */
+.soon-container .bg_image {
+  min-height: 73vh;
+}
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .maintanence-area .inner .content p {
       margin-top: 150px;

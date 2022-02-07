@@ -3,9 +3,9 @@ import config from '../lib/config'
 
 export default function Soon() {
   return (
-    <div className="container-fluid about-fluidimg-cta">
+    <div className="container-fluid soon-container">
       <div className="row">
-        <div className="col-lg-12">
+        <div className="col-lg-12 p-0">
           <div
             className="banner_image--2 bg_image bg-image-border"
             data-black-overlay="7"
