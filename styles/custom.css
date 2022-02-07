@@ -48,9 +48,9 @@
   min-height: 400px;
 }
 
-.anchor {
+/* .anchor {
   scroll-margin-top: 7em;
-}
+} */
 
 .card-thumbnail {
   margin-bottom: 25px;
@@ -152,7 +152,13 @@
         transform: translateY(-50%);
         border-radius: 50%; }
 
+.anchor,.scroll-margin-top-xl {
+  scroll-margin-top: 10em;
+}
 
+.scroll-margin-top {
+  scroll-margin-top: 2.95em;
+}
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .maintanence-area .inner .content p {
       margin-top: 150px;

@@ -36,6 +36,15 @@ function MyApp({ Component, pageProps }) {
       }
     }
 
+    // scroll to anchor fix https://github.com/vercel/next.js/issues/11109#issuecomment-844443085
+    const path = window.location.hash
+    if (path && path.includes('#')) {
+      const id = path.replace('#', '')
+      if (id) {
+        document.querySelector('#' + id).scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+
     router.events.on('routeChangeComplete', handleRouteChange)
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange)

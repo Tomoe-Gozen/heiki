@@ -5054,7 +5054,7 @@ body {
 .rn-header.header--fixed.sticky {
   background-color: #212428;
   box-shadow: var(--shadow-1);
-  position: fixed;
+  position: sticky;
   top: 0; }
 
 .rn-header.header--fixed.sticky {
