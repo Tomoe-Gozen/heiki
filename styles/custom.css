@@ -153,11 +153,21 @@
         border-radius: 50%; }
 
 .anchor,.scroll-margin-top-xl {
-  scroll-margin-top: 10em;
+  scroll-margin-top: 14em;
 }
 
 .scroll-margin-top {
-  scroll-margin-top: 2.95em;
+  scroll-margin-top: 6.95em;
+}
+
+@media only screen and (min-width: 1400px) {
+  .anchor,.scroll-margin-top-xl {
+    scroll-margin-top: 10em;
+  }
+  
+  .scroll-margin-top {
+    scroll-margin-top: 2.95em;
+  }
 }
 
 /* .soon-container {
