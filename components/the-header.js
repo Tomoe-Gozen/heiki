@@ -61,15 +61,14 @@ export default function TheHeader() {
               </div>
               <div className="setting-option header-btn  d-none d-md-block">
                 <div className="icon-box">
-                  {!address && (
+                  {!address ? (
                     <button
                       className="btn btn-primary-alta btn-small"
                       onClick={() => connectWallet('injected')}
                     >
                       Connect Wallet
                     </button>
-                  )}
-                  {address && (
+                  ) : (
                     <button className="btn btn-success btn-small">
                       Connected{' '}
                       <span className="d-md-inline d-none">
