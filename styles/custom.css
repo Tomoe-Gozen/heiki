@@ -35,17 +35,20 @@
   line-height: 30px;
 }
 
+.header-right {
+  justify-content: end!important;
+  margin-right: 20px;
+  -webkit-box-pack: end; /* justify-content */
+  -webkit-box-align: end; /* align-items */
+}
 
 @media only screen and (min-width: 992px) {
   .logo-thumbnail {
     width: 200px!important;
   }
 }
-@media only screen and (max-width: 479px) {
-  .header-right {
-    justify-content: end!important;
-    margin-right: 20px;
-  }
+@media only screen and (min-width: 479px) {
+  
 }
 .logo-thumbnail {
   width: 120px;
