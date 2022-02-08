@@ -17,7 +17,7 @@ export default function MintForm() {
     try {
       const web3 = new Web3(provider.provider)
       const contract = await getContract(web3, TomoeGozenContract)
-      const mintResponse = await mint(contract, address, value)
+      const mintResponse = await mint(web3, contract, address, value)
       const mintProgress = await getTotalMintInfo(contract)
       setTotalMinted(mintProgress.totalMinted)
       setMaxSupply(mintProgress.maxSupply)
