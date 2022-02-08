@@ -1,29 +1,17 @@
 import { useWeb3 } from '@3rdweb/hooks'
 import { useEffect, useState } from 'react'
-import Noty from 'noty'
-import getContract from '../lib/getContract'
-import mint from '../lib/mint'
-import getTotalMintInfo from '../lib/getTotalMintInfo'
+import getContract from '../lib/web3/getContract'
+import mint from '../lib/web3/mint'
+import getTotalMintInfo from '../lib/web3/getTotalMintInfo'
 import Web3 from 'web3'
 import TomoeGozenContract from '../contracts/TomoeGozen.json'
 
 export default function MintForm() {
-  const {
-    address,
-    connectWallet,
-    chainId,
-    activeProvider,
-    connector,
-    provider
-  } = useWeb3()
+  const { address, provider } = useWeb3()
 
   const [value, setValue] = useState(1)
   const [totalMinted, setTotalMinted] = useState(0)
   const [maxSupply, setMaxSupply] = useState(0)
-
-  const clickConnectWallet = async () => {
-    await connectWallet('injected')
-  }
 
   const mintNft = async () => {
     try {
