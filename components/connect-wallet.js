@@ -1,5 +1,5 @@
 import { useWeb3 } from '@3rdweb/hooks'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import Noty from 'noty'
 
 export default function ConnectWallet() {
@@ -10,17 +10,19 @@ export default function ConnectWallet() {
     return str.substr(0, 5) + '...' + str.substr(str.length - 5, str.length)
   }
 
-  useEffect(() => {
-    const errorNotification = new Noty({
-      theme: 'mint',
-      text: 'Some notification text'
-    })
-    console.log('test')
+  const errorNotification = new Noty({
+    theme: 'mint',
+    text: 'Some notification text'
+  })
+
+  const displayErrorNotification = () => {
     if (chainId !== 3) {
-      /* errorNotification.show() */
+      errorNotification.show()
     }
-    return () => errorNotification.show()
-  }, [chainId])
+  }
+  useEffect(() => {
+    displayErrorNotification()
+  })
 
   const clickConnectWallet = async () => {
     await connectWallet('injected')
