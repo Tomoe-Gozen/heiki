@@ -23,7 +23,7 @@ export default function TheHeader() {
     <>
       <header className="rn-header haeder-default black-logo-version header--fixed header--sticky">
         <div className="container">
-          <div className="header-inner">
+          <div className="header-inner d-flex">
             <div className="header-left">
               <div className="logo-thumbnail logo-custom-css">
                 <Link href="/">
@@ -40,8 +40,8 @@ export default function TheHeader() {
                 </nav>
               </div>
             </div>
-            <div className="header-right mb-sm-0 mb-4">
-              <div className="setting-option rn-icon-list">
+            <div className="header-right">
+              <div className="setting-option rn-icon-list  d-none d-md-block">
                 <div className="icon-box">
                   <Link href={config.discord}>
                     <a target="_blank">
@@ -50,7 +50,7 @@ export default function TheHeader() {
                   </Link>
                 </div>
               </div>
-              <div className="setting-option rn-icon-list">
+              <div className="setting-option rn-icon-list  d-none d-md-block">
                 <div className="icon-box">
                   <Link href={config.twitter}>
                     <a target="_blank">
@@ -59,7 +59,7 @@ export default function TheHeader() {
                   </Link>
                 </div>
               </div>
-              <div className="setting-option header-btn">
+              <div className="setting-option header-btn  d-none d-md-block">
                 <div className="icon-box">
                   {!address && (
                     <button

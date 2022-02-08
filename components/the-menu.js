@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import config from '../lib/config'
 
 export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
   return (
@@ -28,6 +29,25 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
           <a onClick={isMobile && toggleActive}>Mint</a>
         </Link>
       </li>
+      {isMobile && (
+        <>
+          <li>
+            <Link href={config.twitter}>
+              <a onClick={isMobile && toggleActive}>Twitter</a>
+            </Link>
+          </li>
+          <li>
+            <Link href={config.discord}>
+              <a onClick={isMobile && toggleActive}>Discord</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/connect-wallet">
+              <a onClick={isMobile && toggleActive}>Connect Wallet</a>
+            </Link>
+          </li>
+        </>
+      )}
     </>
   )
 }
