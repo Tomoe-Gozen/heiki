@@ -4,16 +4,11 @@ import Link from 'next/link'
 import TheMenu from './the-menu'
 import logoLight from '../public/images/logo/logo-white.png'
 import TheMobileMenu from './the-mobile-menu'
-import { useWeb3 } from '@3rdweb/hooks'
 import config from '../lib/config'
+import ConnectWallet from './connect-wallet'
 
 export default function TheHeader() {
   const [active, setActive] = useState(false)
-  const { address, connectWallet } = useWeb3()
-
-  const ellipsisString = (str) => {
-    return str.substr(0, 5) + '...' + str.substr(str.length - 5, str.length)
-  }
 
   const toggleActive = () => {
     setActive(!active)
@@ -61,21 +56,7 @@ export default function TheHeader() {
               </div>
               <div className="setting-option header-btn  d-none d-md-block">
                 <div className="icon-box">
-                  {!address ? (
-                    <button
-                      className="btn btn-primary-alta btn-small"
-                      onClick={() => connectWallet('injected')}
-                    >
-                      Connect Wallet
-                    </button>
-                  ) : (
-                    <button className="btn btn-success btn-small">
-                      Connected{' '}
-                      <span className="d-md-inline d-none">
-                        ({ellipsisString(address)})
-                      </span>
-                    </button>
-                  )}
+                  <ConnectWallet />
                 </div>
               </div>
 

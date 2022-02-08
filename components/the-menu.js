@@ -1,73 +1,57 @@
 import Link from 'next/link'
 import config from '../lib/config'
-import { useWeb3 } from '@3rdweb/hooks'
+import ConnectWallet from './connect-wallet'
 
 export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
-  const { address, connectWallet } = useWeb3()
-
-  const ellipsisString = (str) => {
-    return str.substr(0, 5) + '...' + str.substr(str.length - 5, str.length)
-  }
-
-  const clickConnectWallet = () => {
+  const handleToggleActive = () => {
     if (isMobile) {
       toggleActive()
     }
-    connectWallet('injected')
   }
 
   return (
     <>
       <li>
         <Link href="/#about">
-          <a onClick={isMobile && toggleActive}>About</a>
+          <a onClick={handleToggleActive}>About</a>
         </Link>
       </li>
       <li>
         <Link href="/#roadmap">
-          <a onClick={isMobile && toggleActive}>Roadmap</a>
+          <a onClick={handleToggleActive}>Roadmap</a>
         </Link>
       </li>
       <li>
         <Link href="/#team">
-          <a onClick={isMobile && toggleActive}>Team</a>
+          <a onClick={handleToggleActive}>Team</a>
         </Link>
       </li>
       <li>
         <Link href="/#faq">
-          <a onClick={isMobile && toggleActive}>FAQ</a>
+          <a onClick={handleToggleActive}>FAQ</a>
         </Link>
       </li>
       <li>
         <Link href="/mint">
-          <a onClick={isMobile && toggleActive}>Mint</a>
+          <a onClick={handleToggleActive}>Mint</a>
         </Link>
       </li>
       {isMobile && (
         <>
           <li>
             <Link href={config.twitter}>
-              <a onClick={isMobile && toggleActive}>Twitter</a>
+              <a onClick={handleToggleActive}>Twitter</a>
             </Link>
           </li>
           <li>
             <Link href={config.discord}>
-              <a onClick={isMobile && toggleActive}>Discord</a>
+              <a onClick={handleToggleActive}>Discord</a>
             </Link>
           </li>
           <li>
-            {!address ? (
-              <button
-                className="btn btn-primary-alta btn-small mt-3"
-                onClick={clickConnectWallet}
-              >
-                Connect Wallet
-              </button>
-            ) : (
-              <button className="btn btn-success btn-small mt-3">
-                Connected ({ellipsisString(address)})
-              </button>
-            )}
+            <div className="text-center mt-3">
+              <ConnectWallet onClick={handleToggleActive} />
+            </div>
           </li>
         </>
       )}
