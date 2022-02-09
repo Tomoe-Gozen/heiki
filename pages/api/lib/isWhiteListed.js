@@ -1,6 +1,6 @@
 import keccak256 from 'keccak256'
 import MerkleTree from 'merkletreejs'
-import whitelist from './whitelist.json'
+import whitelist from '../data/whitelist.json'
 
 const isWhiteListed = async (address) => {
   const hashedAddresses = whitelist.map((addr) => keccak256(addr))

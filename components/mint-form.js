@@ -1,10 +1,10 @@
 import { useWeb3 } from '@3rdweb/hooks'
 import { useEffect, useState } from 'react'
-import getContract from '../lib/web3/getContract'
+import getContractObj from '../lib/web3/getContract'
 import mint from '../lib/web3/mint'
 import getTotalMintInfo from '../lib/web3/getTotalMintInfo'
 import Web3 from 'web3'
-import TomoeGozenContract from '../contracts/TomoeGozen.json'
+import TomoeGozenContract from '../pages/api/contracts/TomoeGozen.json'
 
 export default function MintForm() {
   const { address, provider } = useWeb3()
@@ -16,7 +16,7 @@ export default function MintForm() {
   const mintNft = async () => {
     try {
       const web3 = new Web3(provider.provider)
-      const contract = await getContract(web3, TomoeGozenContract)
+      const contract = await getContractObj(web3, TomoeGozenContract)
       const mintResponse = await mint(web3, contract, address, value)
       const mintProgress = await getTotalMintInfo(contract)
       setTotalMinted(mintProgress.totalMinted)
