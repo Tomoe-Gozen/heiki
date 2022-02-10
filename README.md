@@ -9,7 +9,8 @@ npm run dev
 # or
 yarn dev
 
-docker build -t tomoe .
+docker-compose up -d
+docker-compose run tomoe yarn upgrade
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

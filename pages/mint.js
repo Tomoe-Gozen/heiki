@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import Soon from '../components/soon'
 import WithTitleLayout from '../components/layouts/with-title'
+import MintForm from '../components/mint-form'
 
 export default function Mint() {
   const title = 'Tomoe Gozen NFT - Mint'
@@ -24,7 +24,7 @@ export default function Mint() {
         <meta name="twitter:site" content="@TomoeGozenNFTs" />
         <meta name="twitter:creator" content="@TomoeGozenNFTs" />
       </Head>
-      <Soon />
+      <MintForm />
     </>
   )
 }
