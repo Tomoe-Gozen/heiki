@@ -40,5 +40,5 @@ export default function PrivacyPolicy() {
 }
 
 PrivacyPolicy.getLayout = function getLayout(page) {
-  return <WithTitleLayout title="Terms">{page}</WithTitleLayout>
+  return <WithTitleLayout title="Privacy Policy">{page}</WithTitleLayout>
 }

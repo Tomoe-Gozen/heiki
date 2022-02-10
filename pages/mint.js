@@ -30,5 +30,5 @@ export default function Mint() {
 }
 
 Mint.getLayout = function getLayout(page) {
-  return <WithTitleLayout title="Soon">{page}</WithTitleLayout>
+  return <WithTitleLayout title="Mint">{page}</WithTitleLayout>
 }
