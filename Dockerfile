@@ -14,7 +14,5 @@ RUN yarn upgrade
 
 COPY . /usr/src/app
 
-RUN yarn build
-
 EXPOSE 3000
-CMD [ "yarn", "start" ]
+CMD [ "yarn", "dev" ]
