@@ -31,11 +31,6 @@ export default function Mint() {
           <div className="row">
             <div className="upload-variant-title-wrapper">
               <h3 className="title text-center">Mint a Tomoe Gozen</h3>
-              <p className="text-center">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Ducimus inventore, officiis. Alias aspernatur laboriosam
-                ratione! Doloremque ipsa nesciunt sed!
-              </p>
             </div>
           </div>
           <MintForm />
