@@ -38,12 +38,10 @@ const userHandler = async (req, res) => {
         if (whitelist.valid) {
           const balance = await contract.methods.balanceOf(address).call()
           if (balance >= parseInt(process.env.MINT_MAX_ALLOWED_WITHELIST, 10)) {
-            res
-              .status(409)
-              .json({
-                error:
-                  'You have reached the max allowed quantity for the whitelist'
-              })
+            res.status(409).json({
+              error:
+                'You have reached the max allowed quantity for the whitelist'
+            })
             return
           } else {
             const merkleRoot = await contract.methods.merkleRoot.call().call()
@@ -90,11 +88,11 @@ const userHandler = async (req, res) => {
         res.status(200).json(rawTransaction)
       }
       default:
-        res.status(500).json({ error: 'Someting went wrong' })
+        res.status(500).json({ error: 'Someting went wrong 1 ' })
         return
     }
   } catch (error) {
-    res.status(500).json({ error: 'Someting went wrong' })
+    res.status(500).json({ error: error.message })
     return
   }
 
