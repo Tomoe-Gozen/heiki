@@ -39,7 +39,7 @@ export default function ConnectWallet() {
   const clickConnectWallet = async () => {
     await connectWallet('injected')
 
-    if (chainId !== 3) {
+    if (chainId === 3) {
       new Noty({
         type: 'warning',
         text: 'You are connected with the Ropsten network',
