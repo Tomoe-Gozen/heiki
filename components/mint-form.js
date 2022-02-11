@@ -1,5 +1,4 @@
 import { useWeb3 } from '@3rdweb/hooks'
-import { useState } from 'react'
 import Image from 'next/image'
 import Image1 from '../public/images/mint/mint-1.jpg'
 import Image2 from '../public/images/mint/mint-2.jpg'
@@ -9,14 +8,12 @@ import Noty from 'noty'
 export default function MintForm() {
   const { address, provider } = useWeb3()
 
-  const [value, setValue] = useState(1)
-
-  const mintNft = async () => {
+  const mintNft = async (number) => {
     try {
       const web3 = new Web3(provider.provider)
       const res = await fetch('/api/mint', {
         body: JSON.stringify({
-          nMint: value,
+          nMint: number,
           address
         }),
         headers: {
@@ -49,8 +46,7 @@ export default function MintForm() {
   }
 
   const handleSubmit = async (number) => {
-    setValue(number)
-    await mintNft()
+    await mintNft(number)
   }
 
   return (
@@ -75,7 +71,7 @@ export default function MintForm() {
               <Image src={Image2} alt="" />
             </div>
             <button
-              onClick={() => handleSubmit(1)}
+              onClick={() => handleSubmit(2)}
               className="btn btn-primary mt--20"
             >
               Mint TWO
