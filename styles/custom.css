@@ -37,7 +37,8 @@
 
 .header-right {
   justify-content: end!important;
-  margin-right: 20px;
+  align-items: end !important;
+  margin-right: 30px;
   -webkit-box-pack: end; /* justify-content */
   -webkit-box-align: end; /* align-items */
 }
