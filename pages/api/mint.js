@@ -1,7 +1,7 @@
 import Web3 from 'web3'
 import getContractObj from './web3/getContract'
 import isWhiteListed from './lib/isWhiteListed'
-import TomoeGozenContract from './contracts/TomoeGozen.json'
+import TomoeGozenContract from './contracts/AlphaTest.json'
 
 const userHandler = async (req, res) => {
   try {
@@ -38,12 +38,10 @@ const userHandler = async (req, res) => {
         if (whitelist.valid) {
           const balance = await contract.methods.balanceOf(address).call()
           if (balance >= parseInt(process.env.MINT_MAX_ALLOWED_WITHELIST, 10)) {
-            res
-              .status(409)
-              .json({
-                error:
-                  'You have reached the max allowed quantity for the whitelist'
-              })
+            res.status(409).json({
+              error:
+                'You have reached the max allowed quantity for the whitelist'
+            })
             return
           } else {
             const merkleRoot = await contract.methods.merkleRoot.call().call()
