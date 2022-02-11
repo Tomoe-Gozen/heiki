@@ -1,8 +1,8 @@
 import { useWeb3 } from '@3rdweb/hooks'
 import { useState } from 'react'
 import Image from 'next/image'
-import Image1 from '../public/images/bg/bg-image-2.jpg'
-import Image2 from '../public/images/bg/bg-image-3.jpg'
+import Image1 from '../public/images/mint/mint-1.jpg'
+import Image2 from '../public/images/mint/mint-2.jpg'
 import Web3 from 'web3'
 import Noty from 'noty'
 
