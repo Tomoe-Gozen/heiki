@@ -1,5 +1,8 @@
 import { useWeb3 } from '@3rdweb/hooks'
 import { useState } from 'react'
+import Image from 'next/image'
+import Image1 from '../public/images/mint/mint-1.jpg'
+import Image2 from '../public/images/mint/mint-2.jpg'
 import Web3 from 'web3'
 import Noty from 'noty'
 
@@ -11,7 +14,7 @@ export default function MintForm() {
   const mintNft = async () => {
     try {
       const web3 = new Web3(provider.provider)
-      const res = await fetch('http://localhost:3000/api/mint', {
+      const res = await fetch('/api/mint', {
         body: JSON.stringify({
           nMint: value,
           address
@@ -45,25 +48,41 @@ export default function MintForm() {
     }
   }
 
-  const handleSubmit = async (event) => {
-    event.preventDefault()
+  const handleSubmit = async (number) => {
+    setValue(number)
     await mintNft()
   }
 
-  const handleChange = (event) => {
-    setValue(event.target.value)
-  }
-
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        How many do you want to mint:
-        <select value={value} onChange={handleChange}>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-        </select>
-      </label>
-      <input type="submit" value="Mint" />
-    </form>
+    <>
+      <div className="row g-5 justify-content-center mt-3">
+        <div className="col-lg-3 col-md-6 col-12">
+          <div className="upload-variant-wrapper">
+            <div className="variant-preview">
+              <Image src={Image1} alt="" />
+            </div>
+            <button
+              onClick={() => handleSubmit(1)}
+              className="btn btn-primary mt--20"
+            >
+              Mint ONE
+            </button>
+          </div>
+        </div>
+        <div className="col-lg-3 col-md-6 col-12">
+          <div className="upload-variant-wrapper">
+            <div className="variant-preview">
+              <Image src={Image2} alt="" />
+            </div>
+            <button
+              onClick={() => handleSubmit(1)}
+              className="btn btn-primary mt--20"
+            >
+              Mint TWO
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }

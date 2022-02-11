@@ -6,7 +6,6 @@ import logoLight from '../public/images/logo/logo-white.png'
 import TheMobileMenu from './the-mobile-menu'
 import config from '../lib/config'
 import ConnectWallet from './connect-wallet'
-import MintForm from './mint-form'
 
 export default function TheHeader() {
   const [active, setActive] = useState(false)
@@ -59,10 +58,6 @@ export default function TheHeader() {
                 <div className="icon-box">
                   <ConnectWallet />
                 </div>
-              </div>
-
-              <div className="setting-option header-btn  d-none d-md-block">
-                <MintForm />
               </div>
 
               <div className="setting-option mobile-menu-bar d-block d-xl-none">
