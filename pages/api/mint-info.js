@@ -1,5 +1,5 @@
 import Web3 from 'web3'
-import getContractObj from '../../lib/web3/getContract'
+import getContractObj from './web3/getContract'
 import TomoeGozenContract from './contracts/TomoeGozen.json'
 
 const userHandler = async (req, res) => {
