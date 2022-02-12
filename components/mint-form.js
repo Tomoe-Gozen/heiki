@@ -1,5 +1,6 @@
 import { useWeb3 } from '@3rdweb/hooks'
 import { useState } from 'react'
+import ConnectWallet from './connect-wallet'
 import Image from 'next/image'
 import Image1 from '../public/images/mint/mint-1.jpg'
 import Image2 from '../public/images/mint/mint-2.jpg'
@@ -98,7 +99,31 @@ export default function MintForm() {
         </div>
       )}
       {!address ? (
-        'You are not Connected (styling in progress)'
+        <div className="row g-5 justify-content-center mt-3">
+          <div
+            className="col-xxl-4 col-lg-6 col-md-4 col-12 col-sm-6 sal-animate"
+            data-sal="slide-up"
+            data-sal-delay="150"
+            data-sal-duration="800"
+          >
+            <div className="wallet-wrapper">
+              <div className="inner">
+                <div className="icon">
+                  <i data-feather="user-x"></i>
+                </div>
+                <div className="content">
+                  <h4 className="title">You are not connected</h4>
+                  <p className="description">
+                    You must be connected to MetaMask for minting a Tomoe Gozen.
+                  </p>
+                  <div className="pt--20 text-center">
+                    <ConnectWallet />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       ) : (
         <div className="row g-5 justify-content-center mt-3">
           <div className="col-lg-3 col-md-6 col-12">
