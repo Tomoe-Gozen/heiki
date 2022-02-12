@@ -80,7 +80,7 @@ export default function MintForm() {
     <>
       {disabled && (
         <div className="row justify-content-center">
-          <div className="col-md-6">
+          <div className="col-md-10">
             <div className="place-bet-area into-banner mt_md--30 mt_sm--30">
               <p
                 className="title mb--0 live-bidding-title sal-animate text-primary"
@@ -100,12 +100,7 @@ export default function MintForm() {
       )}
       {!address ? (
         <div className="row g-5 justify-content-center mt-3">
-          <div
-            className="col-xxl-4 col-lg-6 col-md-4 col-12 col-sm-6 sal-animate"
-            data-sal="slide-up"
-            data-sal-delay="150"
-            data-sal-duration="800"
-          >
+          <div className="col-xxl-5 col-lg-6 col-12 col-sm-6 sal-animate">
             <div className="wallet-wrapper">
               <div className="inner">
                 <div className="icon">
@@ -126,8 +121,12 @@ export default function MintForm() {
         </div>
       ) : (
         <div className="row g-5 justify-content-center mt-3">
-          <div className="col-lg-3 col-md-6 col-12">
-            <div className="upload-variant-wrapper">
+          <div className="col-lg-5 col-md-6 col-12">
+            <div
+              className="upload-variant-wrapper"
+              onClick={() => handleSubmit(1)}
+              style={{ cursor: 'pointer' }}
+            >
               <div className="variant-preview">
                 <Image src={Image1} alt="" />
               </div>
@@ -144,8 +143,12 @@ export default function MintForm() {
               </button>
             </div>
           </div>
-          <div className="col-lg-3 col-md-6 col-12">
-            <div className="upload-variant-wrapper">
+          <div className="col-lg-5 col-md-6 col-12">
+            <div
+              className="upload-variant-wrapper"
+              onClick={() => handleSubmit(1)}
+              style={{ cursor: 'pointer' }}
+            >
               <div className="variant-preview">
                 <Image src={Image2} alt="" />
               </div>

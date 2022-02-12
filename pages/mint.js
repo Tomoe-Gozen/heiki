@@ -25,38 +25,19 @@ export default function Mint() {
         <meta name="twitter:site" content="@TomoeGozenNFTs" />
         <meta name="twitter:creator" content="@TomoeGozenNFTs" />
       </Head>
-      <div className="rn-upload-variant-area varient rn-section-gap">
+      <div className="rn-upload-variant-area varient pb--200">
         <div className="container">
           <div className="row">
-            <div className="upload-variant-title-wrapper">
-              <MintInfo />
+            <div className="col-lg-8 col-12 mb-lg--0 mb--100 pt--120">
               <h3 className="title text-center">Mint a Tomoe Gozen</h3>
               <h4 className="text-center text-secondary">
                 Mint price <strong>0.08</strong>
               </h4>
+              <MintForm />
             </div>
-          </div>
-          <MintForm />
-        </div>
-      </div>
-      <div className="about-market-area rn-section-gap">
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <div className="about-wrapper text-center">
-                <h2>WHAT DOES IT MEAN TO MINT NFT?</h2>
-                <p className="discription pb--20">
-                  In simple terms, Minting NFT refers to the process of turning
-                  a digital file into a crypto collectible or digital asset on
-                  the Ethereum blockchain. The digital item or file is stored in
-                  this decentralized database or distributed ledger forever, and
-                  it is impossible to edit, modify, or delete it.
-                </p>
-                <p className="discription pb--20">
-                  Our Tomoe Gozen&apos;s NFTs are all <strong>unique</strong>!
-                  You can mint <strong>One</strong> or <strong>Two</strong>.
-                </p>
-              </div>
+            <div className="col-lg-4 col-12 pt--50">
+              <h3 className="title text-center">Mint informations</h3>
+              <MintInfo />
             </div>
           </div>
         </div>
