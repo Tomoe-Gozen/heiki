@@ -14,7 +14,6 @@ export default function MintForm() {
     one: false,
     two: false
   })
-  const [minting, setMinting] = useState(false)
 
   const setLoader = (isLoading, isOne = false) => {
     setDisabled(isLoading)
@@ -130,11 +129,7 @@ export default function MintForm() {
               <div className="variant-preview">
                 <Image src={Image1} alt="" />
               </div>
-              <button
-                onClick={() => handleSubmit(1)}
-                className="btn btn-primary mt--20"
-                disabled={disabled}
-              >
+              <button className="btn btn-primary mt--20" disabled={disabled}>
                 {loading.one ? (
                   <i className="fa fa-solid fa-circle-notch fa-spin"></i>
                 ) : (
@@ -146,14 +141,13 @@ export default function MintForm() {
           <div className="col-lg-5 col-md-6 col-12">
             <div
               className="upload-variant-wrapper"
-              onClick={() => handleSubmit(1)}
+              onClick={() => handleSubmit(2)}
               style={{ cursor: 'pointer' }}
             >
               <div className="variant-preview">
                 <Image src={Image2} alt="" />
               </div>
               <button
-                onClick={() => handleSubmit(2)}
                 className="btn btn-primary mt--20 btn-disabled"
                 disabled={disabled}
               >
