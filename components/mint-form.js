@@ -97,44 +97,48 @@ export default function MintForm() {
           </div>
         </div>
       )}
-      <div className="row g-5 justify-content-center mt-3">
-        <div className="col-lg-3 col-md-6 col-12">
-          <div className="upload-variant-wrapper">
-            <div className="variant-preview">
-              <Image src={Image1} alt="" />
+      {!address ? (
+        'You are not Connected (styling in progress)'
+      ) : (
+        <div className="row g-5 justify-content-center mt-3">
+          <div className="col-lg-3 col-md-6 col-12">
+            <div className="upload-variant-wrapper">
+              <div className="variant-preview">
+                <Image src={Image1} alt="" />
+              </div>
+              <button
+                onClick={() => handleSubmit(1)}
+                className="btn btn-primary mt--20"
+                disabled={disabled}
+              >
+                {loading.one ? (
+                  <i className="fa fa-solid fa-circle-notch fa-spin"></i>
+                ) : (
+                  'Mint ONE'
+                )}
+              </button>
             </div>
-            <button
-              onClick={() => handleSubmit(1)}
-              className="btn btn-primary mt--20"
-              disabled={disabled}
-            >
-              {loading.one ? (
-                <i className="fa fa-solid fa-circle-notch fa-spin"></i>
-              ) : (
-                'Mint ONE'
-              )}
-            </button>
+          </div>
+          <div className="col-lg-3 col-md-6 col-12">
+            <div className="upload-variant-wrapper">
+              <div className="variant-preview">
+                <Image src={Image2} alt="" />
+              </div>
+              <button
+                onClick={() => handleSubmit(2)}
+                className="btn btn-primary mt--20 btn-disabled"
+                disabled={disabled}
+              >
+                {loading.two ? (
+                  <i className="fa fa-solid fa-circle-notch fa-spin"></i>
+                ) : (
+                  'Mint TWO'
+                )}
+              </button>
+            </div>
           </div>
         </div>
-        <div className="col-lg-3 col-md-6 col-12">
-          <div className="upload-variant-wrapper">
-            <div className="variant-preview">
-              <Image src={Image2} alt="" />
-            </div>
-            <button
-              onClick={() => handleSubmit(2)}
-              className="btn btn-primary mt--20 btn-disabled"
-              disabled={disabled}
-            >
-              {loading.two ? (
-                <i className="fa fa-solid fa-circle-notch fa-spin"></i>
-              ) : (
-                'Mint TWO'
-              )}
-            </button>
-          </div>
-        </div>
-      </div>
+      )}
     </>
   )
 }
