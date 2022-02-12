@@ -4,10 +4,21 @@ import { useCallback, useEffect, useState } from 'react'
 
 export default function MintInfo() {
   const { address } = useWeb3()
-  const [totalSupply, setTotalSupply] = useState(0)
+  const [alreadyMinted, setAlreadyMinted] = useState(0)
   const [maxSupply, setMaxSupply] = useState(0)
-  const [nMint, setnMint] = useState(0)
+  const [nMinted, setnMinted] = useState(0)
+  const [saleFlag, setSaleFlag] = useState(0)
   const [loading, setLoading] = useState(true)
+
+  const displayMinted = () => {
+    if (saleFlag === 0) {
+      return
+    } else if (saleFlag === 1) {
+      return `${nMinted} / 2`
+    } else {
+      return nMinted
+    }
+  }
 
   useEffect(() => {
     const mintInfo = async () => {
@@ -25,10 +36,12 @@ export default function MintInfo() {
           })
 
           if (res.ok) {
-            const { totalSupply, maxSupply, nMint } = await res.json()
-            setTotalSupply(totalSupply)
+            const { alreadyMinted, maxSupply, nMinted, saleFlag } =
+              await res.json()
+            setAlreadyMinted(alreadyMinted)
             setMaxSupply(maxSupply)
-            setnMint(nMint)
+            setnMinted(nMinted)
+            setSaleFlag(saleFlag)
             setLoading(false)
           } else {
             const { error } = await res.json()
@@ -67,12 +80,13 @@ export default function MintInfo() {
       <div className="single-counter-up text-center mb--20">
         <div className="number">
           {!loading ? (
-            `${nMint} / 2`
+            displayMinted()
           ) : (
             <i className="fa fa-solid fa-circle-notch fa-spin"></i>
           )}
         </div>
         <div className="botton-title">You minted</div>
+        {!loading && saleFlag == 2 && '(5 per transactions)'}
       </div>
       <div className="single-counter-up text-center mt--20 mb--20">
         <div className="number">
@@ -87,7 +101,7 @@ export default function MintInfo() {
       <div className="single-counter-up text-center">
         <div className="number">
           {!loading ? (
-            totalSupply
+            alreadyMinted
           ) : (
             <i className="fa fa-solid fa-circle-notch fa-spin"></i>
           )}
