@@ -36,8 +36,8 @@ function MyApp({ Component, pageProps }) {
     }
   }
 
-  // 1 - ethereum MainNet, 3 - Ropsten, 1337 - localhost:8545
-  const supportedChainIds = [1, 3, 1337]
+  // 1 - ethereum MainNet, 3 - Ropsten, 4- Rinkeby, 1337 - localhost:8545
+  const supportedChainIds = [1, 3, 4, 1337]
 
   // injected - metamask
   const connectors = {
