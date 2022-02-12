@@ -86,13 +86,14 @@ const userHandler = async (req, res) => {
         }
         // await this.mintInfo();
         res.status(200).json(rawTransaction)
+        return
       }
       default:
-        res.status(500).json({ error: 'Someting went wrong 1 ' })
+        res.status(500).json({ error: 'Someting went wrong' })
         return
     }
   } catch (error) {
-    res.status(500).json({ error: error.message })
+    res.status(500).json({ error: 'Someting went wrong' })
     return
   }
 
