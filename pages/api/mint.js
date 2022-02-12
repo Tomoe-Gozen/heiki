@@ -3,7 +3,7 @@ import getContractObj from './web3/getContract'
 import isWhiteListed from './lib/isWhiteListed'
 import TomoeGozenContract from './contracts/AlphaTest.json'
 
-const userHandler = async (req, res) => {
+const mintHandler = async (req, res) => {
   try {
     if (req.method !== 'POST') {
       res.status(405).end('Only POST requests allowed')
@@ -100,4 +100,4 @@ const userHandler = async (req, res) => {
   // the rest of your code
 }
 
-export default userHandler
+export default mintHandler

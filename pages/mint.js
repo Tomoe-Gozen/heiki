@@ -1,8 +1,7 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import WithTitleLayout from '../components/layouts/with-title'
 import MintForm from '../components/mint-form'
-import Image1 from '../public/images/bg/bg-image-1.jpg'
+import MintInfo from '../components/mint-info'
 
 export default function Mint() {
   const title = 'Tomoe Gozen NFT - Mint'
@@ -30,6 +29,7 @@ export default function Mint() {
         <div className="container">
           <div className="row">
             <div className="upload-variant-title-wrapper">
+              <MintInfo />
               <h3 className="title text-center">Mint a Tomoe Gozen</h3>
               <h4 className="text-center text-secondary">
                 Mint price <strong>0.08</strong>
