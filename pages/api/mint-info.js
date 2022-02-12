@@ -13,11 +13,13 @@ const mintInfoHandler = async (req, res) => {
 
     const web3 = new Web3(process.env.INFURA_URL)
     const { contract } = await getContractObj(web3, TomoeGozenContract)
-    const totalSupply = await contract.methods.totalSupply().call()
+    const alreadyMinted = await contract.methods.totalSupply().call()
     const maxSupply = process.env.MAX_SUPPLY
-    const balance = await contract.methods.balanceOf(address).call()
+    const saleFlag = await contract.methods.saleFlag.call().call()
+    // 0 - Mint not started yet, 1- Whitelist sale, 2 - Public Sale
+    const nMinted = await contract.methods.balanceOf(address).call()
 
-    res.status(200).json({ totalSupply, maxSupply, balance })
+    res.status(200).json({ alreadyMinted, maxSupply, nMinted, saleFlag })
     return
   } catch (error) {
     res.status(500).json({ error: 'Someting went wrong' })
