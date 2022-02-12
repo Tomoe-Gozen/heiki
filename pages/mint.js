@@ -41,7 +41,6 @@ export default function Mint() {
             setMaxSupply(maxSupply)
             setnMinted(nMinted)
             setSaleFlag(parseInt(saleFlag))
-            setLoading(false)
           } else {
             const { error } = await res.json()
             new Noty({
@@ -50,7 +49,6 @@ export default function Mint() {
               layout: 'top',
               timeout: 3000
             }).show()
-            setLoading(false)
           }
         } catch (error) {
           new Noty({
@@ -59,12 +57,12 @@ export default function Mint() {
             layout: 'top',
             timeout: 3000
           }).show()
-          setLoading(false)
         }
       }
+      return
     }
 
-    mintInfo()
+    mintInfo().finally(setLoading(false))
     /* let interval = setInterval(() => {
       mintInfo()
     }, 30000)
@@ -90,7 +88,7 @@ export default function Mint() {
         <meta name="twitter:site" content="@TomoeGozenNFTs" />
         <meta name="twitter:creator" content="@TomoeGozenNFTs" />
       </Head>
-      <div className="rn-upload-variant-area varient pb--100">
+      <div className="rn-upload-variant-area varient pb--100 min-vh-100">
         <div className="container">
           <div className="row">
             <div className="col-lg-8 col-12 mb-lg--0 mb--100 pt--120">
@@ -100,7 +98,7 @@ export default function Mint() {
               </h4>
               {!loading ? (
                 saleFlag === 0 ? (
-                  'Presale'
+                  'Presale (displayCountDown)'
                 ) : (
                   <MintForm />
                 )
