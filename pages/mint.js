@@ -65,13 +65,13 @@ export default function Mint() {
     }
 
     mintInfo()
-    let interval = setInterval(() => {
+    /* let interval = setInterval(() => {
       mintInfo()
     }, 30000)
 
     return () => {
       clearInterval(interval)
-    }
+    } */
   }, [address])
 
   return (
