@@ -70,7 +70,13 @@ export default function ConnectWallet() {
       disabled={loading}
       onClick={clickConnectWallet}
     >
-      {!loading ? 'Connect Wallet' : 'Loading...'}
+      {!loading ? (
+        'Connect Wallet'
+      ) : (
+        <>
+          <i className="fa fa-solid fa-circle-notch fa-spin mr--10"></i> Loading
+        </>
+      )}
     </button>
   ) : (
     <button className="btn btn-success btn-small">

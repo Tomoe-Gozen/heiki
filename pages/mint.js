@@ -13,16 +13,16 @@ export default function Mint() {
   const image = '/images/og-image.png'
 
   const { address } = useWeb3()
-  const [alreadyMinted, setAlreadyMinted] = useState(0)
-  const [maxSupply, setMaxSupply] = useState(0)
-  const [nMinted, setnMinted] = useState(0)
+  const [alreadyMinted, setAlreadyMinted] = useState(null)
+  const [maxSupply, setMaxSupply] = useState(null)
+  const [nMinted, setnMinted] = useState(null)
   const [saleFlag, setSaleFlag] = useState(null)
   const [loading, setLoading] = useState(true)
 
   const disableLoading = () => {
     setTimeout(() => {
       setLoading(false)
-    }, 1000)
+    }, 1500)
   }
 
   useEffect(() => {
@@ -47,7 +47,7 @@ export default function Mint() {
             setMaxSupply(maxSupply)
             setnMinted(nMinted)
             setSaleFlag(parseInt(saleFlag))
-            disableLoading(false)
+            disableLoading()
           } else {
             const { error } = await res.json()
             new Noty({
@@ -56,7 +56,7 @@ export default function Mint() {
               layout: 'top',
               timeout: 3000
             }).show()
-            disableLoading(false)
+            disableLoading()
           }
         } catch (error) {
           new Noty({
@@ -65,10 +65,11 @@ export default function Mint() {
             layout: 'top',
             timeout: 3000
           }).show()
-          disableLoading(false)
+          disableLoading()
         }
+      } else {
+        disableLoading()
       }
-      disableLoading(false)
 
       return
     }
@@ -102,7 +103,11 @@ export default function Mint() {
       <div className="rn-upload-variant-area varient pb--100 min-vh-100">
         <div className="container">
           <div className="row">
-            <div className="col-lg-8 col-12 mb-lg--0 mb--100 pt--120">
+            <div
+              className={`${
+                !loading && address ? 'col-lg-8' : 'col-lg-12'
+              } col-12 mb-lg--0 mb--100 pt--120`}
+            >
               <h3 className="title text-center">Mint a Tomoe Gozen</h3>
               <h4 className="text-center text-secondary">
                 Mint price <strong>0.08</strong>
@@ -114,19 +119,24 @@ export default function Mint() {
                   <MintForm />
                 )
               ) : (
-                <h4 className="text-center mt--10">Loading...</h4>
+                <h4 className="text-center mt--10">
+                  <i className="fa fa-solid fa-circle-notch fa-spin mr--10"></i>{' '}
+                  Loading
+                </h4>
               )}
             </div>
-            <div className="col-lg-4 col-12 pt--50">
-              <h3 className="title text-center">Mint informations</h3>
-              <MintInfo
-                alreadyMinted={alreadyMinted}
-                saleFlag={saleFlag}
-                loading={loading}
-                maxSupply={maxSupply}
-                nMinted={nMinted}
-              />
-            </div>
+            {!loading && address && (
+              <div className="col-lg-4 col-12 pt--50">
+                <h3 className="title text-center">Mint informations</h3>
+                <MintInfo
+                  alreadyMinted={alreadyMinted}
+                  saleFlag={saleFlag}
+                  loading={loading}
+                  maxSupply={maxSupply}
+                  nMinted={nMinted}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
