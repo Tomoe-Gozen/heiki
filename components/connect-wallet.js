@@ -1,12 +1,19 @@
 import { useWeb3 } from '@3rdweb/hooks'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Noty from 'noty'
 
 export default function ConnectWallet() {
   const { address, connectWallet, chainId } = useWeb3()
+  const [loading, setLoading] = useState(true)
 
   const ellipsisString = (str) => {
     return str.substr(0, 5) + '...' + str.substr(str.length - 5, str.length)
+  }
+
+  const disableLoading = () => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000)
   }
 
   useEffect(() => {
@@ -34,15 +41,16 @@ export default function ConnectWallet() {
     } else if (wallet) {
       localStorage.removeItem('wallet')
     }
+    disableLoading()
   }, [address, chainId])
 
   const clickConnectWallet = async () => {
     await connectWallet('injected')
 
-    if (chainId === 3) {
+    if (chainId !== 1 && process.env.NEXT_PUBLIC_IS_PRODUCTION) {
       new Noty({
         type: 'warning',
-        text: 'You are connected with the Ropsten network',
+        text: 'You are not connected to the Ethereum Mainnet',
         layout: 'top',
         timeout: 3000
       }).show()
@@ -59,9 +67,10 @@ export default function ConnectWallet() {
   return !address ? (
     <button
       className="btn btn-primary-alta btn-small"
+      disabled={loading}
       onClick={clickConnectWallet}
     >
-      Connect Wallet
+      {!loading ? 'Connect Wallet' : 'Loading...'}
     </button>
   ) : (
     <button className="btn btn-success btn-small">

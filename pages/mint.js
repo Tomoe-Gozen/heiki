@@ -16,8 +16,14 @@ export default function Mint() {
   const [alreadyMinted, setAlreadyMinted] = useState(0)
   const [maxSupply, setMaxSupply] = useState(0)
   const [nMinted, setnMinted] = useState(0)
-  const [saleFlag, setSaleFlag] = useState(0)
+  const [saleFlag, setSaleFlag] = useState(null)
   const [loading, setLoading] = useState(true)
+
+  const disableLoading = () => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000)
+  }
 
   useEffect(() => {
     const mintInfo = async () => {
@@ -41,7 +47,7 @@ export default function Mint() {
             setMaxSupply(maxSupply)
             setnMinted(nMinted)
             setSaleFlag(parseInt(saleFlag))
-            setLoading(false)
+            disableLoading(false)
           } else {
             const { error } = await res.json()
             new Noty({
@@ -50,7 +56,7 @@ export default function Mint() {
               layout: 'top',
               timeout: 3000
             }).show()
-            setLoading(false)
+            disableLoading(false)
           }
         } catch (error) {
           new Noty({
@@ -59,10 +65,11 @@ export default function Mint() {
             layout: 'top',
             timeout: 3000
           }).show()
-          setLoading(false)
+          disableLoading(false)
         }
       }
-      setLoading(false)
+      disableLoading(false)
+
       return
     }
 
@@ -101,7 +108,7 @@ export default function Mint() {
                 Mint price <strong>0.08</strong>
               </h4>
               {!loading ? (
-                saleFlag === 0 ? (
+                address && saleFlag === 0 ? (
                   'Presale (displayCountDown)'
                 ) : (
                   <MintForm />

@@ -8,7 +8,7 @@ import Web3 from 'web3'
 import Noty from 'noty'
 
 export default function MintForm() {
-  const { address, provider } = useWeb3()
+  const { address, provider, chainId } = useWeb3()
   const [disabled, setDisabled] = useState(false)
   const [loading, setLoading] = useState({
     one: false,
@@ -71,8 +71,23 @@ export default function MintForm() {
     }
   }
 
+  const rightChainId = process.env.NEXT_PUBLIC_IS_PRODUCTION
+    ? chainId === 1
+    : chainId === 4
+
   const handleSubmit = async (number) => {
-    await mintNft(number)
+    if (rightChainId) {
+      await mintNft(number)
+    } else {
+      new Noty({
+        type: 'error',
+        text: process.env.NEXT_PUBLIC_IS_PRODUCTION
+          ? 'Your are on a test network, please switch to the mainnet.'
+          : 'Your are on the mainnet network, please switch to a the Rinkeby test network.',
+        layout: 'top',
+        timeout: 3000
+      }).show()
+    }
   }
 
   return (
