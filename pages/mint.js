@@ -41,6 +41,7 @@ export default function Mint() {
             setMaxSupply(maxSupply)
             setnMinted(nMinted)
             setSaleFlag(parseInt(saleFlag))
+            setLoading(false)
           } else {
             const { error } = await res.json()
             new Noty({
@@ -49,6 +50,7 @@ export default function Mint() {
               layout: 'top',
               timeout: 3000
             }).show()
+            setLoading(false)
           }
         } catch (error) {
           new Noty({
@@ -57,12 +59,14 @@ export default function Mint() {
             layout: 'top',
             timeout: 3000
           }).show()
+          setLoading(false)
         }
       }
+      setLoading(false)
       return
     }
 
-    mintInfo().finally(setLoading(false))
+    mintInfo()
     /* let interval = setInterval(() => {
       mintInfo()
     }, 30000)
