@@ -1,34 +1,58 @@
+import { useEffect, useState } from 'react'
+
 export default function PreSale() {
-  const countDown = () => {
-    // Set the date we're counting down to
-    var countDownDate = new Date('Jan 5, 2024 15:37:25').getTime()
+  const calculateTimeLeft = () => {
+    const difference =
+      +new Date(process.env.NEXT_PUBLIC_PRESALE_DATE) - +new Date()
+    let timeLeft = {}
 
-    // Update the count down every 1 second
-    var x = setInterval(function () {
-      // Get today's date and time
-      var now = new Date().getTime()
-
-      // Find the distance between now and the count down date
-      var distance = countDownDate - now
-
-      // Time calculations for days, hours, minutes and seconds
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24))
-      var hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      )
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000)
-
-      // Display the result in the element with id="demo"
-      document.getElementById('demo').innerHTML =
-        days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's '
-
-      // If the count down is finished, write some text
-      if (distance < 0) {
-        clearInterval(x)
-        document.getElementById('demo').innerHTML = 'EXPIRED'
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24))
+          .toString()
+          .padStart(2, '0'),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24)
+          .toString()
+          .padStart(2, '0'),
+        minutes: Math.floor((difference / 1000 / 60) % 60)
+          .toString()
+          .padStart(2, '0'),
+        seconds: Math.floor((difference / 1000) % 60)
+          .toString()
+          .padStart(2, '0')
       }
-    }, 1000)
+    }
+
+    return timeLeft
   }
-  return <div>Pre sale</div>
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
+
+  useEffect(() => {
+    setTimeout(() => {
+      setTimeLeft(calculateTimeLeft())
+      console.log(timeLeft)
+    }, 1000)
+  })
+
+  return (
+    <div className="countdown mt--50">
+      <div className="countdown-container days">
+        <span className="countdown-value">{timeLeft.days}</span>
+        <span className="countdown-heading">Days</span>
+      </div>
+      <div className="countdown-container hours">
+        <span className="countdown-value">{timeLeft.hours}</span>
+        <span className="countdown-heading">Hrs</span>
+      </div>
+      <div className="countdown-container minutes">
+        <span className="countdown-value">{timeLeft.minutes}</span>
+        <span className="countdown-heading">Mins</span>
+      </div>
+      <div className="countdown-container seconds">
+        <span className="countdown-value">{timeLeft.seconds}</span>
+        <span className="countdown-heading">Secs</span>
+      </div>
+    </div>
+  )
 }

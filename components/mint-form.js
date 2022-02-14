@@ -1,6 +1,5 @@
 import { useWeb3 } from '@3rdweb/hooks'
 import { useState } from 'react'
-import ConnectWallet from './connect-wallet'
 import Image from 'next/image'
 import Image1 from '../public/images/mint/mint-1.jpg'
 import Image2 from '../public/images/mint/mint-2.jpg'
@@ -47,7 +46,7 @@ export default function MintForm() {
           type: 'success',
           text: `You successfully minted your ${number} Tomoe Gozen!`,
           layout: 'top',
-          timeout: 3000
+          timeout: 5000
         }).show()
         setLoader(false, number === 1)
       } else {
@@ -56,7 +55,7 @@ export default function MintForm() {
           type: res.status >= 500 ? 'error' : 'warning',
           text: error,
           layout: 'top',
-          timeout: 3000
+          timeout: 5000
         }).show()
         setLoader(false, number === 1)
       }
@@ -65,7 +64,7 @@ export default function MintForm() {
         type: 'error',
         text: 'Your transaction has been cancel',
         layout: 'top',
-        timeout: 3000
+        timeout: 5000
       }).show()
       setLoader(false, number === 1)
     }
@@ -85,7 +84,7 @@ export default function MintForm() {
           ? 'Your are on a test network, please switch to the mainnet.'
           : 'Your are on the mainnet network, please switch to a the Rinkeby test network.',
         layout: 'top',
-        timeout: 3000
+        timeout: 5000
       }).show()
     }
   }
@@ -112,70 +111,48 @@ export default function MintForm() {
           </div>
         </div>
       )}
-      {!address ? (
-        <div className="row g-5 justify-content-center mt-3">
-          <div className="col-xxl-5 col-lg-6 col-12 col-sm-6 sal-animate">
-            <div className="wallet-wrapper">
-              <div className="inner">
-                <div className="icon">
-                  <i data-feather="user-x"></i>
-                </div>
-                <div className="content">
-                  <h4 className="title">You are not connected</h4>
-                  <p className="description">
-                    You must be connected to MetaMask for minting a Tomoe Gozen.
-                  </p>
-                  <div className="pt--20 text-center">
-                    <ConnectWallet />
-                  </div>
-                </div>
-              </div>
+
+      <div className="row g-5 justify-content-center mt-3">
+        <div className="col-lg-5 col-md-6 col-12">
+          <div
+            className="upload-variant-wrapper"
+            onClick={() => handleSubmit(1)}
+            style={{ cursor: 'pointer' }}
+          >
+            <div className="variant-preview">
+              <Image src={Image1} alt="" />
             </div>
+            <button className="btn btn-primary mt--20" disabled={disabled}>
+              {loading.one ? (
+                <i className="fa fa-solid fa-circle-notch fa-spin"></i>
+              ) : (
+                'Mint ONE'
+              )}
+            </button>
           </div>
         </div>
-      ) : (
-        <div className="row g-5 justify-content-center mt-3">
-          <div className="col-lg-5 col-md-6 col-12">
-            <div
-              className="upload-variant-wrapper"
-              onClick={() => handleSubmit(1)}
-              style={{ cursor: 'pointer' }}
-            >
-              <div className="variant-preview">
-                <Image src={Image1} alt="" />
-              </div>
-              <button className="btn btn-primary mt--20" disabled={disabled}>
-                {loading.one ? (
-                  <i className="fa fa-solid fa-circle-notch fa-spin"></i>
-                ) : (
-                  'Mint ONE'
-                )}
-              </button>
+        <div className="col-lg-5 col-md-6 col-12">
+          <div
+            className="upload-variant-wrapper"
+            onClick={() => handleSubmit(2)}
+            style={{ cursor: 'pointer' }}
+          >
+            <div className="variant-preview">
+              <Image src={Image2} alt="" />
             </div>
-          </div>
-          <div className="col-lg-5 col-md-6 col-12">
-            <div
-              className="upload-variant-wrapper"
-              onClick={() => handleSubmit(2)}
-              style={{ cursor: 'pointer' }}
+            <button
+              className="btn btn-primary mt--20 btn-disabled"
+              disabled={disabled}
             >
-              <div className="variant-preview">
-                <Image src={Image2} alt="" />
-              </div>
-              <button
-                className="btn btn-primary mt--20 btn-disabled"
-                disabled={disabled}
-              >
-                {loading.two ? (
-                  <i className="fa fa-solid fa-circle-notch fa-spin"></i>
-                ) : (
-                  'Mint TWO'
-                )}
-              </button>
-            </div>
+              {loading.two ? (
+                <i className="fa fa-solid fa-circle-notch fa-spin"></i>
+              ) : (
+                'Mint TWO'
+              )}
+            </button>
           </div>
         </div>
-      )}
+      </div>
     </>
   )
 }

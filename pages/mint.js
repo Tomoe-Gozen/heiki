@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import WithTitleLayout from '../components/layouts/with-title'
 import MintForm from '../components/mint-form'
+import ConnectWallet from '../components/connect-wallet'
 import MintInfo from '../components/mint-info'
+import PreSale from '../components/pre-sale'
 import { useWeb3 } from '@3rdweb/hooks'
 import Noty from 'noty'
 import { useEffect, useState } from 'react'
@@ -18,15 +20,15 @@ export default function Mint() {
   const [nMinted, setnMinted] = useState(null)
   const [saleFlag, setSaleFlag] = useState(null)
   const [loading, setLoading] = useState(true)
-
-  const disableLoading = () => {
-    setTimeout(() => {
-      setLoading(false)
-    }, 1500)
-  }
+  const [firstLoad, setFirstLoad] = useState(true)
 
   useEffect(() => {
+    setLoading(true)
     const mintInfo = async () => {
+      if (firstLoad) {
+        setFirstLoad(false)
+        return
+      }
       if (address) {
         try {
           const res = await fetch('/api/mint-info', {
@@ -46,43 +48,38 @@ export default function Mint() {
             setAlreadyMinted(alreadyMinted)
             setMaxSupply(maxSupply)
             setnMinted(nMinted)
-            setSaleFlag(parseInt(saleFlag))
-            disableLoading()
+            setSaleFlag(0)
+            setLoading(false)
           } else {
             const { error } = await res.json()
             new Noty({
               type: res.status >= 500 ? 'error' : 'warning',
               text: error,
               layout: 'top',
-              timeout: 3000
+              timeout: 5000
             }).show()
-            disableLoading()
           }
         } catch (error) {
           new Noty({
             type: 'error',
             text: error.message,
             layout: 'top',
-            timeout: 3000
+            timeout: 5000
           }).show()
-          disableLoading()
+          setLoading(false)
         }
       } else {
-        disableLoading()
+        setAlreadyMinted(null)
+        setMaxSupply(null)
+        setnMinted(null)
+        setSaleFlag(null)
+        setLoading(false)
       }
-
-      return
     }
-
-    mintInfo()
-    /* let interval = setInterval(() => {
+    setTimeout(() => {
       mintInfo()
-    }, 30000)
-
-    return () => {
-      clearInterval(interval)
-    } */
-  }, [address])
+    }, 1000)
+  }, [address, firstLoad])
 
   return (
     <>
@@ -105,27 +102,55 @@ export default function Mint() {
           <div className="row">
             <div
               className={`${
-                !loading && address ? 'col-lg-8' : 'col-lg-12'
+                address ? 'col-lg-8' : 'col-lg-12'
               } col-12 mb-lg--0 mb--100 pt--120`}
             >
-              <h3 className="title text-center">Mint a Tomoe Gozen</h3>
-              <h4 className="text-center text-secondary">
-                Mint price <strong>0.08</strong>
-              </h4>
-              {!loading ? (
-                address && saleFlag === 0 ? (
-                  'Presale (displayCountDown)'
-                ) : (
-                  <MintForm />
-                )
-              ) : (
+              {!loading && (
+                <>
+                  <h3 className="title text-center">
+                    {saleFlag === 0
+                      ? 'Tomoe Gozen PRESALE'
+                      : 'Mint a Tomoe Gozen'}
+                  </h3>
+                  <h4 className="text-center text-secondary">
+                    Mint price <strong>0.08</strong>
+                  </h4>
+                </>
+              )}
+
+              {loading && (
                 <h4 className="text-center mt--10">
                   <i className="fa fa-solid fa-circle-notch fa-spin mr--10"></i>{' '}
                   Loading
                 </h4>
               )}
+              {!loading && !address && (
+                <div className="row g-5 justify-content-center mt-3">
+                  <div className="col-xxl-5 col-lg-6 col-12 col-sm-6 sal-animate">
+                    <div className="wallet-wrapper">
+                      <div className="inner">
+                        <div className="icon">
+                          <i className="fa fa-user-lock custom-icon"></i>
+                        </div>
+                        <div className="content">
+                          <h4 className="title">You are not connected</h4>
+                          <p className="description">
+                            You must be connected to MetaMask for minting a
+                            Tomoe Gozen.
+                          </p>
+                          <div className="pt--20 text-center">
+                            <ConnectWallet withoutLoading={true} />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {!loading && address && saleFlag === 0 && <PreSale />}
+              {!loading && address && saleFlag > 0 && <MintForm />}
             </div>
-            {!loading && address && (
+            {address && (
               <div className="col-lg-4 col-12 pt--50">
                 <h3 className="title text-center">Mint informations</h3>
                 <MintInfo

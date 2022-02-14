@@ -190,6 +190,16 @@
 .soon-container .bg_image {
   min-height: 73vh;
 }
+.custom-icon {
+  font-size: 30pt;
+  height: auto;
+  color: var(--color-primary);
+  stroke-width: 1 !important;
+  transition: var(--transition);
+}
+.countdown .countdown-container .countdown-value {
+  font-size: 50pt;
+}
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .maintanence-area .inner .content p {
       margin-top: 150px;
