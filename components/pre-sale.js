@@ -31,7 +31,6 @@ export default function PreSale() {
   useEffect(() => {
     setTimeout(() => {
       setTimeLeft(calculateTimeLeft())
-      console.log(timeLeft)
     }, 1000)
   })
 
