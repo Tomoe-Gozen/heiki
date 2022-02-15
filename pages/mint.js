@@ -20,15 +20,10 @@ export default function Mint() {
   const [nMinted, setnMinted] = useState(null)
   const [saleFlag, setSaleFlag] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [firstLoad, setFirstLoad] = useState(true)
 
   useEffect(() => {
     setLoading(true)
     const mintInfo = async () => {
-      if (firstLoad) {
-        setFirstLoad(false)
-        return
-      }
       if (address) {
         try {
           const res = await fetch('/api/mint-info', {
@@ -76,11 +71,13 @@ export default function Mint() {
         setLoading(false)
       }
     }
-    mintInfo()
-    /* setTimeout(() => {
+
+    let timer = setTimeout(() => {
       mintInfo()
-    }, 500) */
-    /* eslint-disable react-hooks/exhaustive-deps */
+    }, 500)
+    return () => {
+      clearTimeout(timer)
+    }
   }, [address])
 
   return (

@@ -2,7 +2,7 @@ import { useWeb3 } from '@3rdweb/hooks'
 import { useEffect, useState } from 'react'
 
 export default function ConnectWallet({ withoutLoading = false }) {
-  const { address, connectWallet, chainId } = useWeb3()
+  const { address, connectWallet } = useWeb3()
   const [loading, setLoading] = useState(true)
   const [isWeb3, setIsWeb3] = useState(true)
 
@@ -11,20 +11,20 @@ export default function ConnectWallet({ withoutLoading = false }) {
   }
 
   useEffect(() => {
-    const disableLoading = () => {
-      setTimeout(
-        () => {
-          setLoading(false)
-        },
-        withoutLoading ? 0 : 1000
-      )
-    }
     window.addEventListener('load', function () {
       if (typeof web3 === 'undefined') {
         setIsWeb3(false)
       }
     })
-    disableLoading()
+    let timer = setTimeout(
+      () => {
+        setLoading(false)
+      },
+      withoutLoading ? 0 : 1000
+    )
+    return () => {
+      clearTimeout(timer)
+    }
   })
 
   const clickConnectWallet = async () => {
