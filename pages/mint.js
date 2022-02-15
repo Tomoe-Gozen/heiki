@@ -76,10 +76,12 @@ export default function Mint() {
         setLoading(false)
       }
     }
-    setTimeout(() => {
+    mintInfo()
+    /* setTimeout(() => {
       mintInfo()
-    }, 500)
-  }, [address, firstLoad])
+    }, 500) */
+    /* eslint-disable react-hooks/exhaustive-deps */
+  }, [address])
 
   return (
     <>
