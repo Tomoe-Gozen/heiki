@@ -78,7 +78,7 @@ export default function Mint() {
     }
     setTimeout(() => {
       mintInfo()
-    }, 1000)
+    }, 500)
   }, [address, firstLoad])
 
   return (

@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react'
 
 export default function PreSale() {
   const calculateTimeLeft = () => {
-    const difference =
-      +new Date(process.env.NEXT_PUBLIC_PRESALE_DATE) - +new Date()
+    const difference = +new Date('February 28, 2022 15:00:00') - +new Date()
     let timeLeft = {}
 
     if (difference > 0) {
