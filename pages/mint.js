@@ -48,7 +48,7 @@ export default function Mint() {
             setAlreadyMinted(alreadyMinted)
             setMaxSupply(maxSupply)
             setnMinted(nMinted)
-            setSaleFlag(0)
+            setSaleFlag(saleFlag)
             setLoading(false)
           } else {
             const { error } = await res.json()
