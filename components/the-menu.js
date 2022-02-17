@@ -12,11 +12,11 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
   return (
     <>
       <li>
-        <Link href="/#about">
-          <a onClick={handleToggleActive}>About</a>
+        <Link href="/">
+          <a onClick={handleToggleActive}>Home</a>
         </Link>
       </li>
-      <li>
+      {/* <li>
         <Link href="/#roadmap">
           <a onClick={handleToggleActive}>Roadmap</a>
         </Link>
@@ -29,6 +29,11 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
       <li>
         <Link href="/#faq">
           <a onClick={handleToggleActive}>FAQ</a>
+        </Link>
+      </li> */}
+      <li>
+        <Link href="/gallery">
+          <a onClick={handleToggleActive}>Gallery</a>
         </Link>
       </li>
       <li>
