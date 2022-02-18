@@ -93,6 +93,7 @@ function MyApp({ Component, pageProps }) {
 MyApp.getInitialProps = async (appContext) => {
   // calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext)
+  appProps.pageProps.isWhitelist = true
   appProps.pageProps.isWhitelist = await isWhitelisted()
   return { ...appProps }
 }
