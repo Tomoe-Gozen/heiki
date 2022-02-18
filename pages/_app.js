@@ -48,7 +48,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     isWhitelisted().then((ok) => {
       if (!ok) {
-        return window.location.replace('http://www.w3schools.com')
+        return window.location.replace('https://www.tomoegozen.io')
       }
     })
 
