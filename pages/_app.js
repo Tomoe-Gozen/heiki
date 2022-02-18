@@ -12,7 +12,6 @@ import Script from 'next/script'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { ThirdwebWeb3Provider } from '@3rdweb/hooks'
-import App from 'next/app'
 
 import * as ga from '../lib/ga'
 import isWhitelisted from '../lib/ip-whitelists'
@@ -20,9 +19,6 @@ import isWhitelisted from '../lib/ip-whitelists'
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page)
   const router = useRouter()
-  if (!pageProps.isWhitelist) {
-    window.location.replace('https://www.tomoegozen.io')
-  }
   const initTheme = () => import('../lib/theme').then((init) => init.default())
 
   const handleAnchor = (timeOut = 0) => {
@@ -50,6 +46,12 @@ function MyApp({ Component, pageProps }) {
   }
 
   useEffect(() => {
+    isWhitelisted().then((ok) => {
+      if (!ok) {
+        return window.location.replace('https://www.tomoegozen.io')
+      }
+    })
+
     initTheme()
     handleAnchor(1000)
 
@@ -65,7 +67,7 @@ function MyApp({ Component, pageProps }) {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
-  }, [router.events])
+  }, [router.events, pageProps])
 
   return (
     <>
@@ -88,13 +90,6 @@ function MyApp({ Component, pageProps }) {
       </ThirdwebWeb3Provider>
     </>
   )
-}
-MyApp.getInitialProps = async (appContext) => {
-  // calls page's `getInitialProps` and fills `appProps.pageProps`
-  const appProps = await App.getInitialProps(appContext)
-  appProps.pageProps.isWhitelist = true
-  appProps.pageProps.isWhitelist = await isWhitelisted()
-  return { ...appProps }
 }
 
 export default MyApp
