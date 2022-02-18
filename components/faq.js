@@ -62,6 +62,27 @@ export default function Faq() {
       <div className="container">
         <div className="row g-6">
           <div className="col-lg-6">
+            <div className="support-accordion">
+              <div className="accordion">
+                {faqs.map((f) => (
+                  <Disclosure key={f.id} defaultOpen={f.defaultOpen ?? false}>
+                    <div className="accordion-item">
+                      <h2 className="accordion-header">
+                        <Disclosure.Button className="accordion-button">
+                          {f.question}
+                          <i className="feather-chevron-up"></i>
+                        </Disclosure.Button>
+                      </h2>
+                      <Disclosure.Panel as="div" className="accordion-collapse">
+                        <div className="accordion-body">{f.answer}</div>
+                      </Disclosure.Panel>
+                    </div>
+                  </Disclosure>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-6">
             <div className="rn-support-read">
               <div className="read-card">
                 <h4>What is NFT?</h4>
@@ -105,27 +126,6 @@ export default function Faq() {
               <Link href="/mint">
                 <a className="btn btn-primary mr--15">Start minting</a>
               </Link>
-            </div>
-          </div>
-          <div className="col-lg-6">
-            <div className="support-accordion">
-              <div className="accordion">
-                {faqs.map((f) => (
-                  <Disclosure key={f.id} defaultOpen={f.defaultOpen ?? false}>
-                    <div className="accordion-item">
-                      <h2 className="accordion-header">
-                        <Disclosure.Button className="accordion-button">
-                          {f.question}
-                          <i className="feather-chevron-up"></i>
-                        </Disclosure.Button>
-                      </h2>
-                      <Disclosure.Panel as="div" className="accordion-collapse">
-                        <div className="accordion-body">{f.answer}</div>
-                      </Disclosure.Panel>
-                    </div>
-                  </Disclosure>
-                ))}
-              </div>
             </div>
           </div>
         </div>
