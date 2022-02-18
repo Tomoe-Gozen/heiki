@@ -11,10 +11,33 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
 
   return (
     <>
-      <li>
+      <li className="has-droupdown has-menu-child-item">
         <Link href="/">
           <a onClick={handleToggleActive}>Home</a>
         </Link>
+        <ul className="submenu">
+          <li>
+            <Link href="/#roadmap">
+              <a onClick={handleToggleActive}>
+                Roadmap <i className="feather-home"></i>
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/#team">
+              <a onClick={handleToggleActive}>
+                Team <i className="feather-home"></i>
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/#faq">
+              <a onClick={handleToggleActive}>
+                FAQ <i className="feather-home"></i>
+              </a>
+            </Link>
+          </li>
+        </ul>
       </li>
       {/* <li>
         <Link href="/#roadmap">
