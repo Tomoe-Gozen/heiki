@@ -14,6 +14,7 @@ import { useRouter } from 'next/router'
 import { ThirdwebWeb3Provider } from '@3rdweb/hooks'
 
 import * as ga from '../lib/ga'
+import isWhitelisted from '../lib/ip-whitelists'
 
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page)
@@ -45,6 +46,12 @@ function MyApp({ Component, pageProps }) {
   }
 
   useEffect(() => {
+    isWhitelisted().then((ok) => {
+      if (!ok) {
+        return window.location.replace('http://www.w3schools.com')
+      }
+    })
+
     initTheme()
     handleAnchor(1000)
 
@@ -60,7 +67,7 @@ function MyApp({ Component, pageProps }) {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
-  }, [router.events])
+  }, [router.events, pageProps])
 
   return (
     <>
