@@ -128,7 +128,7 @@ export default function Gallery() {
       </Head>
       <div className="p-3">
         <div className="row">
-          <div className="col-md-3 d-none d-md-block">
+          <div className="col-md-3 d-none d-lg-block">
             <div className="tab-wrapper-one">
               {attributes.map((a, index) => (
                 <div key={index}>
