@@ -20,7 +20,9 @@ import isWhitelisted from '../lib/ip-whitelists'
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page)
   const router = useRouter()
-
+  if (!pageProps.isWhitelist) {
+    window.location.replace('https://www.tomoegozen.io')
+  }
   const initTheme = () => import('../lib/theme').then((init) => init.default())
 
   const handleAnchor = (timeOut = 0) => {
@@ -48,9 +50,6 @@ function MyApp({ Component, pageProps }) {
   }
 
   useEffect(() => {
-    if (!pageProps.isWhitelist) {
-      return window.location.replace('https://www.tomoegozen.io')
-    }
     initTheme()
     handleAnchor(1000)
 
@@ -66,7 +65,7 @@ function MyApp({ Component, pageProps }) {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
-  }, [router.events, pageProps])
+  }, [router.events])
 
   return (
     <>
