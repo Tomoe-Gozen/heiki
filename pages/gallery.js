@@ -2,18 +2,17 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import WithTitleLayout from '../components/layouts/with-title'
 import NftCard from '../components/NftCard'
-import metadata from '../public/_metadata.json'
 
-export default function Gallery() {
+export default function Gallery(props) {
   const title = 'Tomoe Gozen NFT - Gallery'
   const description =
     '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Tomoe Gozen.'
   const image = '/images/og-image.png'
 
-  const [attributes, setAttributes] = useState([])
-  const [data, setData] = useState([])
+  const [attributes, setAttributes] = useState(props.attributes)
+  const [nfts, setNfts] = useState(props.nfts)
 
-  const selectAttribute = (attributeName, valueName) => {
+  const selectAttribute = async (attributeName, valueName) => {
     setAttributes((attributes) => {
       return attributes.map((a) => {
         if (a.name === attributeName) {
@@ -37,111 +36,10 @@ export default function Gallery() {
     })
   }
 
-  const filterData = () => {
-    if (attributes) {
-      setData(() => {
-        let newData = []
-        metadata.forEach((d) => {
-          let displayAll = true
-          attributes.forEach((attribute) => {
-            if (attribute.values.find((element) => element.isActive)) {
-              displayAll = false
-            }
-          })
-          if (displayAll) {
-            newData.push(d)
-          } else {
-            let isDeleted = false
-            d.attributes.forEach((attribute) => {
-              const findAttribute = attributes.find(
-                (element) => element.name === attribute.trait_type
-              )
-              if (findAttribute) {
-                const findValues = findAttribute.values.filter(
-                  (element) => element.isActive
-                )
-                findValues.forEach((value) => {
-                  if (!isDeleted) {
-                    let existingData = newData.length
-                      ? newData.findIndex(
-                          (element) => element?.edition === d.edition
-                        )
-                      : -1
-                    if (value.name === attribute.value && existingData === -1) {
-                      newData.push(d)
-                    }
-                  }
-                  let existingData2 = newData.length
-                    ? newData.findIndex(
-                        (element) => element?.edition === d.edition
-                      )
-                    : -1
-                  if (value.name !== attribute.value) {
-                    if (existingData2 !== -1) {
-                      delete newData[existingData2]
-                    }
-                    isDeleted = true
-                  }
-                })
-              }
-            })
-          }
-        })
-        return paginate(newData, pageSize, 1)
-      })
-    }
-  }
-
-  const setAttributesValues = (mdata) => {
-    let names = []
-    metadata.forEach((m) => {
-      const name = m.attributes.find(
-        (element) => element.trait_type === mdata.trait_type
-      )
-      if (name && name.value) {
-        const check = names.find((n) => n.name === name.value)
-
-        if (!check) {
-          names.push({
-            name: name.value,
-            count: 1
-          })
-        } else {
-          check.count += 1
-        }
-      }
-    })
-
-    const array = names.map((n) => {
-      return {
-        name: n.name,
-        count: n.count,
-        isActive: false
-      }
-    })
-
-    return array.sort((a, b) => {
-      // Compare the 2 dates
-      if (a.count > b.count) return -1
-      if (a.count < b.count) return 1
-      return 0
-    })
-  }
-
   useEffect(() => {
-    setAttributes(
-      metadata[0].attributes.map((m) => {
-        return {
-          name: m.trait_type,
-          values: setAttributesValues(m)
-        }
-      })
-    )
-  }, [setAttributes])
-
-  useEffect(() => {
-    filterData()
-  }, [attributes])
+    setAttributes(props.attributes)
+    setNfts(props.nfts)
+  }, [props.attributes, props.nfts])
 
   return (
     <>
@@ -187,11 +85,11 @@ export default function Gallery() {
           <div className="col-md-9 text-center">
             <h6 className="mt--10 mb--10 title">Collection</h6>
             <div className="row">
-              {data.map((d, index) => (
+              {nfts.map((n, index) => (
                 <div key={index} className="col-md-3 mb--20">
                   <NftCard
-                    name={`#${d.edition}`}
-                    image={`https://tomoegozen.ams3.cdn.digitaloceanspaces.com/${d.edition}.png`}
+                    name={`#${n.edition}`}
+                    image={`https://tomoegozen.ams3.cdn.digitaloceanspaces.com/${n.edition}.png`}
                   />
                 </div>
               ))}
@@ -201,6 +99,19 @@ export default function Gallery() {
       </div>
     </>
   )
+}
+
+export async function getServerSideProps({ req }) {
+  const protocol = req.headers['x-forwarded-proto'] || 'http'
+  const baseUrl = req ? `${protocol}://${req.headers.host}` : ''
+
+  const resAttributes = await fetch(`${baseUrl}/api/attributes`)
+  const attributes = await resAttributes.json()
+
+  const resNfts = await fetch(`${baseUrl}/api/nfts`)
+  const nfts = await resNfts.json()
+
+  return { props: { attributes, nfts, baseUrl } }
 }
 
 Gallery.getLayout = function getLayout(page) {
