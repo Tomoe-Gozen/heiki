@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import WithTitleLayout from '../components/layouts/with-title'
-import NftCard from '../components/NftCard'
+import NftCard from '../components/nft-card'
 
 export default function Gallery(props) {
   const title = 'Tomoe Gozen NFT - Gallery'
@@ -13,33 +13,22 @@ export default function Gallery(props) {
   const [nfts, setNfts] = useState(props.nfts)
 
   const selectAttribute = async (attributeName, valueName) => {
-    setAttributes((attributes) => {
-      return attributes.map((a) => {
-        if (a.name === attributeName) {
-          return {
-            ...a,
-            values: a.values.map((v) => {
-              if (v.name === valueName) {
-                return {
-                  ...v,
-                  isActive: !v.isActive
-                }
-              } else {
-                return v
-              }
-            })
-          }
-        } else {
-          return a
-        }
-      })
-    })
+    // go to api
+    setAttributes(data)
+  }
+
+  const fetchNfts = async () => {
+    // go to api ==> pass atributes in post
+    setNfts(data)
   }
 
   useEffect(() => {
     setAttributes(props.attributes)
-    setNfts(props.nfts)
-  }, [props.attributes, props.nfts])
+  }, [props.attributes])
+
+  useEffect(() => {
+    fetchNfts()
+  }, [attributes])
 
   return (
     <>
