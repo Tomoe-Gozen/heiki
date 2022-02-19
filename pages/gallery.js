@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import WithTitleLayout from '../components/layouts/with-title'
+import NftCard from '../components/NftCard'
 import metadata from '../public/_metadata.json'
 
 export default function Gallery() {
@@ -9,10 +10,8 @@ export default function Gallery() {
     '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Tomoe Gozen.'
   const image = '/images/og-image.png'
 
-  // metadata = metadata.slice(0, 12)
-
   const [attributes, setAttributes] = useState([])
-  const [data, setData] = useState(metadata)
+  const [data, setData] = useState([])
 
   const selectAttribute = (attributeName, valueName) => {
     setAttributes((attributes) => {
@@ -36,38 +35,61 @@ export default function Gallery() {
         }
       })
     })
-    filterData()
   }
 
   const filterData = () => {
-    // console.log(data)
-    // console.log(attributes)
-    // setData(data => {
-    //   return data.filter((d) => {
-    //     d.attributes.forEach((a) => {
-    //       if (a.trait_type === a)
-    //     })
-    //     if (d.attribute)
-    //     const findAttribute = attributes.find(a => a.name === )
-    //     if (a.name === attributeName) {
-    //       return {
-    //         name: a.name,
-    //         values: a.values.map((v) => {
-    //           if (v.name === valueName) {
-    //             return {
-    //               name: v.name,
-    //               isActive: !v.isActive
-    //             }
-    //           } else {
-    //             return v
-    //           }
-    //         })
-    //       }
-    //     } else {
-    //       return a
-    //     }
-    //   })
-    // })
+    if (attributes) {
+      setData(() => {
+        let newData = []
+        metadata.forEach((d) => {
+          let displayAll = true
+          attributes.forEach((attribute) => {
+            if (attribute.values.find((element) => element.isActive)) {
+              displayAll = false
+            }
+          })
+          if (displayAll) {
+            newData.push(d)
+          } else {
+            let isDeleted = false
+            d.attributes.forEach((attribute) => {
+              const findAttribute = attributes.find(
+                (element) => element.name === attribute.trait_type
+              )
+              if (findAttribute) {
+                const findValues = findAttribute.values.filter(
+                  (element) => element.isActive
+                )
+                findValues.forEach((value) => {
+                  if (!isDeleted) {
+                    let existingData = newData.length
+                      ? newData.findIndex(
+                          (element) => element?.edition === d.edition
+                        )
+                      : -1
+                    if (value.name === attribute.value && existingData === -1) {
+                      newData.push(d)
+                    }
+                  }
+                  let existingData2 = newData.length
+                    ? newData.findIndex(
+                        (element) => element?.edition === d.edition
+                      )
+                    : -1
+                  if (value.name !== attribute.value) {
+                    if (existingData2 !== -1) {
+                      delete newData[existingData2]
+                    }
+                    isDeleted = true
+                  }
+                })
+              }
+            })
+          }
+        })
+        return paginate(newData, pageSize, 1)
+      })
+    }
   }
 
   const setAttributesValues = (mdata) => {
@@ -90,12 +112,19 @@ export default function Gallery() {
       }
     })
 
-    return names.map((n) => {
+    const array = names.map((n) => {
       return {
         name: n.name,
         count: n.count,
         isActive: false
       }
+    })
+
+    return array.sort((a, b) => {
+      // Compare the 2 dates
+      if (a.count > b.count) return -1
+      if (a.count < b.count) return 1
+      return 0
     })
   }
 
@@ -109,6 +138,10 @@ export default function Gallery() {
       })
     )
   }, [setAttributes])
+
+  useEffect(() => {
+    filterData()
+  }, [attributes])
 
   return (
     <>
@@ -152,14 +185,17 @@ export default function Gallery() {
             </div>
           </div>
           <div className="col-md-9 text-center">
-            <i>TODO: List of NFTs with Images and pagination</i>
-            {/* {data.map((d, index) => (
-              <ul key={index}>
-                <li>
-                  {d.name}
-                </li>
-              </ul>
-            ))} */}
+            <h6 className="mt--10 mb--10 title">Collection</h6>
+            <div className="row">
+              {data.map((d, index) => (
+                <div key={index} className="col-md-3 mb--20">
+                  <NftCard
+                    name={`#${d.edition}`}
+                    image={`https://tomoegozen.ams3.cdn.digitaloceanspaces.com/${d.edition}.png`}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

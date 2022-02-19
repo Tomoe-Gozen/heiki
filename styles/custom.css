@@ -24,6 +24,10 @@
   font-size: 72pt;
 }
 
+.text-xs {
+  font-size: 20pt!important;
+}
+
 .text-lg {
   font-size: 30pt;
 }
@@ -200,6 +204,8 @@
 .countdown .countdown-container .countdown-value {
   font-size: 50pt;
 }
+
+
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .maintanence-area .inner .content p {
       margin-top: 150px;
