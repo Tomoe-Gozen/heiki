@@ -6,7 +6,7 @@ const setAttributesValues = (mdata) => {
     const name = m.attributes.find(
       (element) => element.trait_type === mdata.trait_type
     )
-    if (name && name.value) {
+    if (name?.value) {
       const check = names.find((n) => n.name === name.value)
 
       if (!check) {
@@ -24,7 +24,7 @@ const setAttributesValues = (mdata) => {
     return {
       name: n.name,
       count: n.count,
-      isActive: false
+      isActive: mdata.isActive ? true : false
     }
   })
 
@@ -36,10 +36,11 @@ const setAttributesValues = (mdata) => {
 }
 
 export default function handler(req, res) {
-  if (req.method !== 'GET') {
-    res.status(405).end('Only GET requests allowed')
+  if (req.method !== 'POST') {
+    res.status(405).end('Only POST requests allowed')
     return
   }
+  const body = req.body ? JSON.parse(req.body) : null
 
   let data = metadata[0].attributes.map((m) => {
     return {
@@ -48,19 +49,17 @@ export default function handler(req, res) {
     }
   })
 
-  if (req.params.attribute && req.params.value) {
-    data.map((a) => {
+  if (req.query?.attribute && req.query?.value) {
+    const attributeName = req.query.attribute
+    const valueName = req.query.value
+    data = body.attributes.map((a) => {
       if (a.name === attributeName) {
         return {
           ...a,
           values: a.values.map((v) => {
-            if (v.name === valueName) {
-              return {
-                ...v,
-                isActive: !v.isActive
-              }
-            } else {
-              return v
+            return {
+              ...v,
+              isActive: v.name === valueName ? !v.isActive : v.isActive
             }
           })
         }

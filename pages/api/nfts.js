@@ -1,9 +1,18 @@
-const pageSize = 10
+import metadata from '../../public/_metadata.json'
+
+const pageSize = 84
 const paginate = (array, page_size, page_number) => {
   return array.slice((page_number - 1) * page_size, page_number * page_size)
 }
 
 export default function handler(req, res) {
+  if (req.method !== 'POST') {
+    res.status(405).end('Only POST requests allowed')
+    return
+  }
+
+  const body = JSON.parse(req.body)
+  const attributes = body.attributes
   let newData = []
   metadata.forEach((d) => {
     let displayAll = true
@@ -15,7 +24,6 @@ export default function handler(req, res) {
     if (displayAll) {
       newData.push(d)
     } else {
-      let isDeleted = false
       d.attributes.forEach((attribute) => {
         const findAttribute = attributes.find(
           (element) => element.name === attribute.trait_type
@@ -25,28 +33,25 @@ export default function handler(req, res) {
             (element) => element.isActive
           )
           findValues.forEach((value) => {
-            if (!isDeleted) {
-              let existingData = newData.length
-                ? newData.findIndex((element) => element?.edition === d.edition)
-                : -1
-              if (value.name === attribute.value && existingData === -1) {
-                newData.push(d)
-              }
-            }
-            let existingData2 = newData.length
-              ? newData.findIndex((element) => element?.edition === d.edition)
-              : -1
-            if (value.name !== attribute.value) {
-              if (existingData2 !== -1) {
-                delete newData[existingData2]
-              }
-              isDeleted = true
+            let existingData = newData.findIndex(
+              (element) => element?.edition === d.edition
+            )
+            if (value.name === attribute.value && existingData === -1) {
+              newData.push(d)
             }
           })
         }
       })
     }
   })
-  res.status(200).json(paginate(newData, pageSize, 1))
+  const total = newData.length
+  const totalPages = Math.ceil(newData.length / pageSize)
+  res
+    .status(200)
+    .json({
+      data: paginate(newData, pageSize, req.query.page ?? 1),
+      total,
+      totalPages
+    })
   return
 }

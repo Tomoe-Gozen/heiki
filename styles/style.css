@@ -13247,7 +13247,8 @@ button .small-image {
         border: transparent; }
       @media only screen and (min-width: 1200px) and (max-width: 1599px) {
         .tab-button-one .nav-tabs button {
-          width: 130px; } }
+          width: 140px;
+        font-size: 9pt; } }
 
 .place-bet-area {
   background: var(--background-color-1);

@@ -10,16 +10,54 @@ export default function Gallery(props) {
   const image = '/images/og-image.png'
 
   const [attributes, setAttributes] = useState(props.attributes)
-  const [nfts, setNfts] = useState(props.nfts)
+  const [nfts, setNfts] = useState(props.nfts.data)
+  const [count, setCount] = useState(8000)
+  const [pagination, setPagination] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
 
-  const selectAttribute = async (attributeName, valueName) => {
-    // go to api
+  const selectAttribute = async (attribute, value) => {
+    const res = await fetch(
+      `${props.baseUrl}/api/attributes?${new URLSearchParams({
+        attribute,
+        value
+      })}`,
+      { method: 'POST', body: JSON.stringify({ attributes }) }
+    )
+    const data = await res.json()
     setAttributes(data)
   }
 
-  const fetchNfts = async () => {
-    // go to api ==> pass atributes in post
-    setNfts(data)
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+      /* you can also use 'auto' behaviour
+         in place of 'smooth' */
+    })
+  }
+
+  const changePage = async (page) => {
+    const res = await fetch(
+      `${props.baseUrl}/api/nfts?${new URLSearchParams({
+        page
+      })}`,
+      { method: 'POST', body: JSON.stringify({ attributes }) }
+    )
+    const data = await res.json()
+    setNfts(data.data)
+    setCount(data.total)
+    const paginationArray = Array.from(
+      new Array(data.totalPages),
+      (x, i) => i + 1
+    )
+    setPagination(
+      paginationArray.slice(
+        page - 4 >= 1 ? page - 4 : 0,
+        page + 4 > data.totalPages ? data.totalPages : page + 4
+      )
+    )
+    setCurrentPage(page)
+    scrollToTop()
   }
 
   useEffect(() => {
@@ -27,8 +65,23 @@ export default function Gallery(props) {
   }, [props.attributes])
 
   useEffect(() => {
+    const fetchNfts = async () => {
+      const res = await fetch(`${props.baseUrl}/api/nfts`, {
+        method: 'POST',
+        body: JSON.stringify({ attributes })
+      })
+      const data = await res.json()
+      setNfts(data.data)
+      setCount(data.total)
+      const paginationArray = Array.from(
+        new Array(data.totalPages),
+        (x, i) => i + 1
+      )
+      setPagination(paginationArray.slice(0, 7))
+      setCurrentPage(1)
+    }
     fetchNfts()
-  }, [attributes])
+  }, [attributes, props.baseUrl])
 
   return (
     <>
@@ -61,7 +114,8 @@ export default function Gallery(props) {
                             onClick={() => selectAttribute(a.name, v.name)}
                             className={`nav-link ${v.isActive ? 'active' : ''}`}
                           >
-                            {v.name} ({v.count})
+                            <strong>{v.name}</strong> <br />
+                            {v.count}
                           </button>
                         </div>
                       ))}
@@ -72,7 +126,9 @@ export default function Gallery(props) {
             </div>
           </div>
           <div className="col-md-9 text-center">
-            <h6 className="mt--10 mb--10 title">Collection</h6>
+            <h6 className="mt--10 mb--10 title">
+              Collection <small>{count}</small>
+            </h6>
             <div className="row">
               {nfts.map((n, index) => (
                 <div key={index} className="col-md-3 mb--20">
@@ -83,6 +139,26 @@ export default function Gallery(props) {
                 </div>
               ))}
             </div>
+            <nav
+              className="pagination-wrapper"
+              aria-label="Page navigation example"
+            >
+              <ul className="pagination single-column-blog">
+                {pagination.map((page) => (
+                  <li key={page} className="page-item">
+                    <a
+                      style={{ cursor: 'pointer' }}
+                      className={`${
+                        currentPage === page ? 'active' : ''
+                      } page-link`}
+                      onClick={() => changePage(page)}
+                    >
+                      {page}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
@@ -94,10 +170,15 @@ export async function getServerSideProps({ req }) {
   const protocol = req.headers['x-forwarded-proto'] || 'http'
   const baseUrl = req ? `${protocol}://${req.headers.host}` : ''
 
-  const resAttributes = await fetch(`${baseUrl}/api/attributes`)
+  const resAttributes = await fetch(`${baseUrl}/api/attributes`, {
+    method: 'POST'
+  })
   const attributes = await resAttributes.json()
 
-  const resNfts = await fetch(`${baseUrl}/api/nfts`)
+  const resNfts = await fetch(`${baseUrl}/api/nfts`, {
+    method: 'POST',
+    body: JSON.stringify({ attributes })
+  })
   const nfts = await resNfts.json()
 
   return { props: { attributes, nfts, baseUrl } }
