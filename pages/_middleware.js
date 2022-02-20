@@ -4,7 +4,6 @@ export function middleware(req) {
   const basicAuth = req.headers.get('authorization')
 
   if (basicAuth) {
-    return NextResponse.next()
     const auth = basicAuth.split(' ')[1]
     const [user, pwd] = Buffer.from(auth, 'base64').toString().split(':')
 
@@ -12,13 +11,11 @@ export function middleware(req) {
       return NextResponse.next()
     }
   } else {
-    return NextResponse.next()
+    return new Response('Auth required', {
+      status: 401,
+      headers: {
+        'WWW-Authenticate': 'Basic realm="Restricted Area"'
+      }
+    })
   }
-
-  return new Response('Auth required', {
-    status: 401,
-    headers: {
-      'WWW-Authenticate': 'Basic realm="Secure Area"'
-    }
-  })
 }
