@@ -9,8 +9,9 @@ export function middleware(req) {
     const basicAuth = req.headers.get('authorization')
 
     if (basicAuth) {
-      const auth = basicAuth.split(' ')[1]
       return NextResponse.next()
+      const auth = basicAuth.split(' ')[1]
+
       const [user, pwd] = Buffer.from(auth, 'base64').toString().split(':')
 
       if (user !== 'tomoe' && pwd !== 'tomoegozennft2022') {
