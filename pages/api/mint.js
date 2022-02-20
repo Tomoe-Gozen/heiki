@@ -41,7 +41,7 @@ const mintHandler = async (req, res) => {
         // whitelist valid
         if (whitelist.valid) {
           const balance = await contract.methods.balanceOf(address).call()
-          if (balance >= parseInt(process.env.MINT_MAX_ALLOWED_WITHELIST, 10)) {
+          if (balance >= parseInt(process.env.MINT_MAX_ALLOWED_WHITELIST, 10)) {
             res.status(409).json({
               error:
                 'You have reached the max allowed quantity for the whitelist'
