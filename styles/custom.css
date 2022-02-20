@@ -204,8 +204,9 @@
 .countdown .countdown-container .countdown-value {
   font-size: 50pt;
 }
-
-
+.has-menu-child-item {
+  margin-right: 10px;
+}
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .maintanence-area .inner .content p {
       margin-top: 150px;
