@@ -20,6 +20,13 @@ export function middleware(req) {
           }
         })
       }
+    } else {
+      return new Response('Auth required', {
+        status: 401,
+        headers: {
+          'WWW-Authenticate': 'Basic realm="Secure Area"'
+        }
+      })
     }
   }
   return NextResponse.next()
