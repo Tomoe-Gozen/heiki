@@ -1,21 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export function middleware(req) {
-  const basicAuth = req.headers.get('authorization') || ''
+  const basicAuth = req.ip()
 
   if (basicAuth) {
-    const auth = basicAuth.split(' ')[1]
-    const [user, pwd] = Buffer.from(auth, 'base64').toString().split(':')
-
-    if (user === 'tomoe' && pwd === 'tomoegozennft2022') {
-      return NextResponse.next()
-    }
+    return NextResponse.next()
   }
 
-  return new Response(basicAuth, {
-    status: 401,
-    headers: {
-      'WWW-Authenticate': 'Basic realm="Secure Area"'
-    }
+  return new Response('IP not authorized', {
+    status: 401
   })
 }
