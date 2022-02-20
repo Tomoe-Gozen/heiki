@@ -6,7 +6,7 @@ export default function NftCard({ name, image }) {
       <div className="card-thumbnail">
         <a>
           <Image
-            quality="1"
+            quality="65"
             src={image}
             placeholder="blur"
             blurDataURL="/images/logo/logo-twitter.jpg"
