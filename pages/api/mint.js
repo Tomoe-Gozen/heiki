@@ -1,7 +1,8 @@
 import Web3 from 'web3'
 import getContractObj from './web3/getContract'
 import isWhiteListed from './lib/isWhiteListed'
-import TomoeGozenContract from './contracts/AlphaTest.json'
+import TomoeGozenContract from './contracts/TomoeGozen.json'
+import TomoeGozenContractTest from './contracts/AlphaTest.json'
 
 const mintHandler = async (req, res) => {
   try {
@@ -22,7 +23,9 @@ const mintHandler = async (req, res) => {
     const web3 = new Web3(process.env.INFURA_URL)
     const { contract, deployedAddress, networkId } = await getContractObj(
       web3,
-      TomoeGozenContract
+      process.env.NEXT_PUBLIC_IS_PRODUCTION
+        ? TomoeGozenContract
+        : TomoeGozenContractTest
     )
 
     const mintPrice = web3.utils.toWei(process.env.MINT_PRICE, 'ether')
