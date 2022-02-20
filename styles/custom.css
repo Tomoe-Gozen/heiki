@@ -12,6 +12,10 @@
   color: var(--color-subtitle);
 }
 
+.text-theme {
+  color: var(--color-primary)!important;
+}
+
 .text-xl {
   font-size: 50pt!important;
 }

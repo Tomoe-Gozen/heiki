@@ -96,7 +96,7 @@ export default function MintForm() {
           <div className="col-md-10">
             <div className="place-bet-area into-banner mt_md--30 mt_sm--30">
               <p
-                className="title mb--0 live-bidding-title sal-animate text-primary"
+                className="title mb--0 live-bidding-title sal-animate text-theme"
                 data-sal-delay="150"
                 data-sal="slide-up"
                 data-sal-duration="800"

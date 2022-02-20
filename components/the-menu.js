@@ -1,8 +1,11 @@
 import Link from 'next/link'
 import config from '../lib/config'
 import ConnectWallet from './connect-wallet'
+import { useRouter } from 'next/router'
 
 export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
+  const router = useRouter()
+
   const handleToggleActive = () => {
     if (isMobile) {
       toggleActive()
@@ -13,7 +16,12 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
     <>
       <li className="has-droupdown has-menu-child-item">
         <Link href="/">
-          <a onClick={handleToggleActive}>Home</a>
+          <a
+            className={router.pathname === '/' ? 'text-theme' : ''}
+            onClick={handleToggleActive}
+          >
+            Home
+          </a>
         </Link>
         <ul className="submenu">
           <li>
@@ -56,12 +64,22 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
       </li> */}
       <li>
         <Link href="/gallery">
-          <a onClick={handleToggleActive}>Gallery</a>
+          <a
+            className={router.pathname === '/gallery' ? 'text-theme' : ''}
+            onClick={handleToggleActive}
+          >
+            Gallery
+          </a>
         </Link>
       </li>
       <li>
         <Link href="/mint">
-          <a onClick={handleToggleActive}>Mint</a>
+          <a
+            className={router.pathname === '/mint' ? 'text-theme' : ''}
+            onClick={handleToggleActive}
+          >
+            Mint
+          </a>
         </Link>
       </li>
       {isMobile && (

@@ -126,7 +126,7 @@ export default function Gallery(props) {
           </div>
           <div className="col-md-9 text-center">
             <h6 className="mt--10 mb--10 title">
-              Collection <i className="text-primary">{count}</i>
+              Collection <span className="text-theme">{count}</span>
             </h6>
             <div className="row">
               {nfts.map((n, index) => (
