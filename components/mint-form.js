@@ -65,8 +65,8 @@ export default function MintForm() {
       }
     } catch (error) {
       new Noty({
-        type: 'error',
-        text: error.message,
+        type: 'warning',
+        text: 'You transaction has been canceled, please retry.',
         layout: 'top',
         timeout: 5000
       }).show()
