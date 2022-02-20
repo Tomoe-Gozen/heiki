@@ -16,7 +16,11 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
       <li>
         <Link href="/#about">
           <a
-            className={router.pathname === '/' ? 'text-theme' : ''}
+            className={
+              router.pathname === '/' && location.hash == '#about'
+                ? 'text-theme'
+                : ''
+            }
             onClick={handleToggleActive}
           >
             About
@@ -26,7 +30,11 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
       <li>
         <Link href="/#roadmap">
           <a
-            className={router.pathname === '/' ? 'text-theme' : ''}
+            className={
+              router.pathname === '/' && location.hash == '#roadmap'
+                ? 'text-theme'
+                : ''
+            }
             onClick={handleToggleActive}
           >
             Roadmap
@@ -36,7 +44,11 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
       <li>
         <Link href="/#team">
           <a
-            className={router.pathname === '/' ? 'text-theme' : ''}
+            className={
+              router.pathname === '/' && location.hash == '#team'
+                ? 'text-theme'
+                : ''
+            }
             onClick={handleToggleActive}
           >
             Team
@@ -46,7 +58,11 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
       <li>
         <Link href="/#faq">
           <a
-            className={router.pathname === '/' ? 'text-theme' : ''}
+            className={
+              router.pathname === '/' && location.hash == '#faq'
+                ? 'text-theme'
+                : ''
+            }
             onClick={handleToggleActive}
           >
             FAQ
