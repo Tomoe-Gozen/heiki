@@ -5,6 +5,7 @@ import Image1 from '../public/images/mint/mint-1.jpg'
 import Image2 from '../public/images/mint/mint-2.jpg'
 import Web3 from 'web3'
 import Noty from 'noty'
+import { Range } from 'react-range'
 
 export default function MintForm() {
   const { address, provider, chainId } = useWeb3()
@@ -136,6 +137,37 @@ export default function MintForm() {
           </div>
         </div>
         <div className="col-lg-5 col-md-6 col-12">
+          <Range
+            step={1}
+            min={1}
+            max={10}
+            onChange={(values) => setState({ values })}
+            renderTrack={({ props, children }) => (
+              <div
+                {...props}
+                style={{
+                  ...props.style,
+                  height: '6px',
+                  width: '100%',
+                  backgroundColor: '#ccc'
+                }}
+              >
+                {children}
+              </div>
+            )}
+            renderThumb={({ props }) => (
+              <div
+                {...props}
+                style={{
+                  ...props.style,
+                  height: '42px',
+                  width: '42px',
+                  backgroundColor: '#999'
+                }}
+              />
+            )}
+          />
+          );
           <div
             className="upload-variant-wrapper"
             onClick={() => handleSubmit(2)}
