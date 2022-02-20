@@ -74,7 +74,7 @@ export default function Mint() {
 
     let timer = setTimeout(() => {
       mintInfo()
-    }, 950)
+    }, 750)
     return () => {
       clearTimeout(timer)
     }
