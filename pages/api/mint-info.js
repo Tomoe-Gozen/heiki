@@ -1,6 +1,7 @@
 import Web3 from 'web3'
 import getContractObj from './web3/getContract'
-import TomoeGozenContract from './contracts/AlphaTest.json'
+import TomoeGozenContract from './contracts/TomoeGozen.json'
+import TomoeGozenContractTest from './contracts/AlphaTest.json'
 
 const mintInfoHandler = async (req, res) => {
   try {
@@ -12,7 +13,12 @@ const mintInfoHandler = async (req, res) => {
     const { address } = req.body
 
     const web3 = new Web3(process.env.INFURA_URL)
-    const { contract } = await getContractObj(web3, TomoeGozenContract)
+    const { contract } = await getContractObj(
+      web3,
+      process.env.NEXT_PUBLIC_IS_PRODUCTION
+        ? TomoeGozenContract
+        : TomoeGozenContractTest
+    )
     const alreadyMinted = await contract.methods.totalSupply().call()
     const maxSupply = process.env.MAX_SUPPLY
     const saleFlag = await contract.methods.saleFlag.call().call()
