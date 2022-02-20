@@ -12,17 +12,15 @@ export function middleware(req) {
       const auth = basicAuth.split(' ')[1]
       const [user, pwd] = Buffer.from(auth, 'base64').toString().split(':')
 
-      if (user === 'tomoe' && pwd === 'tomoegozennft2022') {
-        return NextResponse.next()
+      if (user !== 'tomoe' && pwd !== 'tomoegozennft2022') {
+        return new Response('Auth required', {
+          status: 401,
+          headers: {
+            'WWW-Authenticate': 'Basic realm="Secure Area"'
+          }
+        })
       }
     }
-
-    return new Response('Auth required', {
-      status: 401,
-      headers: {
-        'WWW-Authenticate': 'Basic realm="Secure Area"'
-      }
-    })
   }
   return NextResponse.next()
 }
