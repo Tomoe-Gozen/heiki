@@ -64,12 +64,16 @@ const mintHandler = async (req, res) => {
               }
               res.status(200).json(rawTransaction)
             } else {
-              res.status(405).json({ error: 'You are not whitelisted' })
+              res
+                .status(405)
+                .json({ error: 'You are not whitelisted (error code: 1)' })
               return
             }
           }
         } else {
-          res.status(405).json({ error: 'You are not whitelisted' })
+          res
+            .status(405)
+            .json({ error: 'You are not whitelisted (error code: 2)' })
           return
         }
       }
