@@ -24,4 +24,5 @@ export function middleware(req) {
       }
     })
   }
+  return NextResponse.next()
 }
