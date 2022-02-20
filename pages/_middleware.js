@@ -6,21 +6,16 @@ export function middleware(req) {
     !req.headers.get('host').includes('localhost') &&
     !req.headers.get('host').includes('127.0.0.1')
   ) {
-    // const basicAuth = req.headers.get('authorization')
+    const basicAuth = req.headers['Authorization']
 
-    // if (basicAuth) {
-    //   const auth = basicAuth.split(' ')[1]
-    //   const [user, pwd] = Buffer.from(auth, 'base64').toString().split(':')
+    if (basicAuth) {
+      const auth = basicAuth.split(' ')[1]
+      const [user, pwd] = Buffer.from(auth, 'base64').toString().split(':')
 
-    //   if (user === 'tomoe' && pwd === 'tomoegozennft2022') {
-    //     return NextResponse.next()
-    //   }
-    // }
-
-    return new Response('Auth required', {
-      status: 401,
-      headers: req.headers
-    })
+      if (user === 'tomoe' && pwd === 'tomoegozennft2022') {
+        return NextResponse.next()
+      }
+    }
 
     return new Response('Auth required', {
       status: 401,
