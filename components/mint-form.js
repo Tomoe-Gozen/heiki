@@ -23,6 +23,9 @@ export default function MintForm() {
   }
 
   const mintNft = async (number = 1) => {
+    if (!address) {
+      return
+    }
     setLoader(true, number === 1)
 
     try {
