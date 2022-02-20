@@ -13228,7 +13228,8 @@ button .small-image {
     border: 1px solid var(--color-border);
     border-radius: 6px; }
     .tab-button-one .nav-tabs button {
-      width: 150px;
+      width: 160px;
+      font-size: 10pt;
       height: 50px;
       border: none;
       color: var(--color-white);

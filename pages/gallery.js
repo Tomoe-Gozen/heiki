@@ -31,8 +31,6 @@ export default function Gallery(props) {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
-      /* you can also use 'auto' behaviour
-         in place of 'smooth' */
     })
   }
 
@@ -127,7 +125,7 @@ export default function Gallery(props) {
           </div>
           <div className="col-md-9 text-center">
             <h6 className="mt--10 mb--10 title">
-              Collection <small>{count}</small>
+              Collection <i className="text-primary">{count}</i>
             </h6>
             <div className="row">
               {nfts.map((n, index) => (
