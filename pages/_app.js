@@ -12,10 +12,16 @@ import Script from 'next/script'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { ThirdwebWeb3Provider } from '@3rdweb/hooks'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+import Router from 'next/router'
 
 import * as ga from '../lib/ga'
 
 function MyApp({ Component, pageProps }) {
+  Router.events.on('routeChangeStart', () => NProgress.start())
+  Router.events.on('routeChangeComplete', () => NProgress.done())
+  Router.events.on('routeChangeError', () => NProgress.done())
   const getLayout = Component.getLayout || ((page) => page)
   const router = useRouter()
   const initTheme = () => import('../lib/theme').then((init) => init.default())
