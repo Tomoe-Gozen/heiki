@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 
-export function middleware(req, res) {
+export function middleware(req) {
   if (
     !process.env.NEXT_PUBLIC_IS_PRODUCTION &&
     !req.headers.get('host').includes('localhost') &&
@@ -24,5 +24,5 @@ export function middleware(req, res) {
       }
     })
   }
-  return res
+  return NextResponse.next()
 }
