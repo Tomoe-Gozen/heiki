@@ -96,7 +96,7 @@ export default function Mint() {
         <meta name="twitter:site" content="@TomoeGozenNFTs" />
         <meta name="twitter:creator" content="@TomoeGozenNFTs" />
       </Head>
-      <div className="rn-upload-variant-area varient pb--100 min-vh-100">
+      <div className="rn-upload-variant-area varient pb--150 min-vh-100">
         <div className="container">
           <div className="row">
             <div
