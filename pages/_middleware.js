@@ -10,7 +10,5 @@ export function middleware(req) {
     return NextResponse.next()
   }
 
-  return new Response('IP not authorized', {
-    status: 401
-  })
+  return NextResponse.redirect('https://www.tomoegozen.io')
 }
