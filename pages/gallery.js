@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import WithTitleLayout from '../components/layouts/with-title'
 import NftCard from '../components/nft-card'
+import basicAuthCheck from '../lib/basic-auth'
 
 export default function Gallery(props) {
   const title = 'Tomoe Gozen NFT - Gallery'
@@ -164,7 +165,8 @@ export default function Gallery(props) {
   )
 }
 
-export async function getServerSideProps({ req }) {
+export async function getServerSideProps({ req, res }) {
+  await basicAuthCheck(req, res)
   const protocol = req.headers['x-forwarded-proto'] || 'http'
   const baseUrl = req ? `${protocol}://${req.headers.host}` : ''
 
