@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 
 export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
   const router = useRouter()
+  console.log(router)
   const handleToggleActive = () => {
     if (isMobile) {
       toggleActive()
@@ -16,11 +17,7 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
       <li>
         <Link href="/#about">
           <a
-            className={
-              router.pathname === '/' && location.hash == '#about'
-                ? 'text-theme'
-                : ''
-            }
+            className={router.asPath === '/#about' ? 'text-theme' : ''}
             onClick={handleToggleActive}
           >
             About
@@ -30,11 +27,7 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
       <li>
         <Link href="/#roadmap">
           <a
-            className={
-              router.pathname === '/' && location.hash == '#roadmap'
-                ? 'text-theme'
-                : ''
-            }
+            className={router.asPath === '/#roadmap' ? 'text-theme' : ''}
             onClick={handleToggleActive}
           >
             Roadmap
@@ -44,11 +37,7 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
       <li>
         <Link href="/#team">
           <a
-            className={
-              router.pathname === '/' && location.hash == '#team'
-                ? 'text-theme'
-                : ''
-            }
+            className={router.asPath === '/#team' ? 'text-theme' : ''}
             onClick={handleToggleActive}
           >
             Team
@@ -58,11 +47,7 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
       <li>
         <Link href="/#faq">
           <a
-            className={
-              router.pathname === '/' && location.hash == '#faq'
-                ? 'text-theme'
-                : ''
-            }
+            className={router.asPath === '/#faq' ? 'text-theme' : ''}
             onClick={handleToggleActive}
           >
             FAQ
