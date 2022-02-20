@@ -166,7 +166,9 @@ export default function Gallery(props) {
 }
 
 export async function getServerSideProps({ req, res }) {
-  await basicAuthCheck(req, res)
+  if (!process.env.NEXT_PUBLIC_IS_PRODUCTION) {
+    await basicAuthCheck(req, res)
+  }
   const protocol = req.headers['x-forwarded-proto'] || 'http'
   const baseUrl = req ? `${protocol}://${req.headers.host}` : ''
 
