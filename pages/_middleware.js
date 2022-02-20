@@ -1,11 +1,7 @@
 import { NextResponse } from 'next/server'
 
 export function middleware(req) {
-  if (
-    !process.env.NEXT_PUBLIC_IS_PRODUCTION &&
-    !req.headers.get('host').includes('localhost') &&
-    !req.headers.get('host').includes('127.0.0.1')
-  ) {
+  if (!process.env.NEXT_PUBLIC_IS_PRODUCTION) {
     const basicAuth = req.headers.get('authorization')
 
     if (basicAuth) {
