@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import config from '../lib/config'
 import ConnectWallet from './connect-wallet'
+import { useRouter } from 'next/router'
 
 export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
+  const router = useRouter()
   const handleToggleActive = () => {
     if (isMobile) {
       toggleActive()
@@ -13,27 +15,52 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
     <>
       <li>
         <Link href="/#about">
-          <a onClick={handleToggleActive}>About</a>
+          <a
+            className={router.pathname === '/' ? 'text-theme' : ''}
+            onClick={handleToggleActive}
+          >
+            About
+          </a>
         </Link>
       </li>
       <li>
         <Link href="/#roadmap">
-          <a onClick={handleToggleActive}>Roadmap</a>
+          <a
+            className={router.pathname === '/' ? 'text-theme' : ''}
+            onClick={handleToggleActive}
+          >
+            Roadmap
+          </a>
         </Link>
       </li>
       <li>
         <Link href="/#team">
-          <a onClick={handleToggleActive}>Team</a>
+          <a
+            className={router.pathname === '/' ? 'text-theme' : ''}
+            onClick={handleToggleActive}
+          >
+            Team
+          </a>
         </Link>
       </li>
       <li>
         <Link href="/#faq">
-          <a onClick={handleToggleActive}>FAQ</a>
+          <a
+            className={router.pathname === '/' ? 'text-theme' : ''}
+            onClick={handleToggleActive}
+          >
+            FAQ
+          </a>
         </Link>
       </li>
       <li>
         <Link href="/mint">
-          <a onClick={handleToggleActive}>Mint</a>
+          <a
+            className={router.pathname === '/mint' ? 'text-theme' : ''}
+            onClick={handleToggleActive}
+          >
+            Mint
+          </a>
         </Link>
       </li>
       {isMobile && (
