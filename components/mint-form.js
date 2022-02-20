@@ -66,7 +66,7 @@ export default function MintForm() {
     } catch (error) {
       new Noty({
         type: 'error',
-        text: error,
+        text: error.message,
         layout: 'top',
         timeout: 5000
       }).show()
