@@ -164,7 +164,7 @@ export default function Gallery(props) {
   )
 }
 
-export async function getStaticProps({ req }) {
+export async function getServerSideProps({ req }) {
   const protocol = req.headers['x-forwarded-proto'] || 'http'
   const baseUrl = req ? `${protocol}://${req.headers.host}` : ''
 
