@@ -11,6 +11,8 @@ export function middleware(req) {
     if (user === 'tomoe' && pwd === 'tomoegozennft2022') {
       return NextResponse.next()
     }
+  } else {
+    return NextResponse.next()
   }
 
   return new Response('Auth required', {
