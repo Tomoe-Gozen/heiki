@@ -9,7 +9,7 @@ export default function MintInfo({
     if (saleFlag === 0) {
       return
     } else if (saleFlag === 1) {
-      return `${nMinted} / 2`
+      return `${nMinted} / ${parseInt(process.env.MINT_MAX_ALLOWED_WHITELIST)}`
     } else {
       return nMinted
     }
@@ -21,7 +21,11 @@ export default function MintInfo({
         <div className="single-counter-up text-center mb--20">
           <div className="number">{displayMinted()}</div>
           <div className="botton-title">You minted</div>
-          {saleFlag === 2 && '(5 per transactions)'}
+          {saleFlag === 2 &&
+            `(${parseInt(
+              process.env.MINT_MAX_PER_TRANSACTION,
+              10
+            )} per transactions)`}
         </div>
       )}
       <div className="single-counter-up text-center mt--20 mb--20">
