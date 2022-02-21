@@ -50,7 +50,7 @@ export default function MintForm({ saleFlag }) {
         await web3.eth.sendTransaction(transaction)
         new Noty({
           type: 'success',
-          text: `You successfully minted your ${number} Tomoe Gozen!`,
+          text: `You successfully minted your Tomoe Gozen! (x${number}). You can find it on OpeanSea 🙂`,
           layout: 'top',
           timeout: 5000
         }).show()
