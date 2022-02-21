@@ -14290,16 +14290,16 @@ tbody.ranking tr td {
     margin-bottom: 0px; }
     @media only screen and (min-width: 1200px) and (max-width: 1599px) {
       .maintanence-area .inner .content .sub-title {
-        margin-top: 100px; } }
+        margin-top: 0px; } }
     @media only screen and (max-width: 1199px) {
       .maintanence-area .inner .content .sub-title {
-        margin-top: 100px; } }
+        margin-top: 0px; } }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
       .maintanence-area .inner .content .sub-title {
-        margin-top: 70px; } }
+        margin-top: 0px; } }
     @media only screen and (max-width: 767px) {
       .maintanence-area .inner .content .sub-title {
-        margin-top: 30px; } }
+        margin-top: 0px; } }
   .maintanence-area .inner .content .title {
     font-size: 45px;
     color: var(--color-primary);
