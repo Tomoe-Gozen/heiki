@@ -71,13 +71,6 @@ export default function Mint() {
         setLoading(false)
       }
     }
-
-    // let timer = setTimeout(() => {
-    mintInfo()
-    // }, 500)
-    // return () => {
-    //   clearTimeout(timer)
-    // }
     let timer = setTimeout(() => {
       mintInfo()
     }, 750)
