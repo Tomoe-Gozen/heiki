@@ -3,10 +3,11 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Image1 from '../public/images/mint/mint-1.jpg'
 import Image2 from '../public/images/mint/mint-2.jpg'
+import Image3 from '../public/images/mint/mint-3.jpg'
 import Web3 from 'web3'
 import Noty from 'noty'
 
-export default function MintForm() {
+export default function MintForm({ saleFlag }) {
   const { address, provider, chainId } = useWeb3()
   const [disabled, setDisabled] = useState(false)
   const [loading, setLoading] = useState({
@@ -14,11 +15,12 @@ export default function MintForm() {
     two: false
   })
 
-  const setLoader = (isLoading, isOne = false) => {
+  const setLoader = (isLoading, number = 1) => {
     setDisabled(isLoading)
     setLoading({
-      one: isLoading ? isOne : false,
-      two: isLoading ? !isOne : false
+      one: isLoading ? number === 1 : false,
+      two: isLoading ? number === 2 : false,
+      three: isLoading ? number === 3 : false
     })
   }
 
@@ -27,7 +29,7 @@ export default function MintForm() {
       // not connected
       return
     }
-    setLoader(true, number === 1)
+    setLoader(true, number)
 
     try {
       const web3 = new Web3(provider.provider)
@@ -52,7 +54,7 @@ export default function MintForm() {
           layout: 'top',
           timeout: 5000
         }).show()
-        setLoader(false, number === 1)
+        setLoader(false, number)
       } else {
         const { error } = await res.json()
         new Noty({
@@ -61,7 +63,7 @@ export default function MintForm() {
           layout: 'top',
           timeout: 5000
         }).show()
-        setLoader(false, number === 1)
+        setLoader(false, number)
       }
     } catch (error) {
       new Noty({
@@ -70,7 +72,7 @@ export default function MintForm() {
         layout: 'top',
         timeout: 5000
       }).show()
-      setLoader(false, number === 1)
+      setLoader(false, number)
     }
   }
 
@@ -116,8 +118,8 @@ export default function MintForm() {
         </div>
       )}
 
-      <div className="row g-5 justify-content-center mt-3">
-        <div className="col-lg-5 col-md-6 col-12">
+      <div className="row g-5 justify-content-center m-3">
+        <div className="col-xl-4 col-6">
           <div
             className="upload-variant-wrapper"
             onClick={() => handleSubmit(1)}
@@ -135,7 +137,7 @@ export default function MintForm() {
             </button>
           </div>
         </div>
-        <div className="col-lg-5 col-md-6 col-12">
+        <div className="col-xl-4 col-6">
           <div
             className="upload-variant-wrapper"
             onClick={() => handleSubmit(2)}
@@ -156,6 +158,26 @@ export default function MintForm() {
             </button>
           </div>
         </div>
+        {saleFlag === 2 && (
+          <div className="col-xl-4 col-6">
+            <div
+              className="upload-variant-wrapper"
+              onClick={() => handleSubmit(3)}
+              style={{ cursor: 'pointer' }}
+            >
+              <div className="variant-preview">
+                <Image src={Image3} alt="" />
+              </div>
+              <button className="btn btn-primary mt--20" disabled={disabled}>
+                {loading.three ? (
+                  <i className="fa fa-solid fa-circle-notch fa-spin"></i>
+                ) : (
+                  'Mint THREE'
+                )}
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </>
   )
