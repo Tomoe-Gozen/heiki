@@ -72,6 +72,12 @@ export default function Mint() {
       }
     }
 
+    // let timer = setTimeout(() => {
+    mintInfo()
+    // }, 500)
+    // return () => {
+    //   clearTimeout(timer)
+    // }
     let timer = setTimeout(() => {
       mintInfo()
     }, 750)
@@ -159,6 +165,7 @@ export default function Mint() {
                 loading={loading}
                 maxSupply={maxSupply}
                 nMinted={nMinted}
+                setnMinted={setnMinted}
               />
             </div>
           )}
