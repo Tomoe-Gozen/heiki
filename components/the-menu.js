@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 
 export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
   const router = useRouter()
-  console.log(router)
+
   const handleToggleActive = () => {
     if (isMobile) {
       toggleActive()
