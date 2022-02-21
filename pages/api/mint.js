@@ -38,9 +38,10 @@ const mintHandler = async (req, res) => {
       }
       case '1': {
         const whitelist = await isWhiteListed(address)
+        // whitelist valid
         if (whitelist.valid) {
           const balance = await contract.methods.balanceOf(address).call()
-          if (balance >= parseInt(process.env.MINT_MAX_ALLOWED_WITHELIST, 10)) {
+          if (balance >= parseInt(process.env.MINT_MAX_ALLOWED_WHITELIST, 10)) {
             res.status(409).json({
               error:
                 'You have reached the max allowed quantity for the whitelist'
@@ -64,12 +65,16 @@ const mintHandler = async (req, res) => {
               }
               res.status(200).json(rawTransaction)
             } else {
-              res.status(405).json({ error: 'You are not whitelisted' })
+              res
+                .status(405)
+                .json({ error: 'You are not whitelisted (error code: 1)' })
               return
             }
           }
         } else {
-          res.status(405).json({ error: 'You are not whitelisted' })
+          res
+            .status(405)
+            .json({ error: 'You are not whitelisted (error code: 2)' })
           return
         }
       }

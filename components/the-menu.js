@@ -49,17 +49,32 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
       </li>
       {/* <li>
         <Link href="/#roadmap">
-          <a onClick={handleToggleActive}>Roadmap</a>
+          <a
+            className={router.asPath === '/#roadmap' ? 'text-theme' : ''}
+            onClick={handleToggleActive}
+          >
+            Roadmap
+          </a>
         </Link>
       </li>
       <li>
         <Link href="/#team">
-          <a onClick={handleToggleActive}>Team</a>
+          <a
+            className={router.asPath === '/#team' ? 'text-theme' : ''}
+            onClick={handleToggleActive}
+          >
+            Team
+          </a>
         </Link>
       </li>
       <li>
         <Link href="/#faq">
-          <a onClick={handleToggleActive}>FAQ</a>
+          <a
+            className={router.asPath === '/#faq' ? 'text-theme' : ''}
+            onClick={handleToggleActive}
+          >
+            FAQ
+          </a>
         </Link>
       </li> */}
       <li>
