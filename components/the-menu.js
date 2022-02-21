@@ -25,22 +25,41 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
         </Link>
         <ul className="submenu">
           <li>
+            <Link href="/#about">
+              <a
+                className={router.asPath === '/#about' ? 'text-theme' : ''}
+                onClick={handleToggleActive}
+              >
+                About <i className="feather-home"></i>
+              </a>
+            </Link>
+          </li>
+          <li>
             <Link href="/#roadmap">
-              <a onClick={handleToggleActive}>
+              <a
+                className={router.asPath === '/#roadmap' ? 'text-theme' : ''}
+                onClick={handleToggleActive}
+              >
                 Roadmap <i className="feather-home"></i>
               </a>
             </Link>
           </li>
           <li>
             <Link href="/#team">
-              <a onClick={handleToggleActive}>
+              <a
+                className={router.asPath === '/#team' ? 'text-theme' : ''}
+                onClick={handleToggleActive}
+              >
                 Team <i className="feather-home"></i>
               </a>
             </Link>
           </li>
           <li>
             <Link href="/#faq">
-              <a onClick={handleToggleActive}>
+              <a
+                className={router.asPath === '/#faq' ? 'text-theme' : ''}
+                onClick={handleToggleActive}
+              >
                 FAQ <i className="feather-home"></i>
               </a>
             </Link>
