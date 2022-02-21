@@ -35,25 +35,18 @@ export default function ComingSoon() {
         <div className="row row--0">
           <div className="col-lg-4">
             <div className="inner">
-              <div className="text-center">
-                <div className="logo logo-custom-size logo-custom-css">
-                  <Link href="/">
-                    <a className="logo-light">
-                      <Image src={logoLight} alt="" />
-                    </a>
-                  </Link>
-                </div>
-              </div>
               <div className="content h-100">
-                <span className="sub-title">Stay Tuned</span>
+                <span className="sub-title">The Gallery</span>
                 <h3 className="title">
                   <span className="text-tomoe font-tomoe">Coming Soon</span>
                 </h3>
 
                 <p className="text-center mb-5 mb-lg-0">
                   <span className="pb-3 d-block">
-                    We are available please connect with us via
+                    The gallery will be available after the public sale.
                   </span>
+                  <span className="font-tomoe mt-4 mb-0 d-block">OpenSea</span>
+                  <a href={config.opensea}>discord.gg/tomoegozen</a>
                   <span className="font-tomoe mt-4 mb-0 d-block">Twitter</span>
                   <a href={config.twitter}>twitter.com/NFTTomoeGozen</a>
                   <span className="font-tomoe mt-4 mb-0 d-block">Discord</span>

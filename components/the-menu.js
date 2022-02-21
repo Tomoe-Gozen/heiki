@@ -14,17 +14,40 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
 
   return (
     <>
-      <li>
-        <Link href="/#about">
+      <li className="has-droupdown has-menu-child-item">
+        <Link href="/">
           <a
-            className={router.asPath === '/#about' ? 'text-theme' : ''}
+            className={router.pathname === '/' ? 'text-theme' : ''}
             onClick={handleToggleActive}
           >
-            About
+            Home
           </a>
         </Link>
+        <ul className="submenu">
+          <li>
+            <Link href="/#roadmap">
+              <a onClick={handleToggleActive}>
+                Roadmap <i className="feather-home"></i>
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/#team">
+              <a onClick={handleToggleActive}>
+                Team <i className="feather-home"></i>
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/#faq">
+              <a onClick={handleToggleActive}>
+                FAQ <i className="feather-home"></i>
+              </a>
+            </Link>
+          </li>
+        </ul>
       </li>
-      <li>
+      {/* <li>
         <Link href="/#roadmap">
           <a
             className={router.asPath === '/#roadmap' ? 'text-theme' : ''}
@@ -51,6 +74,16 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
             onClick={handleToggleActive}
           >
             FAQ
+          </a>
+        </Link>
+      </li> */}
+      <li>
+        <Link href="/gallery">
+          <a
+            className={router.pathname === '/gallery' ? 'text-theme' : ''}
+            onClick={handleToggleActive}
+          >
+            Gallery
           </a>
         </Link>
       </li>
