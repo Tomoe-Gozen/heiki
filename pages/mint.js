@@ -21,6 +21,10 @@ export default function Mint() {
   const [saleFlag, setSaleFlag] = useState(null)
   const [loading, setLoading] = useState(true)
 
+  const increaseAlreadyMinted = (number) => {
+    setAlreadyMinted((minted) => parseInt(minted + number))
+  }
+
   useEffect(() => {
     setLoading(true)
     const mintInfo = async () => {
@@ -146,7 +150,10 @@ export default function Mint() {
             )}
             {!loading && address && saleFlag === 0 && <PreSale />}
             {!loading && address && saleFlag > 0 && (
-              <MintForm saleFlag={saleFlag} />
+              <MintForm
+                saleFlag={saleFlag}
+                increaseAlreadyMinted={increaseAlreadyMinted}
+              />
             )}
           </div>
           {address && (

@@ -7,7 +7,7 @@ import Image3 from '../public/images/mint/mint-3.jpg'
 import Web3 from 'web3'
 import Noty from 'noty'
 
-export default function MintForm({ saleFlag, setnMinted }) {
+export default function MintForm({ saleFlag, increaseAlreadyMinted }) {
   const { address, provider, chainId } = useWeb3()
   const [disabled, setDisabled] = useState(false)
   const [loading, setLoading] = useState({
@@ -54,7 +54,7 @@ export default function MintForm({ saleFlag, setnMinted }) {
           layout: 'top',
           timeout: 5000
         }).show()
-        setnMinted((minted) => minted + 1)
+        increaseAlreadyMinted(number)
         setLoader(false, number)
       } else {
         const { error } = await res.json()
