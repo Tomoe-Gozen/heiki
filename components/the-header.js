@@ -5,6 +5,7 @@ import TheMenu from './the-menu'
 import logoLight from '../public/images/logo/logo-white.png'
 import TheMobileMenu from './the-mobile-menu'
 import config from '../lib/config'
+import ConnectWallet from './connect-wallet'
 
 export default function TheHeader() {
   const [active, setActive] = useState(false)
@@ -55,11 +56,7 @@ export default function TheHeader() {
               </div>
               <div className="setting-option header-btn  d-none d-md-block">
                 <div className="icon-box">
-                  <Link href="/connect-wallet">
-                    <a className="btn btn-primary-alta btn-small">
-                      Connect Wallet
-                    </a>
-                  </Link>
+                  <ConnectWallet />
                 </div>
               </div>
 

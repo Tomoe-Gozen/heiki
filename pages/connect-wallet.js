@@ -3,6 +3,7 @@ import Soon from '../components/soon'
 import WithTitleLayout from '../components/layouts/with-title'
 
 export default function ConnectWallet() {
+  // title
   const title = 'Tomoe Gozen NFT - Connect Wallet'
   const description =
     '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Tomoe Gozen.'

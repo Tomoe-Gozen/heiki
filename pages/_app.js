@@ -6,19 +6,28 @@ import '../styles/plugins/feature.css'
 import '../styles/plugins/jquery-ui.min.css'
 import '../styles/style.css'
 import '../styles/custom.css'
+import '../styles/plugins/noty.css'
 import Head from 'next/head'
 import Script from 'next/script'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { ThirdwebWeb3Provider } from '@3rdweb/hooks'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+import Router from 'next/router'
 
 import * as ga from '../lib/ga'
 
 function MyApp({ Component, pageProps }) {
+  Router.events.on('routeChangeStart', () => NProgress.start())
+  Router.events.on('routeChangeComplete', () => NProgress.done())
+  Router.events.on('routeChangeError', () => NProgress.done())
   const getLayout = Component.getLayout || ((page) => page)
   const router = useRouter()
   const initTheme = () => import('../lib/theme').then((init) => init.default())
 
   const handleAnchor = (timeOut = 0) => {
+    // scroll to anchor fix https://github.com/vercel/next.js/issues/11109#issuecomment-844443085
     const path = window.location.hash
     if (path && path.includes('#')) {
       window.scrollTo(0, 0)
@@ -31,6 +40,14 @@ function MyApp({ Component, pageProps }) {
         }, timeOut)
       }
     }
+  }
+
+  // 1 - ethereum MainNet, 3 - Ropsten, 4- Rinkeby, 1337 - localhost:8545
+  const supportedChainIds = [1, 3, 4, 1337]
+
+  // injected - metamask
+  const connectors = {
+    injected: {}
   }
 
   useEffect(() => {
@@ -49,7 +66,7 @@ function MyApp({ Component, pageProps }) {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
-  }, [router.events])
+  }, [router.events, pageProps])
 
   return (
     <>
@@ -64,8 +81,12 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="icon" href="/images/favicon.ico" />
       </Head>
-
-      {getLayout(<Component {...pageProps} />)}
+      <ThirdwebWeb3Provider
+        connectors={connectors}
+        supportedChainIds={supportedChainIds}
+      >
+        {getLayout(<Component {...pageProps} />)}
+      </ThirdwebWeb3Provider>
     </>
   )
 }
