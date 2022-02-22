@@ -92,7 +92,6 @@ const mintHandler = async (req, res) => {
           data: transactionEncoded,
           chain: networkId
         }
-        // await this.mintInfo();
         res.status(200).json(rawTransaction)
         return
       }
@@ -104,8 +103,6 @@ const mintHandler = async (req, res) => {
     res.status(500).json({ error: 'Someting went wrong' })
     return
   }
-
-  // the rest of your code
 }
 
 export default mintHandler

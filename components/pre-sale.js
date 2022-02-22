@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 export default function PreSale() {
   const calculateTimeLeft = () => {
-    const difference = +new Date('March 5, 2022 08:00:00') - +new Date()
+    const difference = +new Date('March 5, 2022 14:00:00') - +new Date()
     let timeLeft = {}
 
     if (difference > 0) {

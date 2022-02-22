@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Slider from './slider'
+import config from '../lib/config'
 
 export default function HeroSection() {
   return (
@@ -31,12 +32,12 @@ export default function HeroSection() {
             <div className="button-group">
               <a
                 className="btn btn-large btn-primary cursor-pointer"
-                href="#roadmap"
+                href={config.opensea}
                 data-sal-delay="400"
                 data-sal="slide-up"
                 data-sal-duration="800"
               >
-                Roadmap
+                OpenSea
               </a>
               <Link href="/mint">
                 <a

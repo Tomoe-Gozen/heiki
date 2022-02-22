@@ -15,8 +15,6 @@ const userHandler = async (req, res) => {
     res.status(500).end('Someting went wrong')
     return
   }
-
-  // the rest of your code
 }
 
 export default userHandler

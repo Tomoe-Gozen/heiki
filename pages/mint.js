@@ -21,6 +21,10 @@ export default function Mint() {
   const [saleFlag, setSaleFlag] = useState(null)
   const [loading, setLoading] = useState(true)
 
+  const increaseMinted = (number) => {
+    setnMinted((minted) => parseInt(minted) + parseInt(number))
+  }
+
   useEffect(() => {
     setLoading(true)
     const mintInfo = async () => {
@@ -71,7 +75,6 @@ export default function Mint() {
         setLoading(false)
       }
     }
-
     let timer = setTimeout(() => {
       mintInfo()
     }, 750)
@@ -147,7 +150,7 @@ export default function Mint() {
             )}
             {!loading && address && saleFlag === 0 && <PreSale />}
             {!loading && address && saleFlag > 0 && (
-              <MintForm saleFlag={saleFlag} />
+              <MintForm saleFlag={saleFlag} increaseMinted={increaseMinted} />
             )}
           </div>
           {address && (
@@ -159,6 +162,7 @@ export default function Mint() {
                 loading={loading}
                 maxSupply={maxSupply}
                 nMinted={nMinted}
+                setnMinted={setnMinted}
               />
             </div>
           )}

@@ -14289,20 +14289,19 @@ tbody.ranking tr td {
     letter-spacing: 1px;
     font-weight: 700;
     display: inline-block;
-    margin-bottom: 5px;
-    margin-top: 200px; }
+    margin-bottom: 0px; }
     @media only screen and (min-width: 1200px) and (max-width: 1599px) {
       .maintanence-area .inner .content .sub-title {
-        margin-top: 100px; } }
+        margin-top: 0px; } }
     @media only screen and (max-width: 1199px) {
       .maintanence-area .inner .content .sub-title {
-        margin-top: 100px; } }
+        margin-top: 0px; } }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
       .maintanence-area .inner .content .sub-title {
-        margin-top: 70px; } }
+        margin-top: 0px; } }
     @media only screen and (max-width: 767px) {
       .maintanence-area .inner .content .sub-title {
-        margin-top: 30px; } }
+        margin-top: 0px; } }
   .maintanence-area .inner .content .title {
     font-size: 45px;
     color: var(--color-primary);
@@ -14316,7 +14315,7 @@ tbody.ranking tr td {
   .maintanence-area .inner .content p {
     font-size: 20px;
     line-height: 30px;
-    margin-top: 150px; }
+    margin-top: 75px; }
     @media only screen and (min-width: 1200px) and (max-width: 1599px) {
       .maintanence-area .inner .content p {
         margin-top: 100px; } }
