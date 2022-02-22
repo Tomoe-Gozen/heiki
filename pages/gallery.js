@@ -175,6 +175,7 @@ export async function getServerSideProps({ req, res }) {
   const resAttributes = await fetch(`${baseUrl}/api/attributes`, {
     method: 'POST'
   })
+
   const attributes = await resAttributes.json()
 
   const resNfts = await fetch(`${baseUrl}/api/nfts`, {
