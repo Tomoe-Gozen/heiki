@@ -42,39 +42,27 @@ export default function handler(req, res) {
     // end search of activated attributes
 
     // add nfts for the activated attributes
-    let prevAttribute = null
-    let firstLoop = false
     activatedAttributes.forEach((attribute) => {
-      if (prevAttribute && prevAttribute.trait_type !== attribute.trait_type) {
-        firstLoop = true
-        console.log(firstLoop)
-        newData.forEach((d, index) => {
-          let getCurrentTrait = d.attributes.find(
-            (element) => element.trait_type === attribute.trait_type
+      metadata.forEach((d) => {
+        d.attributes
+          .filter(
+            (element) =>
+              element.trait_type === attribute.trait_type &&
+              element.value === attribute.value
           )
-          if (getCurrentTrait.value !== attribute.value) {
-            newData.splice(index, 1)
-          }
-        })
-      } else if (!firstLoop) {
-        metadata.forEach((d) => {
-          d.attributes
-            .filter(
-              (element) =>
-                element.trait_type === attribute.trait_type &&
-                element.value === attribute.value
+          ?.forEach(() => {
+            let existingData = newData.findIndex(
+              (element) => element.edition === d.edition
             )
-            ?.forEach(() => {
-              let existingData = newData.findIndex(
-                (element) => element.edition === d.edition
-              )
-              if (existingData === -1) {
-                newData.push(d)
-              }
-            })
-        })
-      }
-      prevAttribute = attribute
+            if (existingData === -1) {
+              newData.push(d)
+            }
+          })
+      })
+    })
+
+    newData.forEach((n) => {
+      n.attributes.forEach((a) => {})
     })
   }
 
