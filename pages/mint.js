@@ -30,34 +30,10 @@ export default function Mint() {
     const mintInfo = async () => {
       if (address) {
         try {
-          const res = await fetch('/api/mint-info', {
-            body: JSON.stringify({
-              address
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': 'localhost'
-            },
-            method: 'POST'
-          })
-
-          if (res.ok) {
-            const { alreadyMinted, maxSupply, nMinted, saleFlag } =
-              await res.json()
-            setAlreadyMinted(alreadyMinted)
-            setMaxSupply(maxSupply)
-            setnMinted(nMinted)
-            setSaleFlag(parseInt(0))
-            setLoading(false)
-          } else {
-            const { error } = await res.json()
-            new Noty({
-              type: res.status >= 500 ? 'error' : 'warning',
-              text: error,
-              layout: 'top',
-              timeout: 5000
-            }).show()
-          }
+          setAlreadyMinted(0)
+          setMaxSupply(8000)
+          setSaleFlag(parseInt(0))
+          setLoading(false)
         } catch (error) {
           new Noty({
             type: 'error',
