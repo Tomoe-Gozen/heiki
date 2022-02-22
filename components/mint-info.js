@@ -17,17 +17,10 @@ export default function MintInfo({
 
   return (
     <div className="container">
-      {!loading && saleFlag !== 0 && (
-        <div className="single-counter-up text-center mb--20">
-          <div className="number">{displayMinted()}</div>
-          <div className="botton-title">You minted</div>
-          {saleFlag === 2 && `(3 per transactions)`}
-        </div>
-      )}
       <div className="single-counter-up text-center mt--20 mb--20">
         <div className="number">
           {!loading ? (
-            maxSupply
+            8000
           ) : (
             <i className="fa fa-solid fa-circle-notch fa-spin"></i>
           )}
@@ -37,7 +30,7 @@ export default function MintInfo({
       <div className="single-counter-up text-center">
         <div className="number">
           {!loading ? (
-            alreadyMinted
+            0
           ) : (
             <i className="fa fa-solid fa-circle-notch fa-spin"></i>
           )}
