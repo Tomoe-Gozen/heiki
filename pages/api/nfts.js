@@ -43,25 +43,20 @@ export default function handler(req, res) {
 
     // add nfts for the activated attributes
     let prevAttribute = null
-    console.log(activatedAttributes)
     let firstLoop = false
     activatedAttributes.forEach((attribute) => {
       if (prevAttribute && prevAttribute.trait_type !== attribute.trait_type) {
         firstLoop = true
         console.log(firstLoop)
         newData.forEach((d, index) => {
-          if (
-            d.attributes.find(
-              (element) =>
-                element.trait_type === attribute.trait_type &&
-                element.value !== attribute.value
-            )
-          ) {
+          let getCurrentTrait = d.attributes.find(
+            (element) => element.trait_type === attribute.trait_type
+          )
+          if (getCurrentTrait.value !== attribute.value) {
             newData.splice(index, 1)
           }
         })
       } else if (!firstLoop) {
-        console.log(firstLoop)
         metadata.forEach((d) => {
           d.attributes
             .filter(
@@ -82,6 +77,7 @@ export default function handler(req, res) {
       prevAttribute = attribute
     })
   }
+
   const total = newData.length
   const totalPages = Math.ceil(newData.length / pageSize)
   newData = newData.sort((a, b) => parseInt(a.edition) - parseInt(b.edition))
