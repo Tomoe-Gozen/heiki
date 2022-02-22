@@ -30,15 +30,16 @@ export default function HeroSection() {
               tale of a woman named Tomoe Gozen.
             </p>
             <div className="button-group">
-              <a
-                className="btn btn-large btn-primary cursor-pointer"
-                href={config.opensea}
-                data-sal-delay="400"
-                data-sal="slide-up"
-                data-sal-duration="800"
-              >
-                OpenSea
-              </a>
+              <Link href="/#roadmap">
+                <a
+                  className="btn btn-large btn-primary cursor-pointer"
+                  data-sal-delay="500"
+                  data-sal="slide-up"
+                  data-sal-duration="800"
+                >
+                  Roadmap
+                </a>
+              </Link>
               <Link href="/mint">
                 <a
                   className="btn btn-large btn-primary-alta cursor-pointer"
