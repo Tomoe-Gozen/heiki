@@ -29,41 +29,37 @@ export default function handler(req, res) {
     // search for activated attributes
     let activatedAttributes = []
     attributes.forEach((attribute) => {
+      let newObject = {}
       let filteredValues = attribute.values.filter(
         (element) => element.isActive
       )
-      filteredValues.forEach((value) => {
-        activatedAttributes.push({
-          trait_type: attribute.name,
-          value: value.name
-        })
-      })
-    })
-    // end search of activated attributes
+      newObject = {
+        name: attribute.name,
+        values: []
+      }
 
-    // add nfts for the activated attributes
-    activatedAttributes.forEach((attribute) => {
-      metadata.forEach((d) => {
-        d.attributes
-          .filter(
-            (element) =>
-              element.trait_type === attribute.trait_type &&
-              element.value === attribute.value
-          )
-          ?.forEach(() => {
-            let existingData = newData.findIndex(
-              (element) => element.edition === d.edition
-            )
-            if (existingData === -1) {
-              newData.push(d)
-            }
-          })
+      filteredValues.forEach((item) => {
+        newObject.values.push(item.name)
       })
+      activatedAttributes.push(newObject)
     })
 
-    newData.forEach((n) => {
-      n.attributes.forEach((a) => {})
-    })
+    // ========
+    var final = metadata
+    for (const filter of activatedAttributes) {
+      if (filter.values.length === 0) break
+      final = final.filter((nft) => {
+        for (const attr of nft.attributes) {
+          if (
+            attr.trait_type === filter.name &&
+            filter.values.includes(attr.value)
+          ) {
+            return true
+          }
+        }
+      })
+    }
+    newData = final
   }
 
   const total = newData.length
