@@ -10019,7 +10019,7 @@ button.btn {
 .rn-progress-parent {
   position: fixed;
   right: 30px;
-  bottom: 30px;
+  bottom: 75px;
   height: 46px;
   width: 46px;
   cursor: pointer;
