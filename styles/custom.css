@@ -295,6 +295,10 @@
   border: 3px solid var(--background-color-4);
 }
 
+.rn-pd-sm-property-wrapper .property-wrapper .pd-property-inner span, .rn-pd-sm-property-wrapper .catagory-wrapper .pd-property-inner span {
+  margin-bottom: 0px;
+}
+
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .maintanence-area .inner .content p {
       margin-top: 100px;
