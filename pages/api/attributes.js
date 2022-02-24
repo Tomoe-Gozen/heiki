@@ -4,7 +4,7 @@ const setAttributesValues = (mdata) => {
   let names = []
   metadata.forEach((m) => {
     const name = m.attributes.find(
-      (element) => element.trait_type === mdata.trait_type
+      (element) => element.trait_type === mdata.name
     )
     if (name?.value) {
       const check = names.find((n) => n.name === name.value)
@@ -42,10 +42,23 @@ export default function handler(req, res) {
   }
   const body = req.body ? JSON.parse(req.body) : null
 
-  let data = metadata[0].attributes.map((m) => {
+  let data = []
+
+  metadata.forEach((meta) => {
+    meta.attributes.forEach((m) => {
+      if (!data.find((d) => d.name === m.trait_type)) {
+        data.push({
+          name: m.trait_type,
+          values: []
+        })
+      }
+    })
+  })
+
+  data = data.map((d) => {
     return {
-      name: m.trait_type,
-      values: setAttributesValues(m)
+      ...d,
+      values: setAttributesValues(d)
     }
   })
 
