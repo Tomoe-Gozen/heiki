@@ -11,10 +11,12 @@ export default function Gallery(props) {
   const image = '/images/og-image.png'
 
   const [attributes, setAttributes] = useState(props.attributes)
+  const [selectedAttributes, setSelectedAttributes] = useState([])
   const [nfts, setNfts] = useState(props.nfts.data)
   const [count, setCount] = useState(8000)
   const [pagination, setPagination] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
+  const [isLoading, setIsLoading] = useState(true)
 
   const selectAttribute = async (attribute, value) => {
     const res = await fetch(
@@ -65,6 +67,7 @@ export default function Gallery(props) {
 
   useEffect(() => {
     const fetchNfts = async () => {
+      setIsLoading(true)
       const res = await fetch(`${props.baseUrl}/api/nfts`, {
         method: 'POST',
         body: JSON.stringify({ attributes })
@@ -78,8 +81,24 @@ export default function Gallery(props) {
       )
       setPagination(paginationArray.slice(0, 7))
       setCurrentPage(1)
+      setIsLoading(false)
     }
     fetchNfts()
+
+    setSelectedAttributes(() => {
+      let activatedAttributes = []
+      attributes.forEach((attribute) => {
+        attribute.values.forEach((element) => {
+          if (element.isActive) {
+            activatedAttributes.push({
+              name: attribute.name,
+              value: element.name
+            })
+          }
+        })
+      })
+      return activatedAttributes
+    })
   }, [attributes, props.baseUrl])
 
   return (
@@ -106,7 +125,7 @@ export default function Gallery(props) {
                 <div key={index}>
                   <h6 className="mt--10 mb--10 title">{a.name}</h6>
                   <nav className="tab-button-one">
-                    <div className="nav nav-tabs justify-content-center">
+                    <div className="nav nav-tabs justify-content-center max-height-nav">
                       {a.values.map((v, index2) => (
                         <div key={index2}>
                           <button
@@ -128,10 +147,27 @@ export default function Gallery(props) {
             <h6 className="mt--10 mb--10 title">
               Collection <span className="text-theme">{count}</span>
             </h6>
+            {selectedAttributes.length > 0 && (
+              <div className="rn-pd-sm-property-wrapper mx-lg-7 mx-5 my-2">
+                <div className="property-wrapper">
+                  {selectedAttributes.map((attr, index) => (
+                    <div
+                      key={index}
+                      className="pd-property-inner"
+                      onClick={() => selectAttribute(attr.name, attr.value)}
+                    >
+                      <span className="color-body type">{attr.name}</span>
+                      <span className="color-white value">{attr.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
             <div className="row">
               {nfts.map((n, index) => (
-                <div key={index} className="col-md-3 mb--20">
+                <div key={index} className="col-xxl-3 col-md-4 col-6 mb--20">
                   <NftCard
+                    isLoading={isLoading}
                     name={`#${n.edition}`}
                     image={`https://tomoegozen.ams3.cdn.digitaloceanspaces.com/${n.edition}.png`}
                   />
