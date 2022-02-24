@@ -45,7 +45,6 @@ export default function handler(req, res) {
     })
 
     // ========
-    console.log(activatedAttributes)
     var final = metadata
     for (const filter of activatedAttributes) {
       if (filter.values.length === 0) continue
