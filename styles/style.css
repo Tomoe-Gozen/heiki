@@ -5244,8 +5244,8 @@ nav.pagination-wrapper {
   display: flex;
   justify-content: center; }
   nav.pagination-wrapper .pagination {
-    margin-top: 60px;
-    margin-bottom: 0;
+    margin-top: 30px;
+    margin-bottom: 30px;
     transition: var(--transition);
     background: var(--background-color-1);
     border: 1px solid var(--color-border);
