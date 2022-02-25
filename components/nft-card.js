@@ -1,11 +1,22 @@
 import Image from 'next/image'
+import { useEffect } from 'react'
 
-export default function NftCard({ name, image, isLoading }) {
+export default function NftCard({
+  nft,
+  name,
+  image,
+  isLoading,
+  setSelectedNft
+}) {
+  const openModal = () => {
+    setSelectedNft(nft)
+  }
+
   return (
     <div className="product-style-one no-overlay d-flex flex-column justify-content-between mx-lg-7 mx-5">
       <div className="card-thumbnail">
         {!isLoading && (
-          <a>
+          <a className="cursor-pointer" onClick={() => openModal()}>
             <Image
               quality="65"
               src={image}

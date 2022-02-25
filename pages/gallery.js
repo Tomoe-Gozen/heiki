@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import WithTitleLayout from '../components/layouts/with-title'
 import NftCard from '../components/nft-card'
+import NftModal from '../components/nft-modal'
 import basicAuthCheck from '../lib/basic-auth'
 
 export default function Gallery(props) {
@@ -17,6 +18,7 @@ export default function Gallery(props) {
   const [pagination, setPagination] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
   const [isLoading, setIsLoading] = useState(true)
+  const [selectedNft, setSelectedNft] = useState(null)
 
   const selectAttribute = async (attribute, value) => {
     const res = await fetch(
@@ -169,6 +171,8 @@ export default function Gallery(props) {
                   <NftCard
                     isLoading={isLoading}
                     name={`#${n.edition}`}
+                    nft={n}
+                    setSelectedNft={setSelectedNft}
                     image={`https://tomoegozen.ams3.cdn.digitaloceanspaces.com/${n.edition}.png`}
                   />
                 </div>
@@ -197,6 +201,7 @@ export default function Gallery(props) {
           </div>
         </div>
       </div>
+      <NftModal setSelectedNft={setSelectedNft} selectedNft={selectedNft} />
     </>
   )
 }
