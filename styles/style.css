@@ -10026,7 +10026,7 @@ button.btn {
   display: block;
   border-radius: 50px;
   box-shadow: inset 0 0 0 2px #0d0d12;
-  z-index: 10000;
+  z-index: 500;
   opacity: 0;
   visibility: hidden;
   transform: translateY(15px);

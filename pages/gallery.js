@@ -167,7 +167,7 @@ export default function Gallery(props) {
             )}
             <div className="row">
               {nfts.map((n, index) => (
-                <div key={index} className="col-xxl-3 col-md-4 col-6 mb--20">
+                <div key={index} className="col-xxl-3 col-md-4 col-12 mb--20">
                   <NftCard
                     isLoading={isLoading}
                     name={`#${n.edition}`}

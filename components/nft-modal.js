@@ -82,9 +82,9 @@ export default function NftModal({ setSelectedNft, selectedNft }) {
           className="modal-content p-0"
           style={{ backgroundColor: getBackground() }}
         >
-          <div className="d-flex">
+          <div className="d-flex flex-md-row flex-column">
             <div>
-              <div className="nft-image">
+              <div className="nft-image mx-auto">
                 <Image
                   quality="100"
                   src={`https://tomoegozen.ams3.cdn.digitaloceanspaces.com/${selectedNft?.edition}.png`}
