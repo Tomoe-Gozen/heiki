@@ -325,6 +325,10 @@
   margin-bottom: 0px;
 }
 
+.cursor-default {
+  cursor: auto;
+}
+
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .maintanence-area .inner .content p {
       margin-top: 100px;

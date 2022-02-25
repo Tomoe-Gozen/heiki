@@ -104,7 +104,10 @@ export default function NftModal({ setSelectedNft, selectedNft }) {
               <div className="rn-pd-sm-property-wrapper w-100">
                 <div className="property-wrapper property-wrapper-no-wrap">
                   {selectedNft?.attributes.map((n, index) => (
-                    <div key={index} className="pd-property-inner">
+                    <div
+                      key={index}
+                      className="pd-property-inner cursor-default"
+                    >
                       <span className="color-white type">{n.trait_type}</span>
                       <span className="color-white value">
                         <strong>{n.value}</strong>
