@@ -3,6 +3,11 @@
   src: url('/fonts/Tomoe.ttf') format('truetype');
 }
 
+.nft-image {
+  width: 350px;
+  height: 350px;
+}
+
 .font-tomoe {
   font-family: 'Tomoe';
   font-weight: normal !important;
@@ -107,6 +112,13 @@
 
 .bid-react-area {
   margin-top: 0!important;
+}
+.property-wrapper-no-wrap {
+  white-space: normal!important;
+}
+
+.rn-pd-sm-property-wrapper .property-wrapper, .rn-pd-sm-property-wrapper .catagory-wrapper {
+  margin: 0px;
 }
 
 .copy-right-one .copyright-right .privacy {
