@@ -68,6 +68,7 @@ const mintHandler = async (req, res) => {
                 chain: networkId
               }
               res.status(200).json(rawTransaction)
+              return
             } else {
               res
                 .status(405)
