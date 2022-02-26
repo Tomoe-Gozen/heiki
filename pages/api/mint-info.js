@@ -11,16 +11,15 @@ const mintInfoHandler = async (req, res) => {
   }
 
   const { address } = req.body
+  res.status(500).json({
+    error: 'sdgdsgdsg'
+  })
+  return
   try {
     const authorization = Buffer.from(
       `${process.env.INFURA_PROJECT_ID}:${process.env.INFURA_PROJECT_SECRET}`
     ).toString('base64')
-  } catch (e) {
-    res.status(500).json({
-      error: e.error
-    })
-    return
-  }
+  } catch (e) {}
 
   const options = {
     headers: [
