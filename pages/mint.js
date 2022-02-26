@@ -39,7 +39,8 @@ export default function Mint() {
               }),
               headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'localhost'
+                'Access-Control-Allow-Origin':
+                  process.env.NEXT_PUBLIC_BASE_URL_API
               },
               method: 'POST'
             }
