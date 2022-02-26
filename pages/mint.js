@@ -65,10 +65,11 @@ export default function Mint() {
             }).show()
           }
         } catch (error) {
-          console.log(error)
           new Noty({
             type: 'error',
-            text: error.message,
+            text: error?.message
+              ? error.message
+              : 'Something went wrong, please refresh your browser',
             layout: 'top',
             timeout: 5000
           }).show()
