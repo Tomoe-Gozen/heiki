@@ -9,6 +9,7 @@ import Noty from 'noty'
 import { useEffect, useState } from 'react'
 
 export default function Mint() {
+  // trigger deploy
   const title = 'Tomoe Gozen NFT - Mint'
   const description =
     '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Tomoe Gozen.'
@@ -30,16 +31,18 @@ export default function Mint() {
     const mintInfo = async () => {
       if (address) {
         try {
-          const res = await fetch('/api/mint-info', {
-            body: JSON.stringify({
-              address
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': 'localhost'
-            },
-            method: 'POST'
-          })
+          const res = await fetch(
+            `${process.env.NEXT_PUBLIC_BASE_URL_API}/api/mint-info`,
+            {
+              body: JSON.stringify({
+                address
+              }),
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              method: 'POST'
+            }
+          )
 
           if (res.ok) {
             const { alreadyMinted, maxSupply, nMinted, saleFlag } =
@@ -50,7 +53,8 @@ export default function Mint() {
             setSaleFlag(parseInt(saleFlag))
             setLoading(false)
           } else {
-            const { error } = await res.json()
+            const error = await res.json()
+            console.log(error)
             new Noty({
               type: res.status >= 500 ? 'error' : 'warning',
               text: error,
@@ -61,7 +65,9 @@ export default function Mint() {
         } catch (error) {
           new Noty({
             type: 'error',
-            text: error.message,
+            text: error?.message
+              ? error.message
+              : 'Something went wrong, please refresh your browser',
             layout: 'top',
             timeout: 5000
           }).show()

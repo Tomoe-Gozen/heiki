@@ -33,17 +33,19 @@ export default function MintForm({ saleFlag, increaseMinted }) {
 
     try {
       const web3 = new Web3(provider.provider)
-      const res = await fetch('/api/mint', {
-        body: JSON.stringify({
-          nMint: number,
-          address
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': 'localhost'
-        },
-        method: 'POST'
-      })
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL_API}/api/mint`,
+        {
+          body: JSON.stringify({
+            nMint: number,
+            address
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          method: 'POST'
+        }
+      )
 
       if (res.ok) {
         const transaction = await res.json()
