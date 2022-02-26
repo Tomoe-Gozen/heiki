@@ -11,10 +11,17 @@ const mintInfoHandler = async (req, res) => {
   }
 
   const { address } = req.body
+  try {
+    const authorization = Buffer.from(
+      `${process.env.INFURA_PROJECT_ID}:${process.env.INFURA_PROJECT_SECRET}`
+    ).toString('base64')
+  } catch (e) {
+    res.status(500).json({
+      error: e.error
+    })
+    return
+  }
 
-  const authorization = Buffer.from(
-    `${process.env.INFURA_PROJECT_ID}:${process.env.INFURA_PROJECT_SECRET}`
-  ).toString('base64')
   const options = {
     headers: [
       {
@@ -23,6 +30,7 @@ const mintInfoHandler = async (req, res) => {
       }
     ]
   }
+
   const web3 = new Web3(
     new Web3.providers.HttpProvider(process.env.INFURA_URL, options)
   )
