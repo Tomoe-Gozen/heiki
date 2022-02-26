@@ -20,7 +20,20 @@ const mintHandler = async (req, res) => {
       return
     }
 
-    const web3 = new Web3(process.env.INFURA_URL)
+    const authorization = Buffer.from(
+      `${process.env.INFURA_PROJECT_ID}:${process.env.INFURA_PROJECT_SECRET}`
+    ).toString('base64')
+    const options = {
+      headers: [
+        {
+          name: 'Authorization',
+          value: `Base ${authorization}`
+        }
+      ]
+    }
+    const web3 = new Web3(
+      new Web3.providers.HttpProvider(process.env.INFURA_URL, options)
+    )
     const { contract, deployedAddress, networkId } = await getContractObj(
       web3,
       process.env.NEXT_PUBLIC_IS_PRODUCTION
