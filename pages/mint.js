@@ -31,16 +31,19 @@ export default function Mint() {
     const mintInfo = async () => {
       if (address) {
         try {
-          const res = await fetch('/api/mint-info', {
-            body: JSON.stringify({
-              address
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': 'localhost'
-            },
-            method: 'POST'
-          })
+          const res = await fetch(
+            `${process.env.NEXT_PUBLIC_BASE_URL_API}/api/mint-info`,
+            {
+              body: JSON.stringify({
+                address
+              }),
+              headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'localhost'
+              },
+              method: 'POST'
+            }
+          )
 
           if (res.ok) {
             const { alreadyMinted, maxSupply, nMinted, saleFlag } =

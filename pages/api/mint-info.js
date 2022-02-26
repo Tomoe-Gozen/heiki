@@ -2,7 +2,6 @@ import Web3 from 'web3'
 import getContractObj from './web3/getContract'
 import TomoeGozenContract from './contracts/TomoeGozen.json'
 import TomoeGozenContractTest from './contracts/AlphaTest2.json'
-import { Buffer } from 'buffer'
 
 const mintInfoHandler = async (req, res) => {
   try {
