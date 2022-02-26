@@ -11,6 +11,7 @@ const userHandler = async (req, res) => {
     const whitelist = await isWhiteListed(address)
 
     res.status(200).json({ whitelisted: whitelist.valid })
+    return
   } catch (error) {
     res.status(500).end('Someting went wrong')
     return
