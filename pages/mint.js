@@ -65,6 +65,7 @@ export default function Mint() {
             }).show()
           }
         } catch (error) {
+          console.log(error)
           new Noty({
             type: 'error',
             text: error.message,
