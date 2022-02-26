@@ -2,7 +2,7 @@ import Web3 from 'web3'
 import getContractObj from './web3/getContract'
 import isWhiteListed from './lib/isWhiteListed'
 import TomoeGozenContract from './contracts/TomoeGozen.json'
-import TomoeGozenContractTest from './contracts/AlphaTest.json'
+import TomoeGozenContractTest from './contracts/AlphaTest2.json'
 
 const mintHandler = async (req, res) => {
   try {
