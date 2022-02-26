@@ -2,6 +2,7 @@ import Web3 from 'web3'
 import getContractObj from './web3/getContract'
 import TomoeGozenContract from './contracts/TomoeGozen.json'
 import TomoeGozenContractTest from './contracts/AlphaTest.json'
+import { Buffer } from 'buffer'
 
 const mintInfoHandler = async (req, res) => {
   /* try { */
@@ -16,11 +17,6 @@ const mintInfoHandler = async (req, res) => {
     `${process.env.INFURA_PROJECT_ID}:${process.env.INFURA_PROJECT_SECRET}`
   ).toString('base64')
 
-  res.status(500).json({
-    error: 'sdgdsgdsg'
-  })
-  return
-
   const options = {
     headers: [
       {
@@ -33,12 +29,19 @@ const mintInfoHandler = async (req, res) => {
   const web3 = new Web3(
     new Web3.providers.HttpProvider(process.env.INFURA_URL, options)
   )
-  const { contract } = await getContractObj(
-    web3,
-    process.env.NEXT_PUBLIC_IS_PRODUCTION
-      ? TomoeGozenContract
-      : TomoeGozenContractTest
-  )
+  try {
+    const { contract } = await getContractObj(
+      web3,
+      process.env.NEXT_PUBLIC_IS_PRODUCTION
+        ? TomoeGozenContract
+        : TomoeGozenContractTest
+    )
+  } catch (e) {
+    res.status(500).json({
+      error: 'bite'
+    })
+    return
+  }
   const alreadyMinted = await contract.methods.totalSupply().call()
   const maxSupply = process.env.MAX_SUPPLY
   const saleFlag = await contract.methods.saleFlag.call().call()
