@@ -43,6 +43,7 @@ const mintInfoHandler = async (req, res) => {
   } catch (error) {
     res.status(500).json({
       error: {
+        url: process.env.INFURA_URL,
         projectId: process.env.INFURA_PROJECT_ID,
         projectSecret: process.env.INFURA_PROJECT_SECRET
       }
