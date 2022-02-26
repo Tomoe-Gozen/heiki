@@ -38,7 +38,7 @@ const mintInfoHandler = async (req, res) => {
     )
   } catch (e) {
     res.status(500).json({
-      error: 'bite'
+      error: process.env.NEXT_PUBLIC_IS_PRODUCTION ? 'bite' : 'bite 2'
     })
     return
   }
