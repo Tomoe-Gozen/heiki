@@ -55,7 +55,8 @@ export default function Mint() {
             setSaleFlag(parseInt(saleFlag))
             setLoading(false)
           } else {
-            const { error } = await res.json()
+            const error = await res.json()
+            console.log(error)
             new Noty({
               type: res.status >= 500 ? 'error' : 'warning',
               text: error,
