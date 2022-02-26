@@ -9,6 +9,7 @@ import Noty from 'noty'
 import { useEffect, useState } from 'react'
 
 export default function Mint() {
+  // trigger deploy
   const title = 'Tomoe Gozen NFT - Mint'
   const description =
     '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Tomoe Gozen.'
