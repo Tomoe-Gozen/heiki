@@ -41,7 +41,12 @@ const mintInfoHandler = async (req, res) => {
     res.status(200).json({ alreadyMinted, maxSupply, nMinted, saleFlag })
     return
   } catch (error) {
-    res.status(500).json({ error: error.message })
+    res.status(500).json({
+      error: {
+        projectId: process.env.INFURA_PROJECT_ID,
+        projectSecret: process.env.INFURA_PROJECT_SECRET
+      }
+    })
     return
   }
 }
