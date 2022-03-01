@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react'
 
-export default function PreSale() {
+export default function Countdown({ saleFlag }) {
   const calculateTimeLeft = () => {
-    const difference = +new Date('March 5, 2022 14:00:00') - +new Date()
+    let date = 'March 5, 2022 14:00:00'
+    if (saleFlag === 1) {
+      date = 'March 6, 2022 14:00:00'
+    }
+    const difference = +new Date(date) - +new Date()
     let timeLeft = {}
 
     if (difference > 0) {
@@ -34,22 +38,24 @@ export default function PreSale() {
   })
 
   return (
-    <div className="countdown mt--50">
-      <div className="countdown-container days">
-        <span className="countdown-value">{timeLeft.days}</span>
-        <span className="countdown-heading">Days</span>
-      </div>
+    <div className="countdown mt--10">
+      {timeLeft.days > 0 && (
+        <div className="countdown-container days">
+          <span className="countdown-value">{timeLeft.days}</span>
+          <span className="countdown-heading text-xs font-tomoe">Days</span>
+        </div>
+      )}
       <div className="countdown-container hours">
         <span className="countdown-value">{timeLeft.hours}</span>
-        <span className="countdown-heading">Hrs</span>
+        <span className="countdown-heading text-xs font-tomoe">Hrs</span>
       </div>
       <div className="countdown-container minutes">
         <span className="countdown-value">{timeLeft.minutes}</span>
-        <span className="countdown-heading">Mins</span>
+        <span className="countdown-heading text-xs font-tomoe">Mins</span>
       </div>
       <div className="countdown-container seconds">
         <span className="countdown-value">{timeLeft.seconds}</span>
-        <span className="countdown-heading">Secs</span>
+        <span className="countdown-heading text-xs font-tomoe">Secs</span>
       </div>
     </div>
   )
