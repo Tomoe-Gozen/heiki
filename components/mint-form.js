@@ -121,7 +121,7 @@ export default function MintForm({ saleFlag, increaseMinted }) {
         </div>
       )}
 
-      <div className="row g-5 justify-content-center m-3">
+      <div className="row g-5 justify-content-center mb--70">
         <div className="col-xl-4 col-6">
           <div
             className="upload-variant-wrapper"
