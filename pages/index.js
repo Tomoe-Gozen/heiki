@@ -50,7 +50,7 @@ export default function Mint() {
             setAlreadyMinted(alreadyMinted)
             setMaxSupply(maxSupply)
             setnMinted(nMinted)
-            setSaleFlag(parseInt(saleFlag))
+            setSaleFlag(parseInt(1))
             setLoading(false)
           } else {
             const error = await res.json()
@@ -105,12 +105,12 @@ export default function Mint() {
         <meta name="twitter:site" content="@TomoeGozenNFTs" />
         <meta name="twitter:creator" content="@TomoeGozenNFTs" />
       </Head>
-      <div className="rn-upload-variant-area varient min-vh-100">
-        <div className="row">
+      <div className="rn-upload-variant-area varient">
+        <div className="row min-vh-100">
           <div
             className={`${
               address ? 'col-lg-8' : 'col-lg-12'
-            } col-12 mb-0 pt-5 mb-lg--100 pt-lg--120`}
+            } col-12 mb-0 pt-5 mb-lg--100 pt-lg--120 d-flex flex-column flex-grow-1`}
           >
             {!loading && (
               <>
@@ -119,7 +119,7 @@ export default function Mint() {
                   {saleFlag === 1 && 'WHITELIST MINT'}
                   {saleFlag === 2 && 'PUBLIC SALE'}
                 </h3>
-                <h4 className="text-center text-secondary font-tomoe text-lg mb--25">
+                <h4 className="text-center text-secondary font-tomoe text-lg">
                   Mint price 0.08 eth
                 </h4>
               </>
@@ -159,16 +159,16 @@ export default function Mint() {
               <MintForm saleFlag={saleFlag} increaseMinted={increaseMinted} />
             )}
             {!loading && address && saleFlag === 0 && (
-              <>
+              <div className="mt-auto mb--25">
                 <h3 className="text-center mb-0">Whitelist Mint starts in:</h3>
                 <Countdown />
-              </>
+              </div>
             )}
             {!loading && address && saleFlag === 1 && (
-              <>
+              <div className="mt-md-auto mt--100 mb--25">
                 <h5 className="text-center mb-0">Public Mint starts in:</h5>
                 <Countdown />
-              </>
+              </div>
             )}
           </div>
           {address && (
