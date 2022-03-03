@@ -113,8 +113,8 @@ export default function Mint() {
             {!loading && (
               <>
                 <h3 className="title text-center">
-                  {!saleFlag && 'CONNECT YOUR WALLET'}
-                  {saleFlag === 0 && 'PRESALE'}
+                  {saleFlag === null && 'CONNECT YOUR WALLET'}
+                  {saleFlag === 0 && ''}
                   {saleFlag === 1 && 'WHITELIST MINT'}
                   {saleFlag === 2 && 'PUBLIC SALE'}
                 </h3>
@@ -158,8 +158,8 @@ export default function Mint() {
               <MintForm saleFlag={saleFlag} increaseMinted={increaseMinted} />
             )}
             {!loading && address && saleFlag === 0 && (
-              <div className="mt-auto mb--25">
-                <h3 className="text-center mb-0">Whitelist Mint starts in:</h3>
+              <div className={saleFlag > 0 && 'mt-auto mb--25'}>
+                <h3 className="text-center mb-0">WHITELIST MINT STARTS IN</h3>
                 <Countdown />
               </div>
             )}
