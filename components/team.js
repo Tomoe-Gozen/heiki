@@ -151,31 +151,7 @@ export default function Team() {
       twitter: 'dragorath_eth',
       linkedin: 'davide-mendes',
       title: 'Developer',
-      description: (
-        <>
-          <p>
-            My name is Arghi Pratama and I&apos;m 26 years old. I am originally
-            from Indonesia 🇮🇩 but I have been living in Queenstown, New Zealand
-            🇳🇿 since 2015.
-          </p>
-          <p>
-            I met @Sune&apos;emon Torii in 2015 when we were studying together
-            and we have been become a really good friend. He is my mentor and he
-            taught me about crypto !! I have been investing in crypto since 2018
-            and NFT since July in 2021 last year. 📊
-          </p>
-          <p>
-            I met @Shiro Kujira in 2020 and we become close friend too, we both
-            love nature so much which is the reason I love hiking. Mostly during
-            our day off, we spend the day hiking to see nature and beautiful
-            scenery in South Island, New Zealand. 🏔️
-          </p>
-          <p>
-            Besides that, I am continuing my study computer science field since
-            2021.
-          </p>
-        </>
-      )
+      description: <></>
     },
     {
       id: 6,
