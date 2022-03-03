@@ -358,6 +358,11 @@
   --bs-gutter-x: 6rem;
 }
 
+.text-xs p {
+  font-size: 11pt!important;
+  margin-bottom: 5px;
+}
+
 @media (min-width: 576px) { 
   .mx-special {
     margin-right: 8rem !important;
