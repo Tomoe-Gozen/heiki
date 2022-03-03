@@ -79,11 +79,15 @@ export default function Faq() {
                       </Disclosure.Button>
                     </h2>
                     <Disclosure.Panel as="div" className="accordion-collapse">
-                      <div suppressHydrationWarning className="accordion-body">
+                      <div className="accordion-body">
                         The whitelist mint date starts at{' '}
-                        <strong className="text-tomoe">{localDate}</strong> and
-                        the public mint starts at{' '}
-                        <strong className="text-tomoe">{localDate2}</strong>
+                        <strong suppressHydrationWarning className="text-tomoe">
+                          {localDate}
+                        </strong>{' '}
+                        and the public mint starts at{' '}
+                        <strong suppressHydrationWarning className="text-tomoe">
+                          {localDate2}
+                        </strong>
                       </div>
                     </Disclosure.Panel>
                   </div>
