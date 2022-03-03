@@ -3,6 +3,11 @@
   src: url('/fonts/Tomoe.ttf') format('truetype');
 }
 
+.nft-image {
+  width: 350px;
+  height: 350px;
+}
+
 .font-tomoe {
   font-family: 'Tomoe';
   font-weight: normal !important;
@@ -25,11 +30,15 @@
 }
 
 .text-xlg {
-  font-size: 72pt;
+  font-size: 72pt!important;
+}
+
+.text-xs {
+  font-size: 20pt!important;
 }
 
 .text-lg {
-  font-size: 30pt;
+  font-size: 30pt!important;
 }
 
 .coming-soon-wrapper {
@@ -103,6 +112,13 @@
 
 .bid-react-area {
   margin-top: 0!important;
+}
+.property-wrapper-no-wrap {
+  white-space: normal!important;
+}
+
+.rn-pd-sm-property-wrapper .property-wrapper, .rn-pd-sm-property-wrapper .catagory-wrapper {
+  margin: 0px;
 }
 
 .copy-right-one .copyright-right .privacy {
@@ -218,6 +234,101 @@
 .has-menu-child-item {
   margin-right: 10px;
 }
+.max-height-nav {
+  overflow-y: auto;
+  max-height: 25vh;
+}
+.responsive-square {
+  width: 100%;
+  padding-bottom: 100%;
+}
+
+.property-wrapper {
+  display: inline-block;
+  overflow-x: auto;
+}
+
+.rn-pd-sm-property-wrapper {
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.rn-pd-sm-property-wrapper .property-wrapper,
+  .rn-pd-sm-property-wrapper .catagory-wrapper {
+    display: inline-block;
+    white-space: nowrap; }
+
+.pd-property-inner {
+  display: inline-block;
+}
+
+@keyframes placeHolderShimmer{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}
+
+.animated-background {
+    animation-duration: 1.25s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: var(--background-color-4);
+    background: linear-gradient(to right, var(--background-color-2) 8%, var(--background-color-3) 18%, var(--background-color-2) 33%);
+    background-size: 800px 104px;
+    height: 96px;
+    position: relative;
+}
+
+.pd-property-inner {
+  cursor: pointer;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.modal-overlay {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 0; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.max-height-nav::-webkit-scrollbar, body::-webkit-scrollbar {
+  width: 11px;
+}
+.rn-pd-sm-property-wrapper::-webkit-scrollbar {
+  height: 11px;
+}
+.rn-pd-sm-property-wrapper, body, .max-height-nav {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--background-color-4);
+}
+.rn-pd-sm-property-wrapper::-webkit-scrollbar-track, .max-height-nav::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
+  background: var(--background-color-4);
+}
+.rn-pd-sm-property-wrapper::-webkit-scrollbar-thumb, .max-height-nav::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary) ;
+  border-radius: 6px;
+  border: 3px solid var(--background-color-4);
+}
+
+.rn-pd-sm-property-wrapper .property-wrapper .pd-property-inner span, .rn-pd-sm-property-wrapper .catagory-wrapper .pd-property-inner span {
+  margin-bottom: 0px;
+}
+
+.cursor-default {
+  cursor: auto;
+}
+
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .maintanence-area .inner .content p {
       margin-top: 100px;
