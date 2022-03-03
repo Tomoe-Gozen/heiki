@@ -3,26 +3,19 @@ import { Disclosure } from '@headlessui/react'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
-import LocalizedFormat from 'dayjs/plugin/localizedFormat'
 dayjs.extend(utc)
 dayjs.extend(timezone)
-dayjs.extend(LocalizedFormat)
-
-const date = dayjs('2022-03-05 14:00:00')
-  .tz('Europe/Paris', true)
-  .format('dddd, MMMM D, YYYY h:mm A')
-const date2 = dayjs('2022-03-06 14:00:00')
-  .tz('Europe/Paris', true)
-  .format('dddd, MMMM D, YYYY h:mm A')
 
 export default function Faq() {
+  const localDate = dayjs(
+    dayjs('2022-03-05 14:00:00').tz('Europe/Paris', true).valueOf()
+  ).format('dddd, MMMM D, YYYY h:mm A')
+
+  const localDate2 = dayjs(
+    dayjs('2022-03-06 14:00:00').tz('Europe/Paris', true).valueOf()
+  ).format('dddd, MMMM D, YYYY h:mm A')
+
   const faqs = [
-    {
-      id: 1,
-      question: 'Is there a release date?',
-      answer: `The whitelist mint date starts at <strong class="text-tomoe">${date}</strong> and the public mint starts at <strong class="text-tomoe">${date2}</strong>`,
-      defaultOpen: true
-    },
     {
       id: 2,
       question: 'Is there a Mint price?',
@@ -77,6 +70,24 @@ export default function Faq() {
           <div className="col-lg-6">
             <div className="support-accordion">
               <div className="accordion">
+                <Disclosure defaultOpen={true}>
+                  <div className="accordion-item">
+                    <h2 className="accordion-header">
+                      <Disclosure.Button className="accordion-button">
+                        Is there a release date?
+                        <i className="feather-chevron-up"></i>
+                      </Disclosure.Button>
+                    </h2>
+                    <Disclosure.Panel as="div" className="accordion-collapse">
+                      <div suppressHydrationWarning className="accordion-body">
+                        The whitelist mint date starts at{' '}
+                        <strong className="text-tomoe">{localDate}</strong> and
+                        the public mint starts at{' '}
+                        <strong className="text-tomoe">{localDate2}</strong>
+                      </div>
+                    </Disclosure.Panel>
+                  </div>
+                </Disclosure>
                 {faqs.map((f) => (
                   <Disclosure key={f.id} defaultOpen={f.defaultOpen ?? false}>
                     <div className="accordion-item">
@@ -88,9 +99,11 @@ export default function Faq() {
                       </h2>
                       <Disclosure.Panel as="div" className="accordion-collapse">
                         <div
+                          suppressHydrationWarning
                           className="accordion-body"
-                          dangerouslySetInnerHTML={{ __html: f.answer }}
-                        ></div>
+                        >
+                          {f.answer}
+                        </div>
                       </Disclosure.Panel>
                     </div>
                   </Disclosure>
