@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import Profile1 from '../public/images/bg/bg-image-106.jpg'
-import Profile2 from '../public/images/bg/bg-image-107.jpg'
-import Profile3 from '../public/images/bg/bg-image-110.jpg'
-import Profile4 from '../public/images/bg/bg-image-109.jpg'
-import Profile5 from '../public/images/bg/bg-image-108.jpg'
-import Profile6 from '../public/images/bg/bg-image-111.jpg'
+import Profile1 from '../public/images/team/arghi.jpg'
+import Profile2 from '../public/images/team/jeremie.jpg'
+import Profile3 from '../public/images/team/jeffry.jpg'
+import Profile4 from '../public/images/team/alex.jpg'
+import Profile5 from '../public/images/team/davide.jpg'
+import Profile6 from '../public/images/team/tita.jpg'
 
 export default function Team() {
   const profiles = [
@@ -83,10 +83,10 @@ export default function Team() {
         </div>
       </div>
       <div className="container">
-        <div className="row g-5 d-flex" id="nav-home">
+        <div className="row g-6 d-flex" id="nav-home">
           {profiles.map((p) => (
-            <div key={p.id} className="col-lg-4 col-md-6 col-12 p-10">
-              <div className="product-style-one no-overlay d-flex flex-column justify-content-between mx-lg-7 mx-5">
+            <div key={p.id} className="col-xxl-4 col-lg-6 col-md-6 col-12">
+              <div className="product-style-one no-overlay d-flex flex-column justify-content-between mx-special">
                 <div className="card-thumbnail">
                   <a>
                     <Image src={p.src} alt="" />
