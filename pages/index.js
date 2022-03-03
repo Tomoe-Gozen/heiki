@@ -43,18 +43,16 @@ export default function Mint() {
               method: 'POST'
             }
           )
-
           if (res.ok) {
             const { alreadyMinted, maxSupply, nMinted, saleFlag } =
               await res.json()
             setAlreadyMinted(alreadyMinted)
             setMaxSupply(maxSupply)
             setnMinted(nMinted)
-            setSaleFlag(parseInt(1))
+            setSaleFlag(parseInt(saleFlag))
             setLoading(false)
           } else {
             const error = await res.json()
-            console.log(error)
             new Noty({
               type: res.status >= 500 ? 'error' : 'warning',
               text: error,
@@ -115,6 +113,7 @@ export default function Mint() {
             {!loading && (
               <>
                 <h3 className="title text-center">
+                  {!saleFlag && 'CONNECT YOUR WALLET'}
                   {saleFlag === 0 && 'PRESALE'}
                   {saleFlag === 1 && 'WHITELIST MINT'}
                   {saleFlag === 2 && 'PUBLIC SALE'}
