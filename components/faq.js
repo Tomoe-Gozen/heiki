@@ -1,13 +1,26 @@
 import Link from 'next/link'
-import { Disclosure, Transition } from '@headlessui/react'
+import { Disclosure } from '@headlessui/react'
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
+import LocalizedFormat from 'dayjs/plugin/localizedFormat'
+dayjs.extend(utc)
+dayjs.extend(timezone)
+dayjs.extend(LocalizedFormat)
+
+const date = dayjs('2022-03-05 14:00:00')
+  .tz('Europe/Paris', true)
+  .format('dddd, MMMM D, YYYY h:mm A')
+const date2 = dayjs('2022-03-06 14:00:00')
+  .tz('Europe/Paris', true)
+  .format('dddd, MMMM D, YYYY h:mm A')
 
 export default function Faq() {
   const faqs = [
     {
       id: 1,
       question: 'Is there a release date?',
-      answer:
-        'Definitely! We plan to launch in the beginning of March (exact date TBA)',
+      answer: `The whitelist mint date starts at <strong class="text-tomoe">${date}</strong> and the public mint starts at <strong class="text-tomoe">${date2}</strong>`,
       defaultOpen: true
     },
     {
@@ -74,7 +87,10 @@ export default function Faq() {
                         </Disclosure.Button>
                       </h2>
                       <Disclosure.Panel as="div" className="accordion-collapse">
-                        <div className="accordion-body">{f.answer}</div>
+                        <div
+                          className="accordion-body"
+                          dangerouslySetInnerHTML={{ __html: f.answer }}
+                        ></div>
                       </Disclosure.Panel>
                     </div>
                   </Disclosure>
