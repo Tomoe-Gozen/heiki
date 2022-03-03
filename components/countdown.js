@@ -1,4 +1,9 @@
 import { useEffect, useState } from 'react'
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
+dayjs.extend(utc)
+dayjs.extend(timezone)
 
 export default function Countdown({ saleFlag }) {
   const calculateTimeLeft = () => {
@@ -6,7 +11,8 @@ export default function Countdown({ saleFlag }) {
     if (saleFlag === 1) {
       date = 'March 6, 2022 14:00:00'
     }
-    const difference = +new Date(date) - +new Date()
+    const difference =
+      +dayjs(date).tz('Europe/Paris', true).valueOf() - +dayjs().valueOf()
     let timeLeft = {}
 
     if (difference > 0) {
