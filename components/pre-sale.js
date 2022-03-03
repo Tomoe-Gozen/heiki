@@ -1,8 +1,16 @@
 import { useEffect, useState } from 'react'
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
+dayjs.extend(utc)
+dayjs.extend(timezone)
 
 export default function PreSale() {
   const calculateTimeLeft = () => {
-    const difference = +new Date('March 5, 2022 14:00:00') - +new Date()
+    let difference =
+      +dayjs('2022-03-05 14:00:00').tz('Europe/Paris', true).valueOf() -
+      +dayjs().valueOf()
+
     let timeLeft = {}
 
     if (difference > 0) {
