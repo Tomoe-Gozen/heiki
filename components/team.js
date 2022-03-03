@@ -151,7 +151,22 @@ export default function Team() {
       twitter: 'dragorath_eth',
       linkedin: 'davide-mendes',
       title: 'Developer',
-      description: <></>
+      description: (
+        <>
+          <p>Hello everyone!</p>
+
+          <p>
+            My name is Davide ! I&apos;m from Portugal and I live in
+            Switzerland.
+          </p>
+          <p>
+            I&apos;m a computer engineer who loves to be on the edge with new
+            technologies 💻, that so the blockchain interests me.
+          </p>
+
+          <p>I like to stay in movement and to be human. 🤟🏼</p>
+        </>
+      )
     },
     {
       id: 6,
