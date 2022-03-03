@@ -340,3 +340,32 @@
       max-width: 1050px;
   }
 }
+
+.mx-6 {
+  margin-right: 6rem !important;
+  margin-left: 6rem !important;
+}
+
+.mx-special {
+  margin-right: 6rem !important;
+  margin-left: 6rem !important;
+}
+
+.g-6 {
+  --bs-gutter-y: 6rem;
+}
+.g-6 {
+  --bs-gutter-x: 6rem;
+}
+
+.text-xs p {
+  font-size: 11pt!important;
+  margin-bottom: 5px;
+}
+
+@media (min-width: 576px) { 
+  .mx-special {
+    margin-right: 8rem !important;
+    margin-left: 8rem !important;
+  }
+}
