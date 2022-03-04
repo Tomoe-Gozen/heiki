@@ -158,13 +158,15 @@ export default function Mint() {
               <MintForm saleFlag={saleFlag} increaseMinted={increaseMinted} />
             )}
             {!loading && address && saleFlag === 0 && (
-              <div className={saleFlag > 0 && 'mt-auto mb--25'}>
+              <div
+                className={`${saleFlag > 0 && 'mt-auto mb--25'} text-center`}
+              >
                 <h3 className="text-center mb-0">WHITELIST MINT STARTS IN</h3>
                 <Countdown />
               </div>
             )}
             {!loading && address && saleFlag === 1 && (
-              <div className="mt-md-auto mt--100 mb--25">
+              <div className="mt-md-auto mt--100 mb--25 text-center">
                 <h5 className="text-center mb-0">Public Mint starts in:</h5>
                 <Countdown />
               </div>
