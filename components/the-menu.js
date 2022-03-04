@@ -109,6 +109,16 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
         </Link>
       </li>
       <li>
+        <a
+          href={config.opensea}
+          target="_blank"
+          rel="noreferrer"
+          onClick={handleToggleActive}
+        >
+          OpenSea
+        </a>
+      </li>
+      <li>
         <Link href="/">
           <a
             className={router.pathname === '/' ? 'text-theme' : ''}
