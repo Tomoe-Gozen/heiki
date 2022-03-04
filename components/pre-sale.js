@@ -42,7 +42,7 @@ export default function PreSale() {
   })
 
   return (
-    <div className="countdown mt--50">
+    <div className="countdown mt--10">
       <div className="countdown-container days">
         <span className="countdown-value">{timeLeft.days}</span>
         <span className="countdown-heading">Days</span>

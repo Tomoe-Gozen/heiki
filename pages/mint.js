@@ -84,14 +84,12 @@ export default function Mint() {
           >
             {!loading && (
               <>
-                <h3 className="title text-center">
-                  {saleFlag === 0
-                    ? 'Tomoe Gozen PRESALE'
-                    : 'Mint a Tomoe Gozen'}
-                </h3>
-                <h4 className="text-center text-secondary">
-                  Mint price <strong>0.08</strong>
+                <h4 className="text-center text-secondary font-tomoe mb--25 text-lg">
+                  MINT PRICE 0.08
                 </h4>
+                <h3 className="title text-center mb-0">
+                  WHITELIST MINT STARTS IN
+                </h3>
               </>
             )}
 
@@ -149,5 +147,5 @@ export default function Mint() {
 }
 
 Mint.getLayout = function getLayout(page) {
-  return <WithTitleLayout title="Mint">{page}</WithTitleLayout>
+  return <WithTitleLayout title="Tomoe Gozen MINT">{page}</WithTitleLayout>
 }
