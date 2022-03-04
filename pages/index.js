@@ -192,5 +192,5 @@ export default function Mint() {
 }
 
 Mint.getLayout = function getLayout(page) {
-  return <WithTitleLayout title="Mint a Tomoe Gozen">{page}</WithTitleLayout>
+  return <WithTitleLayout title="Tomoe Gozen MINT">{page}</WithTitleLayout>
 }
