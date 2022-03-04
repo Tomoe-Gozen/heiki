@@ -84,17 +84,19 @@ export default function MintForm({ saleFlag, increaseMinted }) {
     : chainId === 4
 
   const handleSubmit = async (number) => {
-    if (rightChainId) {
-      await mintNft(number)
-    } else {
-      new Noty({
-        type: 'error',
-        text: process.env.NEXT_PUBLIC_IS_PRODUCTION
-          ? 'Your are on a test network, please switch to the mainnet.'
-          : 'Your are on the mainnet network, please switch to a the Rinkeby test network.',
-        layout: 'top',
-        timeout: 5000
-      }).show()
+    if (!disabled) {
+      if (rightChainId) {
+        await mintNft(number)
+      } else {
+        new Noty({
+          type: 'error',
+          text: process.env.NEXT_PUBLIC_IS_PRODUCTION
+            ? 'Your are on a test network, please switch to the mainnet.'
+            : 'Your are on the mainnet network, please switch to a the Rinkeby test network.',
+          layout: 'top',
+          timeout: 5000
+        }).show()
+      }
     }
   }
 
@@ -131,7 +133,11 @@ export default function MintForm({ saleFlag, increaseMinted }) {
               <div className="variant-preview">
                 <Image src={Image1} alt="" />
               </div>
-              <button className="btn btn-primary mt--20" disabled={disabled}>
+              <button
+                type="button"
+                className="btn btn-primary mt--20"
+                disabled={disabled}
+              >
                 {loading.one ? (
                   <i className="fa fa-solid fa-circle-notch fa-spin"></i>
                 ) : (
@@ -150,7 +156,8 @@ export default function MintForm({ saleFlag, increaseMinted }) {
                 <Image src={Image2} alt="" />
               </div>
               <button
-                className="btn btn-primary mt--20 btn-disabled"
+                type="button"
+                className="btn btn-primary mt--20"
                 disabled={disabled}
               >
                 {loading.two ? (
@@ -171,7 +178,11 @@ export default function MintForm({ saleFlag, increaseMinted }) {
                 <div className="variant-preview">
                   <Image src={Image3} alt="" />
                 </div>
-                <button className="btn btn-primary mt--20" disabled={disabled}>
+                <button
+                  type="button"
+                  className="btn btn-primary mt--20"
+                  disabled={disabled}
+                >
                   {loading.three ? (
                     <i className="fa fa-solid fa-circle-notch fa-spin"></i>
                   ) : (
