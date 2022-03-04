@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
@@ -6,11 +7,16 @@ dayjs.extend(utc)
 dayjs.extend(timezone)
 
 export default function Countdown({ saleFlag }) {
+  let date = 'March 4, 2022 14:16:00'
+  if (saleFlag === 1) {
+    date = 'March 6, 2022 14:00:00'
+  }
+  const router = useRouter()
+  const reload = () => {
+    router.reload(window.location.pathname)
+    return
+  }
   const calculateTimeLeft = () => {
-    let date = 'March 5, 2022 14:00:00'
-    if (saleFlag === 1) {
-      date = 'March 6, 2022 14:00:00'
-    }
     const difference =
       +dayjs(date).tz('Europe/Paris', true).valueOf() - +dayjs().valueOf()
     let timeLeft = {}
@@ -43,7 +49,10 @@ export default function Countdown({ saleFlag }) {
     }, 1000)
   })
 
-  return (
+  return timeLeft.days &&
+    timeLeft.hours &&
+    timeLeft.minutes &&
+    timeLeft.seconds ? (
     <div className="countdown mt--10">
       {timeLeft.days > 0 && (
         <div className="countdown-container days">
@@ -64,5 +73,12 @@ export default function Countdown({ saleFlag }) {
         <span className="countdown-heading text-xs font-tomoe">Secs</span>
       </div>
     </div>
+  ) : (
+    <a
+      onClick={reload}
+      className="btn btn-large btn-primary-alta cursor-pointer my-5"
+    >
+      Refresh page
+    </a>
   )
 }
