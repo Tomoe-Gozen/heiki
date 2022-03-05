@@ -162,13 +162,13 @@ export default function Mint() {
                 className={`${saleFlag > 0 && 'mt-auto mb--25'} text-center`}
               >
                 <h3 className="text-center mb-0">WHITELIST MINT STARTS IN</h3>
-                <Countdown />
+                <Countdown saleFlag={saleFlag} />
               </div>
             )}
             {!loading && address && saleFlag === 1 && (
               <div className="mt-md-auto mt--100 mb--25 text-center">
                 <h5 className="text-center mb-0">Public Mint starts in:</h5>
-                <Countdown />
+                <Countdown saleFlag={saleFlag} />
               </div>
             )}
           </div>
