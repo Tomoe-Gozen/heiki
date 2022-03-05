@@ -7,7 +7,7 @@ dayjs.extend(utc)
 dayjs.extend(timezone)
 
 export default function Countdown({ saleFlag }) {
-  let date = 'March 4, 2022 14:16:00'
+  let date = 'March 5, 2022 14:00:00'
   if (saleFlag === 1) {
     date = 'March 6, 2022 14:00:00'
   }
