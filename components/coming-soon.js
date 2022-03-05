@@ -19,8 +19,6 @@ export default function ComingSoon() {
                     The gallery will be available{' '}
                     <span className="text-theme">after the public sale.</span>
                   </span>
-                  <span className="font-tomoe mt-4 mb-0 d-block">OpenSea</span>
-                  <a href={config.opensea}>opensea.io/collection/tomoegozen</a>
                   <span className="font-tomoe mt-4 mb-0 d-block">Twitter</span>
                   <a href={config.twitter}>twitter.com/NFTTomoeGozen</a>
                   <span className="font-tomoe mt-4 mb-0 d-block">Discord</span>

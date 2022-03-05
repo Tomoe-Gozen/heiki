@@ -27,7 +27,7 @@ export default function MintInfo({
       <div className="single-counter-up text-center mt--20 mb--20">
         <div className="number">
           {!loading ? (
-            maxSupply
+            8000
           ) : (
             <i className="fa fa-solid fa-circle-notch fa-spin"></i>
           )}
@@ -37,7 +37,7 @@ export default function MintInfo({
       <div className="single-counter-up text-center">
         <div className="number">
           {!loading ? (
-            alreadyMinted
+            0
           ) : (
             <i className="fa fa-solid fa-circle-notch fa-spin"></i>
           )}
