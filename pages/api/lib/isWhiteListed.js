@@ -10,8 +10,7 @@ const isWhiteListed = async (address) => {
   const hashedAddress = keccak256(address)
   const proof = merkleTree.getHexProof(hashedAddress)
   const root = merkleTree.getHexRoot()
-  // uncomment to get the merkle root
-  // console.log(root)
+
   const valid = merkleTree.verify(proof, hashedAddress, root)
   return {
     valid,

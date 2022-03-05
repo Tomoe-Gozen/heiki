@@ -52,7 +52,7 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     initTheme()
-    handleAnchor(1000)
+    handleAnchor(1500)
 
     const handleRouteChange = (url) => {
       initTheme()

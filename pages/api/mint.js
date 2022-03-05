@@ -2,7 +2,7 @@ import Web3 from 'web3'
 import getContractObj from './web3/getContract'
 import isWhiteListed from './lib/isWhiteListed'
 import TomoeGozenContract from './contracts/TomoeGozen.json'
-import TomoeGozenContractTest from './contracts/AlphaTest.json'
+import TomoeGozenContractTest from './contracts/AlphaTest2.json'
 
 const mintHandler = async (req, res) => {
   try {
@@ -20,7 +20,11 @@ const mintHandler = async (req, res) => {
       return
     }
 
-    const web3 = new Web3(process.env.INFURA_URL)
+    const web3 = new Web3(
+      new Web3.providers.HttpProvider(
+        `https://:${process.env.INFURA_PROJECT_SECRET}@${process.env.INFURA_URL}`
+      )
+    )
     const { contract, deployedAddress, networkId } = await getContractObj(
       web3,
       process.env.NEXT_PUBLIC_IS_PRODUCTION
@@ -64,6 +68,7 @@ const mintHandler = async (req, res) => {
                 chain: networkId
               }
               res.status(200).json(rawTransaction)
+              return
             } else {
               res
                 .status(405)

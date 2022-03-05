@@ -1,16 +1,24 @@
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
 dayjs.extend(utc)
 dayjs.extend(timezone)
 
-export default function PreSale() {
+export default function Countdown({ saleFlag }) {
+  let date = 'March 5, 2022 14:00:00'
+  if (saleFlag === 1) {
+    date = 'March 6, 2022 14:00:00'
+  }
+  const router = useRouter()
+  const reload = () => {
+    router.reload(window.location.pathname)
+    return
+  }
   const calculateTimeLeft = () => {
-    let difference =
-      +dayjs('2022-03-05 14:00:00').tz('Europe/Paris', true).valueOf() -
-      +dayjs().valueOf()
-
+    const difference =
+      +dayjs(date).tz('Europe/Paris', true).valueOf() - +dayjs().valueOf()
     let timeLeft = {}
 
     if (difference > 0) {
@@ -41,24 +49,36 @@ export default function PreSale() {
     }, 1000)
   })
 
-  return (
+  return timeLeft.days &&
+    timeLeft.hours &&
+    timeLeft.minutes &&
+    timeLeft.seconds ? (
     <div className="countdown mt--10">
-      <div className="countdown-container days">
-        <span className="countdown-value">{timeLeft.days}</span>
-        <span className="countdown-heading">Days</span>
-      </div>
+      {timeLeft.days > 0 && (
+        <div className="countdown-container days">
+          <span className="countdown-value">{timeLeft.days}</span>
+          <span className="countdown-heading text-xs font-tomoe">Days</span>
+        </div>
+      )}
       <div className="countdown-container hours">
         <span className="countdown-value">{timeLeft.hours}</span>
-        <span className="countdown-heading">Hrs</span>
+        <span className="countdown-heading text-xs font-tomoe">Hrs</span>
       </div>
       <div className="countdown-container minutes">
         <span className="countdown-value">{timeLeft.minutes}</span>
-        <span className="countdown-heading">Mins</span>
+        <span className="countdown-heading text-xs font-tomoe">Mins</span>
       </div>
       <div className="countdown-container seconds">
         <span className="countdown-value">{timeLeft.seconds}</span>
-        <span className="countdown-heading">Secs</span>
+        <span className="countdown-heading text-xs font-tomoe">Secs</span>
       </div>
     </div>
+  ) : (
+    <a
+      onClick={reload}
+      className="btn btn-large btn-primary-alta cursor-pointer my-5"
+    >
+      Refresh page
+    </a>
   )
 }

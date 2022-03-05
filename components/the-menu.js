@@ -15,9 +15,9 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
   return (
     <>
       <li className="has-droupdown has-menu-child-item">
-        <Link href="/">
+        <Link href="/home">
           <a
-            className={router.pathname === '/' ? 'text-theme' : ''}
+            className={router.pathname === '/home' ? 'text-theme' : ''}
             onClick={handleToggleActive}
           >
             Home
@@ -25,9 +25,9 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
         </Link>
         <ul className="submenu">
           <li>
-            <Link href="/#about">
+            <Link href="/home#about">
               <a
-                className={router.asPath === '/#about' ? 'text-theme' : ''}
+                className={router.asPath === '/home#about' ? 'text-theme' : ''}
                 onClick={handleToggleActive}
               >
                 About <i className="feather-home"></i>
@@ -35,9 +35,11 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
             </Link>
           </li>
           <li>
-            <Link href="/#roadmap">
+            <Link href="/home#roadmap">
               <a
-                className={router.asPath === '/#roadmap' ? 'text-theme' : ''}
+                className={
+                  router.asPath === '/home#roadmap' ? 'text-theme' : ''
+                }
                 onClick={handleToggleActive}
               >
                 Roadmap <i className="feather-home"></i>
@@ -45,9 +47,9 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
             </Link>
           </li>
           <li>
-            <Link href="/#team">
+            <Link href="/home#team">
               <a
-                className={router.asPath === '/#team' ? 'text-theme' : ''}
+                className={router.asPath === '/home#team' ? 'text-theme' : ''}
                 onClick={handleToggleActive}
               >
                 Team <i className="feather-home"></i>
@@ -55,9 +57,9 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
             </Link>
           </li>
           <li>
-            <Link href="/#faq">
+            <Link href="/home#faq">
               <a
-                className={router.asPath === '/#faq' ? 'text-theme' : ''}
+                className={router.asPath === '/home#faq' ? 'text-theme' : ''}
                 onClick={handleToggleActive}
               >
                 FAQ <i className="feather-home"></i>
@@ -107,9 +109,19 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
         </Link>
       </li>
       <li>
-        <Link href="/mint">
+        <a
+          href={config.opensea}
+          target="_blank"
+          rel="noreferrer"
+          onClick={handleToggleActive}
+        >
+          OpenSea
+        </a>
+      </li>
+      <li>
+        <Link href="/">
           <a
-            className={router.pathname === '/mint' ? 'text-theme' : ''}
+            className={router.pathname === '/' ? 'text-theme' : ''}
             onClick={handleToggleActive}
           >
             Mint
