@@ -7,9 +7,9 @@ dayjs.extend(utc)
 dayjs.extend(timezone)
 
 export default function Countdown({ saleFlag }) {
-  let date = 'March 5, 2022 14:00:00'
+  let date = 'March 22, 2022 14:00:00'
   if (saleFlag === 1) {
-    date = 'March 6, 2022 14:00:00'
+    date = 'March 23, 2022 14:00:00'
   }
   const router = useRouter()
   const reload = () => {
@@ -75,7 +75,7 @@ export default function Countdown({ saleFlag }) {
     </div>
   ) : (
     <a
-      onClick={reload}
+      onClick={config.ope}
       className="btn btn-large btn-primary-alta cursor-pointer my-5"
     >
       Refresh page
