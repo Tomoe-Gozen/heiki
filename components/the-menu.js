@@ -15,7 +15,7 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
   return (
     <>
       <li className="has-droupdown has-menu-child-item">
-        <Link href="/home">
+        <Link href="/">
           <a
             className={router.pathname === '/' ? 'text-theme' : ''}
             onClick={handleToggleActive}
@@ -25,7 +25,7 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
         </Link>
         <ul className="submenu">
           <li>
-            <Link href="/home#about">
+            <Link href="/#about">
               <a
                 className={router.asPath === '/#about' ? 'text-theme' : ''}
                 onClick={handleToggleActive}
@@ -35,7 +35,7 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
             </Link>
           </li>
           <li>
-            <Link href="/home#roadmap">
+            <Link href="/#roadmap">
               <a
                 className={router.asPath === '/#roadmap' ? 'text-theme' : ''}
                 onClick={handleToggleActive}
@@ -45,7 +45,7 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
             </Link>
           </li>
           <li>
-            <Link href="/home#team">
+            <Link href="/#team">
               <a
                 className={router.asPath === '/#team' ? 'text-theme' : ''}
                 onClick={handleToggleActive}
@@ -55,7 +55,7 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
             </Link>
           </li>
           <li>
-            <Link href="/home#faq">
+            <Link href="/#faq">
               <a
                 className={router.asPath === '/#faq' ? 'text-theme' : ''}
                 onClick={handleToggleActive}
