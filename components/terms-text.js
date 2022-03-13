@@ -4,7 +4,7 @@ export default function TermsText() {
       <h2>Introduction</h2>
       <p>
         These terms and conditions outline the rules and regulations for the use
-        of Heiki NFT&apos;s Website, located at https://www.tomoegozen.io.
+        of Heiki NFT&apos;s Website, located at https://www.heiki.io.
       </p>
 
       <p>

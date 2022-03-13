@@ -3,7 +3,7 @@ export default function PrivacyPolicyText() {
     <>
       <h2>Introduction</h2>
       <p>
-        At Heiki, accessible from https://www.tomoegozen.io, one of our main
+        At Heiki, accessible from https://www.heiki.io, one of our main
         priorities is the privacy of our visitors. This Privacy Policy document
         contains types of information that is collected and recorded by Heiki
         and how we use it.
