@@ -3,9 +3,9 @@ import WithTitleLayout from '../components/layouts/with-title'
 import TermsText from '../components/terms-text'
 
 export default function Terms() {
-  const title = 'Tomoe Gozen NFT - Terms'
+  const title = 'Heiki NFT - Terms'
   const description =
-    '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Tomoe Gozen.'
+    '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Heiki.'
   const image = '/images/og-image.png'
 
   return (
@@ -17,7 +17,7 @@ export default function Terms() {
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
         <meta property="og:url" content="https://www.tomoegozen.io" />
-        <meta property="og:site_name" content="Tomoe Gozen" />
+        <meta property="og:site_name" content="Heiki" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />

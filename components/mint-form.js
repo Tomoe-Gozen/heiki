@@ -52,7 +52,7 @@ export default function MintForm({ saleFlag, increaseMinted }) {
         await web3.eth.sendTransaction(transaction)
         new Noty({
           type: 'success',
-          text: `You successfully minted your Tomoe Gozen! (x${number}). You can find it on OpenSea 🙂`,
+          text: `You successfully minted your Heiki! (x${number}). You can find it on OpenSea 🙂`,
           layout: 'top',
           timeout: 5000
         }).show()
@@ -113,7 +113,7 @@ export default function MintForm({ saleFlag, increaseMinted }) {
                 data-sal-duration="800"
               >
                 <strong>
-                  We are minting your Tomoe Gozen NFT 🤘 <br />
+                  We are minting your Heiki NFT 🤘 <br />
                   Open MetaMask, confirm the transaction then please wait a
                   minute...
                 </strong>

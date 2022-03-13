@@ -3,9 +3,9 @@ import WithTitleLayout from '../components/layouts/with-title'
 import PrivacyPolicyText from '../components/privacy-policy-text'
 
 export default function PrivacyPolicy() {
-  const title = 'Tomoe Gozen NFT - Privacy Policy'
+  const title = 'Heiki NFT - Privacy Policy'
   const description =
-    '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Tomoe Gozen.'
+    '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Heiki.'
   const image = '/images/og-image.png'
 
   return (
@@ -17,7 +17,7 @@ export default function PrivacyPolicy() {
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
         <meta property="og:url" content="https://www.tomoegozen.io" />
-        <meta property="og:site_name" content="Tomoe Gozen" />
+        <meta property="og:site_name" content="Heiki" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />

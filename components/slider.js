@@ -48,7 +48,7 @@ export default function Slider() {
           </a>
           <div className="read-wrapper">
             {/* <h5>#{i.id}</h5> */}
-            <span>Tomoe Gozen</span>
+            <span>Heiki</span>
           </div>
         </div>
       ))}

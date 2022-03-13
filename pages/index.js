@@ -7,9 +7,9 @@ import Team from '../components/team'
 import Faq from '../components/faq'
 
 export default function Index() {
-  const title = 'Tomoe Gozen NFT'
+  const title = 'Heiki NFT'
   const description =
-    '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Tomoe Gozen.'
+    '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Heiki.'
   const image = '/images/og-image.png'
 
   return (
@@ -21,7 +21,7 @@ export default function Index() {
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
         <meta property="og:url" content="https://www.tomoegozen.io" />
-        <meta property="og:site_name" content="Tomoe Gozen" />
+        <meta property="og:site_name" content="Heiki" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />

@@ -10,9 +10,9 @@ import { useEffect, useState } from 'react'
 
 export default function Mint() {
   // trigger deploy
-  const title = 'Tomoe Gozen NFT - Mint'
+  const title = 'Heiki NFT - Mint'
   const description =
-    '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Tomoe Gozen.'
+    '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Heiki.'
   const image = '/images/og-image.png'
 
   const { address } = useWeb3()
@@ -96,7 +96,7 @@ export default function Mint() {
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
         <meta property="og:url" content="https://www.tomoegozen.io" />
-        <meta property="og:site_name" content="Tomoe Gozen" />
+        <meta property="og:site_name" content="Heiki" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
@@ -193,5 +193,5 @@ export default function Mint() {
 }
 
 Mint.getLayout = function getLayout(page) {
-  return <WithTitleLayout title="Tomoe Gozen MINT">{page}</WithTitleLayout>
+  return <WithTitleLayout title="Heiki MINT">{page}</WithTitleLayout>
 }
