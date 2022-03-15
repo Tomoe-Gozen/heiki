@@ -20,7 +20,7 @@ export default function ComingSoon() {
                     <span className="text-theme">after the public sale.</span>
                   </span>
                   <span className="font-tomoe mt-4 mb-0 d-block">Twitter</span>
-                  <a href={config.twitter}>twitter.com/NFTTomoeGozen</a>
+                  <a href={config.twitter}>twitter.com/HeikiNFT</a>
                   <span className="font-tomoe mt-4 mb-0 d-block">Discord</span>
                   <a href={config.discord}>discord.gg/tomoegozen</a>
                 </p>

@@ -141,8 +141,7 @@ export default function Mint() {
                       <div className="content">
                         <h4 className="title">You are not connected</h4>
                         <p className="description">
-                          You must be connected to MetaMask for minting a Tomoe
-                          Gozen.
+                          You must be connected to MetaMask for minting a Heiki.
                         </p>
                         <div className="pt--20 text-center">
                           <ConnectWallet withoutLoading={true} />

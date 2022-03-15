@@ -141,7 +141,7 @@ export default function About() {
             </div>
             <div className="col-lg-4 col-md-6">
               <div className="single-counter-up text-center">
-                <div className="number counter-odomitter-active">6</div>
+                <div className="number counter-odomitter-active">5</div>
                 <div className="botton-title">Team members</div>
               </div>
             </div>

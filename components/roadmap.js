@@ -23,7 +23,7 @@ export default function Roadmap() {
             put into warrior treasures
           </li>
           <li>
-            <strong className="text-tomoe">40%</strong> of Tomoe royalties
+            <strong className="text-tomoe">40%</strong> of Heiki royalties
             creators will be added into warrior treasure
           </li>
           <li>
