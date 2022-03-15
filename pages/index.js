@@ -9,7 +9,7 @@ import Faq from '../components/faq'
 export default function Index() {
   const title = 'Heiki NFT'
   const description =
-    '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Heiki.'
+    '3333 female warriors inspired by Tale of Heike and the legendary tale of a woman named Heiki.'
   const image = '/images/og-image.png'
 
   return (

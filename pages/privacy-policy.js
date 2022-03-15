@@ -5,7 +5,7 @@ import PrivacyPolicyText from '../components/privacy-policy-text'
 export default function PrivacyPolicy() {
   const title = 'Heiki NFT - Privacy Policy'
   const description =
-    '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Heiki.'
+    '3333 female warriors inspired by Tale of Heike and the legendary tale of a woman named Heiki.'
   const image = '/images/og-image.png'
 
   return (
