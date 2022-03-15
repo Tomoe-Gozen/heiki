@@ -195,7 +195,7 @@ export default function Team() {
         </div>
       </div>
       <div className="container">
-        <div className="row g-6 d-flex" id="nav-home">
+        <div className="row g-6 d-flex justify-content-center" id="nav-home">
           {members.map((m) => (
             <div key={m.id} className="col-xxl-4 col-lg-6 col-md-6 col-12">
               <div className="product-style-one no-overlay d-flex flex-column justify-content-between mx-special">
