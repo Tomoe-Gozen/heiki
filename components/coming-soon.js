@@ -22,7 +22,7 @@ export default function ComingSoon() {
                   <span className="font-tomoe mt-4 mb-0 d-block">Twitter</span>
                   <a href={config.twitter}>twitter.com/HeikiNFT</a>
                   <span className="font-tomoe mt-4 mb-0 d-block">Discord</span>
-                  <a href={config.discord}>discord.gg/tomoegozen</a>
+                  <a href={config.discord}>discord.gg/heikinft</a>
                 </p>
                 <div className="d-flex flex-row justify-content-center mt--50">
                   <Link href="/mint">
