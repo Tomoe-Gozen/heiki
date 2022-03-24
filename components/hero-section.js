@@ -15,8 +15,7 @@ export default function HeroSection() {
               data-sal-duration="800"
             >
               <span className="text-xlg font-tomoe mb-0">
-                <span className="text-tomoe">T</span>omoe{' '}
-                <span className="text-tomoe">G</span>ozen
+                <span className="text-tomoe">H</span>eiki{' '}
               </span>{' '}
               <br /> Discover an amazing NFT collection.
             </h2>
@@ -26,8 +25,8 @@ export default function HeroSection() {
               data-sal="slide-up"
               data-sal-duration="800"
             >
-              8000 female warriors inspired by Tale of Heike and the legendary
-              tale of a woman named Tomoe Gozen.
+              3333 female warriors inspired by Tale of Heike and the legendary
+              tale of a woman named Heiki.
             </p>
             <div className="button-group">
               <Link href="/#roadmap">

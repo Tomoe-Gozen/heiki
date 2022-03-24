@@ -10,6 +10,7 @@
 
 .font-tomoe {
   font-family: 'Tomoe';
+  text-transform: uppercase;
   font-weight: normal !important;
 }
 
@@ -107,7 +108,7 @@
 }
 
 .card-details .product-name {
-  font-size: 25pt!important;
+  font-size: 20pt!important;
 }
 
 .bid-react-area {

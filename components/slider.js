@@ -1,11 +1,8 @@
 import Image from 'next/image'
-import Image1 from '../public/images/bg/bg-image-1.jpg'
-import Image2 from '../public/images/bg/bg-image-2.jpg'
-import Image3 from '../public/images/bg/bg-image-3.jpg'
-import Image4 from '../public/images/bg/bg-image-4.jpg'
-import Image5 from '../public/images/bg/bg-image-5.jpg'
-import Image6 from '../public/images/bg/bg-image-6.jpg'
-import Image7 from '../public/images/bg/bg-image-7.jpg'
+import Image1 from '../public/images/collection/1.jpg'
+import Image2 from '../public/images/collection/2.jpg'
+import Image3 from '../public/images/collection/3.jpg'
+import Image4 from '../public/images/collection/4.jpg'
 
 export default function Slider() {
   const images = [
@@ -24,18 +21,6 @@ export default function Slider() {
     {
       id: '4465',
       src: Image4
-    },
-    {
-      id: '4466',
-      src: Image5
-    },
-    {
-      id: '4467',
-      src: Image6
-    },
-    {
-      id: '4468',
-      src: Image7
     }
   ]
 
@@ -48,7 +33,7 @@ export default function Slider() {
           </a>
           <div className="read-wrapper">
             {/* <h5>#{i.id}</h5> */}
-            <span>Tomoe Gozen</span>
+            <span>Heiki</span>
           </div>
         </div>
       ))}

@@ -88,33 +88,6 @@ export default function Team() {
     },
     {
       id: 3,
-      pseudo: 'Shiro Kujira',
-      name: 'Jefri Yanto',
-      src: Profile3,
-      twitter: 'jef_YANTO',
-      instagram: 'a73p',
-      title: 'Co-founder',
-      description: (
-        <>
-          <p>Howdy Fam 👋</p>
-          <p>
-            My name is Jefri aka Jeffrey! Basically I am from Indonesia 🇮🇩 . I
-            used to work in shopping center as GM.
-          </p>
-          <p>
-            In 2019 I&apos;ve left my job and decided to travel and ended up in
-            Queenstown, NZ whilst doing remote jobs. In 2020 I met @Kyosuke
-            Rogue thanks to my ex lol.
-          </p>
-          <p>
-            As you know we do have the same hobbies like hiking and discovering
-            the amazing New-Zealand&apos;s landscape. 🏔️
-          </p>
-        </>
-      )
-    },
-    {
-      id: 4,
       pseudo: 'Ibaraki Tsukasa',
       name: 'Alexandre Le Corre',
       src: Profile4,
@@ -144,7 +117,7 @@ export default function Team() {
       )
     },
     {
-      id: 5,
+      id: 4,
       pseudo: 'Uesugi Kenshin',
       name: 'Davide Mendes',
       src: Profile5,
@@ -169,7 +142,7 @@ export default function Team() {
       )
     },
     {
-      id: 6,
+      id: 5,
       pseudo: 'Nephophiley',
       name: 'Tita Carella',
       src: Profile6,
@@ -222,7 +195,7 @@ export default function Team() {
         </div>
       </div>
       <div className="container">
-        <div className="row g-6 d-flex" id="nav-home">
+        <div className="row g-6 d-flex justify-content-center" id="nav-home">
           {members.map((m) => (
             <div key={m.id} className="col-xxl-4 col-lg-6 col-md-6 col-12">
               <div className="product-style-one no-overlay d-flex flex-column justify-content-between mx-special">

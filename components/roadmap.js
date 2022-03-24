@@ -12,8 +12,7 @@ export default function Roadmap() {
       description: (
         <ul>
           <li>
-            Launch our{' '}
-            <strong className="text-tomoe">season 1 Tomoe Gozen</strong>
+            Launch our <strong className="text-tomoe">season 1 Heiki</strong>
           </li>
           <li>
             <strong className="text-tomoe">8 Eth</strong> contribution for
@@ -24,7 +23,7 @@ export default function Roadmap() {
             put into warrior treasures
           </li>
           <li>
-            <strong className="text-tomoe">40%</strong> of Tomoe royalties
+            <strong className="text-tomoe">40%</strong> of Heiki royalties
             creators will be added into warrior treasure
           </li>
           <li>

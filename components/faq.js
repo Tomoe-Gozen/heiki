@@ -35,7 +35,7 @@ export default function Faq() {
     {
       id: 5,
       question: 'How many warriors there will be?',
-      answer: '8000 NFTs including 8 1/1 art pieces.'
+      answer: '3333 NFTs including 8 1/1 art pieces.'
     },
     {
       id: 6,

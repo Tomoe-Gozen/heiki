@@ -10,9 +10,9 @@ import { useEffect, useState } from 'react'
 
 export default function Mint() {
   // trigger deploy
-  const title = 'Tomoe Gozen NFT - Mint'
+  const title = 'Heiki NFT - Mint'
   const description =
-    '8000 female warriors inspired by Tale of Heike and the legendary tale of a woman named Tomoe Gozen.'
+    '3333 female warriors inspired by Tale of Heike and the legendary tale of a woman named Heiki.'
   const image = '/images/og-image.png'
 
   const { address } = useWeb3()
@@ -95,13 +95,13 @@ export default function Mint() {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
-        <meta property="og:url" content="https://www.tomoegozen.io" />
-        <meta property="og:site_name" content="Tomoe Gozen" />
+        <meta property="og:url" content="https://www.heiki.io" />
+        <meta property="og:site_name" content="Heiki" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
-        <meta name="twitter:site" content="@TomoeGozenNFTs" />
-        <meta name="twitter:creator" content="@TomoeGozenNFTs" />
+        <meta name="twitter:site" content="@HeikiNFT" />
+        <meta name="twitter:creator" content="@HeikiNFT" />
       </Head>
       <div className="rn-upload-variant-area varient">
         <div className="row min-vh-100">
@@ -141,8 +141,7 @@ export default function Mint() {
                       <div className="content">
                         <h4 className="title">You are not connected</h4>
                         <p className="description">
-                          You must be connected to MetaMask for minting a Tomoe
-                          Gozen.
+                          You must be connected to MetaMask for minting a Heiki.
                         </p>
                         <div className="pt--20 text-center">
                           <ConnectWallet withoutLoading={true} />
@@ -193,5 +192,5 @@ export default function Mint() {
 }
 
 Mint.getLayout = function getLayout(page) {
-  return <WithTitleLayout title="Tomoe Gozen MINT">{page}</WithTitleLayout>
+  return <WithTitleLayout title="Heiki MINT">{page}</WithTitleLayout>
 }

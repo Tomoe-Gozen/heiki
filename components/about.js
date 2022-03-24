@@ -35,7 +35,7 @@ export default function About() {
                       data-sal-duration="800"
                       data-sal-delay="150"
                     >
-                      Why we do this
+                      The Heiki Story
                     </h2>
                     <p
                       className="about-disc"
@@ -43,12 +43,9 @@ export default function About() {
                       data-sal-duration="800"
                       data-sal-delay="150"
                     >
-                      We are making a NFT collection about Tomoe Gozen because
-                      this story is really exciting. It&apos;s shrouded in
-                      mystery, but she was known for being both beautiful and
-                      terrifying. What’s truly impressive about the legend of
-                      Tomoe Gozen is not just that she was a female samurai, but
-                      that she was an elite warrior!
+                      In a world full of chaos, most people are consumed with
+                      the desire for power and control that they willing to
+                      destroy anyone who is standing in their way.
                     </p>
                     <a
                       href="#roadmap"
@@ -72,7 +69,7 @@ export default function About() {
                     data-sal-duration="800"
                     data-sal-delay="150"
                   >
-                    The Tomoe Gozen story
+                    3333 female warriors.
                   </h3>
                   <p
                     className="about-disc mb--0"
@@ -80,11 +77,9 @@ export default function About() {
                     data-sal-duration="800"
                     data-sal-delay="150"
                   >
-                    Tomoe Gozen (巴御前) was an onna-musha from the late Heian
-                    period of Japanese history. She served Minamoto no Yoshinaka
-                    during the Genpei War and was a part of the conflict that
-                    led to the first shogunate. Her family had strong
-                    affiliations with Yoshinaka.
+                    3333 female warriors picked up their weapons to fight for
+                    this world, against oppression and bring peace to this world
+                    once again.
                   </p>
                 </div>
               </div>
@@ -103,7 +98,7 @@ export default function About() {
                   data-sal-duration="800"
                   data-sal-delay="150"
                 >
-                  The Tale of Heike, which chronicles the Genpei War.
+                  Heiki is pfp project.
                 </h3>
               </div>
             </div>
@@ -115,9 +110,10 @@ export default function About() {
                 data-sal-delay="150"
               >
                 <p>
-                  Her story in the Tale of the Heike influenced several
-                  generations of samurai. Tomoe is often celebrated in books,
-                  music, poems, films, historical novels and culture in general.
+                  We are focusing on community building and connecting people
+                  together. In web3, transparency is everything meaning that
+                  community will have their right to vote where the
+                  funds/community wallet will go with full transparency.
                 </p>
               </div>
             </div>
@@ -128,20 +124,20 @@ export default function About() {
         <div className="container">
           <div className="row mb--30">
             <div className="col-12 text-center">
-              <h3 className="mb-0">Tomoe Gozen </h3>
-              <h4 className="font-tomoe h1">Statistics</h4>
+              <h3 className="mb-0">Heiki </h3>
+              <h4 className="font-tomoe h2">Statistics</h4>
             </div>
           </div>
           <div className="row g-5">
             <div className="offset-lg-2 col-lg-4 col-md-6">
               <div className="single-counter-up text-center">
                 <div className="number counter-odomitter-active">8,000</div>
-                <div className="botton-title">Tomoe Gozens</div>
+                <div className="botton-title">Heikis</div>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
               <div className="single-counter-up text-center">
-                <div className="number counter-odomitter-active">6</div>
+                <div className="number counter-odomitter-active">5</div>
                 <div className="botton-title">Team members</div>
               </div>
             </div>
