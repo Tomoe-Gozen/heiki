@@ -125,7 +125,7 @@ export default function About() {
           <div className="row mb--30">
             <div className="col-12 text-center">
               <h3 className="mb-0">Heiki </h3>
-              <h4 className="font-tomoe h1">Statistics</h4>
+              <h4 className="font-tomoe h2">Statistics</h4>
             </div>
           </div>
           <div className="row g-5">
