@@ -7,7 +7,7 @@ export default function Soon() {
       <div className="row">
         <div className="col-lg-12 p-0">
           <div
-            className="banner_image--2 bg_image bg-image-border"
+            className="banner_image--1 bg_image bg-image-border"
             data-black-overlay="7"
           >
             <div className="row">

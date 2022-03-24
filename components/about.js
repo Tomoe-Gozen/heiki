@@ -35,7 +35,7 @@ export default function About() {
                       data-sal-duration="800"
                       data-sal-delay="150"
                     >
-                      Introduction
+                      The Heiki Story
                     </h2>
                     <p
                       className="about-disc"
@@ -69,7 +69,7 @@ export default function About() {
                     data-sal-duration="800"
                     data-sal-delay="150"
                   >
-                    The Heiki story
+                    3333 female warriors.
                   </h3>
                   <p
                     className="about-disc mb--0"
@@ -98,7 +98,7 @@ export default function About() {
                   data-sal-duration="800"
                   data-sal-delay="150"
                 >
-                  The Tale of Heike, which chronicles the Genpei War.
+                  Heiki is pfp project.
                 </h3>
               </div>
             </div>
@@ -110,9 +110,10 @@ export default function About() {
                 data-sal-delay="150"
               >
                 <p>
-                  Her story in the Tale of the Heike influenced several
-                  generations of samurai. Tomoe is often celebrated in books,
-                  music, poems, films, historical novels and culture in general.
+                  We are focusing on community building and connecting people
+                  together. In web3, transparency is everything meaning that
+                  community will have their right to vote where the
+                  funds/community wallet will go with full transparency.
                 </p>
               </div>
             </div>
