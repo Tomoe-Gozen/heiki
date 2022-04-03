@@ -25,8 +25,8 @@ export default function HeroSection() {
               data-sal="slide-up"
               data-sal-duration="800"
             >
-              3333 female warriors inspired by Tale of Heike and the legendary
-              tale of a woman named Heiki.
+              3333 female warriors picked up their weapons to fight for this
+              world.
             </p>
             <div className="button-group">
               <Link href="/#roadmap">

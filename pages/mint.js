@@ -12,7 +12,7 @@ export default function Mint() {
   // trigger deploy
   const title = 'Heiki NFT - Mint'
   const description =
-    '3333 female warriors inspired by Tale of Heike and the legendary tale of a woman named Heiki.'
+    '3333 female warriors picked up their weapons to fight for this world.'
   const image = '/images/og-image.png'
 
   const { address } = useWeb3()
@@ -95,7 +95,7 @@ export default function Mint() {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
-        <meta property="og:url" content="https://www.heiki.io" />
+        <meta property="og:url" content="https://www.heikinft.com" />
         <meta property="og:site_name" content="Heiki" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
