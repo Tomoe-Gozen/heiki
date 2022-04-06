@@ -35,7 +35,7 @@ export default function About() {
                       data-sal-duration="800"
                       data-sal-delay="150"
                     >
-                      The Heiki Story
+                      History of Heiki
                     </h2>
                     <p
                       className="about-disc"
@@ -43,9 +43,12 @@ export default function About() {
                       data-sal-duration="800"
                       data-sal-delay="150"
                     >
-                      In a world full of chaos, most people are consumed with
-                      the desire for power and control that they willing to
-                      destroy anyone who is standing in their way.
+                      Heiki story is set in fictional version in the early 11th
+                      century in Japan where Power is the only true necessity.
+                      Manpower created a world full of chaos, most people are
+                      consumed with the desire for power and control that they
+                      willing to destroy anyone who is standing in their way.
+                      Those man with greed kill thousands of people each day.
                     </p>
                     <a
                       href="#roadmap"
@@ -77,9 +80,11 @@ export default function About() {
                     data-sal-duration="800"
                     data-sal-delay="150"
                   >
-                    3333 female warriors picked up their weapons to fight for
+                    These female warriors picked up their weapons to fight for
                     this world, against oppression and bring peace to this world
-                    once again.
+                    once again. They split from across different regions in
+                    Japan to complete their mission to bring down the manpower
+                    and offering protection and aid to those in need.
                   </p>
                 </div>
               </div>

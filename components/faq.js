@@ -24,18 +24,18 @@ export default function Faq() {
     {
       id: 3,
       question: 'What blockchain is the project on?',
-      answer: 'ETH and MetaMask'
+      answer: 'ETH - MetaMask'
     },
     {
       id: 4,
       question: 'How to get WL on the server?',
       answer:
-        'Be active in the discord chat and spread love so we can see you ! We will also do some raffles.'
+        'Be active in the discord chat and spread love so we can see you !'
     },
     {
       id: 5,
       question: 'How many warriors there will be?',
-      answer: '3333 NFTs including 8 1/1 art pieces.'
+      answer: '3333 NFTs including 10 1/1 art pieces.'
     },
     {
       id: 6,
@@ -46,7 +46,7 @@ export default function Faq() {
     {
       id: 7,
       question: 'How will the mint go?',
-      answer: 'Pre sale for OGs and WLs + Public sale.'
+      answer: 'Pre sale for OGs and WLs + Public sale for leftover.'
     }
   ]
   return (
