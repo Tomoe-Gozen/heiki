@@ -2,71 +2,112 @@ import Image from 'next/image'
 import Icon1 from '../public/images/icons/icon-1.png'
 import Icon2 from '../public/images/icons/icon-2.png'
 import Icon3 from '../public/images/icons/icon-3.png'
+import Icon4 from '../public/images/icons/icon-4.png'
+import Icon5 from '../public/images/icons/icon-5.png'
+import Icon6 from '../public/images/icons/icon-6.png'
 
 export default function Roadmap() {
   const roadmapSteps = [
     {
       id: 1,
-      title: 'Q1 2022',
+      title: 'Our mission',
       src: Icon1,
       description: (
-        <ul>
-          <li>
-            Launch our <strong className="text-tomoe">season 1 Heiki</strong>
-          </li>
-          <li>
-            <strong className="text-tomoe">8 Eth</strong> contribution for
-            charity
-          </li>
-          <li>
-            Transparency of <strong className="text-tomoe">30%</strong> will be
-            put into warrior treasures
-          </li>
-          <li>
-            <strong className="text-tomoe">40%</strong> of Heiki royalties
-            creators will be added into warrior treasure
-          </li>
-          <li>
-            Free <strong className="text-tomoe">merch store</strong> to holders
-          </li>
-        </ul>
+        <>
+          <p>
+            <strong className="text-tomoe">Absolute power</strong> With broken
+            timelines happening in the 11th century, the great battle is about
+            to begin. A mass of people, fuelled by greed, annihilated humanity,
+            and obtained power, great enough to establish the new order.
+          </p>
+          <p>
+            Our mission is to release{' '}
+            <strong className="text-tomoe">3333</strong> female warriors with
+            around 300 unique traits.{' '}
+            <strong className="text-tomoe">Heiki</strong> is not just PFP NFT,
+            it is also a brand and to become a major brand to exist in the
+            digital/NFT space and lifestyle industries.
+          </p>
+        </>
       )
     },
     {
       id: 2,
-      title: 'Q2 2022',
+      title: 'Community',
       src: Icon2,
       description: (
-        <ul>
-          <li>
-            Community vote for our{' '}
-            <strong className="text-tomoe">marketing and partnership</strong>
-          </li>
-          <li>
-            <strong className="text-tomoe">Season 2</strong> releases of male
-            samurai for the holders
-          </li>
-          <li>
-            Purchase <strong className="text-tomoe">3x3</strong> land in sandbox
-            for game development
-          </li>
-        </ul>
+        <p>
+          Our focus is to <strong className="text-tomoe">connect people</strong>{' '}
+          together in web3 and we believe that community play an important role
+          in the success of the NFT project. When you join our community, your
+          voice matters, and you will be able to vote based on the number of
+          tokens you hold. The intent has always been to connect the community
+          and build the community focuses which connect us with inspiring
+          individuals. You have the word of the team that we will continue to
+          build and create for the community, but we do not promise any future
+          value of the NFT.
+        </p>
       )
     },
     {
       id: 3,
-      title: 'Q3 2022',
+      title: 'Branding',
       src: Icon3,
       description: (
-        <>
-          <ul>
-            <li>
-              IRL events in <strong className="text-tomoe">Bali</strong>,
-              Indonesia
-            </li>
-            <li>Roadmap 2.0</li>
-          </ul>
-        </>
+        <p>
+          Heiki will have their own brand apparel and the first{' '}
+          <strong className="text-tomoe">333 minters</strong> will get a
+          high-quality tee collection for free (Shipping included)
+        </p>
+      )
+    },
+    {
+      id: 4,
+      title: 'Transparency',
+      src: Icon4,
+      description: (
+        <p>
+          We will allocate <strong className="text-tomoe">25%</strong> of the
+          minted to Community wallet which will be known as the “Heiki
+          Treasure”. Additionally,{' '}
+          <strong className="text-tomoe">30% of all Gen 1</strong> secondary
+          markets will go towards Heiki Treasure. Heiki Treasure will be used to
+          fund projects detailed on the roadmap.
+        </p>
+      )
+    },
+    {
+      id: 5,
+      title: 'Staking system',
+      src: Icon5,
+      description: (
+        <p>
+          Throughout Japan’s history, Samurai were paid by their feudal lords,
+          the Daimyo, in rice or land. We want to reward our holders by
+          implementing staking system. We will launch a utility token and
+          holders will be able to stake their Heiki avatars to claim{' '}
+          <strong className="text-tomoe">$Rice</strong> token which can be used
+          to claim <strong className="text-tomoe">3D version NFT</strong>,
+          Hoodies, Tees, including{' '}
+          <strong className="text-tomoe">Gen 2 release</strong> can be paid
+          partially with our tokens, more utilities will come in roadmap 2.0.
+        </p>
+      )
+    },
+    {
+      id: 6,
+      title: 'Manga',
+      src: Icon6,
+      description: (
+        <p>
+          Our team has been working on developing{' '}
+          <strong className="text-tomoe">the Heiki concept</strong> and story.
+          We will release our manga series and all female warrior characters in
+          the manga will be in the Heiki collection. For the first chapter, we
+          will pick characters based on voting systems or through a community
+          raffle and the raffle winner will have their characters used for our
+          first chapter manga series.
+        </p>
       )
     }
   ]
@@ -100,7 +141,7 @@ export default function Roadmap() {
                     <div className="icon">
                       <Image src={r.src} alt="" />
                     </div>
-                    <div className="subtitle">Step {r.id}</div>
+                    <div className="subtitle">Journey {r.id}</div>
                     <div className="content">
                       <h4 className="title">
                         <a
