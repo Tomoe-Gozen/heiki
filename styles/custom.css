@@ -39,9 +39,12 @@
 }
 
 .text-lg {
-  font-size: 30pt!important;
+  font-size: 20pt!important;
 }
-
+.rn-service-one .content p {
+  font-size: 10pt!important;
+  margin-bottom: 20px;
+}
 .coming-soon-wrapper {
   text-align: center;
   margin-top: 80px;
