@@ -145,7 +145,7 @@ export default function Roadmap() {
                     <div className="content">
                       <h4 className="title">
                         <a
-                          href="https://discord.gg/qznBmHn3GK"
+                          href="https://discord.gg/heikinft"
                           className="font-tomoe text-lg"
                         >
                           {r.title}
@@ -156,7 +156,7 @@ export default function Roadmap() {
                   </div>
                   <a
                     className="over-link"
-                    href="https://discord.gg/qznBmHn3GK"
+                    href="https://discord.gg/heikinft"
                   ></a>
                 </div>
               </div>
