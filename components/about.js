@@ -136,7 +136,7 @@ export default function About() {
           <div className="row g-5">
             <div className="offset-lg-2 col-lg-4 col-md-6">
               <div className="single-counter-up text-center">
-                <div className="number counter-odomitter-active">8,000</div>
+                <div className="number counter-odomitter-active">3,333</div>
                 <div className="botton-title">Heikis</div>
               </div>
             </div>
