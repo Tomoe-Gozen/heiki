@@ -29,7 +29,12 @@ export default function Mint() {
   useEffect(() => {
     setLoading(true)
     const mintInfo = async () => {
-      if (address) {
+      setAlreadyMinted(0)
+      setMaxSupply(3333)
+      setnMinted(0)
+      setSaleFlag(parseInt(0))
+      setLoading(false)
+      /* if (address) {
         try {
           const res = await fetch(
             `${process.env.NEXT_PUBLIC_BASE_URL_API}/api/mint-info`,
@@ -47,9 +52,9 @@ export default function Mint() {
             const { alreadyMinted, maxSupply, nMinted, saleFlag } =
               await res.json()
             setAlreadyMinted(alreadyMinted)
-            setMaxSupply(maxSupply)
+            setMaxSupply(3333)
             setnMinted(nMinted)
-            setSaleFlag(parseInt(saleFlag))
+            setSaleFlag(parseInt(0))
             setLoading(false)
           } else {
             const error = await res.json()
@@ -77,7 +82,7 @@ export default function Mint() {
         setnMinted(null)
         setSaleFlag(null)
         setLoading(false)
-      }
+      } */
     }
     let timer = setTimeout(() => {
       mintInfo()
