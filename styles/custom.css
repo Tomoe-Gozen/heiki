@@ -110,6 +110,14 @@
   color: white!important;
 }
 
+.sponsored {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  margin-left: 10px;
+  color: white;
+}
+
 .card-details .product-name {
   font-size: 20pt!important;
 }

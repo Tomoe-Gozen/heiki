@@ -41,6 +41,7 @@ export default function ComingSoon() {
           </div>
           <div className="col-lg-8">
             <div className="position-relative banner-one-slick comeing-soon-slick  slider-style-4 slick-arrow-style-one rn-slick-dot-style">
+              <span className="sponsored">Made by The Vichitra Collective</span>
               <div className="single-rn-slider">
                 <video playsinline autoPlay muted loop id="myVideo">
                   <source src="/videos/promotion.mp4" type="video/mp4" />
