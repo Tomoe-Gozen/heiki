@@ -9,52 +9,27 @@ import Noty from 'noty'
 import { useEffect, useState } from 'react'
 
 export default function Mint() {
-  // trigger deploy
-  const title = 'Heiki NFT - Mint'
+  const title = 'Heiki NFT - WL Checker'
   const description =
     '3333 female warriors picked up their weapons to fight for this world.'
   const image = '/images/og-image.png'
 
   const { address } = useWeb3()
-  const [alreadyMinted, setAlreadyMinted] = useState(null)
-  const [maxSupply, setMaxSupply] = useState(null)
-  const [nMinted, setnMinted] = useState(null)
-  const [saleFlag, setSaleFlag] = useState(null)
+  const [isWhitelisted, setIsWhitelisted] = useState(null)
   const [loading, setLoading] = useState(true)
-
-  const increaseMinted = (number) => {
-    setnMinted((minted) => parseInt(minted) + parseInt(number))
-  }
 
   useEffect(() => {
     setLoading(true)
-    const mintInfo = async () => {
-      setAlreadyMinted(0)
-      setMaxSupply(3333)
-      setnMinted(0)
-      setSaleFlag(parseInt(0))
+    const checkWl = async () => {
       setLoading(false)
-      /* if (address) {
+      if (address) {
         try {
           const res = await fetch(
-            `${process.env.NEXT_PUBLIC_BASE_URL_API}/api/mint-info`,
-            {
-              body: JSON.stringify({
-                address
-              }),
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              method: 'POST'
-            }
+            `${process.env.NEXT_PUBLIC_BASE_URL_API}/api/whitelist/${address}`
           )
           if (res.ok) {
-            const { alreadyMinted, maxSupply, nMinted, saleFlag } =
-              await res.json()
-            setAlreadyMinted(alreadyMinted)
-            setMaxSupply(3333)
-            setnMinted(nMinted)
-            setSaleFlag(parseInt(0))
+            const { whitelisted } = await res.json()
+            setIsWhitelisted(whitelisted)
             setLoading(false)
           } else {
             const error = await res.json()
@@ -77,15 +52,11 @@ export default function Mint() {
           setLoading(false)
         }
       } else {
-        setAlreadyMinted(null)
-        setMaxSupply(null)
-        setnMinted(null)
-        setSaleFlag(null)
         setLoading(false)
-      } */
+      }
     }
     let timer = setTimeout(() => {
-      mintInfo()
+      checkWl()
     }, 750)
     return () => {
       clearTimeout(timer)
@@ -117,14 +88,9 @@ export default function Mint() {
           >
             {!loading && (
               <>
-                <h3 className="title text-center">
-                  {saleFlag === null && 'CONNECT YOUR WALLET'}
-                  {saleFlag === 0 && ''}
-                  {saleFlag === 1 && 'WHITELIST MINT'}
-                  {saleFlag === 2 && 'PUBLIC SALE'}
-                </h3>
+                <h3 className="title text-center">Am I whitelisted</h3>
                 <h4 className="text-center text-secondary font-tomoe text-lg">
-                  Mint price 0.08 eth
+                  for Heiki?
                 </h4>
               </>
             )}
@@ -146,7 +112,8 @@ export default function Mint() {
                       <div className="content">
                         <h4 className="title">You are not connected</h4>
                         <p className="description">
-                          You must be connected to MetaMask to mint a Heiki.
+                          You must be connected to MetaMask to check if you are
+                          whitelisted for mint a Heiki NFT.
                         </p>
                         <div className="pt--20 text-center">
                           <ConnectWallet withoutLoading={true} />
@@ -158,38 +125,8 @@ export default function Mint() {
               </div>
             )}
 
-            {!loading && address && saleFlag > 0 && (
-              <MintForm saleFlag={saleFlag} increaseMinted={increaseMinted} />
-            )}
-            {!loading && address && saleFlag === 0 && (
-              <div
-                className={`${saleFlag > 0 && 'mt-auto mb--25'} text-center`}
-              >
-                <h3 className="text-center mb-0">WHITELIST MINT STARTS IN</h3>
-                <h4 className="text-center mb-0">To be announced</h4>
-                {/* <Countdown saleFlag={saleFlag} /> */}
-              </div>
-            )}
-            {!loading && address && saleFlag === 1 && (
-              <div className="mt-md-auto mt--100 mb--25 text-center">
-                <h5 className="text-center mb-0">Public Mint starts in:</h5>
-                <Countdown saleFlag={saleFlag} />
-              </div>
-            )}
+            {!loading && address && <p>{isWhitelisted ? 'true' : 'false'}</p>}
           </div>
-          {address && (
-            <div className="col-lg-4 col-12 pt-5 pb-5">
-              <h3 className="title text-center">MINT INFOS</h3>
-              <MintInfo
-                alreadyMinted={alreadyMinted}
-                saleFlag={saleFlag}
-                loading={loading}
-                maxSupply={maxSupply}
-                nMinted={nMinted}
-                setnMinted={setnMinted}
-              />
-            </div>
-          )}
         </div>
       </div>
     </>
@@ -197,5 +134,5 @@ export default function Mint() {
 }
 
 Mint.getLayout = function getLayout(page) {
-  return <WithTitleLayout title="Heiki MINT">{page}</WithTitleLayout>
+  return <WithTitleLayout title="Whitelist Checker">{page}</WithTitleLayout>
 }

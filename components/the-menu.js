@@ -106,7 +106,7 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
           </a>
         </Link>
       </li>
-      <li>
+      {/* <li>
         <a
           href={config.opensea}
           target="_blank"
@@ -115,7 +115,17 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
         >
           OpenSea
         </a>
-      </li>
+      </li> */}
+      {/* <li>
+        <Link href="/wl-checker">
+          <a
+            className={router.pathname === '/wl-checker' ? 'text-theme' : ''}
+            onClick={handleToggleActive}
+          >
+            WL Checker
+          </a>
+        </Link>
+      </li> */}
       <li>
         <Link href="/mint">
           <a
