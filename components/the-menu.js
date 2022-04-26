@@ -117,6 +117,16 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
         </a>
       </li> */}
       <li>
+        <Link href="/wl-checker">
+          <a
+            className={router.pathname === '/wl-checker' ? 'text-theme' : ''}
+            onClick={handleToggleActive}
+          >
+            WL Checker
+          </a>
+        </Link>
+      </li>
+      <li>
         <Link href="/mint">
           <a
             className={router.pathname === '/mint' ? 'text-theme' : ''}
