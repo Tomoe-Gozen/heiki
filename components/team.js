@@ -91,7 +91,6 @@ export default function Team() {
       pseudo: 'Ibaraki Tsukasa',
       name: 'Alexandre Le Corre',
       src: Profile4,
-      twitter: 'el__reco',
       instagram: '_elreco',
       linkedin: 'alexandre-le-corre',
       title: 'Developer',
