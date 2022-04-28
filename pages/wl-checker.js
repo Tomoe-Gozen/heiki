@@ -1,12 +1,13 @@
 import Head from 'next/head'
 import WithTitleLayout from '../components/layouts/with-title'
-import MintForm from '../components/mint-form'
 import ConnectWallet from '../components/connect-wallet'
-import MintInfo from '../components/mint-info'
-import Countdown from '../components/countdown'
 import { useWeb3 } from '@3rdweb/hooks'
 import Noty from 'noty'
 import { useEffect, useState } from 'react'
+import Lottie from 'lottie-react'
+import checkLottie from '../public/lottie/check.json'
+import yogaLottie from '../public/lottie/yoga.json'
+import config from '../lib/config'
 
 export default function Mint() {
   const title = 'Heiki NFT - WL Checker'
@@ -125,7 +126,46 @@ export default function Mint() {
               </div>
             )}
 
-            {!loading && address && <p>{isWhitelisted ? 'true' : 'false'}</p>}
+            {!loading && address && (
+              <div className="row justify-content-center my-5">
+                <div className="col-md-6">
+                  <div className="single-counter-up p-0 text-center">
+                    <div className="d-flex gap-5 justify-content-center align-items-center">
+                      <Lottie
+                        style={{ height: 300 }}
+                        loop="true"
+                        animationData={isWhitelisted ? checkLottie : yogaLottie}
+                      />
+                      <div className="w-50">
+                        <h1
+                          className={`font-tomoe ${
+                            isWhitelisted ? 'text-success' : 'text-danger'
+                          }`}
+                        >
+                          {isWhitelisted ? 'Congratulations!' : 'Sorry!'}
+                        </h1>
+                        <h4>
+                          {isWhitelisted
+                            ? 'You are whitelisted'
+                            : 'You are not whitelisted yet'}
+                        </h4>
+                        <p>
+                          Join our{' '}
+                          <a
+                            rel="noreferrer"
+                            target="_blank"
+                            href={config.discord}
+                          >
+                            Discord <i className="fab fa-discord"></i>
+                          </a>{' '}
+                          to get more informations
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
