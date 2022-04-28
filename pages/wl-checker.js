@@ -128,12 +128,13 @@ export default function Mint() {
 
             {!loading && address && (
               <div className="row justify-content-center my-5">
-                <div className="col-md-6">
-                  <div className="single-counter-up p-0 text-center">
+                <div className="col-12 col-lg-6">
+                  <div className="single-counter-up p-0 text-center py-2">
                     <div className="d-flex gap-5 justify-content-center align-items-center">
                       <Lottie
                         style={{ height: 300 }}
                         loop="true"
+                        className="d-none d-md-block"
                         animationData={isWhitelisted ? checkLottie : yogaLottie}
                       />
                       <div className="w-50">
