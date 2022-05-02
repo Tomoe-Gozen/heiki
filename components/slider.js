@@ -3,6 +3,7 @@ import Image1 from '../public/images/collection/1.jpg'
 import Image2 from '../public/images/collection/2.jpg'
 import Image3 from '../public/images/collection/3.jpg'
 import Image4 from '../public/images/collection/4.jpg'
+import Image5 from '../public/images/collection/5.jpg'
 
 export default function Slider() {
   const images = [
@@ -21,6 +22,10 @@ export default function Slider() {
     {
       id: '4465',
       src: Image4
+    },
+    {
+      id: '4469',
+      src: Image5
     }
   ]
 
