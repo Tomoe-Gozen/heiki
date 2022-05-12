@@ -15,6 +15,12 @@
   height: 350px;
 }
 
+.faction-img {
+  flex-basis: 260px;
+    flex-grow: 0;
+    flex-shrink: 0;
+  padding-right: 10px; }
+
 .font-tomoe {
   font-family: 'Tomoe';
   text-transform: uppercase;
