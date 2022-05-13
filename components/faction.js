@@ -3,6 +3,7 @@ export default function Faction() {
     {
       id: 1,
       title: 'Manpower',
+      color: '#BB2623',
       src: '/images/factions/faction-1.png',
       description: (
         <>
@@ -20,6 +21,7 @@ export default function Faction() {
     {
       id: 2,
       title: 'Heiki Clan',
+      color: '#397BC7',
       src: '/images/factions/faction-2.png',
       description: (
         <p>
@@ -35,6 +37,7 @@ export default function Faction() {
     {
       id: 3,
       title: 'Traitor',
+      color: '#C25190',
       src: '/images/factions/faction-3.png',
       description: (
         <p>
@@ -50,6 +53,7 @@ export default function Faction() {
     {
       id: 4,
       title: 'Timekeeper',
+      color: '#9FCD45',
       src: '/images/factions/faction-4.png',
       description: (
         <p>
@@ -97,6 +101,7 @@ export default function Faction() {
                         <a
                           href="https://discord.gg/heikinft"
                           className="font-tomoe text-lg"
+                          style={{ color: r.color }}
                         >
                           {r.title}
                         </a>
