@@ -13,7 +13,7 @@ export default function Countdown({ saleFlag }) {
   }
   const router = useRouter()
   const reload = () => {
-    router.reload(window.location.pathname)
+    router.reload()
     return
   }
   const calculateTimeLeft = () => {
@@ -75,7 +75,7 @@ export default function Countdown({ saleFlag }) {
     </div>
   ) : (
     <a
-      onClick={config.ope}
+      onClick={reload}
       className="btn btn-large btn-primary-alta cursor-pointer my-5"
     >
       Refresh page
