@@ -1,6 +1,8 @@
-import isWhiteListed from '../lib/isWhiteListed'
+import contract from '../../../lib/contract'
 
 const userHandler = async (req, res) => {
+  const { isWhitelisted } = contract()
+
   if (req.method !== 'GET') {
     res.status(405).end('Only GET requests allowed')
     return
@@ -8,16 +10,11 @@ const userHandler = async (req, res) => {
 
   const { address } = req.query
   try {
-    const response = await fetch(
-      'https://tomoegozen.ams3.digitaloceanspaces.com/wl.json'
-    )
-    const data = await response.json()
+    const whitelist = await isWhitelisted(address)
 
-    res
-      .status(200)
-      .json({
-        whitelisted: data.some((d) => d.toLowerCase() === address.toLowerCase())
-      })
+    res.status(200).json({
+      whitelisted: whitelist.valid
+    })
     return
   } catch (e) {
     res.status(500).end('Someting went wrong')

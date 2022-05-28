@@ -1,4 +1,4 @@
-import { useAddress, useChainId } from '@thirdweb-dev/react'
+import { useAddress, useChainId, useNetworkMismatch } from '@thirdweb-dev/react'
 import Image from 'next/image'
 import Noty from 'noty'
 import { useState } from 'react'
@@ -11,6 +11,7 @@ import Image3 from '../public/images/mint/mint-3.jpg'
 export default function MintForm({ saleFlag, increaseMinted }) {
   const address = useAddress()
   const chainId = useChainId()
+  const isMismatched = useNetworkMismatch()
   const [disabled, setDisabled] = useState(false)
   const [loading, setLoading] = useState({
     one: false,
@@ -85,19 +86,20 @@ export default function MintForm({ saleFlag, increaseMinted }) {
     if (disabled) {
       return
     }
-    if (chainId === config.chainId) {
-      await mintNft(number)
+
+    if (isMismatched) {
+      new Noty({
+        type: 'error',
+        text: process.env.NEXT_PUBLIC_IS_PRODUCTION
+          ? 'Your are on a test network, please switch to the mainnet.'
+          : 'Your are on the mainnet network, please switch to a the Rinkeby test network.',
+        layout: 'top',
+        timeout: 5000
+      }).show()
       return
     }
 
-    new Noty({
-      type: 'error',
-      text: process.env.NEXT_PUBLIC_IS_PRODUCTION
-        ? 'Your are on a test network, please switch to the mainnet.'
-        : 'Your are on the mainnet network, please switch to a the Rinkeby test network.',
-      layout: 'top',
-      timeout: 5000
-    }).show()
+    await mintNft(number)
   }
 
   return (

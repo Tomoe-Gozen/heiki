@@ -58,7 +58,7 @@ export default function Mint() {
     }
     let timer = setTimeout(() => {
       checkWl()
-    }, 750)
+    }, 1000)
     return () => {
       clearTimeout(timer)
     }
