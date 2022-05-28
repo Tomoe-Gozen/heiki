@@ -1,12 +1,11 @@
+import { useAddress } from '@thirdweb-dev/react'
 import Head from 'next/head'
+import { useEffect, useState } from 'react'
+import ConnectWallet from '../components/connect-wallet'
+import Countdown from '../components/countdown'
 import WithTitleLayout from '../components/layouts/with-title'
 import MintForm from '../components/mint-form'
-import ConnectWallet from '../components/connect-wallet'
 import MintInfo from '../components/mint-info'
-import Countdown from '../components/countdown'
-import { useWeb3 } from '@3rdweb/hooks'
-import Noty from 'noty'
-import { useEffect, useState } from 'react'
 
 export default function Mint() {
   // trigger deploy
@@ -15,7 +14,7 @@ export default function Mint() {
     '3333 female warriors picked up their weapons to fight for this world.'
   const image = '/images/og-image.png'
 
-  const { address } = useWeb3()
+  const address = useAddress()
   const [alreadyMinted, setAlreadyMinted] = useState(null)
   const [maxSupply, setMaxSupply] = useState(null)
   const [nMinted, setnMinted] = useState(null)
@@ -52,9 +51,9 @@ export default function Mint() {
             const { alreadyMinted, maxSupply, nMinted, saleFlag } =
               await res.json()
             setAlreadyMinted(alreadyMinted)
-            setMaxSupply(3333)
+            setMaxSupply(maxSupply)
             setnMinted(nMinted)
-            setSaleFlag(parseInt(0))
+            setSaleFlag(parseInt(saleFlag))
             setLoading(false)
           } else {
             const error = await res.json()

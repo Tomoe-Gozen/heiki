@@ -1,22 +1,21 @@
-import '../styles/vendor/bootstrap.min.css'
-import '../styles/vendor/slick.css'
-import '../styles/vendor/slick-theme.css'
-import '../styles/vendor/nice-select.css'
-import '../styles/plugins/feature.css'
-import '../styles/plugins/jquery-ui.min.css'
-import '../styles/style.css'
-import '../styles/custom.css'
-import '../styles/plugins/noty.css'
+import { ThirdwebProvider } from '@thirdweb-dev/react'
 import Head from 'next/head'
+import Router, { useRouter } from 'next/router'
 import Script from 'next/script'
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
-import { ThirdwebWeb3Provider } from '@3rdweb/hooks'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import Router from 'next/router'
-
+import { useEffect } from 'react'
+import config from '../lib/config'
 import * as ga from '../lib/ga'
+import '../styles/custom.css'
+import '../styles/plugins/feature.css'
+import '../styles/plugins/jquery-ui.min.css'
+import '../styles/plugins/noty.css'
+import '../styles/style.css'
+import '../styles/vendor/bootstrap.min.css'
+import '../styles/vendor/nice-select.css'
+import '../styles/vendor/slick-theme.css'
+import '../styles/vendor/slick.css'
 
 function MyApp({ Component, pageProps }) {
   Router.events.on('routeChangeStart', () => NProgress.start())
@@ -40,14 +39,6 @@ function MyApp({ Component, pageProps }) {
         }, timeOut)
       }
     }
-  }
-
-  // 1 - ethereum MainNet, 3 - Ropsten, 4- Rinkeby, 1337 - localhost:8545
-  const supportedChainIds = [1, 3, 4, 1337]
-
-  // injected - metamask
-  const connectors = {
-    injected: {}
   }
 
   useEffect(() => {
@@ -81,12 +72,9 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="icon" href="/images/favicon.ico" />
       </Head>
-      <ThirdwebWeb3Provider
-        connectors={connectors}
-        supportedChainIds={supportedChainIds}
-      >
+      <ThirdwebProvider desiredChainId={config.chainId}>
         {getLayout(<Component {...pageProps} />)}
-      </ThirdwebWeb3Provider>
+      </ThirdwebProvider>
     </>
   )
 }
