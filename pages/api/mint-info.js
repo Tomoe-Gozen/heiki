@@ -1,9 +1,10 @@
 import Web3 from 'web3'
-import getContractObj from './web3/getContract'
-import TomoeGozenContract from './contracts/TomoeGozen.json'
-import TomoeGozenContractTest from './contracts/AlphaTest2.json'
+import contract from '../../lib/contract'
+import TomoeGozenContract from '../../lib/contracts/TomoeGozen.json'
+import TomoeGozenContractTest from '../../lib/contracts/AlphaTest2.json'
 
 const mintInfoHandler = async (req, res) => {
+  const { getContract } = contract()
   try {
     if (req.method !== 'POST') {
       res.status(405).end('Only POST requests allowed')
@@ -18,7 +19,7 @@ const mintInfoHandler = async (req, res) => {
       )
     )
 
-    const { contract } = await getContractObj(
+    const { contract } = await getContract(
       web3,
       process.env.NEXT_PUBLIC_IS_PRODUCTION
         ? TomoeGozenContract

@@ -1,14 +1,17 @@
-import { useWeb3 } from '@3rdweb/hooks'
-import { useState } from 'react'
+import { useAddress, useChainId, useNetworkMismatch } from '@thirdweb-dev/react'
 import Image from 'next/image'
+import Noty from 'noty'
+import { useState } from 'react'
+import Web3 from 'web3'
+import config from '../lib/config'
 import Image1 from '../public/images/mint/mint-1.jpg'
 import Image2 from '../public/images/mint/mint-2.jpg'
 import Image3 from '../public/images/mint/mint-3.jpg'
-import Web3 from 'web3'
-import Noty from 'noty'
 
 export default function MintForm({ saleFlag, increaseMinted }) {
-  const { address, provider, chainId } = useWeb3()
+  const address = useAddress()
+  const chainId = useChainId()
+  const isMismatched = useNetworkMismatch()
   const [disabled, setDisabled] = useState(false)
   const [loading, setLoading] = useState({
     one: false,
@@ -79,25 +82,24 @@ export default function MintForm({ saleFlag, increaseMinted }) {
     }
   }
 
-  const rightChainId = process.env.NEXT_PUBLIC_IS_PRODUCTION
-    ? chainId === 1
-    : chainId === 4
-
   const handleSubmit = async (number) => {
-    if (!disabled) {
-      if (rightChainId) {
-        await mintNft(number)
-      } else {
-        new Noty({
-          type: 'error',
-          text: process.env.NEXT_PUBLIC_IS_PRODUCTION
-            ? 'Your are on a test network, please switch to the mainnet.'
-            : 'Your are on the mainnet network, please switch to a the Rinkeby test network.',
-          layout: 'top',
-          timeout: 5000
-        }).show()
-      }
+    if (disabled) {
+      return
     }
+
+    if (isMismatched) {
+      new Noty({
+        type: 'error',
+        text: process.env.NEXT_PUBLIC_IS_PRODUCTION
+          ? 'Your are on a test network, please switch to the mainnet.'
+          : 'Your are on the mainnet network, please switch to a the Rinkeby test network.',
+        layout: 'top',
+        timeout: 5000
+      }).show()
+      return
+    }
+
+    await mintNft(number)
   }
 
   return (

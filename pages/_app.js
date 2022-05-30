@@ -11,11 +11,11 @@ import Head from 'next/head'
 import Script from 'next/script'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { ThirdwebWeb3Provider } from '@3rdweb/hooks'
+import { ThirdwebProvider } from '@thirdweb-dev/react'
+import config from '../lib/config'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import Router from 'next/router'
-
 import * as ga from '../lib/ga'
 
 function MyApp({ Component, pageProps }) {
@@ -40,14 +40,6 @@ function MyApp({ Component, pageProps }) {
         }, timeOut)
       }
     }
-  }
-
-  // 1 - ethereum MainNet, 3 - Ropsten, 4- Rinkeby, 1337 - localhost:8545
-  const supportedChainIds = [1, 3, 4, 1337]
-
-  // injected - metamask
-  const connectors = {
-    injected: {}
   }
 
   useEffect(() => {
@@ -81,12 +73,9 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="icon" href="/images/favicon.ico" />
       </Head>
-      <ThirdwebWeb3Provider
-        connectors={connectors}
-        supportedChainIds={supportedChainIds}
-      >
+      <ThirdwebProvider desiredChainId={config.chainId}>
         {getLayout(<Component {...pageProps} />)}
-      </ThirdwebWeb3Provider>
+      </ThirdwebProvider>
     </>
   )
 }

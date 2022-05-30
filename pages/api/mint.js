@@ -1,10 +1,12 @@
 import Web3 from 'web3'
-import getContractObj from './web3/getContract'
-import isWhiteListed from './lib/isWhiteListed'
-import TomoeGozenContract from './contracts/TomoeGozen.json'
-import TomoeGozenContractTest from './contracts/AlphaTest2.json'
+import getContractObj from '../../lib/web3/getContract'
+import contract from '../../lib/contract'
+import TomoeGozenContract from '../../lib/contracts/TomoeGozen.json'
+import TomoeGozenContractTest from '../../lib/contracts/AlphaTest2.json'
 
 const mintHandler = async (req, res) => {
+  const { isWhitelisted } = contract()
+
   try {
     if (req.method !== 'POST') {
       res.status(405).end('Only POST requests allowed')
@@ -41,7 +43,7 @@ const mintHandler = async (req, res) => {
         return
       }
       case '1': {
-        const whitelist = await isWhiteListed(address)
+        const whitelist = await isWhitelisted(address)
         // whitelist valid
         if (whitelist.valid) {
           const balance = await contract.methods.balanceOf(address).call()

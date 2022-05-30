@@ -1,13 +1,13 @@
+import { useAddress } from '@thirdweb-dev/react'
+import Lottie from 'lottie-react'
 import Head from 'next/head'
-import WithTitleLayout from '../components/layouts/with-title'
-import ConnectWallet from '../components/connect-wallet'
-import { useWeb3 } from '@3rdweb/hooks'
 import Noty from 'noty'
 import { useEffect, useState } from 'react'
-import Lottie from 'lottie-react'
+import ConnectWallet from '../components/connect-wallet'
+import WithTitleLayout from '../components/layouts/with-title'
+import config from '../lib/config'
 import checkLottie from '../public/lottie/check.json'
 import yogaLottie from '../public/lottie/yoga.json'
-import config from '../lib/config'
 
 export default function Mint() {
   const title = 'Heiki NFT - WL Checker'
@@ -15,7 +15,7 @@ export default function Mint() {
     '3333 female warriors picked up their weapons to fight for this world.'
   const image = '/images/og-image.png'
 
-  const { address } = useWeb3()
+  const address = useAddress()
   const [isWhitelisted, setIsWhitelisted] = useState(null)
   const [loading, setLoading] = useState(true)
 
@@ -58,7 +58,7 @@ export default function Mint() {
     }
     let timer = setTimeout(() => {
       checkWl()
-    }, 750)
+    }, 1000)
     return () => {
       clearTimeout(timer)
     }
