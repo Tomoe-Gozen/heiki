@@ -21,7 +21,7 @@ const mintInfoHandler = async (req, res) => {
 
     const { contract } = await getContract(
       web3,
-      process.env.NEXT_PUBLIC_IS_PRODUCTION
+      process.env.NEXT_PUBLIC_IS_PRODUCTION === 'true'
         ? TomoeGozenContract
         : TomoeGozenContractTest
     )

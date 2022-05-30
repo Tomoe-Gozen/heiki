@@ -1,11 +1,10 @@
 import Web3 from 'web3'
-import getContractObj from '../../lib/web3/getContract'
 import contract from '../../lib/contract'
 import TomoeGozenContract from '../../lib/contracts/TomoeGozen.json'
 import TomoeGozenContractTest from '../../lib/contracts/AlphaTest2.json'
 
 const mintHandler = async (req, res) => {
-  const { isWhitelisted } = contract()
+  const { isWhitelisted, getContract } = contract()
 
   try {
     if (req.method !== 'POST') {
@@ -27,9 +26,9 @@ const mintHandler = async (req, res) => {
         `https://:${process.env.INFURA_PROJECT_SECRET}@${process.env.INFURA_URL}`
       )
     )
-    const { contract, deployedAddress, networkId } = await getContractObj(
+    const { contract, deployedAddress, networkId } = await getContract(
       web3,
-      process.env.NEXT_PUBLIC_IS_PRODUCTION
+      process.env.NEXT_PUBLIC_IS_PRODUCTION === 'true'
         ? TomoeGozenContract
         : TomoeGozenContractTest
     )
