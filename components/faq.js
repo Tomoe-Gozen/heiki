@@ -19,7 +19,7 @@ export default function Faq() {
     {
       id: 2,
       question: 'Is there a Mint price?',
-      answer: '0.08'
+      answer: '0.065'
     },
     {
       id: 3,

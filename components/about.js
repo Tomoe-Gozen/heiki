@@ -148,7 +148,7 @@ export default function About() {
             </div>
             <div className="offset-lg-2 col-lg-4 col-md-6">
               <div className="single-counter-up text-center">
-                <div className="number counter-odomitter-active">0.08</div>
+                <div className="number counter-odomitter-active">0.065</div>
                 <div className="botton-title">Mint price in eth</div>
               </div>
             </div>
