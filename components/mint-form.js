@@ -1,16 +1,15 @@
-import { useAddress, useChainId, useNetworkMismatch } from '@thirdweb-dev/react'
+import { useAddress, useNetworkMismatch, useSigner } from '@thirdweb-dev/react'
 import Image from 'next/image'
 import Noty from 'noty'
 import { useState } from 'react'
 import Web3 from 'web3'
-import config from '../lib/config'
 import Image1 from '../public/images/mint/mint-1.jpg'
 import Image2 from '../public/images/mint/mint-2.jpg'
 import Image3 from '../public/images/mint/mint-3.jpg'
 
 export default function MintForm({ saleFlag, increaseMinted }) {
   const address = useAddress()
-  const chainId = useChainId()
+  const signer = useSigner()
   const isMismatched = useNetworkMismatch()
   const [disabled, setDisabled] = useState(false)
   const [loading, setLoading] = useState({
@@ -35,7 +34,7 @@ export default function MintForm({ saleFlag, increaseMinted }) {
     setLoader(true, number)
 
     try {
-      const web3 = new Web3(provider.provider)
+      const web3 = new Web3(signer.provider.provider)
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_URL_API}/api/mint`,
         {

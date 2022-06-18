@@ -1,7 +1,7 @@
 import Web3 from 'web3'
 import contract from '../../lib/contract'
 import TomoeGozenContract from '../../lib/contracts/TomoeGozen.json'
-import TomoeGozenContractTest from '../../lib/contracts/AlphaTest2.json'
+import TomoeGozenContractTest from '../../lib/contracts/Alphav3.json'
 
 const mintHandler = async (req, res) => {
   const { isWhitelisted, getContract } = contract()
@@ -33,7 +33,6 @@ const mintHandler = async (req, res) => {
         : TomoeGozenContractTest
     )
 
-    const mintPrice = web3.utils.toWei(process.env.MINT_PRICE, 'ether')
     const saleFlag = await contract.methods.saleFlag.call().call()
 
     switch (saleFlag) {
@@ -59,6 +58,10 @@ const mintHandler = async (req, res) => {
               const transactionEncoded = await contract.methods
                 .mintWhitelist(nMint, whitelist.proof)
                 .encodeABI()
+              const mintPrice = web3.utils.toWei(
+                process.env.PRESALE_MINT_PRICE,
+                'ether'
+              )
 
               const rawTransaction = {
                 nonce: nonce,
@@ -89,6 +92,10 @@ const mintHandler = async (req, res) => {
         const transactionEncoded = await contract.methods
           .mint(nMint)
           .encodeABI()
+        const mintPrice = web3.utils.toWei(
+          process.env.PUBLIC_MINT_PRICE,
+          'ether'
+        )
 
         const rawTransaction = {
           nonce: nonce,

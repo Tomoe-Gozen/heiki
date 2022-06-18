@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import ConnectWallet from '../components/connect-wallet'
 import Countdown from '../components/countdown'
 import WithTitleLayout from '../components/layouts/with-title'
+import Noty from 'noty'
 import MintForm from '../components/mint-form'
 import MintInfo from '../components/mint-info'
 
@@ -33,7 +34,7 @@ export default function Mint() {
       setnMinted(0)
       setSaleFlag(parseInt(0))
       setLoading(false)
-      /* if (address) {
+      if (address) {
         try {
           const res = await fetch(
             `${process.env.NEXT_PUBLIC_BASE_URL_API}/api/mint-info`,
@@ -59,7 +60,9 @@ export default function Mint() {
             const error = await res.json()
             new Noty({
               type: res.status >= 500 ? 'error' : 'warning',
-              text: error,
+              text: error?.error
+                ? error.error
+                : 'Something went wrong, please refresh your browser',
               layout: 'top',
               timeout: 5000
             }).show()
@@ -81,7 +84,7 @@ export default function Mint() {
         setnMinted(null)
         setSaleFlag(null)
         setLoading(false)
-      } */
+      }
     }
     let timer = setTimeout(() => {
       mintInfo()
