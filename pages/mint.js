@@ -126,7 +126,7 @@ export default function Mint() {
                   {saleFlag === 2 && 'PUBLIC SALE'}
                 </h3>
                 <h4 className="text-center text-secondary font-tomoe text-lg">
-                  Mint price 0.065 eth
+                  Mint price {saleFlag === 1 ? '0.065' : '0.08'} eth
                 </h4>
               </>
             )}
