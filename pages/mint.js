@@ -30,10 +30,10 @@ export default function Mint() {
     setLoading(true)
     const mintInfo = async () => {
       setAlreadyMinted(0)
-      setMaxSupply(3333)
+      setMaxSupply(0)
       setnMinted(0)
       setSaleFlag(parseInt(0))
-      setLoading(false)
+      setLoading(true)
       if (address) {
         try {
           const res = await fetch(
