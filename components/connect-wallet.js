@@ -1,8 +1,9 @@
-import { useWeb3 } from '@3rdweb/hooks'
+import { useAddress, useMetamask } from '@thirdweb-dev/react'
 import { useEffect, useState } from 'react'
 
 export default function ConnectWallet({ withoutLoading = false }) {
-  const { address, connectWallet } = useWeb3()
+  const address = useAddress()
+  const connectWithMetamask = useMetamask()
   const [loading, setLoading] = useState(true)
   const [isWeb3, setIsWeb3] = useState(true)
 
@@ -31,7 +32,7 @@ export default function ConnectWallet({ withoutLoading = false }) {
     if (!isWeb3) {
       window.location.href = 'https://metamask.io/download/'
     } else {
-      await connectWallet('injected')
+      await connectWithMetamask()
     }
   }
 

@@ -10,10 +10,12 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@3rdweb/hooks": "^1.9.2",
     "@headlessui/react": "^1.4.3",
+    "@thirdweb-dev/react": "^2.3.12",
+    "@thirdweb-dev/sdk": "^2.3.1",
     "counterup2": "^2.0.2",
     "dayjs": "^1.10.8",
+    "ethers": "^5.6.8",
     "feather-icons": "^4.28.0",
     "jquery": "^3.6.0",
     "keccak256": "^1.0.6",

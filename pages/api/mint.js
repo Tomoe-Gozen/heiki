@@ -1,10 +1,11 @@
 import Web3 from 'web3'
-import getContractObj from './web3/getContract'
-import isWhiteListed from './lib/isWhiteListed'
-import TomoeGozenContract from './contracts/TomoeGozen.json'
-import TomoeGozenContractTest from './contracts/AlphaTest2.json'
+import contract from '../../lib/contract'
+import TomoeGozenContract from '../../lib/contracts/TomoeGozen.json'
+import TomoeGozenContractTest from '../../lib/contracts/Alphav3.json'
 
 const mintHandler = async (req, res) => {
+  const { isWhitelisted, getContract } = contract()
+
   try {
     if (req.method !== 'POST') {
       res.status(405).end('Only POST requests allowed')
@@ -25,14 +26,13 @@ const mintHandler = async (req, res) => {
         `https://:${process.env.INFURA_PROJECT_SECRET}@${process.env.INFURA_URL}`
       )
     )
-    const { contract, deployedAddress, networkId } = await getContractObj(
+    const { contract, deployedAddress, networkId } = await getContract(
       web3,
-      process.env.NEXT_PUBLIC_IS_PRODUCTION
+      process.env.NEXT_PUBLIC_IS_PRODUCTION === 'true'
         ? TomoeGozenContract
         : TomoeGozenContractTest
     )
 
-    const mintPrice = web3.utils.toWei(process.env.MINT_PRICE, 'ether')
     const saleFlag = await contract.methods.saleFlag.call().call()
 
     switch (saleFlag) {
@@ -41,7 +41,7 @@ const mintHandler = async (req, res) => {
         return
       }
       case '1': {
-        const whitelist = await isWhiteListed(address)
+        const whitelist = await isWhitelisted(address)
         // whitelist valid
         if (whitelist.valid) {
           const balance = await contract.methods.balanceOf(address).call()
@@ -58,6 +58,10 @@ const mintHandler = async (req, res) => {
               const transactionEncoded = await contract.methods
                 .mintWhitelist(nMint, whitelist.proof)
                 .encodeABI()
+              const mintPrice = web3.utils.toWei(
+                process.env.PRESALE_MINT_PRICE,
+                'ether'
+              )
 
               const rawTransaction = {
                 nonce: nonce,
@@ -88,6 +92,10 @@ const mintHandler = async (req, res) => {
         const transactionEncoded = await contract.methods
           .mint(nMint)
           .encodeABI()
+        const mintPrice = web3.utils.toWei(
+          process.env.PUBLIC_MINT_PRICE,
+          'ether'
+        )
 
         const rawTransaction = {
           nonce: nonce,
