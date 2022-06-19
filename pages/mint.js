@@ -34,7 +34,7 @@ export default function Mint() {
       setnMinted(0)
       setSaleFlag(parseInt(0))
       setLoading(false)
-      /* if (address) {
+      if (address) {
         try {
           const res = await fetch(
             `${process.env.NEXT_PUBLIC_BASE_URL_API}/api/mint-info`,
@@ -82,7 +82,7 @@ export default function Mint() {
         setnMinted(null)
         setSaleFlag(null)
         setLoading(false)
-      } */
+      }
     }
     let timer = setTimeout(() => {
       mintInfo()
@@ -166,8 +166,8 @@ export default function Mint() {
                 className={`${saleFlag > 0 && 'mt-auto mb--25'} text-center`}
               >
                 <h3 className="text-center mb-0">WHITELIST MINT STARTS IN</h3>
-                <h4 className="text-center mb-0">To be announced</h4>
-                {/* <Countdown saleFlag={saleFlag} /> */}
+                {/* <h4 className="text-center mb-0">To be announced</h4> */}
+                <Countdown saleFlag={saleFlag} />
               </div>
             )}
             {!loading && address && saleFlag === 1 && (
