@@ -169,7 +169,7 @@ export default function MintForm({ saleFlag, increaseMinted }) {
               </button>
             </div>
           </div>
-          {saleFlag === 2 && (
+          {/* {saleFlag === 2 && (
             <div className="col-xl-4 col-6">
               <div
                 className="upload-variant-wrapper"
@@ -192,7 +192,7 @@ export default function MintForm({ saleFlag, increaseMinted }) {
                 </button>
               </div>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </>

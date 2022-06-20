@@ -109,6 +109,7 @@ const mintHandler = async (req, res) => {
         return
     }
   } catch (error) {
+    console.error('error', error)
     res.status(500).json({ error: 'Someting went wrong' })
     return
   }
