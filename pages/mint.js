@@ -14,7 +14,7 @@ export default function Mint() {
   const description =
     '3333 female warriors picked up their weapons to fight for this world.'
   const image = '/images/og-image.png'
-
+  // update build
   const address = useAddress()
   const [alreadyMinted, setAlreadyMinted] = useState(null)
   const [maxSupply, setMaxSupply] = useState(null)
