@@ -1,7 +1,7 @@
 import Web3 from 'web3'
 import contract from '../../lib/contract'
-import TomoeGozenContract from '../../lib/contracts/TomoeGozen.json'
-import TomoeGozenContractTest from '../../lib/contracts/Alphav3.json'
+import HeikiContract from '../../lib/contracts/TomoeGozen.json'
+import HeikiContractTest from '../../lib/contracts/Alphav3.json'
 
 const mintHandler = async (req, res) => {
   const { isWhitelisted, getContract } = contract()
@@ -29,8 +29,8 @@ const mintHandler = async (req, res) => {
     const { contract, deployedAddress, networkId } = await getContract(
       web3,
       process.env.NEXT_PUBLIC_IS_PRODUCTION === 'true'
-        ? TomoeGozenContract
-        : TomoeGozenContractTest
+        ? HeikiContract
+        : HeikiContractTest
     )
 
     const saleFlag = await contract.methods.saleFlag.call().call()
