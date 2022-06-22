@@ -8,11 +8,11 @@ dayjs.extend(timezone)
 
 export default function Faq() {
   const localDate = dayjs(
-    dayjs('2022-03-05 14:00:00').tz('Europe/Paris', true).valueOf()
+    dayjs('2022-06-24 18:00:00').tz('Europe/Paris', true).valueOf()
   ).format('dddd, MMMM D, YYYY h:mm A')
 
   const localDate2 = dayjs(
-    dayjs('2022-03-06 14:00:00').tz('Europe/Paris', true).valueOf()
+    dayjs('2022-03-24 21:00:00').tz('Europe/Paris', true).valueOf()
   ).format('dddd, MMMM D, YYYY h:mm A')
 
   const faqs = [
@@ -80,14 +80,14 @@ export default function Faq() {
                     </h2>
                     <Disclosure.Panel as="div" className="accordion-collapse">
                       <div className="accordion-body">
-                        The whitelist mint date starts at TBA
-                        {/* <strong suppressHydrationWarning className="text-tomoe">
+                        The whitelist mint date starts at{' '}
+                        <strong suppressHydrationWarning className="text-tomoe">
                           {localDate}
-                        </strong>{' '} */}
-                        and the public mint starts at TBA
-                        {/* <strong suppressHydrationWarning className="text-tomoe">
+                        </strong>{' '}
+                        and the public mint starts at{' '}
+                        <strong suppressHydrationWarning className="text-tomoe">
                           {localDate2}
-                        </strong> */}
+                        </strong>
                       </div>
                     </Disclosure.Panel>
                   </div>
