@@ -44,7 +44,7 @@ const mintHandler = async (req, res) => {
         const whitelist = await isWhitelisted(address)
         // whitelist valid
         if (whitelist.valid) {
-          const balance = await contract.methods.balanceOf(address).call()
+          const balance = await contract.methods.getNMinted(address).call()
           if (balance >= parseInt(process.env.MINT_MAX_ALLOWED_WHITELIST, 10)) {
             res.status(409).json({
               error:
