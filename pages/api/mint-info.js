@@ -1,6 +1,6 @@
 import Web3 from 'web3'
 import contract from '../../lib/contract'
-import HeikiContract from '../../lib/contracts/TomoeGozen.json'
+import HeikiContract from '../../lib/contracts/Heiki.json'
 import HeikiContractTest from '../../lib/contracts/Alphav3.json'
 
 const mintInfoHandler = async (req, res) => {
