@@ -49,10 +49,7 @@ export default function Countdown({ saleFlag }) {
     }, 1000)
   })
 
-  return timeLeft.days &&
-    timeLeft.hours &&
-    timeLeft.minutes &&
-    timeLeft.seconds ? (
+  return (
     <div className="countdown mt--10">
       {timeLeft.days > 0 && (
         <div className="countdown-container days">
@@ -73,12 +70,5 @@ export default function Countdown({ saleFlag }) {
         <span className="countdown-heading text-xs font-tomoe">Secs</span>
       </div>
     </div>
-  ) : (
-    <a
-      onClick={reload}
-      className="btn btn-large btn-primary-alta cursor-pointer my-5"
-    >
-      Refresh page
-    </a>
   )
 }
