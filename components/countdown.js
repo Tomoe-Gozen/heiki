@@ -7,9 +7,9 @@ dayjs.extend(utc)
 dayjs.extend(timezone)
 
 export default function Countdown({ saleFlag }) {
-  let date = 'June 24, 2022 14:00:00'
+  let date = 'June 24, 2022 18:00:00'
   if (saleFlag === 1) {
-    date = 'June 25, 2022 14:00:00'
+    date = 'June 24, 2022 21:00:00'
   }
   const router = useRouter()
   const reload = () => {
@@ -49,7 +49,10 @@ export default function Countdown({ saleFlag }) {
     }, 1000)
   })
 
-  return (
+  return timeLeft.days &&
+    timeLeft.hours &&
+    timeLeft.minutes &&
+    timeLeft.seconds ? (
     <div className="countdown mt--10">
       {timeLeft.days > 0 && (
         <div className="countdown-container days">
@@ -70,5 +73,12 @@ export default function Countdown({ saleFlag }) {
         <span className="countdown-heading text-xs font-tomoe">Secs</span>
       </div>
     </div>
+  ) : (
+    <a
+      onClick={reload}
+      className="btn btn-large btn-primary-alta cursor-pointer my-5"
+    >
+      Refresh page
+    </a>
   )
 }
