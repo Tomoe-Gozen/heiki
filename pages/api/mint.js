@@ -1,11 +1,10 @@
 import Web3 from 'web3'
-import { getContract } from '../../lib/contract'
 import contract from '../../lib/contract'
-import TomoeGozenContract from '../../lib/contracts/TomoeGozen.json'
-import TomoeGozenContractTest from '../../lib/contracts/AlphaTest2.json'
+import HeikiContract from '../../lib/contracts/TomoeGozen.json'
+import HeikiContractTest from '../../lib/contracts/Alphav3.json'
 
 const mintHandler = async (req, res) => {
-  const { isWhitelisted } = contract()
+  const { isWhitelisted, getContract } = contract()
 
   try {
     if (req.method !== 'POST') {
@@ -29,12 +28,11 @@ const mintHandler = async (req, res) => {
     )
     const { contract, deployedAddress, networkId } = await getContract(
       web3,
-      process.env.NEXT_PUBLIC_IS_PRODUCTION
-        ? TomoeGozenContract
-        : TomoeGozenContractTest
+      process.env.NEXT_PUBLIC_IS_PRODUCTION === 'true'
+        ? HeikiContract
+        : HeikiContractTest
     )
 
-    const mintPrice = web3.utils.toWei(process.env.MINT_PRICE, 'ether')
     const saleFlag = await contract.methods.saleFlag.call().call()
 
     switch (saleFlag) {
@@ -46,7 +44,7 @@ const mintHandler = async (req, res) => {
         const whitelist = await isWhitelisted(address)
         // whitelist valid
         if (whitelist.valid) {
-          const balance = await contract.methods.balanceOf(address).call()
+          const balance = await contract.methods.getNMinted(address).call()
           if (balance >= parseInt(process.env.MINT_MAX_ALLOWED_WHITELIST, 10)) {
             res.status(409).json({
               error:
@@ -60,6 +58,10 @@ const mintHandler = async (req, res) => {
               const transactionEncoded = await contract.methods
                 .mintWhitelist(nMint, whitelist.proof)
                 .encodeABI()
+              const mintPrice = web3.utils.toWei(
+                process.env.PRESALE_MINT_PRICE,
+                'ether'
+              )
 
               const rawTransaction = {
                 nonce: nonce,
@@ -72,16 +74,12 @@ const mintHandler = async (req, res) => {
               res.status(200).json(rawTransaction)
               return
             } else {
-              res
-                .status(405)
-                .json({ error: 'You are not whitelisted (error code: 1)' })
+              res.status(405).json({ error: 'You are not whitelisted' })
               return
             }
           }
         } else {
-          res
-            .status(405)
-            .json({ error: 'You are not whitelisted (error code: 2)' })
+          res.status(405).json({ error: 'You are not whitelisted' })
           return
         }
       }
@@ -90,6 +88,10 @@ const mintHandler = async (req, res) => {
         const transactionEncoded = await contract.methods
           .mint(nMint)
           .encodeABI()
+        const mintPrice = web3.utils.toWei(
+          process.env.PUBLIC_MINT_PRICE,
+          'ether'
+        )
 
         const rawTransaction = {
           nonce: nonce,
@@ -107,6 +109,7 @@ const mintHandler = async (req, res) => {
         return
     }
   } catch (error) {
+    console.error('error', error)
     res.status(500).json({ error: 'Someting went wrong' })
     return
   }

@@ -7,11 +7,10 @@ dayjs.extend(utc)
 dayjs.extend(timezone)
 
 export default function Countdown({ saleFlag }) {
-  let date = 'June 24, 2022 18:00:00'
-  console.log(saleFlag)
-  /* if (saleFlag === 1) {
-    date = 'June 24, 2022 21:00:00'
-  } */
+  let date = 'June 24, 2022 14:00:00'
+  if (saleFlag === 1) {
+    date = 'June 25, 2022 14:00:00'
+  }
   const router = useRouter()
   const reload = () => {
     router.reload()

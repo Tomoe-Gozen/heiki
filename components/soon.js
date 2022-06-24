@@ -27,9 +27,8 @@ export default function Soon() {
                     data-sal-delay="150"
                     className="sal-animate"
                   >
-                    Stay tuned and come back later, we plan to launch in the{' '}
-                    <strong className="text-tomoe">beginning of March</strong>!{' '}
-                    <br />
+                    Stay tuned and come back later, we plan to launch in{' '}
+                    <strong className="text-tomoe">June</strong>! <br />
                     You will be able to connect your wallet and mint.
                     <br /> You can get more information on our{' '}
                     <Link href={config.discord}>

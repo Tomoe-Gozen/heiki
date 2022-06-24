@@ -21,7 +21,7 @@ export default function MintInfo({
         <div className="single-counter-up text-center mb--20">
           <div className="number">{displayMinted()}</div>
           <div className="botton-title font-tomoe text-xs">You minted</div>
-          {saleFlag === 2 && `(3 per transactions)`}
+          {saleFlag === 2 && `(2 per transactions)`}
         </div>
       )}
       <div className="single-counter-up text-center mt--20 mb--20">

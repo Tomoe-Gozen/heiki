@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import ConnectWallet from '../components/connect-wallet'
 import Countdown from '../components/countdown'
 import WithTitleLayout from '../components/layouts/with-title'
+import Noty from 'noty'
 import MintForm from '../components/mint-form'
 import MintInfo from '../components/mint-info'
 
@@ -29,11 +30,11 @@ export default function Mint() {
     setLoading(true)
     const mintInfo = async () => {
       setAlreadyMinted(0)
-      setMaxSupply(3333)
+      setMaxSupply(0)
       setnMinted(0)
       setSaleFlag(parseInt(0))
-      setLoading(false)
-      /* if (address) {
+      setLoading(true)
+      if (address) {
         try {
           const res = await fetch(
             `${process.env.NEXT_PUBLIC_BASE_URL_API}/api/mint-info`,
@@ -59,7 +60,9 @@ export default function Mint() {
             const error = await res.json()
             new Noty({
               type: res.status >= 500 ? 'error' : 'warning',
-              text: error,
+              text: error?.error
+                ? error.error
+                : 'Something went wrong, please refresh your browser',
               layout: 'top',
               timeout: 5000
             }).show()
@@ -81,7 +84,7 @@ export default function Mint() {
         setnMinted(null)
         setSaleFlag(null)
         setLoading(false)
-      } */
+      }
     }
     let timer = setTimeout(() => {
       mintInfo()
@@ -123,7 +126,7 @@ export default function Mint() {
                   {saleFlag === 2 && 'PUBLIC SALE'}
                 </h3>
                 <h4 className="text-center text-secondary font-tomoe text-lg">
-                  Mint price 0.065 eth
+                  Mint price {saleFlag === 1 ? '0.065' : '0.08'} eth
                 </h4>
               </>
             )}
@@ -164,9 +167,9 @@ export default function Mint() {
               <div
                 className={`${saleFlag > 0 && 'mt-auto mb--25'} text-center`}
               >
-                <h3 className="text-center mb-0">SALE STARTS STARTS IN</h3>
+                <h3 className="text-center mb-0">WHITELIST MINT STARTS IN</h3>
                 {/* <h4 className="text-center mb-0">To be announced</h4> */}
-                <Countdown saleFlag={1} />
+                <Countdown saleFlag={saleFlag} />
               </div>
             )}
             {!loading && address && saleFlag === 1 && (

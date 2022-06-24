@@ -7,6 +7,7 @@ dayjs.extend(utc)
 dayjs.extend(timezone)
 
 export default function Faq() {
+  // deploy
   const localDate = dayjs(
     dayjs('2022-06-24 18:00:00').tz('Europe/Paris', true).valueOf()
   ).format('dddd, MMMM D, YYYY h:mm A')
