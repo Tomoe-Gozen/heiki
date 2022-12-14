@@ -170,10 +170,12 @@ export default function Gallery(props) {
                 <div key={index} className="col-xxl-3 col-md-4 col-12 mb--20">
                   <NftCard
                     isLoading={isLoading}
-                    name={`#${n.edition}`}
+                    name={`#${n.name.split('#')[1]}`}
                     nft={n}
                     setSelectedNft={setSelectedNft}
-                    image={`https://heiki.ams3.digitaloceanspaces.com/${n.edition}.png`}
+                    image={`https://heiki.ams3.digitaloceanspaces.com/${
+                      n.name.split('#')[1]
+                    }.png`}
                   />
                 </div>
               ))}
