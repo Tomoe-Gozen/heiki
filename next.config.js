@@ -1,6 +1,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['tomoegozen.ams3.cdn.digitaloceanspaces.com']
+    domains: ['heiki.ams3.digitaloceanspaces.com']
   }
 }
