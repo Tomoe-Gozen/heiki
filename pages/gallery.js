@@ -6,7 +6,7 @@ import NftModal from '../components/nft-modal'
 import basicAuthCheck from '../lib/basic-auth'
 
 export default function Gallery(props) {
-  const title = 'Tomoe Gozen NFT - Gallery'
+  const title = 'Heiki NFT - Gallery'
   const description =
     '3333 female warriors picked up their weapons to fight for this world.'
   const image = '/images/og-image.png'
