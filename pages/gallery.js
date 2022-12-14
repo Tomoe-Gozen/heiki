@@ -173,7 +173,7 @@ export default function Gallery(props) {
                     name={`#${n.edition}`}
                     nft={n}
                     setSelectedNft={setSelectedNft}
-                    image={`https://tomoegozen.ams3.cdn.digitaloceanspaces.com/${n.edition}.png`}
+                    image={`https://heiki.ams3.digitaloceanspaces.com/${n.edition}.png`}
                   />
                 </div>
               ))}

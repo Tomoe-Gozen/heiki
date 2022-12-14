@@ -87,7 +87,7 @@ export default function NftModal({ setSelectedNft, selectedNft }) {
               <div className="nft-image mx-auto">
                 <Image
                   quality="100"
-                  src={`https://tomoegozen.ams3.cdn.digitaloceanspaces.com/${selectedNft?.edition}.png`}
+                  src={`https://heiki.ams3.digitaloceanspaces.com/${selectedNft?.edition}.png`}
                   alt=""
                   width="512"
                   height="512"
