@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import Image from 'next/image'
 import config from '../config.json'
+import galleryColorResolver from '../lib/galleryColorResolver'
 
 export default function NftModal({ setSelectedNft, selectedNft }) {
   let [isOpen, setIsOpen] = useState(false)
@@ -15,36 +16,7 @@ export default function NftModal({ setSelectedNft, selectedNft }) {
     const background = selectedNft?.attributes.find(
       (nft) => nft.trait_type === 'Background'
     )
-    switch (background?.value) {
-      case 'Red':
-      case 'Red Sakura':
-        return '#B23643'
-      case 'White':
-        return '#EFEFEF'
-      case 'White Sakura':
-        return '#B5B4B4'
-      case 'Yellow':
-        return '#FFDC64'
-      case 'Yellow Sakura':
-        return '#E1D072'
-      case 'Army':
-        return '#5C6F60'
-      case 'Dark Green':
-        return '#35513A'
-      case 'Grey':
-        return '#6D6D6D'
-      case 'Dark Grey Arrow':
-        return '#4E4E4E'
-      case 'Blue Kunai':
-        return '#596C8E'
-      case 'Red Fire':
-      case 'Blue Fire':
-        return '#4E4E4E'
-      case 'White Arrow':
-        return '#E5E5E5'
-      default:
-        return ''
-    }
+    return galleryColorResolver(background?.value)
   }
 
   const getColor = () => {
@@ -86,9 +58,8 @@ export default function NftModal({ setSelectedNft, selectedNft }) {
           <div className="d-flex flex-md-row flex-column">
             <div>
               <div className="nft-image mx-auto">
-                <Image
-                  quality="100"
-                  src={`${config.s3}/${selectedNft?.edition}.png`}
+                <img
+                  src={`${config.s3}/${selectedNft?.name.split('#')[1]}.png`}
                   alt=""
                   width="512"
                   height="512"
