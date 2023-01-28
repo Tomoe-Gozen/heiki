@@ -9,7 +9,7 @@ dayjs.extend(timezone)
 
 export default function Faq() {
   const localDateWhitelist = dayjs(
-    dayjs(config.whitelistMintDate).tz('Europe/Paris', true).valueOf()
+    dayjs(config.presaleMintDate).tz('Europe/Paris', true).valueOf()
   ).format('dddd, MMMM D, YYYY h:mm A')
 
   const localDate = dayjs(

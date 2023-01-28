@@ -1,10 +1,11 @@
 import Web3 from 'web3'
+import contractLib from '../../lib/contract'
 import HeikiContract from '../../lib/contracts/production.json'
 import HeikiContractTest from '../../lib/contracts/test.json'
 import config from '../../config.json'
 
 const mintHandler = async (req, res) => {
-  const { getContract } = contract()
+  const { getContract } = contractLib()
 
   if (req.method !== 'POST') {
     res.status(405).end('Only POST requests allowed')
@@ -27,20 +28,20 @@ const mintHandler = async (req, res) => {
   )
 
   const saleFlag = config.mintStatus
-
   switch (saleFlag) {
-    case '0': {
+    case 0: {
       res.status(405).json({ error: 'Mint does not started yet' })
       return
     }
-    case '1': {
+    case 1: {
       const response = await fetch(`${config.s3}/wl.json`)
       const whitelists = await response.json()
       const isWhitelisted = whitelists.some((w) => w === address)
 
       if (isWhitelisted) {
         const balance = await contract.methods.getNMinted(address).call()
-        if (balance >= parseInt(config.whitelistMaxMint, 10)) {
+
+        if (balance >= parseInt(config.presaleMaxMint, 10)) {
           res.status(409).json({
             error: 'You have reached the max allowed quantity for the whitelist'
           })
@@ -50,7 +51,10 @@ const mintHandler = async (req, res) => {
           const transactionEncoded = await contract.methods
             .mint(nMint)
             .encodeABI()
-          const mintPrice = web3.utils.toWei(config.presaleMintPrice, 'ether')
+          const mintPrice = web3.utils.toWei(
+            config.presaleMintPrice.toString(),
+            'ether'
+          )
 
           const rawTransaction = {
             nonce: nonce,
@@ -68,10 +72,10 @@ const mintHandler = async (req, res) => {
         return
       }
     }
-    case '2': {
+    case 2: {
       const nonce = await web3.eth.getTransactionCount(address)
       const transactionEncoded = await contract.methods.mint(nMint).encodeABI()
-      const mintPrice = web3.utils.toWei(config.mintPrice, 'ether')
+      const mintPrice = web3.utils.toWei(config.mintPrice.toString(), 'ether')
 
       const rawTransaction = {
         nonce: nonce,

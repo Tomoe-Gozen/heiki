@@ -36,7 +36,7 @@ export default function MintForm({ saleFlag, increaseMinted }) {
 
     try {
       const web3 = new Web3(signer.provider.provider)
-      const res = await fetch(`${config.apiUrl}/api/mint`, {
+      const res = await fetch(`${config.appUrl}/api/mint`, {
         body: JSON.stringify({
           nMint: number,
           address

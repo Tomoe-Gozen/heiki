@@ -9,7 +9,7 @@ dayjs.extend(utc)
 dayjs.extend(timezone)
 
 export default function Countdown({ saleFlag }) {
-  let date = config.whitelistMintDate
+  let date = config.presaleMintDate
   if (saleFlag === 1) {
     date = config.mintDate
   }

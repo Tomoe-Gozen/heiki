@@ -207,7 +207,6 @@ export async function getServerSideProps({ req, res }) {
   const protocol = req.headers['x-forwarded-proto'] || 'http'
   const baseUrl = req ? `${protocol}://${req.headers.host}` : ''
   const resAttributes = await fetch(`${baseUrl}/api/attributes`)
-  console.log(`${baseUrl}/api/attributes`)
 
   const attributes = await resAttributes.json()
 

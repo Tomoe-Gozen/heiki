@@ -1,8 +1,9 @@
-import { useAddress, useMetamask } from '@thirdweb-dev/react'
+import { useAddress, useMetamask, useDisconnect } from '@thirdweb-dev/react'
 import { useEffect, useState } from 'react'
 
 export default function ConnectWallet({ withoutLoading = false }) {
   const address = useAddress()
+  const disconnect = useDisconnect()
   const connectWithMetamask = useMetamask()
   const [loading, setLoading] = useState(true)
   const [isWeb3, setIsWeb3] = useState(true)
@@ -51,7 +52,7 @@ export default function ConnectWallet({ withoutLoading = false }) {
       )}
     </button>
   ) : (
-    <button className="btn btn-success btn-small">
+    <button onClick={disconnect} className="btn btn-success btn-small">
       Connected ({ellipsisString(address)})
     </button>
   )

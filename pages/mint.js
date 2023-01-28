@@ -35,7 +35,7 @@ export default function Mint() {
       setLoading(true)
       if (address) {
         try {
-          const res = await fetch(`${config.apiUrl}/api/mint-info`, {
+          const res = await fetch(`${config.appUrl}/api/mint-info`, {
             body: JSON.stringify({
               address
             }),
@@ -119,7 +119,9 @@ export default function Mint() {
                   {saleFlag === 2 && 'PUBLIC SALE'}
                 </h3>
                 <h4 className="text-center text-secondary font-tomoe text-lg">
-                  Mint price {saleFlag === 1 ? '0.065' : '0.08'} eth
+                  Mint price{' '}
+                  {saleFlag === 1 ? config.presaleMintPrice : config.mintPrice}{' '}
+                  eth
                 </h4>
               </>
             )}

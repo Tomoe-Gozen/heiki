@@ -24,7 +24,7 @@ export default function Mint() {
       setLoading(false)
       if (address) {
         try {
-          const res = await fetch(`${config.apiUrl}/api/whitelist/${address}`)
+          const res = await fetch(`${config.appUrl}/api/whitelist/${address}`)
           if (res.ok) {
             const { whitelisted } = await res.json()
             setIsWhitelisted(whitelisted)
@@ -39,7 +39,6 @@ export default function Mint() {
             }).show()
           }
         } catch (error) {
-          console.log(error.message)
           new Noty({
             type: 'error',
             text: error?.message
