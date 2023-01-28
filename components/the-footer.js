@@ -9,7 +9,7 @@ export default function TheFooter() {
           <div className="row align-items-center">
             <div className="col-lg-6 col-md-12 col-sm-12">
               <div className="copyright-left">
-                <span>© Heiki, Inc. All rights reserved.</span>
+                <span>© {config.appName}, Inc. All rights reserved.</span>
               </div>
             </div>
             <div className="col-lg-6 col-md-12 col-sm-12">

@@ -1,3 +1,5 @@
+import config from '../config.json'
+
 export default function About() {
   return (
     <>
@@ -129,15 +131,17 @@ export default function About() {
         <div className="container">
           <div className="row mb--30">
             <div className="col-12 text-center">
-              <h3 className="mb-0">Heiki </h3>
+              <h3 className="mb-0">{config.appName} </h3>
               <h4 className="font-tomoe h2">Statistics</h4>
             </div>
           </div>
           <div className="row g-5">
             <div className="offset-lg-2 col-lg-4 col-md-6">
               <div className="single-counter-up text-center">
-                <div className="number counter-odomitter-active">3,333</div>
-                <div className="botton-title">Heikis</div>
+                <div className="number counter-odomitter-active">
+                  {config.maxSupply}
+                </div>
+                <div className="botton-title">NFTs</div>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -148,7 +152,9 @@ export default function About() {
             </div>
             <div className="offset-lg-2 col-lg-4 col-md-6">
               <div className="single-counter-up text-center">
-                <div className="number counter-odomitter-active">0.065</div>
+                <div className="number counter-odomitter-active">
+                  {config.mintPrice}
+                </div>
                 <div className="botton-title">Mint price in eth</div>
               </div>
             </div>

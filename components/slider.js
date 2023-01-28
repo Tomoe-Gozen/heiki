@@ -4,6 +4,7 @@ import Image2 from '../public/images/collection/2.jpg'
 import Image3 from '../public/images/collection/3.jpg'
 import Image4 from '../public/images/collection/4.jpg'
 import Image5 from '../public/images/collection/5.jpg'
+import config from '../config.json'
 
 export default function Slider() {
   const images = [
@@ -38,7 +39,7 @@ export default function Slider() {
           </a>
           <div className="read-wrapper">
             <h5>#{i.id}</h5>
-            <span>Heiki</span>
+            <span>{config.appName}</span>
           </div>
         </div>
       ))}

@@ -6,9 +6,8 @@ import NftModal from '../components/nft-modal'
 import config from '../config.json'
 
 export default function Gallery(props) {
-  const title = 'Heiki NFT - Gallery'
-  const description =
-    '3333 female warriors picked up their weapons to fight for this world.'
+  const title = `${config.appName} - Gallery`
+  const description = config.appDescription
   const image = '/images/og-image.png'
 
   const [attributes, setAttributes] = useState(props.attributes)
@@ -111,13 +110,11 @@ export default function Gallery(props) {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
-        <meta property="og:url" content="https://www.heikinft.com" />
-        <meta property="og:site_name" content="Heiki" />
+        <meta property="og:url" content={config.appUrl} />
+        <meta property="og:site_name" content={config.appName} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
-        <meta name="twitter:site" content="@HeikiNFT" />
-        <meta name="twitter:creator" content="@HeikiNFT" />
       </Head>
       <div className="p-3">
         <div className="row">

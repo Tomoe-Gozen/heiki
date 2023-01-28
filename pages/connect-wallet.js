@@ -1,12 +1,11 @@
 import Head from 'next/head'
 import Soon from '../components/soon'
 import WithTitleLayout from '../components/layouts/with-title'
+import config from '../config.json'
 
 export default function ConnectWallet() {
-  // title
-  const title = 'Heiki NFT - Connect Wallet'
-  const description =
-    '3333 female warriors picked up their weapons to fight for this world.'
+  const title = `${config.appName} - Connect Wallet`
+  const description = config.appDescription
   const image = '/images/og-image.png'
 
   return (
@@ -17,13 +16,11 @@ export default function ConnectWallet() {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
-        <meta property="og:url" content="https://www.heikinft.com" />
-        <meta property="og:site_name" content="Heiki" />
+        <meta property="og:url" content={config.appUrl} />
+        <meta property="og:site_name" content={config.appName} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
-        <meta name="twitter:site" content="@HeikiNFT" />
-        <meta name="twitter:creator" content="@HeikiNFT" />
       </Head>
       <Soon />
     </>

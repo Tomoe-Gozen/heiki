@@ -10,9 +10,8 @@ import checkLottie from '../public/lottie/check.json'
 import yogaLottie from '../public/lottie/yoga.json'
 
 export default function Mint() {
-  const title = 'Heiki NFT - WL Checker'
-  const description =
-    '3333 female warriors picked up their weapons to fight for this world.'
+  const title = `${config.appName} - Whitelist Checker`
+  const description = config.appDescription
   const image = '/images/og-image.png'
 
   const address = useAddress()
@@ -71,13 +70,11 @@ export default function Mint() {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
-        <meta property="og:url" content="https://www.heikinft.com" />
-        <meta property="og:site_name" content="Heiki" />
+        <meta property="og:url" content={config.appUrl} />
+        <meta property="og:site_name" content={config.appName} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
-        <meta name="twitter:site" content="@HeikiNFT" />
-        <meta name="twitter:creator" content="@HeikiNFT" />
       </Head>
       <div className="rn-upload-variant-area varient">
         <div className="row min-vh-100">
@@ -90,7 +87,7 @@ export default function Mint() {
               <>
                 <h3 className="title text-center">Am I whitelisted</h3>
                 <h4 className="text-center text-secondary font-tomoe text-lg">
-                  for Heiki?
+                  for {config.appName}?
                 </h4>
               </>
             )}
@@ -113,7 +110,7 @@ export default function Mint() {
                         <h4 className="title">You are not connected</h4>
                         <p className="description">
                           You must be connected to MetaMask to check if you are
-                          whitelisted for mint a Heiki NFT.
+                          whitelisted for mint.
                         </p>
                         <div className="pt--20 text-center">
                           <ConnectWallet withoutLoading={true} />

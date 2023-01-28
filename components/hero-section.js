@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Slider from './slider'
+import config from '../config.json'
 
 export default function HeroSection() {
   return (
@@ -14,7 +15,7 @@ export default function HeroSection() {
               data-sal-duration="800"
             >
               <span className="text-xlg font-tomoe mb-0">
-                <span className="text-tomoe">H</span>eiki{' '}
+                <span className="text-tomoe">{config.appName}</span>{' '}
               </span>{' '}
               <br /> Discover an amazing NFT collection.
             </h2>

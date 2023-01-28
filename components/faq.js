@@ -3,24 +3,24 @@ import { Disclosure } from '@headlessui/react'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
+import config from '../config.json'
 dayjs.extend(utc)
 dayjs.extend(timezone)
 
 export default function Faq() {
-  // deploy
-  const localDate = dayjs(
-    dayjs('2022-06-24 18:00:00').tz('Europe/Paris', true).valueOf()
+  const localDateWhitelist = dayjs(
+    dayjs(config.whitelistMintDate).tz('Europe/Paris', true).valueOf()
   ).format('dddd, MMMM D, YYYY h:mm A')
 
-  const localDate2 = dayjs(
-    dayjs('2022-03-24 21:00:00').tz('Europe/Paris', true).valueOf()
+  const localDate = dayjs(
+    dayjs(config.mintDate).tz('Europe/Paris', true).valueOf()
   ).format('dddd, MMMM D, YYYY h:mm A')
 
   const faqs = [
     {
       id: 2,
       question: 'Is there a Mint price?',
-      answer: '0.065'
+      answer: config.mintPrice
     },
     {
       id: 3,
@@ -83,11 +83,11 @@ export default function Faq() {
                       <div className="accordion-body">
                         The whitelist mint date starts at{' '}
                         <strong suppressHydrationWarning className="text-tomoe">
-                          {localDate}
+                          {localDateWhitelist}
                         </strong>{' '}
                         and the public mint starts at{' '}
                         <strong suppressHydrationWarning className="text-tomoe">
-                          {localDate2}
+                          {localDate}
                         </strong>
                       </div>
                     </Disclosure.Panel>

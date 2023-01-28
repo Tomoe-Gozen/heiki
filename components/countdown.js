@@ -3,13 +3,15 @@ import { useRouter } from 'next/router'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
+import config from '../config.json'
+
 dayjs.extend(utc)
 dayjs.extend(timezone)
 
 export default function Countdown({ saleFlag }) {
-  let date = 'June 24, 2022 18:00:00'
+  let date = config.whitelistMintDate
   if (saleFlag === 1) {
-    date = 'June 24, 2022 21:00:00'
+    date = config.mintDate
   }
   const router = useRouter()
   const reload = () => {

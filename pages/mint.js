@@ -10,10 +10,8 @@ import MintInfo from '../components/mint-info'
 import config from '../config.json'
 
 export default function Mint() {
-  // trigger deploy
-  const title = 'Heiki NFT - Mint'
-  const description =
-    '3333 female warriors picked up their weapons to fight for this world.'
+  const title = `${config.appName} - Mint`
+  const description = config.appDescription
   const image = '/images/og-image.png'
 
   const address = useAddress()
@@ -99,13 +97,11 @@ export default function Mint() {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
-        <meta property="og:url" content="https://www.heikinft.com" />
-        <meta property="og:site_name" content="Heiki" />
+        <meta property="og:url" content={config.appUrl} />
+        <meta property="og:site_name" content={config.appDescription} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
-        <meta name="twitter:site" content="@HeikiNFT" />
-        <meta name="twitter:creator" content="@HeikiNFT" />
       </Head>
       <div className="rn-upload-variant-area varient">
         <div className="row min-vh-100">
@@ -145,7 +141,7 @@ export default function Mint() {
                       <div className="content">
                         <h4 className="title">You are not connected</h4>
                         <p className="description">
-                          You must be connected to MetaMask to mint a Heiki.
+                          You must be connected to MetaMask to mint.
                         </p>
                         <div className="pt--20 text-center">
                           <ConnectWallet withoutLoading={true} />
@@ -195,5 +191,5 @@ export default function Mint() {
 }
 
 Mint.getLayout = function getLayout(page) {
-  return <WithTitleLayout title="Heiki MINT">{page}</WithTitleLayout>
+  return <WithTitleLayout title={config.appName}>{page}</WithTitleLayout>
 }
