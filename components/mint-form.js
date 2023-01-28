@@ -6,6 +6,7 @@ import Web3 from 'web3'
 import Image1 from '../public/images/mint/mint-1.jpg'
 import Image2 from '../public/images/mint/mint-2.jpg'
 import Image3 from '../public/images/mint/mint-3.jpg'
+import config from '../config.json'
 
 export default function MintForm({ saleFlag, increaseMinted }) {
   const address = useAddress()
@@ -35,19 +36,16 @@ export default function MintForm({ saleFlag, increaseMinted }) {
 
     try {
       const web3 = new Web3(signer.provider.provider)
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL_API}/api/mint`,
-        {
-          body: JSON.stringify({
-            nMint: number,
-            address
-          }),
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          method: 'POST'
-        }
-      )
+      const res = await fetch(`${config.apiUrl}/api/mint`, {
+        body: JSON.stringify({
+          nMint: number,
+          address
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST'
+      })
 
       if (res.ok) {
         const transaction = await res.json()
@@ -89,7 +87,7 @@ export default function MintForm({ saleFlag, increaseMinted }) {
     if (isMismatched) {
       new Noty({
         type: 'error',
-        text: process.env.NEXT_PUBLIC_IS_PRODUCTION
+        text: config.isProduction
           ? 'Your are on a test network, please switch to the mainnet.'
           : 'Your are on the mainnet network, please switch to a the Rinkeby test network.',
         layout: 'top',

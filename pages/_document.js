@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import config from '../config.json'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -11,11 +12,11 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* Global Site Tag (gtag.js) - Google Analytics */}
-          {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (
+          {config.googleAnalyticsId && (
             <>
               <script
                 async
-                src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+                src={`https://www.googletagmanager.com/gtag/js?id=${config.googleAnalyticsId}`}
               />
               <script
                 dangerouslySetInnerHTML={{
@@ -23,7 +24,7 @@ class MyDocument extends Document {
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                gtag('config', '${config.googleAnalyticsId}', {
                   page_path: window.location.pathname,
                 });
               `

@@ -1,7 +1,8 @@
 import Web3 from 'web3'
 import contract from '../../lib/contract'
-import HeikiContract from '../../lib/contracts/Heiki.json'
-import HeikiContractTest from '../../lib/contracts/Alphav3.json'
+import HeikiContract from '../../lib/contracts/production.json'
+import HeikiContractTest from '../../lib/contracts/test.json'
+import config from '../../config.json'
 
 const mintHandler = async (req, res) => {
   const { isWhitelisted, getContract } = contract()
@@ -14,23 +15,17 @@ const mintHandler = async (req, res) => {
 
     const { address, nMint } = req.body
 
-    if (nMint > parseInt(process.env.MINT_MAX_PER_TRANSACTION, 10)) {
+    if (nMint > parseInt(config.maxMint, 10)) {
       res
         .status(422)
         .json({ error: 'Max amount allowed per transaction was exceeded' })
       return
     }
 
-    const web3 = new Web3(
-      new Web3.providers.HttpProvider(
-        `https://:${process.env.INFURA_PROJECT_SECRET}@${process.env.INFURA_URL}`
-      )
-    )
+    const web3 = new Web3(new Web3.providers.HttpProvider(config.infuraUrl))
     const { contract, deployedAddress, networkId } = await getContract(
       web3,
-      process.env.NEXT_PUBLIC_IS_PRODUCTION === 'true'
-        ? HeikiContract
-        : HeikiContractTest
+      config.isProduction ? HeikiContract : HeikiContractTest
     )
 
     const saleFlag = await contract.methods.saleFlag.call().call()
@@ -45,7 +40,7 @@ const mintHandler = async (req, res) => {
         // whitelist valid
         if (whitelist.valid) {
           const balance = await contract.methods.getNMinted(address).call()
-          if (balance >= parseInt(process.env.MINT_MAX_ALLOWED_WHITELIST, 10)) {
+          if (balance >= parseInt(config.whitelistMaxMint, 10)) {
             res.status(409).json({
               error:
                 'You have reached the max allowed quantity for the whitelist'
@@ -59,7 +54,7 @@ const mintHandler = async (req, res) => {
                 .mintWhitelist(nMint, whitelist.proof)
                 .encodeABI()
               const mintPrice = web3.utils.toWei(
-                process.env.PRESALE_MINT_PRICE,
+                config.presaleMintPrice,
                 'ether'
               )
 
@@ -88,10 +83,7 @@ const mintHandler = async (req, res) => {
         const transactionEncoded = await contract.methods
           .mint(nMint)
           .encodeABI()
-        const mintPrice = web3.utils.toWei(
-          process.env.PUBLIC_MINT_PRICE,
-          'ether'
-        )
+        const mintPrice = web3.utils.toWei(config.mintPrice, 'ether')
 
         const rawTransaction = {
           nonce: nonce,

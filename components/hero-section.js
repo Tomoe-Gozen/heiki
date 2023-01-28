@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Slider from './slider'
-import config from '../lib/config'
 
 export default function HeroSection() {
   return (

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import Image from 'next/image'
-import config from '../lib/config'
+import config from '../config.json'
 
 export default function NftModal({ setSelectedNft, selectedNft }) {
   let [isOpen, setIsOpen] = useState(false)

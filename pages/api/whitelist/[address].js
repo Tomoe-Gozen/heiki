@@ -1,4 +1,4 @@
-import config from '../../../lib/config'
+import config from '../../../config.json'
 
 const userHandler = async (req, res) => {
   if (req.method !== 'GET') {

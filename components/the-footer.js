@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import config from '../lib/config'
+import config from '../config.json'
 
 export default function TheFooter() {
   return (

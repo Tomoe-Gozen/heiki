@@ -1,4 +1,4 @@
-import config from '../../lib/config'
+import config from '../../config.json'
 
 const pageSize = 84
 const paginate = (array, page_size, page_number) => {

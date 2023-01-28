@@ -7,7 +7,7 @@ import WithTitleLayout from '../components/layouts/with-title'
 import Noty from 'noty'
 import MintForm from '../components/mint-form'
 import MintInfo from '../components/mint-info'
-import config from '../lib/config'
+import config from '../config.json'
 
 export default function Mint() {
   // trigger deploy
@@ -37,23 +37,19 @@ export default function Mint() {
       setLoading(true)
       if (address) {
         try {
-          const res = await fetch(
-            `${process.env.NEXT_PUBLIC_BASE_URL_API}/api/mint-info`,
-            {
-              body: JSON.stringify({
-                address
-              }),
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              method: 'POST'
-            }
-          )
+          const res = await fetch(`${config.apiUrl}/api/mint-info`, {
+            body: JSON.stringify({
+              address
+            }),
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            method: 'POST'
+          })
           if (res.ok) {
-            const { alreadyMinted, maxSupply, nMinted, saleFlag } =
-              await res.json()
+            const { alreadyMinted, nMinted } = await res.json()
             setAlreadyMinted(alreadyMinted)
-            setMaxSupply(maxSupply)
+            setMaxSupply(config.maxSupply)
             setnMinted(nMinted)
             setSaleFlag(config.mintStatus)
             setLoading(false)

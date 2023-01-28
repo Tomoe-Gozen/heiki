@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import WithTitleLayout from '../components/layouts/with-title'
 import NftCard from '../components/nft-card'
 import NftModal from '../components/nft-modal'
-import config from '../lib/config'
+import config from '../config.json'
 
 export default function Gallery(props) {
   const title = 'Heiki NFT - Gallery'

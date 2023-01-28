@@ -4,7 +4,7 @@ import Link from 'next/link'
 import TheMenu from './the-menu'
 import logoLight from '../public/images/logo/logo-white.png'
 import TheMobileMenu from './the-mobile-menu'
-import config from '../lib/config'
+import config from '../config.json'
 import ConnectWallet from './connect-wallet'
 
 export default function TheHeader() {

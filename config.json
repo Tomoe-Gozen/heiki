@@ -1,0 +1,16 @@
+{
+  "isProduction": false,
+  "apiUrl": "http://localhost:3000",
+  "twitter": "https://twitter.com/HeikiNFT",
+  "discord": "https://discord.gg/heikinft",
+  "opensea": "https://opensea.io/collection/official-heiki-nft",
+  "s3": "https://heiki.ams3.digitaloceanspaces.com",
+  "infuraUrl": "https://mainnet.infura.io/v3/d056f2baa7be43ecad64ad8b05b89a4e",
+  "mintStatus": 0,
+  "maxSupply": 500,
+  "maxMint": 2,
+  "whitelistMaxMint": 1,
+  "presaleMintPrice": 0.08,
+  "mintPrice": 0.05,
+  "googleAnalyticsId": ""
+}

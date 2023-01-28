@@ -5,7 +5,7 @@ import Noty from 'noty'
 import { useEffect, useState } from 'react'
 import ConnectWallet from '../components/connect-wallet'
 import WithTitleLayout from '../components/layouts/with-title'
-import config from '../lib/config'
+import config from '../config.json'
 import checkLottie from '../public/lottie/check.json'
 import yogaLottie from '../public/lottie/yoga.json'
 
@@ -25,9 +25,7 @@ export default function Mint() {
       setLoading(false)
       if (address) {
         try {
-          const res = await fetch(
-            `${process.env.NEXT_PUBLIC_BASE_URL_API}/api/whitelist/${address}`
-          )
+          const res = await fetch(`${config.apiUrl}/api/whitelist/${address}`)
           if (res.ok) {
             const { whitelisted } = await res.json()
             setIsWhitelisted(whitelisted)

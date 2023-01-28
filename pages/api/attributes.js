@@ -1,4 +1,4 @@
-import config from '../../lib/config'
+import config from '../../config.json'
 
 const setAttributesValues = (mdata, metadata) => {
   let names = []

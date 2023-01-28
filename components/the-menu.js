@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import config from '../lib/config'
+import config from '../config.json'
 import ConnectWallet from './connect-wallet'
 import { useRouter } from 'next/router'
 

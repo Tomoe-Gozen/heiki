@@ -11,8 +11,8 @@ import Head from 'next/head'
 import Script from 'next/script'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { ThirdwebProvider } from '@thirdweb-dev/react'
-import config from '../lib/config'
+import { ThirdwebProvider, ChainId } from '@thirdweb-dev/react'
+import config from '../config.json'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import Router from 'next/router'
@@ -49,7 +49,7 @@ function MyApp({ Component, pageProps }) {
     const handleRouteChange = (url) => {
       initTheme()
       handleAnchor(100)
-      if (process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS) {
+      if (config.googleAnalyticsId) {
         ga.pageview(url)
       }
     }
@@ -73,7 +73,9 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="icon" href="/images/favicon.ico" />
       </Head>
-      <ThirdwebProvider desiredChainId={config.chainId}>
+      <ThirdwebProvider
+        desiredChainId={config.isProduction ? ChainId.Mainnet : ChainId.Goerli}
+      >
         {getLayout(<Component {...pageProps} />)}
       </ThirdwebProvider>
     </>
