@@ -27,7 +27,6 @@ function MyApp({ Component, pageProps }) {
   const initTheme = () => import('../lib/theme').then((init) => init.default())
 
   const handleAnchor = (timeOut = 0) => {
-    // scroll to anchor fix https://github.com/vercel/next.js/issues/11109#issuecomment-844443085
     const path = window.location.hash
     if (path && path.includes('#')) {
       window.scrollTo(0, 0)
