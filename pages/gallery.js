@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import WithTitleLayout from '../components/layouts/with-title'
 import NftCard from '../components/nft-card'
 import NftModal from '../components/nft-modal'
-import basicAuthCheck from '../lib/basic-auth'
+import config from '../lib/config'
 
 export default function Gallery(props) {
   const title = 'Heiki NFT - Gallery'
@@ -173,9 +173,7 @@ export default function Gallery(props) {
                     name={`#${n.name.split('#')[1]}`}
                     nft={n}
                     setSelectedNft={setSelectedNft}
-                    image={`https://heiki.ams3.digitaloceanspaces.com/${
-                      n.name.split('#')[1]
-                    }.png`}
+                    image={`${config.s3}/${n.name.split('#')[1]}.png`}
                   />
                 </div>
               ))}
@@ -209,15 +207,10 @@ export default function Gallery(props) {
 }
 
 export async function getServerSideProps({ req, res }) {
-  if (!process.env.NEXT_PUBLIC_IS_PRODUCTION) {
-    await basicAuthCheck(req, res)
-  }
   const protocol = req.headers['x-forwarded-proto'] || 'http'
   const baseUrl = req ? `${protocol}://${req.headers.host}` : ''
-
-  const resAttributes = await fetch(`${baseUrl}/api/attributes`, {
-    method: 'POST'
-  })
+  const resAttributes = await fetch(`${baseUrl}/api/attributes`)
+  console.log(`${baseUrl}/api/attributes`)
 
   const attributes = await resAttributes.json()
 

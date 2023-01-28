@@ -1,8 +1,6 @@
-import contract from '../../../lib/contract'
+import config from '../../../lib/config'
 
 const userHandler = async (req, res) => {
-  const { isWhitelisted } = contract()
-
   if (req.method !== 'GET') {
     res.status(405).end('Only GET requests allowed')
     return
@@ -10,10 +8,10 @@ const userHandler = async (req, res) => {
 
   const { address } = req.query
   try {
-    const whitelist = await isWhitelisted(address)
-
+    const response = await fetch(`${config.s3}/wl.json`)
+    const whitelists = await response.json()
     res.status(200).json({
-      whitelisted: whitelist.valid
+      whitelisted: whitelists.some((w) => w === address)
     })
     return
   } catch (e) {

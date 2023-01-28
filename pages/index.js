@@ -5,7 +5,6 @@ import DefaultLayout from '../components/layouts/default'
 import Roadmap from '../components/roadmap'
 import Team from '../components/team'
 import Faq from '../components/faq'
-import Faction from '../components/faction'
 
 export default function Index() {
   const title = 'Heiki NFT'
@@ -33,7 +32,6 @@ export default function Index() {
       <About />
       <Roadmap />
       <Team />
-      <Faction />
       <Faq />
     </>
   )

@@ -55,16 +55,6 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
             </Link>
           </li>
           <li>
-            <Link href="/#factions">
-              <a
-                className={router.asPath === '/#factions' ? 'text-theme' : ''}
-                onClick={handleToggleActive}
-              >
-                Factions <i className="feather-home"></i>
-              </a>
-            </Link>
-          </li>
-          <li>
             <Link href="/#faq">
               <a
                 className={router.asPath === '/#faq' ? 'text-theme' : ''}
@@ -115,16 +105,6 @@ export default function TheMenu({ isMobile = false, toggleActive = () => {} }) {
             Gallery
           </a>
         </Link>
-      </li>
-      <li>
-        <a
-          href={config.opensea}
-          target="_blank"
-          rel="noreferrer"
-          onClick={handleToggleActive}
-        >
-          OpenSea
-        </a>
       </li>
       <li>
         <Link href="/wl-checker">

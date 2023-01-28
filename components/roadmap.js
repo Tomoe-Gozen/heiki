@@ -12,6 +12,7 @@ export default function Roadmap() {
       id: 1,
       title: 'Our mission',
       src: Icon1,
+      link: 'https://www.missionimpossible.com',
       description: (
         <>
           <p>
@@ -35,6 +36,7 @@ export default function Roadmap() {
       id: 2,
       title: 'Community',
       src: Icon2,
+      link: 'https://www.missionimpossible.com',
       description: (
         <p>
           Our focus is to <strong className="text-tomoe">connect people</strong>{' '}
@@ -53,6 +55,7 @@ export default function Roadmap() {
       id: 3,
       title: 'Branding',
       src: Icon3,
+      link: 'https://www.missionimpossible.com',
       description: (
         <p>
           Heiki will have their own brand apparel and the first{' '}
@@ -65,6 +68,7 @@ export default function Roadmap() {
       id: 4,
       title: 'Transparency',
       src: Icon4,
+      link: 'https://www.missionimpossible.com',
       description: (
         <p>
           We will allocate <strong className="text-tomoe">25%</strong> of the
@@ -80,6 +84,7 @@ export default function Roadmap() {
       id: 5,
       title: 'Staking system',
       src: Icon5,
+      link: 'https://www.missionimpossible.com',
       description: (
         <p>
           Throughout Japan’s history, Samurai were paid by their feudal lords,
@@ -98,6 +103,7 @@ export default function Roadmap() {
       id: 6,
       title: 'Manga',
       src: Icon6,
+      link: 'https://www.missionimpossible.com',
       description: (
         <p>
           Our team has been working on developing{' '}
@@ -144,20 +150,14 @@ export default function Roadmap() {
                     <div className="subtitle">Journey {r.id}</div>
                     <div className="content">
                       <h4 className="title">
-                        <a
-                          href="https://discord.gg/heikinft"
-                          className="font-tomoe text-lg"
-                        >
+                        <a href={r.link} className="font-tomoe text-lg">
                           {r.title}
                         </a>
                       </h4>
                       {r.description}
                     </div>
                   </div>
-                  <a
-                    className="over-link"
-                    href="https://discord.gg/heikinft"
-                  ></a>
+                  <a className="over-link" href={r.link}></a>
                 </div>
               </div>
             ))}

@@ -51,7 +51,7 @@ export default function HeroSection() {
               </Link>
             </div>
           </div>
-          <div className="col-xl-6 col-lg-6 col-md-12 order-1 order-lg-2">
+          <div className="col-xl-6 px-5 col-lg-6 col-md-12 order-1 order-lg-2">
             <Slider />
           </div>
         </div>

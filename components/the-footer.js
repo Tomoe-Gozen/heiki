@@ -14,9 +14,6 @@ export default function TheFooter() {
             </div>
             <div className="col-lg-6 col-md-12 col-sm-12">
               <div className="copyright-right">
-                <span className="pt-1">
-                  Video made by The Vichitra Collective
-                </span>
                 <ul className="privacy">
                   <li>
                     <Link href="/terms">
@@ -28,16 +25,27 @@ export default function TheFooter() {
                       <a>Privacy Policy</a>
                     </Link>
                   </li>
-                  <li>
-                    <Link href={config.discord}>
-                      <a>Discord</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href={config.twitter}>
-                      <a>Twitter</a>
-                    </Link>
-                  </li>
+                  {config.opensea && (
+                    <li>
+                      <Link href={config.opensea}>
+                        <a>OpenSea</a>
+                      </Link>
+                    </li>
+                  )}
+                  {config.discord && (
+                    <li>
+                      <Link href={config.discord}>
+                        <a>Discord</a>
+                      </Link>
+                    </li>
+                  )}
+                  {config.twitter && (
+                    <li>
+                      <Link href={config.twitter}>
+                        <a>Twitter</a>
+                      </Link>
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>

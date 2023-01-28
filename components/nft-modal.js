@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import Image from 'next/image'
+import config from '../lib/config'
 
 export default function NftModal({ setSelectedNft, selectedNft }) {
   let [isOpen, setIsOpen] = useState(false)
@@ -87,7 +88,7 @@ export default function NftModal({ setSelectedNft, selectedNft }) {
               <div className="nft-image mx-auto">
                 <Image
                   quality="100"
-                  src={`https://heiki.ams3.digitaloceanspaces.com/${selectedNft?.edition}.png`}
+                  src={`${config.s3}/${selectedNft?.edition}.png`}
                   alt=""
                   width="512"
                   height="512"

@@ -7,6 +7,7 @@ import WithTitleLayout from '../components/layouts/with-title'
 import Noty from 'noty'
 import MintForm from '../components/mint-form'
 import MintInfo from '../components/mint-info'
+import config from '../lib/config'
 
 export default function Mint() {
   // trigger deploy
@@ -54,7 +55,7 @@ export default function Mint() {
             setAlreadyMinted(alreadyMinted)
             setMaxSupply(maxSupply)
             setnMinted(nMinted)
-            setSaleFlag(parseInt(saleFlag))
+            setSaleFlag(config.mintStatus)
             setLoading(false)
           } else {
             const error = await res.json()
@@ -168,7 +169,6 @@ export default function Mint() {
                 className={`${saleFlag > 0 && 'mt-auto mb--25'} text-center`}
               >
                 <h3 className="text-center mb-0">WHITELIST MINT STARTS IN</h3>
-                {/* <h4 className="text-center mb-0">To be announced</h4> */}
                 <Countdown saleFlag={saleFlag} />
               </div>
             )}

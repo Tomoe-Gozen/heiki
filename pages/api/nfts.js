@@ -1,15 +1,17 @@
-import metadata from '../../public/_metadata.json'
+import config from '../../lib/config'
 
 const pageSize = 84
 const paginate = (array, page_size, page_number) => {
   return array.slice((page_number - 1) * page_size, page_number * page_size)
 }
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.status(405).end('Only POST requests allowed')
     return
   }
+  const response = await fetch(`${config.s3}/_metadata.json`)
+  const metadata = await response.json()
 
   const body = JSON.parse(req.body)
   const attributes = body.attributes

@@ -42,6 +42,7 @@ export default function Mint() {
             }).show()
           }
         } catch (error) {
+          console.log(error.message)
           new Noty({
             type: 'error',
             text: error?.message
@@ -128,7 +129,7 @@ export default function Mint() {
 
             {!loading && address && (
               <div className="row justify-content-center my-5">
-                <div className="col-12 col-lg-6">
+                <div className="col-12 col-lg-8">
                   <div className="single-counter-up p-0 text-center py-2">
                     <div className="d-flex gap-5 justify-content-center align-items-center">
                       <Lottie
@@ -150,17 +151,19 @@ export default function Mint() {
                             ? 'You are whitelisted'
                             : 'You are not whitelisted yet'}
                         </h4>
-                        <p>
-                          Join our{' '}
-                          <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href={config.discord}
-                          >
-                            Discord <i className="fab fa-discord"></i>
-                          </a>{' '}
-                          to get more informations
-                        </p>
+                        {config.discord && (
+                          <p>
+                            Join our{' '}
+                            <a
+                              rel="noreferrer"
+                              target="_blank"
+                              href={config.discord}
+                            >
+                              Discord <i className="fab fa-discord"></i>
+                            </a>{' '}
+                            to get more informations
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>

@@ -1,6 +1,6 @@
-import metadata from '../../public/_metadata.json'
+import config from '../../lib/config'
 
-const setAttributesValues = (mdata) => {
+const setAttributesValues = (mdata, metadata) => {
   let names = []
   metadata.forEach((m) => {
     const name = m.attributes.find(
@@ -35,14 +35,12 @@ const setAttributesValues = (mdata) => {
   })
 }
 
-export default function handler(req, res) {
-  if (req.method !== 'POST') {
-    res.status(405).end('Only POST requests allowed')
-    return
-  }
+export default async function handler(req, res) {
   const body = req.body ? JSON.parse(req.body) : null
 
   let data = []
+  const response = await fetch(`${config.s3}/_metadata.json`)
+  const metadata = await response.json()
 
   metadata.forEach((meta) => {
     meta.attributes.forEach((m) => {
@@ -58,7 +56,7 @@ export default function handler(req, res) {
   data = data.map((d) => {
     return {
       ...d,
-      values: setAttributesValues(d)
+      values: setAttributesValues(d, metadata)
     }
   })
 

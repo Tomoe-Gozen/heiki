@@ -37,7 +37,7 @@ export default function Slider() {
             <Image src={i.src} priority alt="" />
           </a>
           <div className="read-wrapper">
-            {/* <h5>#{i.id}</h5> */}
+            <h5>#{i.id}</h5>
             <span>Heiki</span>
           </div>
         </div>
